@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ChajdPizzaWebApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,7 @@ namespace ChajdPizzaWebApp.Data
             : base(options)
         {
         }
+
+        DbSet<OrdersModel> Orders { get; set; }
     }
 }
