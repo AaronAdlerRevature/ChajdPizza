@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -14,25 +15,25 @@ namespace ChajdPizzaWebApp.Controllers
     [ApiController]
     public class OrderDetailsApiController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly OrderDetailsRepo _repo;
 
-        public OrderDetailsApiController(ApplicationDbContext context)
+        public OrderDetailsApiController(OrderDetailsRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: api/OrderDetailsApi
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderDetail>>> GetOrderDetails()
         {
-            return await _context.OrderDetails.ToListAsync();
+            return await _repo.SelectAll();
         }
 
         // GET: api/OrderDetailsApi/5
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderDetail>> GetOrderDetail(int id)
         {
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
+            var orderDetail = await _repo.SelectById(id);
 
             if (orderDetail == null)
             {
@@ -53,11 +54,10 @@ namespace ChajdPizzaWebApp.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(orderDetail).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _repo.Update(orderDetail);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -80,8 +80,8 @@ namespace ChajdPizzaWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<OrderDetail>> PostOrderDetail(OrderDetail orderDetail)
         {
-            _context.OrderDetails.Add(orderDetail);
-            await _context.SaveChangesAsync();
+            await _repo.Add(orderDetail);
+            
 
             return CreatedAtAction("GetOrderDetail", new { id = orderDetail.Id }, orderDetail);
         }
@@ -90,21 +90,20 @@ namespace ChajdPizzaWebApp.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<OrderDetail>> DeleteOrderDetail(int id)
         {
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
+            var orderDetail = await _repo.SelectById(id);
             if (orderDetail == null)
             {
                 return NotFound();
             }
 
-            _context.OrderDetails.Remove(orderDetail);
-            await _context.SaveChangesAsync();
+            await _repo.Remove(orderDetail);
 
             return orderDetail;
         }
 
         private bool OrderDetailExists(int id)
         {
-            return _context.OrderDetails.Any(e => e.Id == id);
+            return _repo.OrderDetailExists(id);
         }
     }
 }

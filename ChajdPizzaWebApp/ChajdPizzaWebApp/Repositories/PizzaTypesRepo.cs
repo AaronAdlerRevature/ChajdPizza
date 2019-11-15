@@ -8,23 +8,23 @@ namespace ChajdPizzaWebApp.Data
 {
     public class PizzaTypesRepo
     {
-        readonly ApplicationDbContext _repo;
+        readonly ApplicationDbContext _context;
 
         public PizzaTypesRepo()
         {
 
         }
 
-        public PizzaTypesRepo(ApplicationDbContext repo)
+        public PizzaTypesRepo(ApplicationDbContext ctx)
         {
-            _repo = repo;
+            _context = ctx;
         }
 
         public IEnumerable<SecretFormula> GetSecretFormulas()
         {
             IEnumerable<SecretFormula> result = null;
 
-            var query = _repo.SecretFormula.Where(c => c.Id == c.Id);
+            var query = _context.SecretFormula.Where(c => c.Id == c.Id);
             if (query.Count()>0)
             {
                 result = query;
@@ -41,7 +41,7 @@ namespace ChajdPizzaWebApp.Data
         {
             SecretFormula result = null;
 
-            var query = _repo.SecretFormula.Where(c => c.Id == id);
+            var query = _context.SecretFormula.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
@@ -58,7 +58,7 @@ namespace ChajdPizzaWebApp.Data
         {
             IEnumerable<Size> result = null;
 
-            var query = _repo.Size.Where(c => c.Id == c.Id);
+            var query = _context.Size.Where(c => c.Id == c.Id);
             if (query.Count() > 0)
             {
                 result = query;
@@ -75,7 +75,7 @@ namespace ChajdPizzaWebApp.Data
         {
             Size result = null;
 
-            var query = _repo.Size.Where(c => c.Id == id);
+            var query = _context.Size.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
@@ -92,7 +92,7 @@ namespace ChajdPizzaWebApp.Data
         {
             string result = null;
 
-            var query = _repo.Size.Where(c => c.Id == id);
+            var query = _context.Size.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault().BaseSize;
@@ -109,7 +109,7 @@ namespace ChajdPizzaWebApp.Data
         {
             decimal result = 0;
 
-            var query = _repo.Size.Where(c => c.Id == id);
+            var query = _context.Size.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault().S_Price;
@@ -126,7 +126,7 @@ namespace ChajdPizzaWebApp.Data
         {
             IEnumerable<SpecialtyPizza> result = null;
 
-            var query = _repo.SpecialtyPizzas.Where(c => c.ID == c.ID);
+            var query = _context.SpecialtyPizzas.Where(c => c.ID == c.ID);
             if (query.Count() > 0)
             {
                 result = query;
@@ -143,7 +143,7 @@ namespace ChajdPizzaWebApp.Data
         {
             SpecialtyPizza result = null;
 
-            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            var query = _context.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
@@ -160,7 +160,7 @@ namespace ChajdPizzaWebApp.Data
         {
             double result = 0;
 
-            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            var query = _context.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault().Price;
@@ -177,7 +177,7 @@ namespace ChajdPizzaWebApp.Data
         {
             string result = "";
 
-            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            var query = _context.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault().Name;
@@ -194,7 +194,7 @@ namespace ChajdPizzaWebApp.Data
         {
             string result = "";
 
-            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            var query = _context.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault().Description;
@@ -211,7 +211,7 @@ namespace ChajdPizzaWebApp.Data
         {
             IEnumerable<Toppings> result = null;
 
-            var query = _repo.Toppings.Where(c => c.Id == c.Id);
+            var query = _context.Toppings.Where(c => c.Id == c.Id);
             if (query.Count() > 0)
             {
                 result = query;
@@ -228,7 +228,7 @@ namespace ChajdPizzaWebApp.Data
         {
             Toppings result = null;
 
-            var query = _repo.Toppings.Where(c => c.Id == id);
+            var query = _context.Toppings.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
@@ -245,7 +245,7 @@ namespace ChajdPizzaWebApp.Data
         {
             string result = null;
 
-            var query = _repo.Toppings.Where(c => c.Id == id);
+            var query = _context.Toppings.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault().Name;
