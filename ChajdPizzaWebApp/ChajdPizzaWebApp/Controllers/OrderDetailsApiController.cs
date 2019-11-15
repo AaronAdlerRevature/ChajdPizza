@@ -43,6 +43,17 @@ namespace ChajdPizzaWebApp.Controllers
             return orderDetail;
         }
 
+        [Route("Customers/DetailsOfOrder/{orderId}")]
+        public async Task<ActionResult<List<OrderDetail>>> GetDetailsOfOrder(int orderId)
+        {
+            var orderDetails = await _repo.SelectOrderAllDetails(orderId);
+            if(orderDetails == null)
+            {
+                return NotFound();
+            }
+            return orderDetails;
+        }
+
         // PUT: api/OrderDetailsApi/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

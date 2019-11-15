@@ -26,6 +26,14 @@ namespace ChajdPizzaWebApp.Repositories
             var orderDetails = await _context.OrderDetails.ToListAsync();
             return orderDetails;
         }
+
+        
+        public async Task<List<OrderDetail>> SelectOrderAllDetails(int orderId)
+        {
+            var orderDetails = await _context.OrderDetails.Where(i => i.OrderId == orderId).ToListAsync();
+            return orderDetails;
+        }
+        
         public async Task<bool> Add(OrderDetail orderDetail)
         {
 
@@ -45,7 +53,7 @@ namespace ChajdPizzaWebApp.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
-        public bool OrderExists(int id)
+        public bool OrderDetailExists(int id)
         {
             return _context.OrderDetails.Any(e => e.Id == id);
         }
