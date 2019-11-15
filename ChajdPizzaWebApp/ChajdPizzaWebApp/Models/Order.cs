@@ -14,6 +14,7 @@ namespace ChajdPizzaWebApp.Models
         public decimal NetPrice { get; set; }
         [Required]
         public bool isCompleted { get; set; }
+        public DateTime TimePlaced { get; set; }
         public string DeliveryAddress { get; set; }
 
     }
