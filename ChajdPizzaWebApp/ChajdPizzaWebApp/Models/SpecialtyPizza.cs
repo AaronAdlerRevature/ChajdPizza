@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Models
 {
-    public class Order
+    public class SpecialtyPizza
     {
-        public int Id { get; set; }
-        [Required]
-        public int Customer_id { get; set; }
-        public decimal NetPrice { get; set; }
-        [Required]
-        public bool isCompleted { get; set; }
-        public string DeliveryAddress { get; set; }
+        public int ID { get; set; }
 
+        public string Name { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Range(0.0,1000000.0)]
+        public float Price { get; set; }
+
+        public string Description { get; set; }
     }
 }
