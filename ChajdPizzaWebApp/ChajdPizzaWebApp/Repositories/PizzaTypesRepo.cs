@@ -213,14 +213,14 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public IEnumerable<Toppings> GetToppings()
+        public async Task<IEnumerable<Toppings>> GetToppings()
         {
             IEnumerable<Toppings> result = null;
 
             var query = _repo.Toppings.Where(c => c.Id == c.Id);
             if (query.Count() > 0)
             {
-                result = query;
+                result = await query.ToListAsync();
             }
             else
             {
@@ -230,14 +230,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public Toppings GetTopping(int id)
+        public async Task<Toppings> GetTopping(int id)
         {
             Toppings result = null;
 
             var query = _repo.Toppings.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault();
+                var item = await query.FirstOrDefaultAsync();
+                result = item;
             }
             else
             {
@@ -247,14 +248,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public string GetToppingName(int id)
+        public async Task<string> GetToppingName(int id)
         {
             string result = null;
 
             var query = _repo.Toppings.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault().Name;
+                var item = await query.FirstOrDefaultAsync();
+                result = item.Name;
             }
             else
             {
