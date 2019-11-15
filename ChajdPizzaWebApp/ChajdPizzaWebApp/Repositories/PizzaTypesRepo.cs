@@ -59,7 +59,7 @@ namespace ChajdPizzaWebApp.Data
         {
             decimal result = -1;
 
-            var query = _repo.SecretFormula.Where(c => c.Id == id);
+            var query = _context.SecretFormula.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 var item = await query.FirstOrDefaultAsync();
