@@ -19,6 +19,488 @@ namespace ChajdPizzaWebApp.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.Customer", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StateID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("StateID");
+
+                    b.ToTable("Customer");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Customer_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DeliveryAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("NetPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("isCompleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int>("SizeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SpecialRequest")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ToppingsCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ToppingsSelected")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.SecretFormula", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SecretFormula");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.Size", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BaseSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("S_Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Size");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.SpecialtyPizza", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SpecialtyPizzas");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.State", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Abbreviation")
+                        .HasColumnType("nvarchar(2)")
+                        .HasMaxLength(2);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("State");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Abbreviation = "AL",
+                            Name = "Alabama"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Abbreviation = "AK",
+                            Name = "Alaska"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Abbreviation = "AZ",
+                            Name = "Arizona"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Abbreviation = "AR",
+                            Name = "Arkansas"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Abbreviation = "CA",
+                            Name = "California"
+                        },
+                        new
+                        {
+                            ID = 6,
+                            Abbreviation = "CO",
+                            Name = "Colorado"
+                        },
+                        new
+                        {
+                            ID = 7,
+                            Abbreviation = "CT",
+                            Name = "Connecticut"
+                        },
+                        new
+                        {
+                            ID = 8,
+                            Abbreviation = "DE",
+                            Name = "Delaware"
+                        },
+                        new
+                        {
+                            ID = 9,
+                            Abbreviation = "FL",
+                            Name = "Florida"
+                        },
+                        new
+                        {
+                            ID = 10,
+                            Abbreviation = "GA",
+                            Name = "Georgia"
+                        },
+                        new
+                        {
+                            ID = 11,
+                            Abbreviation = "HI",
+                            Name = "Hawaii"
+                        },
+                        new
+                        {
+                            ID = 12,
+                            Abbreviation = "ID",
+                            Name = "Idaho"
+                        },
+                        new
+                        {
+                            ID = 13,
+                            Abbreviation = "IL",
+                            Name = "Illinois"
+                        },
+                        new
+                        {
+                            ID = 14,
+                            Abbreviation = "IN",
+                            Name = "Indiana"
+                        },
+                        new
+                        {
+                            ID = 15,
+                            Abbreviation = "IA",
+                            Name = "Iowa"
+                        },
+                        new
+                        {
+                            ID = 16,
+                            Abbreviation = "KS",
+                            Name = "Kansas"
+                        },
+                        new
+                        {
+                            ID = 17,
+                            Abbreviation = "KY",
+                            Name = "Kentucky"
+                        },
+                        new
+                        {
+                            ID = 18,
+                            Abbreviation = "LA",
+                            Name = "Louisiana"
+                        },
+                        new
+                        {
+                            ID = 19,
+                            Abbreviation = "ME",
+                            Name = "Maine"
+                        },
+                        new
+                        {
+                            ID = 20,
+                            Abbreviation = "MD",
+                            Name = "Maryland"
+                        },
+                        new
+                        {
+                            ID = 21,
+                            Abbreviation = "MA",
+                            Name = "Massachusetts"
+                        },
+                        new
+                        {
+                            ID = 22,
+                            Abbreviation = "MI",
+                            Name = "Michigan"
+                        },
+                        new
+                        {
+                            ID = 23,
+                            Abbreviation = "MN",
+                            Name = "Minnesota"
+                        },
+                        new
+                        {
+                            ID = 24,
+                            Abbreviation = "MS",
+                            Name = "Mississippi"
+                        },
+                        new
+                        {
+                            ID = 25,
+                            Abbreviation = "MO",
+                            Name = "Missouri"
+                        },
+                        new
+                        {
+                            ID = 26,
+                            Abbreviation = "MT",
+                            Name = "Montana"
+                        },
+                        new
+                        {
+                            ID = 27,
+                            Abbreviation = "NE",
+                            Name = "Nebraska"
+                        },
+                        new
+                        {
+                            ID = 28,
+                            Abbreviation = "NV",
+                            Name = "Nevada"
+                        },
+                        new
+                        {
+                            ID = 29,
+                            Abbreviation = "NH",
+                            Name = "New Hampshire"
+                        },
+                        new
+                        {
+                            ID = 30,
+                            Abbreviation = "NJ",
+                            Name = "New Jersey"
+                        },
+                        new
+                        {
+                            ID = 31,
+                            Abbreviation = "NM",
+                            Name = "New Mexico"
+                        },
+                        new
+                        {
+                            ID = 32,
+                            Abbreviation = "NY",
+                            Name = "New York"
+                        },
+                        new
+                        {
+                            ID = 33,
+                            Abbreviation = "NC",
+                            Name = "North Carolina"
+                        },
+                        new
+                        {
+                            ID = 34,
+                            Abbreviation = "ND",
+                            Name = "North Dakota"
+                        },
+                        new
+                        {
+                            ID = 35,
+                            Abbreviation = "OH",
+                            Name = "Ohio"
+                        },
+                        new
+                        {
+                            ID = 36,
+                            Abbreviation = "OK",
+                            Name = "Oklahoma"
+                        },
+                        new
+                        {
+                            ID = 37,
+                            Abbreviation = "OR",
+                            Name = "Oregon"
+                        },
+                        new
+                        {
+                            ID = 38,
+                            Abbreviation = "PA",
+                            Name = "Pennsylvania"
+                        },
+                        new
+                        {
+                            ID = 39,
+                            Abbreviation = "RI",
+                            Name = "Rhode Island"
+                        },
+                        new
+                        {
+                            ID = 40,
+                            Abbreviation = "SC",
+                            Name = "South Carolina"
+                        },
+                        new
+                        {
+                            ID = 41,
+                            Abbreviation = "SD",
+                            Name = "South Dakota"
+                        },
+                        new
+                        {
+                            ID = 42,
+                            Abbreviation = "TN",
+                            Name = "Tennessee"
+                        },
+                        new
+                        {
+                            ID = 43,
+                            Abbreviation = "TX",
+                            Name = "Texas"
+                        },
+                        new
+                        {
+                            ID = 44,
+                            Abbreviation = "UT",
+                            Name = "Utah"
+                        },
+                        new
+                        {
+                            ID = 45,
+                            Abbreviation = "VT",
+                            Name = "Vermont"
+                        },
+                        new
+                        {
+                            ID = 46,
+                            Abbreviation = "VA",
+                            Name = "Virginia"
+                        },
+                        new
+                        {
+                            ID = 47,
+                            Abbreviation = "WA",
+                            Name = "Washington"
+                        },
+                        new
+                        {
+                            ID = 48,
+                            Abbreviation = "WV",
+                            Name = "West Virginia"
+                        },
+                        new
+                        {
+                            ID = 49,
+                            Abbreviation = "WI",
+                            Name = "Wisconsin"
+                        },
+                        new
+                        {
+                            ID = 50,
+                            Abbreviation = "WY",
+                            Name = "Wyoming"
+                        });
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.Toppings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Toppings");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -217,6 +699,30 @@ namespace ChajdPizzaWebApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.Customer", b =>
+                {
+                    b.HasOne("ChajdPizzaWebApp.Models.State", "State")
+                        .WithMany()
+                        .HasForeignKey("StateID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.OrderDetail", b =>
+                {
+                    b.HasOne("ChajdPizzaWebApp.Models.Order", "Orders")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ChajdPizzaWebApp.Models.Size", "Sizes")
+                        .WithMany()
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
