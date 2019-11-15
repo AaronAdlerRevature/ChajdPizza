@@ -1,4 +1,5 @@
 ﻿using ChajdPizzaWebApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,14 +55,14 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public IEnumerable<Size> GetPizzaSizes()
+        public async Task<IEnumerable<Size>> GetPizzaSizes()
         {
             IEnumerable<Size> result = null;
 
             var query = _repo.Size.Where(c => c.Id == c.Id);
             if (query.Count() > 0)
             {
-                result = query;
+                result = await query.ToListAsync();
             }
             else
             {
@@ -71,14 +72,14 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public Size GetPizzaSize(int id)
+        public async Task<Size> GetPizzaSize(int id)
         {
             Size result = null;
 
             var query = _repo.Size.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault();
+                result = await query.FirstOrDefaultAsync();
             }
             else
             {
@@ -88,14 +89,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public string GetPizzaSizeName(int id)
+        public async Task<string> GetPizzaSizeName(int id)
         {
             string result = null;
 
             var query = _repo.Size.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault().BaseSize;
+                var item = await query.FirstOrDefaultAsync();
+                result = item.BaseSize;
             }
             else
             {
@@ -105,14 +107,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public decimal GetPizzaSizePrice(int id)
+        public async Task<decimal> GetPizzaSizePrice(int id)
         {
-            decimal result = 0;
+            decimal result = -1;
 
             var query = _repo.Size.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault().S_Price;
+                var item = await query.FirstOrDefaultAsync();
+                result = item.S_Price;
             }
             else
             {
