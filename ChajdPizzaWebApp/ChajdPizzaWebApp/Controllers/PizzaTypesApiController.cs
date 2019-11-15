@@ -43,7 +43,7 @@ namespace ChajdPizzaWebApp.Controllers
                 return NotFound();
             }
         }
-
+        
         // GET: api/PizzaTypes/sizes/5
         [HttpGet("sizes/{id}")]
         public async Task<ActionResult<Size>> GetSize(int id)
@@ -351,7 +351,7 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 var result = await _repo.GetSecretFormulaPrice(id);
 
-                if (result == null)
+                if (result < 0)
                 {
                     return NotFound();
                 }
