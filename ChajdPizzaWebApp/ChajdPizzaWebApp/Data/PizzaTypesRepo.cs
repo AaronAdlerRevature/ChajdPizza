@@ -206,5 +206,56 @@ namespace ChajdPizzaWebApp.Data
 
             return result;
         }
+
+        public IEnumerable<Toppings> GetToppings()
+        {
+            IEnumerable<Toppings> result = null;
+
+            var query = _repo.Toppings.Where(c => c.Id == c.Id);
+            if (query.Count() > 0)
+            {
+                result = query;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN TOPPINGS!");
+            }
+
+            return result;
+        }
+
+        public Toppings GetTopping(int id)
+        {
+            Toppings result = null;
+
+            var query = _repo.Toppings.Where(c => c.Id == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN TOPPINGS!");
+            }
+
+            return result;
+        }
+
+        public string GetToppingName(int id)
+        {
+            string result = null;
+
+            var query = _repo.Toppings.Where(c => c.Id == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().Name;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN TOPPINGS!");
+            }
+
+            return result;
+        }
     }
 }
