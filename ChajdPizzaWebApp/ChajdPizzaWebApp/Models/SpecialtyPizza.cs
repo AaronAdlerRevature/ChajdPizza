@@ -14,7 +14,7 @@ namespace ChajdPizzaWebApp.Models
 
         [DataType(DataType.Currency)]
         [Range(0.0,1000000.0)]
-        public float Price { get; set; }
+        public double Price { get; set; }
 
         public string Description { get; set; }
     }
