@@ -43,6 +43,7 @@ namespace ChajdPizzaWebApp.Controllers
             return orderDetail;
         }
 
+        [Route("Customers/DetailsOfOrder/{orderId}")]
         public async Task<ActionResult<List<OrderDetail>>> GetDetailsOfOrder(int orderId)
         {
             var orderDetails = await _repo.SelectOrderAllDetails(orderId);
