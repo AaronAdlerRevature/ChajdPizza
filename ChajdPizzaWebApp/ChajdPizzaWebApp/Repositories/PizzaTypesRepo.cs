@@ -21,14 +21,14 @@ namespace ChajdPizzaWebApp.Data
             _repo = repo;
         }
 
-        public IEnumerable<SecretFormula> GetSecretFormulas()
+        public async Task<IEnumerable<SecretFormula>> GetSecretFormulas()
         {
             IEnumerable<SecretFormula> result = null;
 
             var query = _repo.SecretFormula.Where(c => c.Id == c.Id);
             if (query.Count()>0)
             {
-                result = query;
+                result = await query.ToListAsync();
             }
             else
             {
@@ -38,14 +38,32 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public SecretFormula GetSecretFormula(int id)
+        public async Task<SecretFormula> GetSecretFormula(int id)
         {
             SecretFormula result = null;
 
             var query = _repo.SecretFormula.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault();
+                result = await query.FirstOrDefaultAsync();
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+            }
+
+            return result;
+        }
+
+        public async Task<decimal> GetSecretFormulaPrice(int id)
+        {
+            decimal result = -1;
+
+            var query = _repo.SecretFormula.Where(c => c.Id == id);
+            if (query.Count() > 0)
+            {
+                var item = await query.FirstOrDefaultAsync();
+                result = item.Price;
             }
             else
             {
