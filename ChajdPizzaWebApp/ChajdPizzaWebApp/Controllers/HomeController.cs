@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ChajdPizzaWebApp.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -13,9 +15,64 @@ namespace ChajdPizzaWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
-            _logger = logger;
+            var x = userManager;
+
+            var g = userManager.FindByNameAsync("GUEST");
+            g.Wait();
+            var o = g.Result;
+
+            //if (TempData["User"]!= null)
+            //{
+            //    var me = TempData["User"];
+
+            //    Console.WriteLine(me);
+            //}
+
+            if (o == null)
+            {
+
+                IdentityUser z = new IdentityUser("GUEST")
+                {
+                    //Email = "",
+                };
+                
+                var q = userManager.CreateAsync(z, "PASSword1!");
+
+                q.Wait();
+                var t = q.Result;
+
+            }
+            else
+            {
+                //if (TempData["User"] != null)
+                //{
+                //    var me = TempData["User"];
+
+                //    Console.WriteLine(me);
+                //}
+
+                //signInManager.SignInAsync(o, false);
+                var tu = userManager.CheckPasswordAsync(o, "PASSword1!");
+                tu.Wait();
+                if (tu.Result)
+                {
+                    int wwo = 0;
+                    wwo = 10;
+
+                    //TempData["USER"] = o.UserName;
+                }
+                else
+                {
+                    int wwo = 0;
+                    wwo = 10;
+
+                }
+            }
+
+            
+             _logger = logger;
         }
 
         public IActionResult Index()
