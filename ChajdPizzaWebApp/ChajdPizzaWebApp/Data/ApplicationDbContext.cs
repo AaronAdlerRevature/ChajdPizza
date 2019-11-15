@@ -16,6 +16,7 @@ namespace ChajdPizzaWebApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             // State Codes.
             modelBuilder.Entity<State>().HasData(new State() { ID = 1, Name = "Alabama", Abbreviation = "AL" });
             modelBuilder.Entity<State>().HasData(new State() { ID = 2, Name = "Alaska", Abbreviation = "AK" });
@@ -74,6 +75,7 @@ namespace ChajdPizzaWebApp.Data
         public DbSet<Size> Size { get; set; }
         public DbSet<SpecialtyPizza> SpecialtyPizzas { get; set; }
         public DbSet<Toppings> Toppings { get; set; }
+        public DbSet<ChajdPizzaWebApp.Models.Customer> Customer { get; set; }
 
 
     }
