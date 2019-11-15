@@ -125,14 +125,14 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public IEnumerable<SpecialtyPizza> GetSpecialtyPizzas()
+        public async Task<IEnumerable<SpecialtyPizza>> GetSpecialtyPizzas()
         {
             IEnumerable<SpecialtyPizza> result = null;
 
             var query = _repo.SpecialtyPizzas.Where(c => c.ID == c.ID);
             if (query.Count() > 0)
             {
-                result = query;
+                result = await query.ToListAsync();
             }
             else
             {
@@ -142,14 +142,14 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public SpecialtyPizza GetSpecialtyPizza(int id)
+        public async Task<SpecialtyPizza> GetSpecialtyPizza(int id)
         {
             SpecialtyPizza result = null;
 
             var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault();
+                result = await query.FirstOrDefaultAsync();
             }
             else
             {
@@ -159,14 +159,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public double GetSpecialtyPizzaPrice(int id)
+        public async Task<double> GetSpecialtyPizzaPrice(int id)
         {
             double result = 0;
 
             var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault().Price;
+                var item = await query.FirstOrDefaultAsync();
+                result = item.Price;
             }
             else
             {
@@ -176,14 +177,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public string GetSpecialtyPizzaName(int id)
+        public async Task<string> GetSpecialtyPizzaName(int id)
         {
             string result = "";
 
             var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault().Name;
+                var item = await query.FirstOrDefaultAsync();
+                result = item.Name;
             }
             else
             {
@@ -193,14 +195,15 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public string GetSpecialtyPizzaDescription(int id)
+        public async Task<string> GetSpecialtyPizzaDescription(int id)
         {
             string result = "";
 
             var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)
             {
-                result = query.FirstOrDefault().Description;
+                var item = await query.FirstOrDefaultAsync();
+                result = item.Description;
             }
             else
             {
