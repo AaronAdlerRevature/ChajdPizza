@@ -20,7 +20,6 @@ namespace ChajdPizzaWebApp.Data
             _repo = repo;
         }
 
-
         public IEnumerable<SecretFormula> GetSecretFormulas()
         {
             IEnumerable<SecretFormula> result = null;
@@ -66,7 +65,7 @@ namespace ChajdPizzaWebApp.Data
             }
             else
             {
-                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+                throw new NullReferenceException("EMPTY QUERY IN PIZZA SIZE!");
             }
 
             return result;
@@ -83,7 +82,7 @@ namespace ChajdPizzaWebApp.Data
             }
             else
             {
-                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+                throw new NullReferenceException("EMPTY QUERY IN PIZZA SIZE!");
             }
 
             return result;
@@ -100,7 +99,7 @@ namespace ChajdPizzaWebApp.Data
             }
             else
             {
-                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+                throw new NullReferenceException("EMPTY QUERY IN PIZZA SIZE!");
             }
 
             return result;
@@ -117,7 +116,92 @@ namespace ChajdPizzaWebApp.Data
             }
             else
             {
-                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+                throw new NullReferenceException("EMPTY QUERY IN PIZZA SIZE!");
+            }
+
+            return result;
+        }
+
+        public IEnumerable<SpecialtyPizza> GetSpecialtyPizzas()
+        {
+            IEnumerable<SpecialtyPizza> result = null;
+
+            var query = _repo.SpecialtyPizzas.Where(c => c.ID == c.ID);
+            if (query.Count() > 0)
+            {
+                result = query;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SPECIALTY PIZZA!");
+            }
+
+            return result;
+        }
+
+        public SpecialtyPizza GetSpecialtyPizza(int id)
+        {
+            SpecialtyPizza result = null;
+
+            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SPECIALTY PIZZA!");
+            }
+
+            return result;
+        }
+
+        public double GetSpecialtyPizzaPrice(int id)
+        {
+            double result = 0;
+
+            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().Price;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SPECIALTY PIZZA!");
+            }
+
+            return result;
+        }
+
+        public string GetSpecialtyPizzaName(int id)
+        {
+            string result = "";
+
+            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().Name;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SPECIALTY PIZZA!");
+            }
+
+            return result;
+        }
+
+        public string GetSpecialtyPizzaDescription(int id)
+        {
+            string result = "";
+
+            var query = _repo.SpecialtyPizzas.Where(c => c.ID == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().Description;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SPECIALTY PIZZA!");
             }
 
             return result;
