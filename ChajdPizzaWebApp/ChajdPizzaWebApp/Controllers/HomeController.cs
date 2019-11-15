@@ -23,6 +23,14 @@ namespace ChajdPizzaWebApp.Controllers
             return View();
         }
 
+        public IActionResult Deals()
+        {
+            return View();
+        }
+        public IActionResult ManagerSpecial()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
