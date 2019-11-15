@@ -21,8 +21,8 @@ namespace ChajdPizzaWebApp.Controllers
             _repo = repo;
         }
 
-        // GET: api/PizzaTypes
-        [HttpGet]
+        // GET: api/PizzaTypes/sizes
+        [HttpGet("sizes/")]
         public async Task<ActionResult<IEnumerable<Size>>> GetSizes()
         {
             try
@@ -44,8 +44,8 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/PizzaTypes/5
-        [HttpGet("{id}")]
+        // GET: api/PizzaTypes/sizes/5
+        [HttpGet("sizes/{id}")]
         public async Task<ActionResult<Size>> GetSize(int id)
         {
             try
@@ -67,8 +67,8 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/PizzaTypes/5
-        [HttpGet("{id}")]
+        // GET: api/PizzaTypes/sizes/name/5
+        [HttpGet("sizes/name/{id}")]
         public async Task<ActionResult<string>> GetSizeName(int id)
         {
             try
@@ -90,8 +90,8 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/PizzaTypes/5
-        [HttpGet("{id}")]
+        // GET: api/PizzaTypes/sizes/price/5
+        [HttpGet("sizes/price/{id}")]
         public async Task<ActionResult<decimal>> GetSizePrice(int id)
         {
             try
@@ -112,5 +112,7 @@ namespace ChajdPizzaWebApp.Controllers
                 return NotFound();
             }
         }
+
+       
     }
 }
