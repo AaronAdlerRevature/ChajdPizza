@@ -9,7 +9,7 @@ namespace ChajdPizzaWebApp.Models
     public class Customer
     {
         [Required, Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         public string UserName { get; set; }
 
