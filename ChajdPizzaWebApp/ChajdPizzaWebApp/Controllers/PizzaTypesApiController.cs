@@ -113,7 +113,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/Specialty
+        // GET: api/Special
         [HttpGet("special/")]
         public async Task<ActionResult<IEnumerable<SpecialtyPizza>>> GetSpecialtyPizzas()
         {
@@ -136,7 +136,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/Specialty/5
+        // GET: api/Special/5
         [HttpGet("special/{id}")]
         public async Task<ActionResult<SpecialtyPizza>> GetSpecialtyPizza(int id)
         {
@@ -159,7 +159,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/Specialty/price/5
+        // GET: api/Special/price/5
         [HttpGet("special/price/{id}")]
         public async Task<ActionResult<decimal>> GetSpecialtyPizzaPrice(int id)
         {
@@ -182,7 +182,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/Specialty/name/5
+        // GET: api/Special/name/5
         [HttpGet("special/name/{id}")]
         public async Task<ActionResult<string>> GetSpecialtyPizzaName(int id)
         {
@@ -205,13 +205,82 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-        // GET: api/Specialty/name/5
+        // GET: api/Special/desc/5
         [HttpGet("special/desc/{id}")]
         public async Task<ActionResult<string>> GetSpecialtyPizzaDescription(int id)
         {
             try
             {
                 var result = await _repo.GetSpecialtyPizzaDescription(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Toppings
+        [HttpGet("toppings/")]
+        public async Task<ActionResult<IEnumerable<Toppings>>> GetToppings()
+        {
+            try
+            {
+                var result = await _repo.GetToppings();
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result.ToList();
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Toppings/5
+        [HttpGet("toppings/{id}")]
+        public async Task<ActionResult<Toppings>> GetTopping(int id)
+        {
+            try
+            {
+                var result = await _repo.GetTopping(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Toppings/name/5
+        [HttpGet("toppings/name/{id}")]
+        public async Task<ActionResult<string>> GetToppingName(int id)
+        {
+            try
+            {
+                var result = await _repo.GetToppingName(id);
 
                 if (result == null)
                 {
