@@ -15,6 +15,7 @@ namespace ChajdPizzaWebApp.Models
         [Required]
         public bool isCompleted { get; set; }
         public string DeliveryAddress { get; set; }
-
+        public virtual Customer Customer { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
     }
 }
