@@ -113,6 +113,119 @@ namespace ChajdPizzaWebApp.Controllers
             }
         }
 
-       
+        // GET: api/Specialty
+        [HttpGet("special/")]
+        public async Task<ActionResult<IEnumerable<SpecialtyPizza>>> GetSpecialtyPizzas()
+        {
+            try
+            {
+                var result = await _repo.GetSpecialtyPizzas();
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result.ToList();
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Specialty/5
+        [HttpGet("special/{id}")]
+        public async Task<ActionResult<SpecialtyPizza>> GetSpecialtyPizza(int id)
+        {
+            try
+            {
+                var result = await _repo.GetSpecialtyPizza(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Specialty/price/5
+        [HttpGet("special/price/{id}")]
+        public async Task<ActionResult<decimal>> GetSpecialtyPizzaPrice(int id)
+        {
+            try
+            {
+                var result = await _repo.GetSpecialtyPizzaPrice(id);
+
+                if (result < 0)
+                {
+                    return NotFound();
+                }
+
+                return Convert.ToDecimal(result);
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Specialty/name/5
+        [HttpGet("special/name/{id}")]
+        public async Task<ActionResult<string>> GetSpecialtyPizzaName(int id)
+        {
+            try
+            {
+                var result = await _repo.GetSpecialtyPizzaName(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/Specialty/name/5
+        [HttpGet("special/desc/{id}")]
+        public async Task<ActionResult<string>> GetSpecialtyPizzaDescription(int id)
+        {
+            try
+            {
+                var result = await _repo.GetSpecialtyPizzaDescription(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
     }
 }
