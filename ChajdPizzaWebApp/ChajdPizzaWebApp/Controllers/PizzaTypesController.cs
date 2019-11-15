@@ -16,35 +16,101 @@ namespace ChajdPizzaWebApp.Controllers
     {
         private readonly PizzaTypesRepo _repo;
 
-        public PizzaTypesController(PizzaTypesRepo context)
+        public PizzaTypesController(PizzaTypesRepo repo)
         {
-            _repo = context;
+            _repo = repo;
         }
 
         // GET: api/PizzaTypes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Size>>> GetSize()
+        public async Task<ActionResult<IEnumerable<Size>>> GetSizes()
         {
-            return await _repo.GetPizzaSizes();
+            try
+            {
+                var result = await _repo.GetPizzaSizes();
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result.ToList();
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
         }
 
         // GET: api/PizzaTypes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Size>> GetSize(int id)
         {
-            var size = await _repo.Size.FindAsync(id);
-
-            if (size == null)
+            try
             {
-                return NotFound();
-            }
+                var size = await _repo.GetPizzaSize(id);
 
-            return size;
+                if (size == null)
+                {
+                    return NotFound();
+                }
+
+                return size;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();                
+            }
         }
 
-        private bool SizeExists(int id)
+        // GET: api/PizzaTypes/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<string>> GetSizeName(int id)
         {
-            return _repo.Size.Any(e => e.Id == id);
+            try
+            {
+                var size = await _repo.GetPizzaSizeName(id);
+
+                if (size == null)
+                {
+                    return NotFound();
+                }
+
+                return size;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/PizzaTypes/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<decimal>> GetSizePrice(int id)
+        {
+            try
+            {
+                var size = await _repo.GetPizzaSizePrice(id);
+
+                if (size < 0)
+                {
+                    return NotFound();
+                }
+
+                return size;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
         }
     }
 }
