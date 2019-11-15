@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Models
 {
-    public class OrdersModel
+    public class Order
     {
+        public int Id { get; set; }
         [Required]
         public int Customer_id { get; set; }
         public decimal NetPrice { get; set; }

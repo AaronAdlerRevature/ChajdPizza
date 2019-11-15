@@ -14,6 +14,6 @@ namespace ChajdPizzaWebApp.Data
         {
         }
 
-        DbSet<OrdersModel> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
