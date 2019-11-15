@@ -8,14 +8,14 @@ namespace ChajdPizzaWebApp.Data
 {
     public class PizzaTypesRepo
     {
-        readonly PizzaTypeDbContext _repo;
+        readonly ApplicationDbContext _repo;
 
         public PizzaTypesRepo()
         {
 
         }
 
-        public PizzaTypesRepo(PizzaTypeDbContext repo)
+        public PizzaTypesRepo(ApplicationDbContext repo)
         {
             _repo = repo;
         }
