@@ -296,5 +296,74 @@ namespace ChajdPizzaWebApp.Controllers
                 return NotFound();
             }
         }
+
+        // GET: api/sf
+        [HttpGet("sf/")]
+        public async Task<ActionResult<IEnumerable<SecretFormula>>> GetSecretFormulas()
+        {
+            try
+            {
+                var result = await _repo.GetSecretFormulas();
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result.ToList();
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/sf/5
+        [HttpGet("sf/{id}")]
+        public async Task<ActionResult<SecretFormula>> GetSecretFormula(int id)
+        {
+            try
+            {
+                var result = await _repo.GetSecretFormula(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
+
+        // GET: api/sf/price/5
+        [HttpGet("sf/price/{id}")]
+        public async Task<ActionResult<decimal>> GetSecretFormulaPrice(int id)
+        {
+            try
+            {
+                var result = await _repo.GetSecretFormulaPrice(id);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return result;
+            }
+            catch (Exception WTF)
+            {
+                // Log error.
+                Console.WriteLine(WTF);
+                return NotFound();
+            }
+        }
     }
 }
