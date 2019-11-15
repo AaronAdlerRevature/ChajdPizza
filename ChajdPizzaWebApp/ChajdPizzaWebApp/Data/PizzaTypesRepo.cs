@@ -42,10 +42,78 @@ namespace ChajdPizzaWebApp.Data
         {
             SecretFormula result = null;
 
-            var query = _repo.SecretFormula.Where(c => c.Id == c.Id);
+            var query = _repo.SecretFormula.Where(c => c.Id == id);
             if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+            }
+
+            return result;
+        }
+
+        public IEnumerable<Size> GetPizzaSizes()
+        {
+            IEnumerable<Size> result = null;
+
+            var query = _repo.Size.Where(c => c.Id == c.Id);
+            if (query.Count() > 0)
+            {
+                result = query;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+            }
+
+            return result;
+        }
+
+        public Size GetPizzaSize(int id)
+        {
+            Size result = null;
+
+            var query = _repo.Size.Where(c => c.Id == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+            }
+
+            return result;
+        }
+
+        public string GetPizzaSizeName(int id)
+        {
+            string result = null;
+
+            var query = _repo.Size.Where(c => c.Id == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().BaseSize;
+            }
+            else
+            {
+                throw new NullReferenceException("EMPTY QUERY IN SECRET FORMULA!");
+            }
+
+            return result;
+        }
+
+        public decimal GetPizzaSizePrice(int id)
+        {
+            decimal result = 0;
+
+            var query = _repo.Size.Where(c => c.Id == id);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().S_Price;
             }
             else
             {
