@@ -12,11 +12,11 @@ namespace ChajdPizzaWebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PizzaTypesController : ControllerBase
+    public class PizzaTypesAPIController : ControllerBase
     {
         private readonly PizzaTypesRepo _repo;
 
-        public PizzaTypesController(PizzaTypesRepo repo)
+        public PizzaTypesAPIController(PizzaTypesRepo repo)
         {
             _repo = repo;
         }
