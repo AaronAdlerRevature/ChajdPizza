@@ -23,11 +23,13 @@ namespace ChajdPizzaWebApp.Models
         public int ToppingsCount { get; set; }
 
         [DataType(DataType.Currency)]
+        [Range(0.0, 1000000.0)]
         public double Price { get; set; }
+
         public string SpecialRequest { get; set; }
 
-        //public Order Orders { get; set; }
-        //public Size Sizes { get; set; }
+        public Order Orders { get; set; }
+        public Size Sizes { get; set; }
 
     }
 }

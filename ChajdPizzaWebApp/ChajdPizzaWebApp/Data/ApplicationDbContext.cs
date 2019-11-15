@@ -75,6 +75,8 @@ namespace ChajdPizzaWebApp.Data
         public DbSet<SpecialtyPizza> SpecialtyPizzas { get; set; }
         public DbSet<Toppings> Toppings { get; set; }
 
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
 
     }
 }
