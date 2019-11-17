@@ -10,7 +10,7 @@ namespace ChajdPizzaWebApp.Models
     {
         public int Id { get; set; }
         [Required]
-        public int Customer_id { get; set; }
+        public int CustomerId { get; set; }
         public decimal NetPrice { get; set; }
         [Required]
         public bool isCompleted { get; set; }
