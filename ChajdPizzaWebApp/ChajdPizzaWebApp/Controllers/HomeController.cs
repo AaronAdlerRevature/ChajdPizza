@@ -27,7 +27,11 @@ namespace ChajdPizzaWebApp.Controllers
         {
             return View();
         }
-        public IActionResult ManagerSpecial()
+        public IActionResult TestingToping()
+        {
+            return View();
+        }
+        public IActionResult Menu()
         {
             return View();
         }

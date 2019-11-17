@@ -1,0 +1,20 @@
+﻿@model ChajdPizzaWebApp.Models.Size
+
+<form asp-action="SizeView">
+    <p style="font-size:36px; color:brown; text-align:left">Please Select the Size</p>
+    <label class="container">
+        Small (Starting $ 7.99)
+        <input type="radio" checked="checked" name="radio" asp-for="BaseSize" value="small">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">
+        Medium (Starting $ 10.99)
+        <input type="radio" name="radio" asp-for="BaseSize" value="medium">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">
+        Large (Starting $ 13.99)
+        <input type="radio" name="radio" asp-for="BaseSize" value="large">
+        <span class="checkmark"></span>
+    </label>
+</form>
