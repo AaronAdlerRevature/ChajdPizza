@@ -36,7 +36,10 @@ namespace ChajdPizzaWebApp
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddTransient<OrderRepo>();
+            services.AddTransient<OrdersRepo>();
+            services.AddTransient<CustomerRepo>();
+            services.AddTransient<OrderDetailsRepo>();
+            services.AddTransient<PizzaTypesRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
