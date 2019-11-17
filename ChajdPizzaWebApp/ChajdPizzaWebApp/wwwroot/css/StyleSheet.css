@@ -1,6 +1,7 @@
 ﻿.carousel {
     background: #2f4357;
-    margin-top: 20px;
+    margin-top: 10px;
+    width:100%;
 }
 
 .carousel-item {
@@ -31,3 +32,20 @@
 .container:hover .overlay {
     opacity: 1;
 }
+/*
+    for figure
+*/
+figure {
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px;
+}
+
+    figure img {
+        vertical-align: top;
+    }
+
+    figure figcaption {
+        border: 1px dotted blue;
+        text-align: center;
+    }
