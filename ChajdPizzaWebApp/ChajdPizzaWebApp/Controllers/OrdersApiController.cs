@@ -15,23 +15,23 @@ namespace ChajdPizzaWebApp.Controllers
     [ApiController]
     public class OrdersApiController : ControllerBase
     {
-        private readonly OrderRepo _repo;
+        private readonly OrdersRepo _repo;
 
-        public OrdersApiController(OrderRepo repo)
+        public OrdersApiController(OrdersRepo repo)
         {
             _repo = repo;
         }
 
         // GET: api/OrdersApi
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public async Task<ActionResult<IEnumerable<Orders>>> GetOrders()
         {
             return await _repo.SelectAll();
         }
 
         // GET: api/OrdersApi/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrders(int id)
+        public async Task<ActionResult<Orders>> GetOrders(int id)
         {
             var order = await _repo.SelectById(id);
 
@@ -47,7 +47,7 @@ namespace ChajdPizzaWebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrder(int id, Order order)
+        public async Task<IActionResult> PutOrder(int id, Orders order)
         {
             if (id != order.Id)
             {
@@ -77,7 +77,7 @@ namespace ChajdPizzaWebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<Orders>> PostOrder(Orders order)
         {
             await _repo.Add(order);
 
@@ -86,7 +86,7 @@ namespace ChajdPizzaWebApp.Controllers
 
         // DELETE: api/OrdersApi/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Order>> DeleteOrder(int id)
+        public async Task<ActionResult<Orders>> DeleteOrder(int id)
         {
             var order = await _repo.SelectById(id);
             if (order == null)
