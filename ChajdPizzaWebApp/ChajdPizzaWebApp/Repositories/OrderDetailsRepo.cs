@@ -28,7 +28,7 @@ namespace ChajdPizzaWebApp.Repositories
         }
 
         
-        public async Task<List<OrderDetail>> SelectOrderAllDetails(int orderId)
+        public async Task<List<OrderDetail>> SelectOrderAllDetails(int? orderId)
         {
             var orderDetails = await _context.OrderDetails.Where(i => i.OrderId == orderId).ToListAsync();
             return orderDetails;

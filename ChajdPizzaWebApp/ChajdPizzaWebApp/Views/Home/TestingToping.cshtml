@@ -32,6 +32,17 @@
                 return false;
             });
         </script>*@
+        <script>
+            function printChecked() {
+                var items = document.getElementsByName('Toppings');
+                var selectedItems = "";
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].type == 'checkbox' && items[i].checked == true)
+                        selectedItems += items[i].value + "\n";
+                }
+                alert(selectedItems);
+            }
+        </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -44,9 +55,6 @@
         <link rel="stylesheet" href="~/css/MenuRadioButton.css">
         <script src ="~/js/stringPost.js"></script>
     </head>
-
-
-
 
 
 
@@ -74,7 +82,7 @@
      
         <partial name="SizeView" />
         <form method="GET">
-            <p style="font-size:36px; color:brown; text-align:center">Please Select the toppings</p>
+            <p style="font-size:36px; color:brown; text-align:center">Please Select the toppings($1.50 per)</p>
             <div>
                 <p style="font-size:30px; color:green; text-wrap:initial"><b>Meat </b></p>
                 <label for="checkbox" class="form-control-label col-md-2"><b>Ham </b></label>
@@ -87,8 +95,8 @@
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Pepperoni' data-on="Yes Pepper" data-off="No Pepper" data-onstyle="success" data-offstyle="danger">
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Chicken  </b></label> &nbsp; &nbsp;
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Chicken' data-on="Yes  Checken" data-off="No Checken" data-onstyle="success" data-offstyle="danger">
-                <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Becon  </b></label> &nbsp; &nbsp;
-                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Becon' data-on="Yes  Beacon" data-off="No Becon" data-onstyle="success" data-offstyle="danger">
+                <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Bacon  </b></label> &nbsp; &nbsp;
+                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Bacon' data-on="Yes  Bacon" data-off="No Bacon" data-onstyle="success" data-offstyle="danger">
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Sausage   </b></label> &nbsp; &nbsp;
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Sausage' data-on="Yes  Sausage" data-off="No Sausage" data-onstyle="success" data-offstyle="danger">
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Steak  </b></label> &nbsp; &nbsp;
@@ -99,8 +107,8 @@
             <div>
 
                 <p style="font-size:30px; color:green"><b>Veggies </b></p>
-                <label for="checkbox" class="form-control-label col-md-2"><b>Onlion </b></label> &nbsp; &nbsp;
-                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='onion' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
+                <label for="checkbox" class="form-control-label col-md-2"><b>Onion </b></label> &nbsp; &nbsp;
+                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Onion' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Banana Peppers</b></label>   &nbsp; &nbsp;
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Banana Peppers' data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger">
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Black Olives </b></label>   &nbsp; &nbsp;
@@ -110,8 +118,7 @@
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Green Peppers </b></label>&nbsp; &nbsp;
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Green Pepper' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
                 <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Red Peppers </b></label>   &nbsp; &nbsp;
-                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Red Peppers' data-on="Yes" data-off="No " data-onstyle="success" data-offstyle="danger">
-                <br /><br /> <label for="checkbox" class="form-control-label col-md-2"><b>Red Peppers </b></label>   &nbsp; &nbsp;
+                
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Jalapeno' data-on="Yes " data-off="No " data-onstyle="success" data-offstyle="danger">
                 <br /> <br /> <label for="checkbox" class="form-control-label col-md-2"><b>Jalapeno </b></label> &nbsp;&nbsp;
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Pineapple' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
@@ -119,12 +126,9 @@
                 <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Mushrooms' data-on="Yes" data-off="No " data-onstyle="success" data-offstyle="danger">
             </div>
 
-
-
-
             <div style=" text-align:right">
                 <br />
-                <button class=" btn-group-lg" type="submit">Continue</button>
+                <button class=" btn-group-lg" type="submit" onclick='printChecked()'>Continue</button>
             </div>
 
         </form>
