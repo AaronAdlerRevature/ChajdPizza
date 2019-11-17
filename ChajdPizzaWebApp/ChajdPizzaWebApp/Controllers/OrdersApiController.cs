@@ -31,7 +31,7 @@ namespace ChajdPizzaWebApp.Controllers
 
         // GET: api/OrdersApi/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrdersModel(int id)
+        public async Task<ActionResult<Order>> GetOrders(int id)
         {
             var order = await _repo.SelectById(id);
 
@@ -47,14 +47,12 @@ namespace ChajdPizzaWebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrdersModel(int id, Order order)
+        public async Task<IActionResult> PutOrder(int id, Order order)
         {
             if (id != order.Id)
             {
                 return BadRequest();
             }
-
-            
 
             try
             {
@@ -79,7 +77,7 @@ namespace ChajdPizzaWebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrdersModel(Order order)
+        public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             await _repo.Add(order);
 
@@ -88,7 +86,7 @@ namespace ChajdPizzaWebApp.Controllers
 
         // DELETE: api/OrdersApi/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Order>> DeleteOrdersModel(int id)
+        public async Task<ActionResult<Order>> DeleteOrder(int id)
         {
             var order = await _repo.SelectById(id);
             if (order == null)
