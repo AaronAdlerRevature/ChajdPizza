@@ -21,7 +21,7 @@ namespace ChajdPizzaWebApp.Data.Migrations
 
             modelBuilder.Entity("ChajdPizzaWebApp.Models.Customer", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -44,7 +44,7 @@ namespace ChajdPizzaWebApp.Data.Migrations
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("StateID");
 
@@ -58,6 +58,9 @@ namespace ChajdPizzaWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Customer_id")
                         .HasColumnType("int");
 
@@ -67,10 +70,15 @@ namespace ChajdPizzaWebApp.Data.Migrations
                     b.Property<decimal>("NetPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("TimePlaced")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("isCompleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -710,10 +718,17 @@ namespace ChajdPizzaWebApp.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ChajdPizzaWebApp.Models.Order", b =>
+                {
+                    b.HasOne("ChajdPizzaWebApp.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId");
+                });
+
             modelBuilder.Entity("ChajdPizzaWebApp.Models.OrderDetail", b =>
                 {
                     b.HasOne("ChajdPizzaWebApp.Models.Order", "Orders")
-                        .WithMany()
+                        .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

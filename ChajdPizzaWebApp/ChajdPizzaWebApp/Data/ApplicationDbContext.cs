@@ -70,7 +70,7 @@ namespace ChajdPizzaWebApp.Data
             modelBuilder.Entity<State>().HasData(new State() { ID = 50, Name = "Wyoming", Abbreviation = "WY" });
         }
 
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<Orders> Orders { get; set; }
         public DbSet<SecretFormula> SecretFormula { get; set; }
         public DbSet<Size> Size { get; set; }
         public DbSet<SpecialtyPizza> SpecialtyPizzas { get; set; }

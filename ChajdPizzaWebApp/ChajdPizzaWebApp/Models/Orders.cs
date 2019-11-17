@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Models
 {
-    public class Order
+    public class Orders
     {
         public int Id { get; set; }
         [Required]
