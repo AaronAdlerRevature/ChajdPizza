@@ -1,5 +1,6 @@
 ﻿using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,10 @@ namespace UnitTests.Data_Objects
                 currentCustomer.City = customer.City;
                 currentCustomer.StateID = customer.StateID;
                 currentCustomer.ZipCode = customer.ZipCode;
+            }
+            else
+            {
+                throw new DbUpdateConcurrencyException("NO RESULTS!");
             }
 
             return result;
