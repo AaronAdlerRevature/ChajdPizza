@@ -43,6 +43,19 @@ namespace ChajdPizzaWebApp.Controllers
             return customer;
         }
 
+        [HttpGet("ByUser/{Username}")]
+        public async Task<ActionResult<Customer>> GetCustomerByUser(string Username)
+        {
+            var customer = await _context.SelectByUser(Username);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return customer;
+        }
+
         // PUT: api/Customers/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

@@ -43,6 +43,22 @@ namespace ChajdPizzaWebApp.Controllers
             return order;
         }
 
+        [HttpGet("ByCust/{id}")]
+        public async Task<ActionResult<Orders>> GetOrdersByCust(int id)
+        {
+            var order = await _repo.SelectByCustId(id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return order;
+        }
+
+
+
+
         // PUT: api/OrdersApi/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
