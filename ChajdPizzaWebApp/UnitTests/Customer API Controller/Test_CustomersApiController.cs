@@ -141,5 +141,29 @@ namespace UnitTests
             #endregion
         }
 
+        [TestMethod]
+        public void GetCustomersByUserName_NonExistentUser()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetCustomerByUser("AOL@AOL.com");
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NotFoundResult);
+
+            #endregion
+        }
     }
 }
