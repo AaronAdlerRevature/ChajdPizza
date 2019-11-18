@@ -67,10 +67,10 @@ namespace UnitTests.Data_Objects
                 currentCustomer.StateID = customer.StateID;
                 currentCustomer.ZipCode = customer.ZipCode;
             }
-            else
-            {
-                throw new DbUpdateConcurrencyException("NO RESULTS!");
-            }
+            //else
+            //{
+            //    throw new DbUpdateConcurrencyException("NO RESULTS!");
+            //}
 
             return result;
         }
