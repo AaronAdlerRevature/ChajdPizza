@@ -11,7 +11,7 @@ using ChajdPizzaWebApp.Repositories;
 
 namespace ChajdPizzaWebApp.Controllers
 {
-    [Route("api/Details")]
+    [Route("api/[controller]")]
     [ApiController]
     public class OrderDetailsApiController : ControllerBase
     {
