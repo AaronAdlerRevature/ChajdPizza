@@ -114,5 +114,32 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetCustomersByUserName_Valid()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetCustomerByUser("MyEmail@Email.com");
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(result.Name, "John Doe");
+            Assert.AreEqual(result.Id, 1);
+
+            #endregion
+        }
+
     }
 }
