@@ -18,6 +18,7 @@ namespace ChajdPizzaWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        static string _url = "https://chajdpizza.azurewebsites.net/";
         private readonly ILogger<HomeController> _logger;
         UserManager<IdentityUser> _userManager;
 
@@ -67,13 +68,13 @@ namespace ChajdPizzaWebApp.Controllers
                 if (Request.Cookies.ContainsKey("GuestID"))
                 {
                     // URL for API.
-                    string url = "http://localhost:10531/";
+                    //string url = "https://chajdpizza.azurewebsites.net/";
                     string guestID = Request.Cookies["GuestID"];
                     Response.Cookies.Delete("GuestID");
                     Response.Cookies.Delete("GuestName");
 
                     // Update current currentlogin order for guest order. 
-                    string SPS =_userManager.GetUserId(User);
+                    string SPS =_userManager.GetUserName(User);
                     int userID = 0;
 
                     try
@@ -86,7 +87,7 @@ namespace ChajdPizzaWebApp.Controllers
 
                         string api = "api/CustomersApi/ByUser/";
 
-                        var customerStringTask = customerAPI.GetStringAsync(url + api + guestID);
+                        var customerStringTask = customerAPI.GetStringAsync(_url + api + guestID);
                         customerStringTask.Wait();
                         var customerHttpResult = customerStringTask.Result;
                         var currentCustomer = JsonConvert.DeserializeObject<Customer>(customerHttpResult);
@@ -100,7 +101,7 @@ namespace ChajdPizzaWebApp.Controllers
 
                         api = "api/OrdersApi/ByCust/";
 
-                        var stringTask = orderAPI.GetStringAsync(url + api + guestID);
+                        var stringTask = orderAPI.GetStringAsync(_url + api + guestID);
                         stringTask.Wait();
                         var httpResult = stringTask.Result;
                         var currentOrder = JsonConvert.DeserializeObject<Orders>(httpResult);
@@ -118,7 +119,7 @@ namespace ChajdPizzaWebApp.Controllers
                         var newData = JsonConvert.SerializeObject(currentOrder);
                         var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
 
-                        orderAPI.PutAsync(url + api + guestID, newContent);
+                        orderAPI.PutAsync(_url + api + guestID, newContent);
                     }
                     catch (Exception WTF)
                     {
@@ -129,24 +130,27 @@ namespace ChajdPizzaWebApp.Controllers
             }
             else
             {
+                // Check if guest cookies have been set.
                 if (Request.Cookies.ContainsKey("GuestName"))
                 {
 
                 }
                 else
                 {
+                    // Get guest user count.
                     var inte = _userManager.Users.Where(u => u.UserName.StartsWith("GUEST")).Count();
 
                     // Create new guest user.
                     IdentityUser z = new IdentityUser(string.Format("GUEST{0}", inte.ToString()));
-
                     var query = _userManager.CreateAsync(z, "PASSword1!");
                     query.Wait();
                     var qResult = query.Result;
                     if (qResult.Succeeded)
                     {
+                        // Load cookies.
                         Response.Cookies.Append("GuestName", z.UserName);
 
+                        // Create new customer.
                         Customer guestCustomer = new Customer()
                         {
                             Id = 0,
@@ -156,22 +160,24 @@ namespace ChajdPizzaWebApp.Controllers
                             ZipCode = 99999,
                         };
 
+                        // Post new guest user.
                         HttpClient newGuestRequest = new HttpClient();
                         newGuestRequest.DefaultRequestHeaders.Accept.Clear();
                         newGuestRequest.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                         // Post command.
-                        string url = "http://localhost:10531/";
+                        //string url = "https://chajdpizza.azurewebsites.net/";
                         string api = "api/CustomersApi";
 
+                        // Post response.
                         var newData = JsonConvert.SerializeObject(guestCustomer);
                         var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
-                        var response = newGuestRequest.PostAsync(url + api, newContent);
+                        var response = newGuestRequest.PostAsync(_url + api, newContent);
                         response.Wait();
-
                         var httpResult = response.Result;
                         var newID = httpResult.Headers.Location.ToString().Substring(httpResult.Headers.Location.ToString().LastIndexOf('/') + 1);
 
+                        // Load cookies.
                         Response.Cookies.Append("GuestID", newID);
                     }
                 }
