@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.BL;
+using System.Text;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -20,12 +21,16 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 return NotFound();
             }
+
+            //Instantiate Objects
             var Username = User.Identity.Name;
             Customer customer = new Customer();
-            Orders orders = null;
-
+            Orders order = new Orders();
             SpecialtyPizza specialtyPizza = new SpecialtyPizza();
-           
+            OrderDetail orderDetail = new OrderDetail();
+
+
+            //Consume API calls
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
@@ -42,7 +47,7 @@ namespace ChajdPizzaWebApp.Controllers
 
                     customer = JsonConvert.DeserializeObject<Customer>(customerRes);
                 }
-
+                else if (!ResC.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get Customer has failed!")); }
 
                 var custId = customer.Id;
 
@@ -51,17 +56,32 @@ namespace ChajdPizzaWebApp.Controllers
                 client.DefaultRequestHeaders.Accept.Add
                     (new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage ResCh = await client.GetAsync("OrdersApi/CheckMultByCust/" + custId);
-                var isMult = false;
+                var isMult = 0;
                 if (ResCh.IsSuccessStatusCode)
                 {
                     var CheckRes = ResCh.Content.ReadAsStringAsync().Result;
 
-                    isMult = JsonConvert.DeserializeObject<bool>(CheckRes);
+                    isMult = JsonConvert.DeserializeObject<int>(CheckRes);
                 }
-                else if (!ResCh.IsSuccessStatusCode) { return View("../Shared/Error", new Exception("Check mult has failed")); }
-                if (isMult) { return View("../Shared/Error", new Exception("There are multiple open orders for this customer.")); }
+                else if (!ResCh.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Check mult has failed!")); }
+                if (isMult > 1) { return View("../Shared/ShowException", new Exception("There are multiple open orders for this customer.")); }
 
                 
+                if(isMult == 0)
+                {
+                    order.CustomerId = custId;
+                    order.isCompleted = false;
+                    //Post new Order
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Accept.Add
+                        (new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    var newData = JsonConvert.SerializeObject(order);
+                    var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+                    HttpResponseMessage ResPost = await client.PostAsync("OrdersApi", newContent);
+
+                    if (!ResPost.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Post new Order has failed!")); }
+                }
 
                 //Get orders by CustId
                 client.DefaultRequestHeaders.Clear();
@@ -73,8 +93,9 @@ namespace ChajdPizzaWebApp.Controllers
                 {
                     var ordersRes = ResO.Content.ReadAsStringAsync().Result;
 
-                    orders = JsonConvert.DeserializeObject<Orders>(ordersRes);
+                    order = JsonConvert.DeserializeObject<Orders>(ordersRes);
                 }
+                else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
 
                 //Get SpecialtyPizzaDetails
                 client.DefaultRequestHeaders.Clear();
@@ -88,16 +109,17 @@ namespace ChajdPizzaWebApp.Controllers
 
                     specialtyPizza = JsonConvert.DeserializeObject<SpecialtyPizza>(SpecialRes);
                 }
-                
+                else if (!ResP.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get Specialty Pizza Details has failed!")); }
 
+                orderDetail.OrderId = order.Id;
+                orderDetail.Price = specialtyPizza.Price;
+                orderDetail.SizeId = 2;
+                orderDetail.ToppingsSelected = specialtyPizza.Description;
             }
             
-            OrderDetail orderDetail = new OrderDetail();
-
-          
-            
 
 
+ 
             return View("../Customers/Details" , customer);
         }
     }

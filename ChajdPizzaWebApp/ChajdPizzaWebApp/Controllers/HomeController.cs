@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Text;
+using ChajdPizzaWebApp.ViewModels;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -39,10 +40,30 @@ namespace ChajdPizzaWebApp.Controllers
             CheckIfUserLoggedIn();
             return View();
         }
-        public IActionResult TestingToping()
+        [HttpGet]
+        public async Task<IActionResult> TestingToping()
         {
+            var customorder = new CreateCustomViewModel();
             CheckIfUserLoggedIn();
-            return View();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
+                //GetAllSizes
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage ResC = await client.GetAsync("pizzatypesapi/sizes");
+                HttpResponseMessage ResT = await client.GetAsync("pizzatypesapi/toppings");
+                if (ResC.IsSuccessStatusCode)
+                {
+                    var sizesRes = ResC.Content.ReadAsStringAsync().Result;
+                    var toppingsRes = ResT.Content.ReadAsStringAsync().Result;
+                    customorder.Sizes = JsonConvert.DeserializeObject<List<Size>>(sizesRes);
+                    customorder.Toppings = JsonConvert.DeserializeObject<List<Toppings>>(toppingsRes);
+                }
+            }
+
+            return View(customorder);
         }
         public IActionResult Menu()
         {
