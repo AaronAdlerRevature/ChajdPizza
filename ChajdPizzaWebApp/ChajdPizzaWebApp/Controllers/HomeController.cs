@@ -14,7 +14,6 @@ namespace ChajdPizzaWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        SignInManager<IdentityUser> _signInManager;
         UserManager<IdentityUser> _userManager;
 
         public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager)
@@ -61,7 +60,10 @@ namespace ChajdPizzaWebApp.Controllers
                     string guestID = Request.Cookies["GuestID"];
                     Response.Cookies.Delete("GuestID");
                     Response.Cookies.Delete("GuestName");
+
                     // Update current currentlogin order for guest order. 
+                    string SPS =_userManager.GetUserId(User);
+
 
                 }
             }
