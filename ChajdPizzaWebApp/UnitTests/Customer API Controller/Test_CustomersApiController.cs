@@ -165,8 +165,7 @@ namespace UnitTests
 
             #endregion
         }
-
-
+        
         [TestMethod]
         public void GetCustomersByUserName_InvalidUser()
         {
@@ -189,6 +188,44 @@ namespace UnitTests
 
             Assert.AreNotEqual(result.Id, 1);
             Assert.AreNotEqual(result.Name, "John Doe");
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void PutCustomer_Valid()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+            Customer testData = new Customer()
+            {
+                Id = 1,
+                Name = "Jane Doe",
+                UserName = "MyEmail@Email.com",
+                Street = "123 A Street",
+                City = "There",
+                StateID = 1,
+                ZipCode = 10000,
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PutCustomer(1,testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result;
+            Customer resultData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NoContentResult);
+            Assert.AreEqual(resultData.Name, "Jane Doe");
+            Assert.AreEqual(resultData.City, "There");
 
             #endregion
         }
