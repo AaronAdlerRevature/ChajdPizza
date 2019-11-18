@@ -23,8 +23,16 @@ namespace ChajdPizzaWebApp.Repositories
 
         public async Task<Orders> SelectByCustId(int? id)
         {
-            var account = await _context.Orders.FirstOrDefaultAsync(o => o.CustomerId == id);
-            return account;
+            var Order = await _context.Orders.FirstOrDefaultAsync(o => o.CustomerId == id && o.isCompleted == false);
+
+            return Order;
+        }
+
+        public async Task<Orders> SelectMultByCustId(int? id, int Oid)
+        {
+            var Order = await _context.Orders.FirstOrDefaultAsync(o => o.CustomerId == id && o.isCompleted == false && o.Id != Oid);
+
+            return Order;
         }
 
         public async Task<List<Orders>> SelectAll()

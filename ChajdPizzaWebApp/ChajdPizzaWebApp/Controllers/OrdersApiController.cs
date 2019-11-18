@@ -44,7 +44,7 @@ namespace ChajdPizzaWebApp.Controllers
         }
 
         [HttpGet("ByCust/{id}")]
-        public async Task<ActionResult<Orders>> GetOrdersByCust(int id)
+        public async Task<ActionResult<Orders>> GetOrderByCust(int id)
         {
             var order = await _repo.SelectByCustId(id);
 
@@ -54,6 +54,17 @@ namespace ChajdPizzaWebApp.Controllers
             }
 
             return order;
+        }
+        [HttpGet("CheckMultByCust/{id}")]
+        public async Task<ActionResult<bool>> CheckMultOpenOrders(int id)
+        {
+            var order = GetOrderByCust(id);
+            var multOrder = await _repo.SelectMultByCustId(id, order.Id);
+            if (multOrder is null)
+            {
+                return false;
+            }
+            else { return true; }
         }
 
 
