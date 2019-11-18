@@ -94,10 +94,7 @@ namespace ChajdPizzaWebApp.Controllers
             
             OrderDetail orderDetail = new OrderDetail();
 
-          
-            
-
-
+ 
             return View("../Customers/Details" , customer);
         }
     }
