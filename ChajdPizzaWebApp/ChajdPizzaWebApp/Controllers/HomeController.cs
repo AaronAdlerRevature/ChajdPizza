@@ -23,36 +23,36 @@ namespace ChajdPizzaWebApp.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
 
-            if (User != null)
-            {
+            //if (User != null)
+            //{
 
-            }
-            else
-            {
-                var g = _userManager.FindByNameAsync("GUEST");
-                g.Wait();
-                var o = g.Result;
+            //}
+            //else
+            //{
+            //    var g = _userManager.FindByNameAsync("GUEST");
+            //    g.Wait();
+            //    var o = g.Result;
 
-                if (o == null)
-                {
-                    IdentityUser z = new IdentityUser("GUEST")
-                    {
-                        Email = "g@g.g",
-                        EmailConfirmed = true,
-                        NormalizedEmail = "G@G.G"
-                    };
+            //    if (o == null)
+            //    {
+            //        IdentityUser z = new IdentityUser("GUEST")
+            //        {
+            //            Email = "g@g.g",
+            //            EmailConfirmed = true,
+            //            NormalizedEmail = "G@G.G"
+            //        };
 
-                    var q = _userManager.CreateAsync(z, "PASSword1!");
-                    q.Wait();
-                    var t = q.Result;
+            //        var q = _userManager.CreateAsync(z, "PASSword1!");
+            //        q.Wait();
+            //        var t = q.Result;
 
-                }
-                else
-                {
-                    var tu = _userManager.CheckPasswordAsync(o, "PASSword1!");
-                    tu.Wait();
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        var tu = _userManager.CheckPasswordAsync(o, "PASSword1!");
+            //        tu.Wait();
+            //    }
+            //}
         }
 
         public IActionResult Index()
@@ -105,8 +105,21 @@ namespace ChajdPizzaWebApp.Controllers
                 }
                 else
                 {
-                    Response.Cookies.Append("GuestID", "1");
-                    Response.Cookies.Append("GuestName", "Guest");
+                    var inte = _userManager.Users.Where(u => u.UserName.StartsWith("GUEST")).Count();
+
+                    // Create new guest user.
+                    IdentityUser z = new IdentityUser(string.Format("GUEST{0}", inte.ToString()));
+                    {
+                    };
+
+                    var query = _userManager.CreateAsync(z, "PASSword1!");
+                    query.Wait();
+                    var qResult = query.Result;
+                    if (qResult.Succeeded)
+                    {
+                        Response.Cookies.Append("GuestName", string.Format("Guest{0}", inte.ToString()));
+                        Response.Cookies.Append("GuestID", z.Id);
+                    }
                 }
             }
         }
