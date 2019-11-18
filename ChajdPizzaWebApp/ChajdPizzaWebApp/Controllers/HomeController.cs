@@ -66,6 +66,8 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 if (Request.Cookies.ContainsKey("GuestID"))
                 {
+                    // URL for API.
+                    string url = "http://localhost:10531/";
                     string guestID = Request.Cookies["GuestID"];
                     Response.Cookies.Delete("GuestID");
                     Response.Cookies.Delete("GuestName");
@@ -82,7 +84,6 @@ namespace ChajdPizzaWebApp.Controllers
                         customerAPI.DefaultRequestHeaders.Accept.Add(
                             new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        string url = "http://localhost:10531/";
                         string api = "api/CustomersApi/ByUser/";
 
                         var customerStringTask = customerAPI.GetStringAsync(url + api + guestID);
@@ -97,7 +98,6 @@ namespace ChajdPizzaWebApp.Controllers
                         orderAPI.DefaultRequestHeaders.Accept.Add(
                             new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        url = "http://localhost:10531/";
                         api = "api/OrdersApi/ByCust/";
 
                         var stringTask = orderAPI.GetStringAsync(url + api + guestID);
@@ -114,7 +114,6 @@ namespace ChajdPizzaWebApp.Controllers
                         orderAPI.DefaultRequestHeaders.Accept.Add(
                             new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        url = "http://localhost:10531/";
                         api = "api/OrdersApi/";
                         var newData = JsonConvert.SerializeObject(currentOrder);
                         var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
