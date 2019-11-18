@@ -85,9 +85,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<bool> Remove(Customer customer)
+        public async Task<bool> Remove(Customer customer)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            if (customerList.Contains(customer))
+            {
+                customerList.Remove(customer);
+                result = true;
+            }
+            await Task.Delay(10);
+
+            return result;
         }
 
         public async Task<List<Customer>> SelectAll()
