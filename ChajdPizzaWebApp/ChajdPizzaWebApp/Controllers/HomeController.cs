@@ -17,42 +17,10 @@ namespace ChajdPizzaWebApp.Controllers
         SignInManager<IdentityUser> _signInManager;
         UserManager<IdentityUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
-            _signInManager = signInManager;
             _userManager = userManager;
-
-            //if (User != null)
-            //{
-
-            //}
-            //else
-            //{
-            //    var g = _userManager.FindByNameAsync("GUEST");
-            //    g.Wait();
-            //    var o = g.Result;
-
-            //    if (o == null)
-            //    {
-            //        IdentityUser z = new IdentityUser("GUEST")
-            //        {
-            //            Email = "g@g.g",
-            //            EmailConfirmed = true,
-            //            NormalizedEmail = "G@G.G"
-            //        };
-
-            //        var q = _userManager.CreateAsync(z, "PASSword1!");
-            //        q.Wait();
-            //        var t = q.Result;
-
-            //    }
-            //    else
-            //    {
-            //        var tu = _userManager.CheckPasswordAsync(o, "PASSword1!");
-            //        tu.Wait();
-            //    }
-            //}
         }
 
         public IActionResult Index()
@@ -109,8 +77,6 @@ namespace ChajdPizzaWebApp.Controllers
 
                     // Create new guest user.
                     IdentityUser z = new IdentityUser(string.Format("GUEST{0}", inte.ToString()));
-                    {
-                    };
 
                     var query = _userManager.CreateAsync(z, "PASSword1!");
                     query.Wait();
