@@ -2,6 +2,7 @@
 using ChajdPizzaWebApp.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -66,9 +67,12 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<Customer> SelectById(int? id)
+        public async Task<Customer> SelectById(int? id)
         {
-            throw new NotImplementedException();
+            var result = customerList.Where(c => c.Id == id).FirstOrDefault();
+            await Task.Delay(10);
+
+            return result;
         }
 
         public Task<Customer> SelectByUser(string Username)
