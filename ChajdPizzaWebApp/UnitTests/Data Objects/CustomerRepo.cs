@@ -40,9 +40,19 @@ namespace UnitTests.Data_Objects
             });
         }
 
-        public Task<bool> Add(Customer customer)
+        public async Task<bool> Add(Customer customer)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            var query = customerList.Where(c => c.Id == customer.Id);
+            await Task.Delay(10);
+            if (query.Count() < 1)
+            {
+                customerList.Add(customer);
+                result = true;
+            }
+
+            return result;
         }
 
         public bool CustomerExists(int id)
