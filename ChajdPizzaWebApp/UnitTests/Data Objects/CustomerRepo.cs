@@ -69,8 +69,14 @@ namespace UnitTests.Data_Objects
 
         public async Task<Customer> SelectById(int? id)
         {
-            var result = customerList.Where(c => c.Id == id).FirstOrDefault();
+            Customer result = null;
+
+            var query = customerList.Where(c => c.Id == id);
             await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
 
             return result;
         }
