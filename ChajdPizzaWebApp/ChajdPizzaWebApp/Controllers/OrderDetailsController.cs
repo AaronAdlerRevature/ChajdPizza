@@ -44,8 +44,8 @@ namespace ChajdPizzaWebApp.Controllers
             return View(orderDetail);
         }
 
-        [Route("Customers/DetailsOfOrder/{orderId}")]
-        public IActionResult DetailsOfOrder(int orderId)
+        //[Route("DetailsOfOrder")]
+        public IActionResult DetailsOfOrder()
         {
             //if(orderId != null)
             string returnUrl = Url.Content("~/");

@@ -1,4 +1,4 @@
-﻿@model ChajdPizzaWebApp.Models.OrderDetail
+﻿
 
 @{
     ViewData["Title"] = "DetailsOfOrder";
@@ -11,42 +11,42 @@
 
 </div>
 
-<script>
-@*
 
-            $('#create').click(function (e) 
-            onload;
+<script>
+    GetDetails();
+
+            //$('#create').click(function (e) );
+            //onload;
             function GetDetails() {
-	            var url = "~/api/DetailsOfOrder/{orderId}";
+	            var url = "/api/OrderDetailsApi/DetailsOfOrder/1";
 	            $.ajax({
 		            contentType: 'application/json',
 		            type: "GET",
 		            url: url,
-		            data: JSON.stringify({
-			            orderId: @model.Id
-		            }),
-		            success: function (data, textStatus, jqXHR){
-			            $("#postResult").val("Person created ok, Id="jqXHR.responseText);
-			            //.val(data.name)
-			            //data.foreach(function (person){ ("#".val($("#").val
-		            },
+		          @*   data: JSON.stringify({
+			            orderId: 1 @model.Id
+		            }),*@
 
                     success: function (data) {
-                    if(data.length > 0){
+                    
+                        if(data.length > 0){
                             var value1 = data[0].fieldName; // this value1 you can assign it into your textbox
-                    }},
+                            var details = data;
+                                $.each(details, function () {
+                                    console.log("ID: " + this.id);
+                                    console.log("Order ID: " + this.orderId);
+                                    console.log("Size ID: " + this.sizeId);
+                                    console.log("Toppings: " + this.toppingsSelected);
+                                    console.log("No. of Toppings: " + this.toppingsCount);
+                                    console.log("Special Request: " + this.specialRequest);
+                                    console.log(" ");   
+                                });
+                        }
+                    },
                     error: function (data) {
                         failure(data);
                     }
-
-		            error: function (jqXHR, textStatus, errorThrown) {
-			            $("#postResult").val(jqXHR.statusText);
-		            }
 	            });
-            });
-
-
-
-            *@
+            };
 
 </script>
