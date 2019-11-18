@@ -297,5 +297,48 @@ namespace UnitTests
         //    Assert.AreEqual(resultData.City, "Here");
         //    #endregion
         //}
+
+        [TestMethod]
+        public void PostCustomer_Valid()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+            Customer testData = new Customer()
+            {
+                Id = 3,
+                Name = "Jane Doe",
+                UserName = "SomeEmail@Email.com",
+                Street = "999 Q Street",
+                City = "NoWhere",
+                StateID = 3,
+                ZipCode = 30000,
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PostCustomer(testData);
+            taskReturn.Wait();
+            var resultStatus = taskReturn.Result.Result;
+            var resultData = resultStatus as CreatedAtActionResult;
+            Customer checkData = testRepo.SelectById(3).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(resultStatus is CreatedAtActionResult);
+            Assert.AreEqual(resultData.StatusCode, 201);
+            Assert.AreEqual(resultData.RouteValues["id"], 3);
+
+            Assert.AreEqual(checkData.Name, "Jane Doe");
+            Assert.AreEqual(checkData.City, "NoWhere");
+            Assert.AreEqual(checkData.Id, 3);
+
+            #endregion
+        }
     }
 }
