@@ -214,7 +214,7 @@ namespace UnitTests
 
             #region ACT
 
-            var taskReturn = testController.PutCustomer(1,testData);
+            var taskReturn = testController.PutCustomer(1, testData);
             taskReturn.Wait();
             var result = taskReturn.Result;
             Customer resultData = testRepo.SelectById(1).Result;
@@ -226,6 +226,44 @@ namespace UnitTests
             Assert.IsTrue(result is NoContentResult);
             Assert.AreEqual(resultData.Name, "Jane Doe");
             Assert.AreEqual(resultData.City, "There");
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void PutCustomer_InvalidID()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+            Customer testData = new Customer()
+            {
+                Id = 1,
+                Name = "Jane Doe",
+                UserName = "MyEmail@Email.com",
+                Street = "123 A Street",
+                City = "There",
+                StateID = 1,
+                ZipCode = 10000,
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PutCustomer(2, testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result;
+            Customer resultData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is BadRequestResult);
+            Assert.AreEqual(resultData.Name, "John Doe");
+            Assert.AreEqual(resultData.City, "Here");
 
             #endregion
         }
