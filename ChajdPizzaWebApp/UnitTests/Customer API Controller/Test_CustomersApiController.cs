@@ -88,5 +88,31 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetCustomersByID_IncorrectID()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetCustomer(2);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(result.Name, "John Doe");
+            Assert.AreNotEqual(result.UserName, "MyEmail@Email.com");
+
+            #endregion
+        }
     }
 }
