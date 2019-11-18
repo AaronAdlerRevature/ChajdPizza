@@ -68,7 +68,43 @@ namespace ChajdPizzaWebApp.Controllers
 
                     // Update current currentlogin order for guest order. 
                     string SPS =_userManager.GetUserId(User);
+                    int userID = 0;
 
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    string url = "http://localhost:10531/";
+                    string api = "api/OrdersApi/ByCust/";
+
+                    try
+                    {
+                        var stringTask = client.GetStringAsync(url + api + guestID);
+                        stringTask.Wait();
+                        var httpResult = stringTask.Result;
+                        var currentOrder = JsonConvert.DeserializeObject<Orders>(httpResult);
+
+                        currentOrder.CustomerId = 0;
+
+                        // PUT action.
+                        client = new HttpClient();
+                        client.DefaultRequestHeaders.Accept.Clear();
+                        client.DefaultRequestHeaders.Accept.Add(
+                            new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        url = "http://localhost:10531/";
+                        api = "api/OrdersApi/";
+                        var newData = JsonConvert.SerializeObject(currentOrder);
+                        var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+
+                        client.PutAsync(url + api + guestID, newContent);
+                    }
+                    catch (Exception WTF)
+                    {
+                        // 404 Not Found! error or failed.
+                        Console.WriteLine(WTF);
+                    }
 
                 }
             }
