@@ -14,69 +14,50 @@ namespace ChajdPizzaWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        SignInManager<IdentityUser> _signInManager;
+        UserManager<IdentityUser> _userManager;
 
         public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
-            var x = userManager;
+            _logger = logger;
+            _signInManager = signInManager;
+            _userManager = userManager;
 
-            var g = userManager.FindByNameAsync("GUEST");
-            g.Wait();
-            var o = g.Result;
-
-            //if (TempData["User"]!= null)
-            //{
-            //    var me = TempData["User"];
-
-            //    Console.WriteLine(me);
-            //}
-
-            if (o == null)
+            if (User != null)
             {
-
-                IdentityUser z = new IdentityUser("GUEST")
-                {
-                    //Email = "",
-                };
-                
-                var q = userManager.CreateAsync(z, "PASSword1!");
-
-                q.Wait();
-                var t = q.Result;
 
             }
             else
             {
-                //if (TempData["User"] != null)
-                //{
-                //    var me = TempData["User"];
+                var g = _userManager.FindByNameAsync("GUEST");
+                g.Wait();
+                var o = g.Result;
 
-                //    Console.WriteLine(me);
-                //}
-
-                //signInManager.SignInAsync(o, false);
-                var tu = userManager.CheckPasswordAsync(o, "PASSword1!");
-                tu.Wait();
-                if (tu.Result)
+                if (o == null)
                 {
-                    int wwo = 0;
-                    wwo = 10;
+                    IdentityUser z = new IdentityUser("GUEST")
+                    {
+                        Email = "g@g.g",
+                        EmailConfirmed = true,
+                        NormalizedEmail = "G@G.G"
+                    };
 
-                    //TempData["USER"] = o.UserName;
+                    var q = _userManager.CreateAsync(z, "PASSword1!");
+                    q.Wait();
+                    var t = q.Result;
+
                 }
                 else
                 {
-                    int wwo = 0;
-                    wwo = 10;
-
+                    var tu = _userManager.CheckPasswordAsync(o, "PASSword1!");
+                    tu.Wait();
                 }
             }
-
-            
-             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            CheckIfUserLoggedIn();
             return View();
         }
 
@@ -101,6 +82,33 @@ namespace ChajdPizzaWebApp.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private void CheckIfUserLoggedIn()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (Request.Cookies.ContainsKey("GuestID"))
+                {
+                    string guestID = Request.Cookies["GuestID"];
+                    Response.Cookies.Delete("GuestID");
+                    Response.Cookies.Delete("GuestName");
+                    // Update current currentlogin order for guest order. 
+
+                }
+            }
+            else
+            {
+                if (Request.Cookies.ContainsKey("GuestName"))
+                {
+
+                }
+                else
+                {
+                    Response.Cookies.Append("GuestID", "1");
+                    Response.Cookies.Append("GuestName", "Guest");
+                }
+            }
         }
     }
 }
