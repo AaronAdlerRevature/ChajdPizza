@@ -165,5 +165,32 @@ namespace UnitTests
 
             #endregion
         }
+
+
+        [TestMethod]
+        public void GetCustomersByUserName_InvalidUser()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetCustomerByUser("HerEmail@Email.com");
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(result.Id, 1);
+            Assert.AreNotEqual(result.Name, "John Doe");
+
+            #endregion
+        }
     }
 }
