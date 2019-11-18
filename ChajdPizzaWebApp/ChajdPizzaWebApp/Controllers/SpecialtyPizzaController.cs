@@ -22,7 +22,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
             var Username = User.Identity.Name;
             Customer customer = new Customer();
-            IEnumerable<Orders> orders = null;
+            Orders orders = null;
 
             SpecialtyPizza specialtyPizza = new SpecialtyPizza();
            
@@ -50,14 +50,18 @@ namespace ChajdPizzaWebApp.Controllers
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add
                     (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResCh = await client.GetAsync("OrdersApi/CheckMult/" + custId);
-
+                HttpResponseMessage ResCh = await client.GetAsync("OrdersApi/CheckMultByCust/" + custId);
+                var isMult = false;
                 if (ResCh.IsSuccessStatusCode)
                 {
-                    var ordersRes = ResCh.Content.ReadAsStringAsync().Result;
+                    var CheckRes = ResCh.Content.ReadAsStringAsync().Result;
 
-                    orders = JsonConvert.DeserializeObject<IEnumerable<Orders>>(ordersRes);
+                    isMult = JsonConvert.DeserializeObject<bool>(CheckRes);
                 }
+                else if (!ResCh.IsSuccessStatusCode) { return View("../Shared/Error", new Exception("Check mult has failed")); }
+                if (isMult) { return View("../Shared/Error", new Exception("There are multiple open orders for this customer.")); }
+
+                
 
                 //Get orders by CustId
                 client.DefaultRequestHeaders.Clear();
@@ -69,7 +73,7 @@ namespace ChajdPizzaWebApp.Controllers
                 {
                     var ordersRes = ResO.Content.ReadAsStringAsync().Result;
 
-                    orders = JsonConvert.DeserializeObject<IEnumerable<Orders>>(ordersRes);
+                    orders = JsonConvert.DeserializeObject<Orders>(ordersRes);
                 }
 
                 //Get SpecialtyPizzaDetails
@@ -86,15 +90,6 @@ namespace ChajdPizzaWebApp.Controllers
                 }
                 
 
-            }
-
-            try
-            {
-                Orders order = (Orders)Orderlogic.CheckOpenOrder(orders);
-            }
-            catch(Exception e)
-            {
-                return View("../Shared/Error", e);
             }
             
             OrderDetail orderDetail = new OrderDetail();

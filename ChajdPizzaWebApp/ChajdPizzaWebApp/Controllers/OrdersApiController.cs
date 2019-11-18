@@ -58,7 +58,13 @@ namespace ChajdPizzaWebApp.Controllers
         [HttpGet("CheckMultByCust/{id}")]
         public async Task<ActionResult<bool>> CheckMultOpenOrders(int id)
         {
-            var order = GetOrderByCust(id);
+            var order = await _repo.SelectByCustId(id);
+
+            if (order == null)
+            {
+                return false;
+            }
+
             var multOrder = await _repo.SelectMultByCustId(id, order.Id);
             if (multOrder is null)
             {
