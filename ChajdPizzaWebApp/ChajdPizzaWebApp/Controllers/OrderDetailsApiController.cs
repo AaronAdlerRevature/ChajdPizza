@@ -11,7 +11,7 @@ using ChajdPizzaWebApp.Repositories;
 
 namespace ChajdPizzaWebApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Details")]
     [ApiController]
     public class OrderDetailsApiController : ControllerBase
     {
@@ -44,13 +44,13 @@ namespace ChajdPizzaWebApp.Controllers
         }
 
         [HttpGet("/DetailsOfOrder/{orderId}")]
-        //[Route("Customers/DetailsOfOrder/{orderId}")]
+        //[Route("/DetailsOfOrder/{orderId}")]
         public async Task<ActionResult<List<OrderDetail>>> GetDetailsOfAnOrder(int orderId)
         {
             var orderDetails = await _repo.SelectOrderAllDetails(orderId);
             if(orderDetails == null)
             {
-                return orderDetails;
+                return NotFound();
             }
             return orderDetails;
         }

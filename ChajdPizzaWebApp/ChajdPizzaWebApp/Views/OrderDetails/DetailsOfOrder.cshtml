@@ -14,14 +14,16 @@
 <script>
 @*
 
-            $('#create').click(function (e) {
-	            var url = "~/api/Customers/DetailsOfOrder/{orderId}";
+            $('#create').click(function (e) 
+            onload;
+            function GetDetails() {
+	            var url = "~/api/DetailsOfOrder/{orderId}";
 	            $.ajax({
 		            contentType: 'application/json',
 		            type: "GET",
 		            url: url,
 		            data: JSON.stringify({
-			            name: document.getElementById('name').value
+			            orderId: @model.Id
 		            }),
 		            success: function (data, textStatus, jqXHR){
 			            $("#postResult").val("Person created ok, Id="jqXHR.responseText);
