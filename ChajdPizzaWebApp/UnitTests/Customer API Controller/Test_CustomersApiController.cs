@@ -35,7 +35,32 @@ namespace UnitTests
             Assert.AreEqual(testList[0].Name, "John Doe");
 
             #endregion
+        }
 
+        [TestMethod]
+        public void GetCustomersByID_Valid()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetCustomer(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(result.Name, "John Doe");
+            Assert.AreEqual(result.UserName, "MyEmail@Email.com");
+
+            #endregion
         }
     }
 }
