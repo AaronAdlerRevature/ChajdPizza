@@ -44,7 +44,7 @@ namespace ChajdPizzaWebApp.Controllers
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add
                     (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResC = await client.GetAsync("CustomersApi/ByUser/Customer01@aol.com");// + Username);
+                HttpResponseMessage ResC = await client.GetAsync("CustomersApi/ByUser/" + Username);
 
                 if (ResC.IsSuccessStatusCode)
                 {
@@ -53,7 +53,31 @@ namespace ChajdPizzaWebApp.Controllers
                     customer = JsonConvert.DeserializeObject<Customer>(customerRes);
                 }
 
+                var custId = customer.Id;
 
+                //Get orders by CustId
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage ResO = await client.GetAsync("OrdersApi/ByCust/" + custId);
+
+                if (ResO.IsSuccessStatusCode)
+                {
+                    var ordersRes = ResO.Content.ReadAsStringAsync().Result;
+
+                    orders = JsonConvert.DeserializeObject<IEnumerable<Orders>>(ordersRes);
+                }
+            }
+
+            Orders order = new Orders();
+            OrderDetail orderDetail = new OrderDetail();
+
+            foreach (var item in orders)
+            {
+                if(item.isCompleted == false)
+                {
+                    order = item;
+                }
             }
             
 

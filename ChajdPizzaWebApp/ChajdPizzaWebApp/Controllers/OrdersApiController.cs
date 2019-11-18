@@ -43,6 +43,19 @@ namespace ChajdPizzaWebApp.Controllers
             return order;
         }
 
+        [HttpGet("ByCust/{id}")]
+        public async Task<ActionResult<Orders>> GetOrdersByCust(int id)
+        {
+            var order = await _repo.SelectByCustId(id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return order;
+        }
+
 
 
 
