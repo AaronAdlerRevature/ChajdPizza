@@ -119,10 +119,7 @@ namespace ChajdPizzaWebApp.Controllers
             
 
 
-          
-            
-
-
+ 
             return View("../Customers/Details" , customer);
         }
     }
