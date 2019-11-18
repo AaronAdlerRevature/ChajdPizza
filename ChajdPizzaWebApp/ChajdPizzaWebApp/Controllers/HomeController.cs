@@ -35,18 +35,22 @@ namespace ChajdPizzaWebApp.Controllers
 
         public IActionResult Deals()
         {
+            CheckIfUserLoggedIn();
             return View();
         }
         public IActionResult TestingToping()
         {
+            CheckIfUserLoggedIn();
             return View();
         }
         public IActionResult Menu()
         {
+            CheckIfUserLoggedIn();
             return View();
         }
         public IActionResult Privacy()
         {
+            CheckIfUserLoggedIn();
             return View();
         }
 
@@ -70,27 +74,44 @@ namespace ChajdPizzaWebApp.Controllers
                     string SPS =_userManager.GetUserId(User);
                     int userID = 0;
 
-                    HttpClient client = new HttpClient();
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    string url = "http://localhost:10531/";
-                    string api = "api/OrdersApi/ByCust/";
-
                     try
                     {
-                        var stringTask = client.GetStringAsync(url + api + guestID);
+                        // Get newly logged in customer id.
+                        HttpClient customerAPI = new HttpClient();
+                        customerAPI.DefaultRequestHeaders.Accept.Clear();
+                        customerAPI.DefaultRequestHeaders.Accept.Add(
+                            new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        string url = "http://localhost:10531/";
+                        string api = "api/CustomersApi/ByUser/";
+
+                        var customerStringTask = customerAPI.GetStringAsync(url + api + guestID);
+                        customerStringTask.Wait();
+                        var customerHttpResult = customerStringTask.Result;
+                        var currentCustomer = JsonConvert.DeserializeObject<Customer>(customerHttpResult);
+                        userID = currentCustomer.Id;
+
+                        // Get previous guest order id.
+                        HttpClient orderAPI = new HttpClient();
+                        orderAPI.DefaultRequestHeaders.Accept.Clear();
+                        orderAPI.DefaultRequestHeaders.Accept.Add(
+                            new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        url = "http://localhost:10531/";
+                        api = "api/OrdersApi/ByCust/";
+
+                        var stringTask = orderAPI.GetStringAsync(url + api + guestID);
                         stringTask.Wait();
                         var httpResult = stringTask.Result;
                         var currentOrder = JsonConvert.DeserializeObject<Orders>(httpResult);
 
-                        currentOrder.CustomerId = 0;
+                        // Update order id for newly logged in customer.
+                        currentOrder.CustomerId = userID;
 
-                        // PUT action.
-                        client = new HttpClient();
-                        client.DefaultRequestHeaders.Accept.Clear();
-                        client.DefaultRequestHeaders.Accept.Add(
+                        // Update order for new customerId.
+                        orderAPI = new HttpClient();
+                        orderAPI.DefaultRequestHeaders.Accept.Clear();
+                        orderAPI.DefaultRequestHeaders.Accept.Add(
                             new MediaTypeWithQualityHeaderValue("application/json"));
 
                         url = "http://localhost:10531/";
@@ -98,14 +119,13 @@ namespace ChajdPizzaWebApp.Controllers
                         var newData = JsonConvert.SerializeObject(currentOrder);
                         var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
 
-                        client.PutAsync(url + api + guestID, newContent);
+                        orderAPI.PutAsync(url + api + guestID, newContent);
                     }
                     catch (Exception WTF)
                     {
                         // 404 Not Found! error or failed.
                         Console.WriteLine(WTF);
                     }
-
                 }
             }
             else
@@ -126,7 +146,7 @@ namespace ChajdPizzaWebApp.Controllers
                     var qResult = query.Result;
                     if (qResult.Succeeded)
                     {
-                        Response.Cookies.Append("GuestName", z.Id);
+                        Response.Cookies.Append("GuestName", z.UserName);
 
                         Customer guestCustomer = new Customer()
                         {
