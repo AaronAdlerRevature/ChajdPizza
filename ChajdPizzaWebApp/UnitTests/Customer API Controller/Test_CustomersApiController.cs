@@ -340,5 +340,35 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void DeleteCustomer_Valid()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.DeleteCustomer(1);
+            taskReturn.Wait();
+            var resultData = taskReturn.Result.Value;
+            Customer checkData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(resultData.Name, "John Doe");
+            Assert.AreEqual(resultData.City, "Here");
+            Assert.AreEqual(resultData.Id, 1);
+
+            Assert.IsNull(checkData);
+
+            #endregion
+        }
     }
 }
