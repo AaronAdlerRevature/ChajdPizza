@@ -370,5 +370,33 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void DeleteCustomer_NonExistingCustomer()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.DeleteCustomer(0);
+            taskReturn.Wait();
+            var resultStatus = taskReturn.Result.Result;
+            int checkData = testRepo.SelectAll().Result.Count;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(resultStatus is NotFoundResult);
+            
+            Assert.AreEqual(checkData, 2);
+
+            #endregion
+        }
     }
 }
