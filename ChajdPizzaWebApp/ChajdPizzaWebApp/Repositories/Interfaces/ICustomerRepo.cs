@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Repositories.Interfaces
 {
-    interface ICustomerRepo
+    public interface ICustomerRepo
     {
         public Task<Customer> SelectById(int? id);
 
