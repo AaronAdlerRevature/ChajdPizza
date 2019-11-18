@@ -81,9 +81,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<Customer> SelectByUser(string Username)
+        public async Task<Customer> SelectByUser(string Username)
         {
-            throw new NotImplementedException();
+            Customer result = null;
+
+            var query = customerList.Where(c => c.UserName == Username);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;
         }
 
         public Task<bool> Update(Customer customer)
