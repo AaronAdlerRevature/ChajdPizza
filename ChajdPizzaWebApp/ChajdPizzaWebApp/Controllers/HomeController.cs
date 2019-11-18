@@ -8,6 +8,10 @@ using Microsoft.Extensions.Logging;
 using ChajdPizzaWebApp.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -85,7 +89,27 @@ namespace ChajdPizzaWebApp.Controllers
                     var qResult = query.Result;
                     if (qResult.Succeeded)
                     {
-                        Response.Cookies.Append("GuestName", string.Format("Guest{0}", inte.ToString()));
+                        Response.Cookies.Append("GuestName", z.Id);
+
+                        Customer guestCustomer = new Customer()
+                        {
+                            Id = 0,
+                            Name = string.Format("Guest{0}", inte.ToString()),
+                            UserName = z.Id,
+                            StateID = 1,
+                            ZipCode = 99999,
+                        };
+
+                        HttpClient newGuestRequest = new HttpClient();
+                        newGuestRequest.DefaultRequestHeaders.Accept.Clear();
+                        newGuestRequest.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        // Post command.
+                        string url = "http://localhost:10531/";
+                        string api = "api/CustomersApi";
+                       // HttpContent newContent = null;
+                       // newGuestRequest.PostAsync(url + api, newContent);
+
                         Response.Cookies.Append("GuestID", z.Id);
                     }
                 }
