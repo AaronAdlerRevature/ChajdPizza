@@ -58,9 +58,12 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<List<Customer>> SelectAll()
+        public async Task<List<Customer>> SelectAll()
         {
-            throw new NotImplementedException();
+            var result = new List<Customer>(customerList);
+            await Task.Delay(10);
+
+            return result;
         }
 
         public Task<Customer> SelectById(int? id)
