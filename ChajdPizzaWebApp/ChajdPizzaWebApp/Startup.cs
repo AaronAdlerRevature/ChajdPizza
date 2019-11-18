@@ -41,7 +41,7 @@ namespace ChajdPizzaWebApp
             services.AddTransient<IOrdersRepo, OrdersRepo>();
             services.AddTransient<ICustomerRepo, CustomerRepo>();
             services.AddTransient<OrderDetailsRepo>();
-            services.AddTransient<PizzaTypesRepo>();
+            services.AddTransient<IPizzaTypesRepo, PizzaTypesRepo>();
 
             services.AddMvc();
 
