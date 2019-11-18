@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -95,7 +96,7 @@ namespace ChajdPizzaWebApp.Controllers
                         {
                             Id = 0,
                             Name = string.Format("Guest{0}", inte.ToString()),
-                            UserName = z.Id,
+                            UserName = string.Format("Guest{0}", inte.ToString()),
                             StateID = 1,
                             ZipCode = 99999,
                         };
@@ -107,10 +108,16 @@ namespace ChajdPizzaWebApp.Controllers
                         // Post command.
                         string url = "http://localhost:10531/";
                         string api = "api/CustomersApi";
-                       // HttpContent newContent = null;
-                       // newGuestRequest.PostAsync(url + api, newContent);
 
-                        Response.Cookies.Append("GuestID", z.Id);
+                        var newData = JsonConvert.SerializeObject(guestCustomer);
+                        var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+                        var response = newGuestRequest.PostAsync(url + api, newContent);
+                        response.Wait();
+
+                        var httpResult = response.Result;
+                        var newID = httpResult.Headers.Location.ToString().Substring(httpResult.Headers.Location.ToString().LastIndexOf('/') + 1);
+
+                        Response.Cookies.Append("GuestID", newID);
                     }
                 }
             }
