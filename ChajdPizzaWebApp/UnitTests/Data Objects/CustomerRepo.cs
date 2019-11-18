@@ -49,9 +49,25 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<bool> Put(Customer customer)
+        public async Task<bool> Put(Customer customer)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            var query = customerList.Where(c => c.Id == customer.Id);
+            await Task.Delay(10);
+            if (query.Count()>0)
+            {
+                Customer currentCustomer = query.FirstOrDefault();
+                currentCustomer.Id = customer.Id;
+                currentCustomer.Name= customer.Name;
+                currentCustomer.UserName = customer.UserName;
+                currentCustomer.Street = customer.Street;
+                currentCustomer.City = customer.City;
+                currentCustomer.StateID = customer.StateID;
+                currentCustomer.ZipCode = customer.ZipCode;
+            }
+
+            return result;
         }
 
         public Task<bool> Remove(Customer customer)
