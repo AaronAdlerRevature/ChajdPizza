@@ -1,0 +1,50 @@
+﻿@model ChajdPizzaWebApp.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "DetailsOfOrder";
+}
+
+<h1>Order Details</h1>
+
+<div id="CurrentOrderDetails">
+    <h3>Under Construction</h3>
+
+</div>
+
+<script>
+@*
+
+            $('#create').click(function (e) {
+	            var url = "~/api/Customers/DetailsOfOrder/{orderId}";
+	            $.ajax({
+		            contentType: 'application/json',
+		            type: "GET",
+		            url: url,
+		            data: JSON.stringify({
+			            name: document.getElementById('name').value
+		            }),
+		            success: function (data, textStatus, jqXHR){
+			            $("#postResult").val("Person created ok, Id="jqXHR.responseText);
+			            //.val(data.name)
+			            //data.foreach(function (person){ ("#".val($("#").val
+		            },
+
+                    success: function (data) {
+                    if(data.length > 0){
+                            var value1 = data[0].fieldName; // this value1 you can assign it into your textbox
+                    }},
+                    error: function (data) {
+                        failure(data);
+                    }
+
+		            error: function (jqXHR, textStatus, errorThrown) {
+			            $("#postResult").val(jqXHR.statusText);
+		            }
+	            });
+            });
+
+
+
+            *@
+
+</script>
