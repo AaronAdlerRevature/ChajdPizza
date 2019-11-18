@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ChajdPizzaWebApp.Repositories;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ChajdPizzaWebApp
 {
@@ -40,6 +41,11 @@ namespace ChajdPizzaWebApp
             services.AddTransient<CustomerRepo>();
             services.AddTransient<OrderDetailsRepo>();
             services.AddTransient<PizzaTypesRepo>();
+
+            services.AddMvc();
+
+            // Add the temp data provider
+            services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +69,7 @@ namespace ChajdPizzaWebApp
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -21,6 +21,12 @@ namespace ChajdPizzaWebApp.Repositories
             return account;
         }
 
+        public async Task<Customer> SelectByUser(string Username)
+        {
+            var account = await _context.Customer.FirstOrDefaultAsync(o => o.UserName == Username);
+            return account;
+        }
+
         public async Task<List<Customer>> SelectAll()
         {
             var customers = await _context.Customer.ToListAsync();
