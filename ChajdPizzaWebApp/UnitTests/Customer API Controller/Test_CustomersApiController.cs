@@ -1,5 +1,6 @@
 using ChajdPizzaWebApp.Controllers;
 using ChajdPizzaWebApp.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using UnitTests.Data_Objects;
@@ -59,6 +60,31 @@ namespace UnitTests
 
             Assert.AreEqual(result.Name, "John Doe");
             Assert.AreEqual(result.UserName, "MyEmail@Email.com");
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void GetCustomersByID_NonExistentUser()
+        {
+            #region ASSIGN
+
+            CustomerRepo testRepo = new CustomerRepo();
+            CustomersApiController testController = new CustomersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetCustomer(0);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NotFoundResult);
 
             #endregion
         }
