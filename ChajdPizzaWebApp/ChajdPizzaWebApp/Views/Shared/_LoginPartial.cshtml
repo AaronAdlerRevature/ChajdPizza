@@ -16,6 +16,10 @@
                     <button type="submit" class="nav-link btn btn-link text-dark" style="float:right">Logout</button>
                 </form>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="orderdetails" asp-action="DetailsOfOrder"> <i class="fa fa-shopping-cart" style="font-size:24px;color:cornflowerblue"></i> Cart</a>
+            </li>
         }
         else
         {
@@ -25,8 +29,6 @@
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"> <i class="fa fa-fw fa-user"></i>Login</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="TestingToping"> <i class="fa fa-shopping-cart" style="font-size:24px;color:cornflowerblue"></i> Cart</a>
-            </li>
+
         }
     </ul>

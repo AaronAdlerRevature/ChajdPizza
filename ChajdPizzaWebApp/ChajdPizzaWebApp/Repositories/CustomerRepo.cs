@@ -1,5 +1,6 @@
 ﻿using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Repositories
 {
-    public class CustomerRepo
+    public class CustomerRepo : ICustomerRepo
     {
         private ApplicationDbContext _context;
         public CustomerRepo(ApplicationDbContext ctx)

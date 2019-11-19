@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -15,9 +16,9 @@ namespace ChajdPizzaWebApp.Controllers
     [ApiController]
     public class CustomersApiController : ControllerBase
     {
-        private readonly CustomerRepo _context;
+        private readonly ICustomerRepo _context;
 
-        public CustomersApiController(CustomerRepo context)
+        public CustomersApiController(ICustomerRepo context)
         {
             _context = context;
         }

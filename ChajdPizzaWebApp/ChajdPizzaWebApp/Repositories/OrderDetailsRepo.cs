@@ -1,5 +1,6 @@
 ﻿using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Repositories
 {
-    public class OrderDetailsRepo
+    public class OrderDetailsRepo : IOrderDetailsRepo
     {
         private ApplicationDbContext _context;
         public OrderDetailsRepo(ApplicationDbContext ctx)
@@ -27,13 +28,13 @@ namespace ChajdPizzaWebApp.Repositories
             return orderDetails;
         }
 
-        
+
         public async Task<List<OrderDetail>> SelectOrderAllDetails(int? orderId)
         {
             var orderDetails = await _context.OrderDetails.Where(i => i.OrderId == orderId).ToListAsync();
             return orderDetails;
         }
-        
+
         public async Task<bool> Add(OrderDetail orderDetail)
         {
 
