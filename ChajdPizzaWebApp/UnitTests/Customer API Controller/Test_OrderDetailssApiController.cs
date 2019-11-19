@@ -68,5 +68,31 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetOrderDetail_NonExistingID()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetOrderDetail(0);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
+
+            #endregion
+        }
     }
 }
