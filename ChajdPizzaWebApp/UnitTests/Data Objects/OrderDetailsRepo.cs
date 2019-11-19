@@ -80,9 +80,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<OrderDetail> SelectById(int? id)
+        public async Task<OrderDetail> SelectById(int? id)
         {
-            throw new NotImplementedException();
+            OrderDetail result = null;
+
+            var query = orderDetails.Where(o => o.Id == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;
         }
 
         public Task<List<OrderDetail>> SelectOrderAllDetails(int? orderId)
