@@ -9,9 +9,11 @@
 }
 alert(selectedItems);
 }
-  
-  function test() {
-      var radios = document.getElementsByName("radio");
+ 
+
+
+        function test() {
+            var radios = document.getElementsByName("radio");
         var found = 1;
     for (var i = 0; i < radios.length; i++) {       
     if (radios[i].checked) {
@@ -27,7 +29,9 @@ alert(selectedItems);
    }
    
    
-  
+   
+
+
 
         function myFunction(){
             printChecked();

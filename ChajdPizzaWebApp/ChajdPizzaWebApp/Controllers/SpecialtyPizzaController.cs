@@ -119,11 +119,16 @@ namespace ChajdPizzaWebApp.Controllers
             
 
 
+<<<<<<< HEAD
           
             
 
 
             return View("../Orders/SpecialtyPizzaOrder" , orderDetail);
+=======
+ 
+            return View("../Customers/Details" , customer);
+>>>>>>> 475400f2ba4fcd04d9e39e9ffe08339e8993bf18
         }
     }
 }

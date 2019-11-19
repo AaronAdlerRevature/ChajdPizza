@@ -8,14 +8,15 @@ using Microsoft.EntityFrameworkCore;
 using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 
 namespace ChajdPizzaWebApp.Controllers
 {
     public class OrderDetailsController : Controller
     {
-        private readonly OrderDetailsRepo _repo;
+        private readonly IOrderDetailsRepo _repo;
 
-        public OrderDetailsController(OrderDetailsRepo repo)
+        public OrderDetailsController(IOrderDetailsRepo repo)
         {
             _repo = repo;
         }
@@ -42,6 +43,23 @@ namespace ChajdPizzaWebApp.Controllers
             }
 
             return View(orderDetail);
+        }
+
+        //[Route("DetailsOfOrder")]
+        public IActionResult DetailsOfOrder()
+        {
+            //if(orderId != null)
+            string returnUrl = Url.Content("~/");
+            if (User.Identity.Name != null)
+            {
+                //var Order = 
+                return View();
+            }
+            else
+            {
+                return LocalRedirect(returnUrl);
+            }
+            
         }
 
         // GET: OrderDetails/Create

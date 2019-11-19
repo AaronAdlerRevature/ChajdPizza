@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ChajdPizzaWebApp.Repositories;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 
 namespace ChajdPizzaWebApp
 {
@@ -37,10 +38,10 @@ namespace ChajdPizzaWebApp
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddTransient<OrdersRepo>();
-            services.AddTransient<CustomerRepo>();
-            services.AddTransient<OrderDetailsRepo>();
-            services.AddTransient<PizzaTypesRepo>();
+            services.AddTransient<IOrdersRepo, OrdersRepo>();
+            services.AddTransient<ICustomerRepo, CustomerRepo>();
+            services.AddTransient<IOrderDetailsRepo, OrderDetailsRepo>();
+            services.AddTransient<IPizzaTypesRepo, PizzaTypesRepo>();
 
             services.AddMvc();
 

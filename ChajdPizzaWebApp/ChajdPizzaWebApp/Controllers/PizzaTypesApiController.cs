@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -14,9 +15,9 @@ namespace ChajdPizzaWebApp.Controllers
     [ApiController]
     public class PizzaTypesAPIController : ControllerBase
     {
-        private readonly PizzaTypesRepo _repo;
+        private readonly IPizzaTypesRepo _repo;
 
-        public PizzaTypesAPIController(PizzaTypesRepo repo)
+        public PizzaTypesAPIController(IPizzaTypesRepo repo)
         {
             _repo = repo;
         }

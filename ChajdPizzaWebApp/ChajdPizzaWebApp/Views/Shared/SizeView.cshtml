@@ -1,20 +1,19 @@
-﻿@model ChajdPizzaWebApp.Models.Size
+﻿@model IEnumerable<ChajdPizzaWebApp.Models.Size>
 
-<form asp-action="SizeView">
-    <p style="font-size:36px; color:brown; text-align:left">Please Select the Size</p>
-    <label class="container">
-        Small (Starting $ 7.99)
-        <input type="radio" checked="checked" name="radio" asp-for="BaseSize" value="small">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">
-        Medium (Starting $ 10.99)
-        <input type="radio" name="radio" asp-for="BaseSize" value="medium">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">
-        Large (Starting $ 13.99)
-        <input type="radio" name="radio" asp-for="BaseSize" value="large">
-        <span class="checkmark"></span>
-    </label>
-</form>
+
+
+    <body>
+        <form asp-action="SizeView">
+            <p style="font-size:36px; color:brown; text-align:center"><b><u> Please Select the size</u></b></p>
+            @foreach (var item in Model)
+            {
+                <label class="container">
+                    @Html.DisplayFor(modelItem => item.BaseSize)
+                    $@Html.DisplayFor(modelItem => item.S_Price)
+                    <input type="radio" checked="checked" name="radio" asp-for="@item.BaseSize" value=@item.Id>
+                    <span class="checkmark"></span>
+                </label>
+            }
+        </form>
+        </body>
+
