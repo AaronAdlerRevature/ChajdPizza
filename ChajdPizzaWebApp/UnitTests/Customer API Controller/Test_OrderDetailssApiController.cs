@@ -40,6 +40,33 @@ namespace UnitTests
             #endregion
         }
 
-      
+        [TestMethod]
+        public void GetOrderDetail_Valid()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetOrderDetail(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            OrderDetail testResult = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testResult.OrderId, 1);
+            Assert.AreEqual(testResult.SizeId, 1);
+            Assert.AreEqual(testResult.SpecialRequest, "Special A");
+
+            #endregion
+        }
     }
 }
