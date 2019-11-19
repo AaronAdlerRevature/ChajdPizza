@@ -45,6 +45,23 @@ namespace ChajdPizzaWebApp.Controllers
             return View(orderDetail);
         }
 
+        //[Route("DetailsOfOrder")]
+        public IActionResult DetailsOfOrder()
+        {
+            //if(orderId != null)
+            string returnUrl = Url.Content("~/");
+            if (User.Identity.Name != null)
+            {
+                //var Order = 
+                return View();
+            }
+            else
+            {
+                return LocalRedirect(returnUrl);
+            }
+            
+        }
+
         // GET: OrderDetails/Create
         public IActionResult Create()
         {

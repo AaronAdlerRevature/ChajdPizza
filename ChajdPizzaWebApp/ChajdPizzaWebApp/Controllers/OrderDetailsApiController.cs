@@ -44,8 +44,9 @@ namespace ChajdPizzaWebApp.Controllers
             return orderDetail;
         }
 
-        [Route("Customers/DetailsOfOrder/{orderId}")]
-        public async Task<ActionResult<List<OrderDetail>>> GetDetailsOfOrder(int orderId)
+        [HttpGet("DetailsOfOrder/{orderId}")]
+        //[Route("DetailsOfOrder/{orderId}")]
+        public async Task<ActionResult<List<OrderDetail>>> GetDetailsOfAnOrder(int orderId)
         {
             var orderDetails = await _repo.SelectOrderAllDetails(orderId);
             if(orderDetails == null)
@@ -59,7 +60,7 @@ namespace ChajdPizzaWebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrderDetail(int id, OrderDetail orderDetail)
+        public async Task<IActionResult> PutOrderDetail(int id, [Bind("Id, Price")] OrderDetail orderDetail)
         {
             if (id != orderDetail.Id)
             {
