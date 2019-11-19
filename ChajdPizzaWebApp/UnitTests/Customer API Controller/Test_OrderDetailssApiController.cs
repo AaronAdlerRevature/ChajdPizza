@@ -223,15 +223,20 @@ namespace UnitTests
 
             OrderDetailsRepo testRepo = new OrderDetailsRepo();
             OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
-            OrderDetail testData = testRepo.SelectById(1).Result;
+            OrderDetail testData = new OrderDetail()
+            {
+                Id = 1,
+                OrderId = 1,
+                Price = 7.99,
+                SizeId = 3,
+                SpecialRequest = "Special A",
+                ToppingsCount = 3,
+                ToppingsSelected = "TopA,TopB,TopC",
+            };                
 
             #endregion
 
             #region ACT
-
-            testData.SizeId = 3;
-            testData.ToppingsCount = 3;
-            testData.ToppingsSelected += ",TopC";
 
             var taskReturn = testController.PutOrderDetail(1, testData);
             taskReturn.Wait();
@@ -253,5 +258,7 @@ namespace UnitTests
 
             #endregion
         }
+
+     
     }
 }
