@@ -41,7 +41,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void GetOrderDetail_Valid()
+        public void GetOrderDetailByID_Valid()
         {
             #region ASSIGN
 
@@ -70,7 +70,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void GetOrderDetail_NonExistingID()
+        public void GetOrderDetailByID_NonExistingID()
         {
             #region ASSIGN
 
@@ -96,7 +96,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void GetOrderDetail_InValid()
+        public void GetOrderDetailByID_InValid()
         {
             #region ASSIGN
 
@@ -123,5 +123,7 @@ namespace UnitTests
 
             #endregion
         }
+
+     
     }
 }
