@@ -94,9 +94,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<List<OrderDetail>> SelectOrderAllDetails(int? orderId)
+        public async Task<List<OrderDetail>> SelectOrderAllDetails(int? orderId)
         {
-            throw new NotImplementedException();
+            List<OrderDetail> result = null;
+
+            var query = orderDetails.Where(o => o.OrderId == orderId);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.ToList();
+            }
+
+            return result;
         }
 
         public Task<bool> Update(OrderDetail orderDetail)
