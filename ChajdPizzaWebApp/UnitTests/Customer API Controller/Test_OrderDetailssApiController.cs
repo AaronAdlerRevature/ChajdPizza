@@ -11,29 +11,31 @@ namespace UnitTests
     public class Test_OrderDetailsApiController
     {
         [TestMethod]
-        public void GetCustomers()
+        public void GetOrderDetails()
         {
             #region ASSIGN
 
-            CustomerRepo testRepo = new CustomerRepo();
-            CustomersApiController testController = new CustomersApiController(testRepo);
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
 
             #endregion
 
             #region ACT
 
-            var taskReturn = testController.GetCustomer();
+            var taskReturn = testController.GetOrderDetails();
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            List<Customer> testList = new List<Customer>(result);
+            List<OrderDetail> testList = new List<OrderDetail>(result);
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList.Count, 2);
-            Assert.AreEqual(testList[0].Name, "John Doe");
+            Assert.AreEqual(testList.Count, 3);
+            Assert.AreEqual(testList[0].OrderId, 1);
+            Assert.AreEqual(testList[1].Price, 12.99);
+            Assert.AreEqual(testList[2].OrderId, 2);
 
             #endregion
         }
