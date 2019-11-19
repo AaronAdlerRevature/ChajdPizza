@@ -2,92 +2,43 @@
 @{
     ViewData["Title"] = "Create Own";
 }
-<head>
+    <head>
 
-    <script>
-        function printChecked() {
-            var items = document.getElementsByName('Toppings');
-            var selectedItems = "";
-            for (var i = 0; i < items.length; i++) {
-                if (items[i].type == 'checkbox' && items[i].checked == true)
-                    selectedItems += items[i].value + "\n";
-            }
-            alert(selectedItems);
-        }
-    </script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-    <link rel="stylesheet" href="~/css/MenuRadioButton.css">
-    <script src="~/js/stringPost.js"></script>
-</head>
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+        <link rel="stylesheet" href="~/css/MenuRadioButton.css">
+        <script src="~/js/stringPost.js"></script>
+    </head>
 
 
 
-<body background="/image/bch.jpg" style="background-image:initial">
 
 
-    @await Html.PartialAsync("../Shared/SizeView.cshtml", Model.Sizes)
+<body>
+  
+
     <form method="GET">
-        <p style="font-size:36px; color:brown; text-align:center">Please Select the toppings($1.50 per)</p>
+        @await Html.PartialAsync("../Shared/SizeView.cshtml", Model.Sizes)
+        <p style="font-size:36px; color:brown; text-align:center"><b><u> Please Select the toppings($1.50 per)</u></b></p>
         <div>
-            <p style="font-size:30px; color:green; text-wrap:initial"><b>Meat </b></p>
+
             @foreach (var item in Model.Toppings)
             {
                 <label for="checkbox" class="form-control-label col-md-2"><b>@Html.DisplayFor(modelItem => item.Name) </b></label>
-                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value=@item.Id data-on="Yes @Html.DisplayFor(modelItem => item.Name)" data-off="No @Html.DisplayFor(modelItem => item.Name)" data-onstyle="success" data-offstyle="danger">
-                <br /><br />
+                @*<input type="checkbox" name="Toppings" checked data-toggle="toggle" value=@item.Name data-on="Yes @Html.DisplayFor(modelItem => item.Name)" data-off="No @Html.DisplayFor(modelItem => item.Name)" data-onstyle="success" data-offstyle="danger">*@
+                <input type="checkbox" name="Toppings" checked data-toggle="toggle" value=@item.Name data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger">
             }
-            @*<label for="checkbox" class="form-control-label col-md-2"><b>Ham </b></label>
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Ham' data-on="Yes  Ham" data-off="No Ham" data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Beef   </b></label> &nbsp; &nbsp;*@
-            @*<input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Beef' data-on="Yes  Beef" data-off="No Beef" data-onstyle="success" data-offstyle="danger">
-        <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Salami   </b></label> &nbsp; &nbsp;
-        <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Salami' data-on="Yes  Salami" data-off="No Salami" data-onstyle="success" data-offstyle="danger">
-        <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Pepperoni   </b></label> &nbsp; &nbsp;
-        <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Pepperoni' data-on="Yes Pepper" data-off="No Pepper" data-onstyle="success" data-offstyle="danger">
-        <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Chicken  </b></label> &nbsp; &nbsp;
-        <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Chicken' data-on="Yes  Checken" data-off="No Checken" data-onstyle="success" data-offstyle="danger">
-        <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Bacon  </b></label> &nbsp; &nbsp;
-        <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Bacon' data-on="Yes  Bacon" data-off="No Bacon" data-onstyle="success" data-offstyle="danger">
-        <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Sausage   </b></label> &nbsp; &nbsp;
-        <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Sausage' data-on="Yes  Sausage" data-off="No Sausage" data-onstyle="success" data-offstyle="danger">
-        <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Steak  </b></label> &nbsp; &nbsp;
-        <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Steak' data-on="Yes  Steak" data-off="No Staek" data-onstyle="success" data-offstyle="danger">
-        <br />*@
+
         </div>
-
-        @*<div>
-
-            <p style="font-size:30px; color:green"><b>Veggies </b></p>
-            <label for="checkbox" class="form-control-label col-md-2"><b>Onion </b></label> &nbsp; &nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Onion' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Banana Peppers</b></label>   &nbsp; &nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Banana Peppers' data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Black Olives </b></label>   &nbsp; &nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Black Olives' data-on="Yes " data-off="No " data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Spinach </b></label>   &nbsp; &nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Spinach' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Green Peppers </b></label>&nbsp; &nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Green Pepper' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Red Peppers </b></label>   &nbsp; &nbsp;
-
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Jalapeno' data-on="Yes " data-off="No " data-onstyle="success" data-offstyle="danger">
-            <br /> <br /> <label for="checkbox" class="form-control-label col-md-2"><b>Jalapeno </b></label> &nbsp;&nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Pineapple' data-on="Yes " data-off="No" data-onstyle="success" data-offstyle="danger">
-            <br /><br /><label for="checkbox" class="form-control-label col-md-2"><b>Mushrooms   </b></label> &nbsp; &nbsp;
-            <input type="checkbox" name="Toppings" checked data-toggle="toggle" value='Mushrooms' data-on="Yes" data-off="No " data-onstyle="success" data-offstyle="danger">
-        </div>*@
-
         <div style=" text-align:right">
             <br />
-            <button class=" btn-group-lg" type="submit" onclick='printChecked()'>Continue</button>
+            <button class=" btn-outline-warning" type="submit" onclick=  'myFunction()'>Continue</button>
         </div>
 
     </form>
