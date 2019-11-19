@@ -215,5 +215,43 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void PutOrderDetail_Valid()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+            OrderDetail testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ACT
+
+            testData.SizeId = 3;
+            testData.ToppingsCount = 3;
+            testData.ToppingsSelected += ",TopC";
+
+            var taskReturn = testController.PutOrderDetail(1, testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result;
+
+            testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NoContentResult);
+            Assert.AreEqual((result as NoContentResult).StatusCode, 204);
+
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.SizeId, 3);
+            Assert.AreEqual(testData.ToppingsCount, 3);
+            Assert.AreEqual(testData.ToppingsSelected, "TopA,TopB,TopC");
+
+            #endregion
+        }
     }
 }
