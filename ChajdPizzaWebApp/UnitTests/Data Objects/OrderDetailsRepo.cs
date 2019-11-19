@@ -2,6 +2,7 @@
 using ChajdPizzaWebApp.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -65,9 +66,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<List<OrderDetail>> SelectAll()
+        public async Task<List<OrderDetail>> SelectAll()
         {
-            throw new NotImplementedException();
+            List<OrderDetail> result = null;
+
+            var query = orderDetails.Where(o => o.Id == o.Id);
+            await Task.Delay(10);
+            if (query.Count()>0)
+            {
+                result = query.ToList();
+            }
+
+            return result;
         }
 
         public Task<OrderDetail> SelectById(int? id)
