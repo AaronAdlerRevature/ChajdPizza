@@ -108,9 +108,29 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<bool> Update(OrderDetail orderDetail)
+        public async Task<bool> Update(OrderDetail orderDetail)
         {
-            throw new NotImplementedException();
+            bool isGood = false;
+
+            OrderDetail result = null;
+
+            var query = orderDetails.Where(o => o.Id == orderDetail.Id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+                result.Id = orderDetail.Id;
+                result.OrderId = orderDetail.OrderId;
+                result.Price = orderDetail.Price;
+                result.SizeId = orderDetail.SizeId;
+                result.SpecialRequest = orderDetail.SpecialRequest;
+                result.ToppingsCount = orderDetail.ToppingsCount;
+                result.ToppingsSelected = orderDetail.ToppingsSelected;
+
+                isGood = true;
+            }
+
+            return isGood;
         }
     }
 }
