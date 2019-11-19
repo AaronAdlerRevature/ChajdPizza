@@ -259,6 +259,47 @@ namespace UnitTests
             #endregion
         }
 
-     
+        [TestMethod]
+        public void PutOrderDetail_InvalidID()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+            OrderDetail testData = new OrderDetail()
+            {
+                Id = 1,
+                OrderId = 1,
+                Price = 7.99,
+                SizeId = 3,
+                SpecialRequest = "Special A",
+                ToppingsCount = 3,
+                ToppingsSelected = "TopA,TopB,TopC",
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PutOrderDetail(2, testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result;
+
+            testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is BadRequestResult);
+            Assert.AreEqual((result as BadRequestResult).StatusCode, 400);
+
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.SizeId, 1);
+            Assert.AreEqual(testData.ToppingsCount, 2);
+            Assert.AreEqual(testData.ToppingsSelected, "TopA,TopB");
+
+            #endregion
+        }
     }
 }
