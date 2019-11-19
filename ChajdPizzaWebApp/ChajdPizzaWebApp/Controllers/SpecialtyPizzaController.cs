@@ -123,7 +123,7 @@ namespace ChajdPizzaWebApp.Controllers
             
 
 
-            return View("../Customers/Details" , customer);
+            return View("../Orders/SpecialtyPizzaOrder" , orderDetail);
         }
     }
 }

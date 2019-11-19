@@ -1,4 +1,4 @@
-﻿@model ChajdPizzaWebApp.Models.SpecialtyPizza
+﻿@model ChajdPizzaWebApp.Models.OrderDetail
 
 @{
     ViewData["Title"] = "SpecialtyPizzaOrder";
@@ -7,20 +7,38 @@
 <h1>SpecialtyPizzaOrder</h1>
 
 <div>
-    <h4>SpecialtyPizza</h4>
+    <h4>OrderDetail</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ID)
+            @Html.DisplayNameFor(model => model.Id)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ID)
+            @Html.DisplayFor(model => model.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.OrderId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SizeId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SizeId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ToppingsSelected)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ToppingsSelected)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ToppingsCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ToppingsCount)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
@@ -29,10 +47,10 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.SpecialRequest)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.SpecialRequest)
         </dd>
     </dl>
 </div>
