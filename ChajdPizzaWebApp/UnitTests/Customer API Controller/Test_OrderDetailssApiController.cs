@@ -124,6 +124,39 @@ namespace UnitTests
             #endregion
         }
 
-     
+        [TestMethod]
+        public void GetOrderDetailsByOrderID_Valid()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetDetailsOfAnOrder(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            List<OrderDetail> testResult = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testResult.Count, 2);
+            Assert.AreEqual(testResult[0].Id, 1);
+            Assert.AreEqual(testResult[0].SpecialRequest, "Special A");
+            Assert.AreEqual(testResult[0].Price, 7.99);
+            Assert.AreEqual(testResult[0].ToppingsCount, 2);
+            Assert.AreEqual(testResult[1].Id, 2);
+            Assert.AreEqual(testResult[1].SpecialRequest, "Special B");
+            Assert.AreEqual(testResult[1].Price, 12.99);
+            Assert.AreEqual(testResult[1].ToppingsCount, 4);
+
+            #endregion
+        }
     }
 }
