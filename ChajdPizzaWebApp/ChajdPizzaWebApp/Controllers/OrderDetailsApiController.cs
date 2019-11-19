@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ChajdPizzaWebApp.Data;
 using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -15,9 +16,9 @@ namespace ChajdPizzaWebApp.Controllers
     [ApiController]
     public class OrderDetailsApiController : ControllerBase
     {
-        private readonly OrderDetailsRepo _repo;
+        private readonly IOrderDetailsRepo _repo;
 
-        public OrderDetailsApiController(OrderDetailsRepo repo)
+        public OrderDetailsApiController(IOrderDetailsRepo repo)
         {
             _repo = repo;
         }

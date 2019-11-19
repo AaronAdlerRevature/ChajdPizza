@@ -1,4 +1,5 @@
 ﻿using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Data
 {
-    public class PizzaTypesRepo
+    public class PizzaTypesRepo : IPizzaTypesRepo
     {
         readonly ApplicationDbContext _context;
 
@@ -26,7 +27,7 @@ namespace ChajdPizzaWebApp.Data
             IEnumerable<SecretFormula> result = null;
 
             var query = _context.SecretFormula.Where(c => c.Id == c.Id);
-            if (query.Count()>0)
+            if (query.Count() > 0)
             {
                 result = await query.ToListAsync();
             }
