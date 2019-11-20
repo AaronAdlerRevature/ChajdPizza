@@ -31,7 +31,7 @@ namespace UnitTests.Data_Objects
                 Id = 2,
                 CustomerId = 1,
                 DeliveryAddress = "123 A Street",
-                isCompleted = true,
+                isCompleted = false,
                 NetPrice = 49.99M,
                 TimePlaced = DateTime.Now.AddDays(-10),
             });
@@ -95,9 +95,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<Orders> SelectByCustId(int? id)
+        public async Task<Orders> SelectByCustId(int? id)
         {
-            throw new NotImplementedException();
+            Orders result = null;
+
+            var query = ordersList.Where(o => o.CustomerId == id && !o.isCompleted);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;
         }
 
         public async Task<Orders> SelectById(int? id)
