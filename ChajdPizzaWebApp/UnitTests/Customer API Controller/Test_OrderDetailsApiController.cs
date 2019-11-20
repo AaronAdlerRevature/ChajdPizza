@@ -318,6 +318,8 @@ namespace UnitTests
                 SpecialRequest = "Special D",
                 ToppingsCount = 1,
                 ToppingsSelected = "TopA",
+                Orders = null,
+                Sizes = null
             };
 
             #endregion

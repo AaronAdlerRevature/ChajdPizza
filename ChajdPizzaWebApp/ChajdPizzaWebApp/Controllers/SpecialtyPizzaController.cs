@@ -136,6 +136,8 @@ namespace ChajdPizzaWebApp.Controllers
                     client.DefaultRequestHeaders.Accept.Add
                         (new MediaTypeWithQualityHeaderValue("application/json"));
 
+                    orderDetail.Id = 0;
+
                     var newData = JsonConvert.SerializeObject(orderDetail);
                     var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
                     HttpResponseMessage ResPost = await client.PostAsync("OrderDetailsApi", newContent);
@@ -173,9 +175,9 @@ namespace ChajdPizzaWebApp.Controllers
                         client.DefaultRequestHeaders.Accept.Add
                             (new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        newData = JsonConvert.SerializeObject(orderDetail);
+                        newData = JsonConvert.SerializeObject(order);
                         newContent = new StringContent(newData, Encoding.UTF8, "application/json");
-                        HttpResponseMessage ResPut = await client.PutAsync("OrderDetailsApi", newContent);
+                        HttpResponseMessage ResPut = await client.PutAsync("OrdersApi/" + order.Id, newContent);
                         if (!ResPut.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Updating Order NetPrice has failed!!")); }
                     }
                 }
