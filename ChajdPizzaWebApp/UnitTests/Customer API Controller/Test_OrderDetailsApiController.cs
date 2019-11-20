@@ -227,7 +227,7 @@ namespace UnitTests
             {
                 Id = 1,
                 OrderId = 1,
-                Price = 7.99,
+                Price = 7.99M,
                 SizeId = 3,
                 SpecialRequest = "Special A",
                 ToppingsCount = 3,
@@ -270,7 +270,7 @@ namespace UnitTests
             {
                 Id = 1,
                 OrderId = 1,
-                Price = 7.99,
+                Price = 7.99M,
                 SizeId = 3,
                 SpecialRequest = "Special A",
                 ToppingsCount = 3,
@@ -313,7 +313,7 @@ namespace UnitTests
             {
                 Id = 4,
                 OrderId = 3,
-                Price = 11.99,
+                Price = 11.99M,
                 SizeId = 2,
                 SpecialRequest = "Special D",
                 ToppingsCount = 1,
