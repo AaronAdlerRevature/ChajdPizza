@@ -1,0 +1,52 @@
+﻿
+
+@{
+    ViewData["Title"] = "DetailsOfOrder";
+}
+
+<h1>Order Details</h1>
+
+<div id="CurrentOrderDetails">
+    <h3>Under Construction</h3>
+
+</div>
+
+
+<script>
+    GetDetails();
+
+            //$('#create').click(function (e) );
+            //onload;
+            function GetDetails() {
+	            var url = "/api/OrderDetailsApi/DetailsOfOrder/1";
+	            $.ajax({
+		            contentType: 'application/json',
+		            type: "GET",
+		            url: url,
+		          @*   data: JSON.stringify({
+			            orderId: 1 @model.Id
+		            }),*@
+
+                    success: function (data) {
+                    
+                        if(data.length > 0){
+                            //var value1 = data[0].fieldName; // this value1 you can assign it into your textbox
+                            var details = data;
+                                $.each(details, function () {
+                                    console.log("ID: " + this.id);
+                                    console.log("Order ID: " + this.orderId);
+                                    console.log("Size ID: " + this.sizeId);
+                                    console.log("Toppings: " + this.toppingsSelected);
+                                    console.log("No. of Toppings: " + this.toppingsCount);
+                                    console.log("Special Request: " + this.specialRequest);
+                                    console.log(" ");   
+                                });
+                        }
+                    },
+                    error: function (data) {
+                        failure(data);
+                    }
+	            });
+            };
+
+</script>

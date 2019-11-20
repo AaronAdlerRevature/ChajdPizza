@@ -1,0 +1,126 @@
+﻿@model ChajdPizzaWebApp.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "SpecialtyPizzaOrder";
+}
+
+<script>
+        $(document).ready(function () {
+            $('#sizes').change(function () {
+                var value = Number($('#sizes option:selected').attr('name'));
+                var modelprice = Number(@Model.Price);
+                var price = value + modelprice;
+                var sizeId = Number($('#sizes option:selected').attr('value'));
+                $('#price').replaceWith('<dd id="price" class = "col-sm-10"> $' + price + '</dd>');
+                $('#submitButton').replaceWith('<div class="form-group" id="submitButton"><input type="submit" value="Add to Cart" class="btn btn-primary" /></div>');
+                $('#modelPrice').replaceWith('<input name="Price" class="form-control" id="modelPrice" type="text" value="' + price + '" data-val-required="The Price field is required." data-val="true" data-val-range-min="0" data-val-range-max="1000000" data-val-range="The field Price must be between 0 and 1000000." data-val-number="The field Price must be a number.">');
+                $('#modelsizeId').replaceWith('<input name="SizeId" class="form-control" id="modelsizeId" type="number" value="' + sizeId + '" data-val-required="The SizeId field is required." data-val="true">');
+
+            });
+            $.ajax({
+                contentType: 'application/json',
+                type: "GET",
+                url: "/api/PizzaTypesApi/Sizes",
+
+                success: function (data) {
+
+                    if (data.length > 0) {
+                        var details = data;
+                        $.each(details, function () {
+
+                            var li = '<option value="'+ this.id + '" name = "' + this.s_Price + '">' + this.baseSize + ' | Price: +$' + this.s_Price + '</option>'
+                            $('#sizes').append(li);
+                        });
+                    }
+                },
+                error: function (data) {
+                    failure(data);
+                }
+            });
+        });
+
+</script>
+
+
+<h1>SpecialtyPizzaOrder</h1>
+
+
+<div>
+        <h4>OrderDetail</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.OrdersId)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.OrdersId)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ToppingsSelected)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ToppingsSelected)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd id="price" class = "col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                Select Size
+            </dt>
+            <dd class = "col-sm-10">
+                <select id="sizes">
+
+                </select>
+            </dd>
+    </dl>
+    </div>
+
+    <div>
+        <form asp-action="OrderSubmit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control"/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="OrdersId" class="control-label"></label>
+                <input asp-for="OrdersId" class="form-control"/>
+                <span asp-validation-for="OrdersId" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="SizeId" class="control-label"></label>
+                <input id="modelsizeId" asp-for="SizeId" class="form-control"/>
+                <span asp-validation-for="SizeId" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="ToppingsSelected" class="control-label"></label>
+                <input asp-for="ToppingsSelected" class="form-control"/>
+                <span asp-validation-for="ToppingsSelected" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="ToppingsCount" class="control-label"></label>
+                <input asp-for="ToppingsCount" class="form-control"/>
+                <span asp-validation-for="ToppingsCount" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="Price" class="control-label"></label>
+                <input id="modelPrice" asp-for="Price" class="form-control"/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group" >
+                <label asp-for="SpecialRequest" class="control-label"></label>
+                <input asp-for="SpecialRequest" class="form-control" />
+                <span asp-validation-for="SpecialRequest" class="text-danger"></span>
+            </div>
+                <div class="form-group" id="submitButton">
+                </div>
+        </form>
+
+    </div>
+    <div>
+        <a asp-controller="Home" asp-action="Index">Back to Home Page</a>
+    </div>
