@@ -319,5 +319,48 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetSpecialtyPizzas()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSpecialtyPizzas();
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            List<SpecialtyPizza> testList = new List<SpecialtyPizza>(result);
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testList.Count, 3);
+
+            Assert.AreEqual(testList[0].ID, 1);
+            Assert.AreEqual(testList[0].Name, "Special A");
+            Assert.AreEqual(testList[0].Description, "TopA,TopB,TopC");
+            Assert.AreEqual(testList[0].Price, 10.99M);
+
+            Assert.AreEqual(testList[1].ID, 2);
+            Assert.AreEqual(testList[1].Name, "Special B");
+            Assert.AreEqual(testList[1].Description, "TopC,TopE");
+            Assert.AreEqual(testList[1].Price, 9.99M);
+
+            Assert.AreEqual(testList[2].ID, 3);
+            Assert.AreEqual(testList[2].Name, "Special C");
+            Assert.AreEqual(testList[2].Description, "TopA,TopB,TopC,TopD,TopE");
+            Assert.AreEqual(testList[2].Price, 13.99M);
+
+
+            #endregion
+        }
     }
 }
