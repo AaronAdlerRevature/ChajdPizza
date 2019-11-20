@@ -40,9 +40,18 @@ namespace UnitTests.Data_Objects
             }
         }
 
-        public Task<Size> GetPizzaSize(int id)
+        public async Task<Size> GetPizzaSize(int id)
         {
-            throw new NotImplementedException();
+            Size result = null;
+
+            var query = sizeList.Where(s => s.Id == s.Id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;
         }
 
         public Task<string> GetPizzaSizeName(int id)
