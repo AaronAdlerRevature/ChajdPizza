@@ -3,7 +3,6 @@ using ChajdPizzaWebApp.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UnitTests.Data_Objects
@@ -93,7 +92,7 @@ namespace UnitTests.Data_Objects
                 result = true;
             }
 
-            return result;  
+            return result;
         }
 
         public async Task<List<Orders>> SelectAll()
@@ -101,7 +100,7 @@ namespace UnitTests.Data_Objects
             List<Orders> result = null;
 
             var query = ordersList.Where(o => o.Id == o.Id);
-            if (query.Count()>0)
+            if (query.Count() > 0)
             {
                 result = query.ToList();
                 await Task.Delay(10);
@@ -130,12 +129,12 @@ namespace UnitTests.Data_Objects
 
             var query = ordersList.Where(o => o.Id == id);
             await Task.Delay(10);
-            if(query.Count()>0)
+            if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
             }
 
-            return result;  
+            return result;
         }
 
         public async Task<Orders> SelectMultByCustId(int? id, int Oid)
@@ -144,7 +143,7 @@ namespace UnitTests.Data_Objects
 
             var query = ordersList.Where(o => o.CustomerId == id && o.isCompleted == false && o.Id != Oid);
             await Task.Delay(10);
-            if (query.Count()>0)
+            if (query.Count() > 0)
             {
                 result = query.FirstOrDefault();
             }
@@ -164,7 +163,7 @@ namespace UnitTests.Data_Objects
                 currentOrder = query.FirstOrDefault();
 
                 currentOrder.Id = order.Id;
-                currentOrder.CustomerId= order.CustomerId;
+                currentOrder.CustomerId = order.CustomerId;
                 currentOrder.DeliveryAddress = order.DeliveryAddress;
                 currentOrder.isCompleted = order.isCompleted;
                 currentOrder.NetPrice = order.NetPrice;

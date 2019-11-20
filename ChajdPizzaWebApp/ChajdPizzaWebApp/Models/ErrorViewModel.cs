@@ -1,5 +1,3 @@
-using System;
-
 namespace ChajdPizzaWebApp.Models
 {
     public class ErrorViewModel

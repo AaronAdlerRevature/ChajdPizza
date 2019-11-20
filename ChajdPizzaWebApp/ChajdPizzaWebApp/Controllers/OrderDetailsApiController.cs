@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ChajdPizzaWebApp.Data;
-using ChajdPizzaWebApp.Models;
-using ChajdPizzaWebApp.Repositories;
-using ChajdPizzaWebApp.Repositories.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -49,7 +44,7 @@ namespace ChajdPizzaWebApp.Controllers
         public async Task<ActionResult<List<OrderDetail>>> GetDetailsOfAnOrder(int orderId)
         {
             var orderDetails = await _repo.SelectOrderAllDetails(orderId);
-            if(orderDetails == null)
+            if (orderDetails == null)
             {
                 return NotFound();
             }
@@ -94,7 +89,7 @@ namespace ChajdPizzaWebApp.Controllers
         public async Task<ActionResult<OrderDetail>> PostOrderDetail(OrderDetail orderDetail)
         {
             await _repo.Add(orderDetail);
-            
+
 
             return CreatedAtAction("GetOrderDetail", new { id = orderDetail.Id }, orderDetail);
         }

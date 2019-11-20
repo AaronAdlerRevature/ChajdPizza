@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ChajdPizzaWebApp.Data;
+using ChajdPizzaWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ChajdPizzaWebApp.Data;
-using ChajdPizzaWebApp.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
