@@ -99,7 +99,7 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<double> GetSpecialtyPizzaPrice(int id)
+        public Task<decimal> GetSpecialtyPizzaPrice(int id)
         {
             throw new NotImplementedException();
         }
