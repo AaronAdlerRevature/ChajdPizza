@@ -47,7 +47,7 @@ namespace UnitTests
             Assert.AreEqual(testList[2].Id, 3);
             Assert.AreEqual(testList[2].CustomerId, 2);
             Assert.AreEqual(testList[2].NetPrice, 9.99M);
-            Assert.IsFalse(testList[2].isCompleted);
+            Assert.IsTrue(testList[2].isCompleted);
 
             Assert.AreEqual(testList[3].Id, 4);
             Assert.AreEqual(testList[3].CustomerId, 3);
@@ -195,5 +195,7 @@ namespace UnitTests
 
             #endregion
         }
+
+       
     }
 }

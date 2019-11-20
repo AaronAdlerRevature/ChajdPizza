@@ -41,7 +41,7 @@ namespace UnitTests.Data_Objects
                 Id = 3,
                 CustomerId = 2,
                 DeliveryAddress = "456 Q Avenue",
-                isCompleted = false,
+                isCompleted = true,
                 NetPrice = 9.99M,
                 TimePlaced = DateTime.Now,
             });
