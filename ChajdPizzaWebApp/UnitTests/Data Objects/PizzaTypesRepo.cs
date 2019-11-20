@@ -54,7 +54,16 @@ namespace UnitTests.Data_Objects
 
         public async Task<IEnumerable<Size>> GetPizzaSizes()
         {
-           
+            IEnumerable<Size> result = null;
+
+            var query = sizeList.Where(s => s.Id == s.Id);
+            await Task.Delay(10);
+            if (query .Count() > 0)
+            {
+                result = query;
+            }
+
+            return result;
         }
 
         public Task<SecretFormula> GetSecretFormula(int id)
