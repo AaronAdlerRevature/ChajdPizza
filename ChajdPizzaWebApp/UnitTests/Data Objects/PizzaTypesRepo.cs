@@ -68,9 +68,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<decimal> GetPizzaSizePrice(int id)
+        public async Task<decimal> GetPizzaSizePrice(int id)
         {
-            throw new NotImplementedException();
+            decimal result = -1M;
+
+            var query = sizeList.Where(s => s.Id == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().S_Price;
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<Size>> GetPizzaSizes()
