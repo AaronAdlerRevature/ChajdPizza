@@ -2,6 +2,7 @@ using ChajdPizzaWebApp.Controllers;
 using ChajdPizzaWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using UnitTests.Data_Objects;
 
@@ -318,6 +319,49 @@ namespace UnitTests
             #region ASSERT
 
             Assert.AreEqual(result, 2);
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void PutOrder_Valid()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+            Orders testData = new Orders()
+            {
+                Id = 1,
+                CustomerId = 1,
+                DeliveryAddress = "456 Q Avenue",
+                isCompleted = false,
+                NetPrice = 69.99M,
+                TimePlaced = DateTime.Now,
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PutOrder(1,testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result;
+
+            testData = null;
+            testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NoContentResult);
+            Assert.AreEqual((result as NoContentResult).StatusCode, 204);
+
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.DeliveryAddress, "456 Q Avenue");
+            Assert.AreEqual(testData.NetPrice, 69.99M);
+            Assert.IsFalse(testData.isCompleted);
 
             #endregion
         }
