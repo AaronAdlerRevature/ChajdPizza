@@ -19,7 +19,7 @@ namespace UnitTests.Data_Objects
             orderDetails.Add(new OrderDetail()
             {
                 Id = 1,
-                OrderId = 1,
+                OrdersId = 1,
                 Price = 7.99M,
                 SizeId = 1,
                 SpecialRequest = "Special A",
@@ -30,7 +30,7 @@ namespace UnitTests.Data_Objects
             orderDetails.Add(new OrderDetail()
             {
                 Id = 2,
-                OrderId = 1,
+                OrdersId = 1,
                 Price = 12.99M,
                 SizeId = 2,
                 SpecialRequest = "Special B",
@@ -41,7 +41,7 @@ namespace UnitTests.Data_Objects
             orderDetails.Add(new OrderDetail()
             {
                 Id = 3,
-                OrderId = 2,
+                OrdersId = 2,
                 Price = 8.99M,
                 SizeId = 3,
                 SpecialRequest = "Special C",
@@ -113,7 +113,7 @@ namespace UnitTests.Data_Objects
         {
             List<OrderDetail> result = null;
 
-            var query = orderDetails.Where(o => o.OrderId == orderId);
+            var query = orderDetails.Where(o => o.OrdersId == orderId);
             await Task.Delay(10);
             if (query.Count() > 0)
             {
@@ -135,7 +135,7 @@ namespace UnitTests.Data_Objects
             {
                 result = query.FirstOrDefault();
                 result.Id = orderDetail.Id;
-                result.OrderId = orderDetail.OrderId;
+                result.OrdersId = orderDetail.OrdersId;
                 result.Price = orderDetail.Price;
                 result.SizeId = orderDetail.SizeId;
                 result.SpecialRequest = orderDetail.SpecialRequest;

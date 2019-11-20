@@ -103,7 +103,7 @@ namespace ChajdPizzaWebApp.Controllers
                         order = JsonConvert.DeserializeObject<Orders>(ordersRes);
                     }
                     else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
-                    customorder.OrderId = order.Id;
+                    customorder.OrdersId = order.Id;
                     customorder.SizeId = 2;
 
                 }
@@ -111,7 +111,7 @@ namespace ChajdPizzaWebApp.Controllers
             return View(customorder);
         }
         [HttpPost]
-        public async Task<IActionResult> CustomPizza(CreateCustomViewModel model)
+        public async Task<IActionResult> CustomPizza(OrderDetail model)
         {
             CheckIfUserLoggedIn();
             var Username = User.Identity.Name;
@@ -177,25 +177,25 @@ namespace ChajdPizzaWebApp.Controllers
                         order = JsonConvert.DeserializeObject<Orders>(ordersRes);
                     }
                     else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
-                    HttpResponseMessage ResS = await client.GetAsync("pizzatypesapi/sizes/"+model.sizeId);
+                    HttpResponseMessage ResS = await client.GetAsync("pizzatypesapi/sizes/"+model.SizeId);
                     if (ResS.IsSuccessStatusCode)
                     {
                         var sizeRes = ResS.Content.ReadAsStringAsync().Result;
 
                         selectedSize = JsonConvert.DeserializeObject<Size>(sizeRes);
                     }
-                    orderDetail.OrderId = order.Id;
-                    orderDetail.SizeId = model.sizeId;
+                    orderDetail.OrdersId = order.Id;
+                    orderDetail.SizeId = model.SizeId;
                     //orderDetail.ToppingsCount = model.selectedToppings.Count();
                     //foreach (var item in model.selectedToppings)
                     //{
                     //    orderDetail.ToppingsSelected = orderDetail.ToppingsSelected + item.Name + ",";
                     //}
-                    orderDetail.Price = (orderDetail.ToppingsCount * 1.50) + (double)selectedSize.S_Price;
+                    orderDetail.Price = (orderDetail.ToppingsCount * (decimal)1.50) + selectedSize.S_Price;
 
 
                 }
-                return View("../Customers/Details", customer);
+                return View("../Orders/PizzaConfirmation", orderDetail);
             }
         }
         public IActionResult Menu()

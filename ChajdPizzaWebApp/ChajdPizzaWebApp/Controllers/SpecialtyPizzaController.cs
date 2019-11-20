@@ -113,7 +113,7 @@ namespace ChajdPizzaWebApp.Controllers
                 }
                 else if (!ResP.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get Specialty Pizza Details has failed!")); }
 
-                orderDetail.OrderId = order.Id;
+                orderDetail.OrdersId = order.Id;
                 orderDetail.Price = specialtyPizza.Price;
                 orderDetail.SizeId = 2;
                 orderDetail.ToppingsSelected = specialtyPizza.Description;
@@ -125,7 +125,7 @@ namespace ChajdPizzaWebApp.Controllers
         }
 
         [HttpPost, AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> OrderSubmit([Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)//
+        public async Task<IActionResult> OrderSubmit([Bind("Id,OrdersId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)//
         {
             if (ModelState.IsValid)
             {
@@ -149,7 +149,7 @@ namespace ChajdPizzaWebApp.Controllers
                         client.DefaultRequestHeaders.Clear();
                         client.DefaultRequestHeaders.Accept.Add
                             (new MediaTypeWithQualityHeaderValue("application/json"));
-                        HttpResponseMessage ResO = await client.GetAsync("OrdersApi/" + orderDetail.OrderId);
+                        HttpResponseMessage ResO = await client.GetAsync("OrdersApi/" + orderDetail.OrdersId);
 
                         if (ResO.IsSuccessStatusCode)
                         {

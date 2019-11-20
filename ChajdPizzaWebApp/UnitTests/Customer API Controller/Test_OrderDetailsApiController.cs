@@ -33,9 +33,9 @@ namespace UnitTests
             #region ASSERT
 
             Assert.AreEqual(testList.Count, 3);
-            Assert.AreEqual(testList[0].OrderId, 1);
+            Assert.AreEqual(testList[0].OrdersId, 1);
             Assert.AreEqual(testList[1].Price, 12.99M);
-            Assert.AreEqual(testList[2].OrderId, 2);
+            Assert.AreEqual(testList[2].OrdersId, 2);
 
             #endregion
         }
@@ -62,7 +62,7 @@ namespace UnitTests
 
             #region ASSERT
 
-            Assert.AreEqual(testResult.OrderId, 1);
+            Assert.AreEqual(testResult.OrdersId, 1);
             Assert.AreEqual(testResult.SizeId, 1);
             Assert.AreEqual(testResult.SpecialRequest, "Special A");
 
@@ -117,7 +117,7 @@ namespace UnitTests
 
             #region ASSERT
 
-            Assert.AreNotEqual(testResult.OrderId, 2);
+            Assert.AreNotEqual(testResult.OrdersId, 2);
             Assert.AreNotEqual(testResult.SizeId, 1);
             Assert.AreNotEqual(testResult.SpecialRequest, "Special A");
 
@@ -226,7 +226,7 @@ namespace UnitTests
             OrderDetail testData = new OrderDetail()
             {
                 Id = 1,
-                OrderId = 1,
+                OrdersId = 1,
                 Price = 7.99M,
                 SizeId = 3,
                 SpecialRequest = "Special A",
@@ -269,7 +269,7 @@ namespace UnitTests
             OrderDetail testData = new OrderDetail()
             {
                 Id = 1,
-                OrderId = 1,
+                OrdersId = 1,
                 Price = 7.99M,
                 SizeId = 3,
                 SpecialRequest = "Special A",
@@ -312,7 +312,7 @@ namespace UnitTests
             OrderDetail testData = new OrderDetail()
             {
                 Id = 4,
-                OrderId = 3,
+                OrdersId = 3,
                 Price = 11.99M,
                 SizeId = 2,
                 SpecialRequest = "Special D",
@@ -339,7 +339,7 @@ namespace UnitTests
             Assert.AreEqual((result as CreatedAtActionResult).StatusCode, 201);
             Assert.AreEqual((result as CreatedAtActionResult).RouteValues["id"], 4);
             Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Id, 4);
-            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).OrderId, 3);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).OrdersId, 3);
             Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).SizeId, 2);
             Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Price, 11.99M);
 
