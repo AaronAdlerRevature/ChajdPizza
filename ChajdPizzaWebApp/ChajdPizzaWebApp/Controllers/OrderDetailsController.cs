@@ -59,11 +59,10 @@ namespace ChajdPizzaWebApp.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-<<<<<<< HEAD
-           // ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id");
-=======
-            // ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
->>>>>>> Dev
+
+           //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id");
+
+
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize");
             return View();
         }
