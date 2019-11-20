@@ -75,5 +75,34 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetSize_Valid()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSize(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            Size testData = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.BaseSize, "Small");
+            Assert.AreEqual(testData.S_Price, 5.99M);
+
+            #endregion
+        }
     }
 }
