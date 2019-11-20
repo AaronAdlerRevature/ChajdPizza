@@ -115,5 +115,31 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetOrderByID_InvalidID()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetOrders(2);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(result.Id, 1);
+            Assert.AreNotEqual(result.NetPrice, 29.99M);
+
+            #endregion
+        }
     }
 }
