@@ -181,7 +181,7 @@ namespace UnitTests
 
             Assert.IsTrue(result is NotFoundResult);
             Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
-            
+
             #endregion
         }
 
@@ -232,7 +232,7 @@ namespace UnitTests
                 SpecialRequest = "Special A",
                 ToppingsCount = 3,
                 ToppingsSelected = "TopA,TopB,TopC",
-            };                
+            };
 
             #endregion
 

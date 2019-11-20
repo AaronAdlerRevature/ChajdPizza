@@ -3,7 +3,6 @@ using ChajdPizzaWebApp.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UnitTests.Data_Objects
@@ -87,7 +86,7 @@ namespace UnitTests.Data_Objects
 
             var query = orderDetails.Where(o => o.Id == o.Id);
             await Task.Delay(10);
-            if (query.Count()>0)
+            if (query.Count() > 0)
             {
                 result = query.ToList();
             }

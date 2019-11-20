@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using ChajdPizzaWebApp.Data;
-using ChajdPizzaWebApp.Models;
-using ChajdPizzaWebApp.Repositories;
+﻿using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -48,7 +42,7 @@ namespace ChajdPizzaWebApp.Controllers
         //[Route("DetailsOfOrder")]
         public IActionResult DetailsOfOrder()
         {
-            //if(orderId != null)
+            //if(ordersId != null)
             string returnUrl = Url.Content("~/");
             if (User.Identity.Name != null)
             {
@@ -59,13 +53,17 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 return LocalRedirect(returnUrl);
             }
-            
+
         }
 
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
+<<<<<<< HEAD
            // ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id");
+=======
+            // ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
+>>>>>>> Dev
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize");
             return View();
         }
@@ -80,7 +78,7 @@ namespace ChajdPizzaWebApp.Controllers
             if (ModelState.IsValid)
             {
                 await _repo.Add(orderDetail);
-                
+
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrdersId);
@@ -123,7 +121,7 @@ namespace ChajdPizzaWebApp.Controllers
                 try
                 {
                     await _repo.Update(orderDetail);
-                    
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -166,7 +164,7 @@ namespace ChajdPizzaWebApp.Controllers
         {
             var orderDetail = await _repo.SelectById(id);
             await _repo.Remove(orderDetail);
-            
+
             return RedirectToAction(nameof(Index));
         }
 
