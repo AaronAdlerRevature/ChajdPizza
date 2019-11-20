@@ -165,7 +165,7 @@ namespace UnitTests
 
             #endregion
         }
-        
+
         [TestMethod]
         public void GetCustomersByUserName_InvalidUser()
         {
@@ -393,7 +393,7 @@ namespace UnitTests
             #region ASSERT
 
             Assert.IsTrue(resultStatus is NotFoundResult);
-            
+
             Assert.AreEqual(checkData, 2);
 
             #endregion

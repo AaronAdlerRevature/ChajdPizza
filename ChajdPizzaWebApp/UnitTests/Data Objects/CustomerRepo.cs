@@ -1,10 +1,8 @@
 ﻿using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UnitTests.Data_Objects
@@ -21,7 +19,7 @@ namespace UnitTests.Data_Objects
             {
                 Id = 1,
                 Name = "John Doe",
-                UserName= "MyEmail@Email.com",
+                UserName = "MyEmail@Email.com",
                 Street = "123 A Street",
                 City = "Here",
                 StateID = 1,
@@ -66,11 +64,11 @@ namespace UnitTests.Data_Objects
 
             var query = customerList.Where(c => c.Id == customer.Id);
             await Task.Delay(10);
-            if (query.Count()>0)
+            if (query.Count() > 0)
             {
                 Customer currentCustomer = query.FirstOrDefault();
                 currentCustomer.Id = customer.Id;
-                currentCustomer.Name= customer.Name;
+                currentCustomer.Name = customer.Name;
                 currentCustomer.UserName = customer.UserName;
                 currentCustomer.Street = customer.Street;
                 currentCustomer.City = customer.City;

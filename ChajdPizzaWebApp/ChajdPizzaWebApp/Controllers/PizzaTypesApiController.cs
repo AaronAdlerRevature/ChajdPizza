@@ -1,13 +1,10 @@
-﻿using System;
+﻿using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ChajdPizzaWebApp.Data;
-using ChajdPizzaWebApp.Models;
-using ChajdPizzaWebApp.Repositories.Interfaces;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -64,7 +61,7 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 // Log error.
                 Console.WriteLine(WTF);
-                return NotFound();                
+                return NotFound();
             }
         }
 

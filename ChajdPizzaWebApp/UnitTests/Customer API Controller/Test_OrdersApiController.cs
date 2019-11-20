@@ -344,7 +344,7 @@ namespace UnitTests
 
             #region ACT
 
-            var taskReturn = testController.PutOrder(1,testData);
+            var taskReturn = testController.PutOrder(1, testData);
             taskReturn.Wait();
             var result = taskReturn.Result;
 
@@ -433,7 +433,7 @@ namespace UnitTests
             var taskReturn = testController.PostOrder(testData);
             taskReturn.Wait();
             var result = taskReturn.Result.Result;
-            
+
             testData = null;
             testData = testRepo.SelectById(6).Result;
 

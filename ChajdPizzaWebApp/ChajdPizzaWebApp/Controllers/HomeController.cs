@@ -1,19 +1,18 @@
-﻿using System;
+﻿using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ChajdPizzaWebApp.Models;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Newtonsoft.Json;
 using System.Text;
-using ChajdPizzaWebApp.ViewModels;
+using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -95,7 +94,7 @@ namespace ChajdPizzaWebApp.Controllers
                     Response.Cookies.Delete("GuestName");
 
                     // Update current currentlogin order for guest order. 
-                    string SPS =_userManager.GetUserName(User);
+                    string SPS = _userManager.GetUserName(User);
                     int userID = 0;
 
                     try

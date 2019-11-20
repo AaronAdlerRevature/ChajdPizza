@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using ChajdPizzaWebApp.BL;
+using ChajdPizzaWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using ChajdPizzaWebApp.Models;
-using ChajdPizzaWebApp.BL;
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -68,8 +66,8 @@ namespace ChajdPizzaWebApp.Controllers
                 else if (!ResCh.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Check mult has failed!")); }
                 if (isMult > 1) { return View("../Shared/ShowException", new Exception("There are multiple open orders for this customer.")); }
 
-                
-                if(isMult == 0)
+
+                if (isMult == 0)
                 {
                     order.CustomerId = custId;
                     order.isCompleted = false;
@@ -113,19 +111,19 @@ namespace ChajdPizzaWebApp.Controllers
                 }
                 else if (!ResP.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get Specialty Pizza Details has failed!")); }
 
-                orderDetail.OrderId = order.Id;
+                orderDetail.OrdersId = order.Id;
                 orderDetail.Price = specialtyPizza.Price;
                 orderDetail.SizeId = 2;
                 orderDetail.ToppingsSelected = specialtyPizza.Description;
             }
-            
-          
-           
-            return View("../Orders/SpecialtyPizzaOrder" , orderDetail);
+
+
+
+            return View("../Orders/SpecialtyPizzaOrder", orderDetail);
         }
 
         [HttpPost, AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> OrderSubmit([Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)//
+        public async Task<IActionResult> OrderSubmit([Bind("Id,OrdersId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)//
         {
             if (ModelState.IsValid)
             {
@@ -149,7 +147,7 @@ namespace ChajdPizzaWebApp.Controllers
                         client.DefaultRequestHeaders.Clear();
                         client.DefaultRequestHeaders.Accept.Add
                             (new MediaTypeWithQualityHeaderValue("application/json"));
-                        HttpResponseMessage ResO = await client.GetAsync("OrdersApi/" + orderDetail.OrderId);
+                        HttpResponseMessage ResO = await client.GetAsync("OrdersApi/" + orderDetail.OrdersId);
 
                         if (ResO.IsSuccessStatusCode)
                         {
@@ -157,7 +155,8 @@ namespace ChajdPizzaWebApp.Controllers
 
                             order = JsonConvert.DeserializeObject<Orders>(orderRes);
                         }
-                        else if (!ResO.IsSuccessStatusCode) {
+                        else if (!ResO.IsSuccessStatusCode)
+                        {
                             //Delete OrderDetail since order grab failed
                             client.DefaultRequestHeaders.Clear();
                             client.DefaultRequestHeaders.Accept.Add
@@ -165,7 +164,7 @@ namespace ChajdPizzaWebApp.Controllers
 
                             HttpResponseMessage ResDel = await client.DeleteAsync("OrderDetailsApi/" + orderDetail.Id);
                             if (!ResDel.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Deletion of OrderDetail has failed!!")); }
-                            return View("../Shared/ShowException", new Exception("Get Order has failed!\nOrderDetail was removed")); 
+                            return View("../Shared/ShowException", new Exception("Get Order has failed!\nOrderDetail was removed"));
                         }
 
                         //Update Order in database
@@ -181,7 +180,7 @@ namespace ChajdPizzaWebApp.Controllers
                     }
                 }
 
-                    return View("../Orders/PizzaConfirmation", orderDetail);
+                return View("../Orders/PizzaConfirmation", orderDetail);
             }
             return View("../Shared/ShowException", new Exception("There was an issue with your order. {Expression of sadness}.\nModel was not valid."));
         }

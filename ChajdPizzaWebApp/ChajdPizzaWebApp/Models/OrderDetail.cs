@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,9 +7,9 @@ namespace ChajdPizzaWebApp.Models
     public class OrderDetail
     {
         public int Id { get; set; }
-        
+
         [Required]
-        public int OrderId { get; set; }
+        public int OrdersId { get; set; }
 
         [Required]
         public int SizeId { get; set; }
