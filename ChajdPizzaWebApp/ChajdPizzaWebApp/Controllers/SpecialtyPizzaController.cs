@@ -15,6 +15,8 @@ namespace ChajdPizzaWebApp.Controllers
     public class SpecialtyPizzaController : Controller
     {
         OrderBl Orderlogic = new OrderBl();
+
+        [HttpGet]
         public async Task<IActionResult> Order(int? id)
         {
             if (id is null)
@@ -117,10 +119,19 @@ namespace ChajdPizzaWebApp.Controllers
                 orderDetail.ToppingsSelected = specialtyPizza.Description;
             }
             
+          
+           
+            return View("../Orders/SpecialtyPizzaOrder" , orderDetail);
+        }
 
-
- 
-            return View("../Customers/Details" , customer);
+        [HttpPost, AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> OrderSubmit([Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)//
+        {
+            if (ModelState.IsValid)
+            {
+                return View("../Orders/TestOrderDetail", orderDetail);
+            }
+            return View("../Orders/TestOrderDetail", orderDetail);
         }
     }
 }
