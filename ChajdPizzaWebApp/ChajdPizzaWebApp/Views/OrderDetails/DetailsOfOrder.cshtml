@@ -1,15 +1,24 @@
 ﻿
 
 @{
-    ViewData["Title"] = "DetailsOfOrder";
+    ViewData["Title"] = "Details Of Order";
 }
 
 <h1>Order Details</h1>
 
-<div id="CurrentOrderDetails">
-    <h3>Under Construction</h3>
+<div>
+    <h3>Current Order</h3>
+    
+    <div>
+        <ul id="CurrentOrderDetails">
+
+        </ul>
+
+    </div>
 
 </div>
+
+
 
 
 <script>
@@ -28,19 +37,37 @@
 		            }),*@
 
                     success: function (data) {
-                    
-                        if(data.length > 0){
-                            //var value1 = data[0].fieldName; // this value1 you can assign it into your textbox
+                        if (data.length > 0) {
                             var details = data;
-                                $.each(details, function () {
-                                    console.log("ID: " + this.id);
-                                    console.log("Order ID: " + this.orderId);
-                                    console.log("Size ID: " + this.sizeId);
-                                    console.log("Toppings: " + this.toppingsSelected);
-                                    console.log("No. of Toppings: " + this.toppingsCount);
-                                    console.log("Special Request: " + this.specialRequest);
-                                    console.log(" ");   
-                                });
+                            var number = 1;
+                            $.each(details, function () {
+                                console.log("ID: " + this.id);
+                                console.log("Order ID: " + this.orderId);
+                                console.log("Size ID: " + this.sizeId);
+                                console.log("Toppings: " + this.toppingsSelected);
+                                console.log("No. of Toppings: " + this.toppingsCount);
+                                console.log("Special Request: " + this.specialRequest);
+                                console.log(" ");
+
+                                var sizeName;
+                                function GetSizeName() {
+                                    var url = "/api/OrderDetailsApi/DetailsOfOrder/1";
+                                }
+
+                                var list = document.createElement("LI");
+                                list.setAttribute("id", "odlist" + number);
+                                list.innerHTML = "Size ID: " + this.sizeId + "<br /> &emsp;Requested Toppings: " + this.toppingsSelected +
+                                    "<br /> &emsp;Special Request: " + this.specialRequest+"<br />";  //&emsp;&emsp;<input type="button" name"Delete this Item" />
+                                document.getElementById("CurrentOrderDetails").appendChild(list);
+                                number++;
+                            });
+                        }
+                        else {
+                            //$("CurrentOrderDetail") = 
+                                var list = document.createElement("LI");
+                                //list.setAttribute("id", "odlist");
+                                list.innerHTML = "Cart is Empty<br />";
+                                document.getElementById("CurrentOrderDetails").appendChild(list);
                         }
                     },
                     error: function (data) {
