@@ -13,28 +13,31 @@ namespace UnitTests.Data_Objects
     {
         List<Size> sizeList = null;
 
-        public PizzaTypesRepo()
+        public PizzaTypesRepo(bool canFill=true)
         {
-            sizeList = new List<Size>();
+            if (canFill)
+            {
+                sizeList = new List<Size>();
 
-            sizeList.Add(new Size()
-            {
-                Id = 1,
-                BaseSize = "Small",
-                S_Price = 5.99M,
-            });
-            sizeList.Add(new Size()
-            {
-                Id = 2,
-                BaseSize = "Medium",
-                S_Price = 7.99M,
-            });
-            sizeList.Add(new Size()
-            {
-                Id = 3,
-                BaseSize = "Large",
-                S_Price = 9.99M,
-            });
+                sizeList.Add(new Size()
+                {
+                    Id = 1,
+                    BaseSize = "Small",
+                    S_Price = 5.99M,
+                });
+                sizeList.Add(new Size()
+                {
+                    Id = 2,
+                    BaseSize = "Medium",
+                    S_Price = 7.99M,
+                });
+                sizeList.Add(new Size()
+                {
+                    Id = 3,
+                    BaseSize = "Large",
+                    S_Price = 9.99M,
+                });
+            }
         }
 
         public Task<Size> GetPizzaSize(int id)
