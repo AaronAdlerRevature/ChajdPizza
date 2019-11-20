@@ -53,8 +53,8 @@ namespace UnitTests.Data_Objects
             {
                 ID = 2,
                 Name = "Special B",
-                Description = "TopC,TopB",
-                Price = 15.99M,
+                Description = "TopC,TopE",
+                Price = 9.99M,
             });
             specialtyPizzaList.Add(new SpecialtyPizza()
             {
@@ -157,9 +157,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<SpecialtyPizza>> GetSpecialtyPizzas()
+        public async Task<IEnumerable<SpecialtyPizza>> GetSpecialtyPizzas()
         {
-            throw new NotImplementedException();
+            IEnumerable<SpecialtyPizza> result = null;
+
+            var query = specialtyPizzaList.Where(s => s.ID == s.ID);
+            await Task.Delay(10);
+            if (query.Count()>0)
+            {
+                result = query;
+            }
+
+            return result;
         }
 
         public Task<Toppings> GetTopping(int id)
