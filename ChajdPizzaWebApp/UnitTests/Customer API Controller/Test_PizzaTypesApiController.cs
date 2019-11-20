@@ -474,5 +474,32 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetSpecialtyPizzaPrice_Valid()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSpecialtyPizzaPrice(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            decimal testList = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testList, 10.99M);
+
+            #endregion
+        }
     }
 }
