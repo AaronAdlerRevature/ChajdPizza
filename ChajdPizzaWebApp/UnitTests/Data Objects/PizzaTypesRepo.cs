@@ -11,10 +11,30 @@ namespace UnitTests.Data_Objects
 {
     class PizzaTypesRepo : IPizzaTypesRepo
     {
+        List<Size> sizeList = null;
 
         public PizzaTypesRepo()
         {
+            sizeList = new List<Size>();
 
+            sizeList.Add(new Size()
+            {
+                Id = 1,
+                BaseSize = "Small",
+                S_Price = 5.99M,
+            });
+            sizeList.Add(new Size()
+            {
+                Id = 2,
+                BaseSize = "Medium",
+                S_Price = 7.99M,
+            });
+            sizeList.Add(new Size()
+            {
+                Id = 3,
+                BaseSize = "Large",
+                S_Price = 9.99M,
+            });
         }
 
         public Task<Size> GetPizzaSize(int id)
@@ -32,9 +52,9 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Size>> GetPizzaSizes()
+        public async Task<IEnumerable<Size>> GetPizzaSizes()
         {
-            throw new NotImplementedException();
+           
         }
 
         public Task<SecretFormula> GetSecretFormula(int id)
