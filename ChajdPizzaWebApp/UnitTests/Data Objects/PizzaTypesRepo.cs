@@ -161,9 +161,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<decimal> GetSpecialtyPizzaPrice(int id)
+        public async Task<decimal> GetSpecialtyPizzaPrice(int id)
         {
-            throw new NotImplementedException();
+            decimal result = -1M;
+
+            var query = specialtyPizzaList.Where(s => s.ID == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().Price;
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<SpecialtyPizza>> GetSpecialtyPizzas()
