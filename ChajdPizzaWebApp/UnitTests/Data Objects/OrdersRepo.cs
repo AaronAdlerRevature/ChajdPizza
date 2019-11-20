@@ -100,9 +100,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<Orders> SelectById(int? id)
+        public async Task<Orders> SelectById(int? id)
         {
-            throw new NotImplementedException();
+            Orders result = null;
+
+            var query = ordersList.Where(o => o.Id == id);
+            await Task.Delay(10);
+            if(query.Count()>0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;  
         }
 
         public Task<Orders> SelectMultByCustId(int? id, int Oid)
