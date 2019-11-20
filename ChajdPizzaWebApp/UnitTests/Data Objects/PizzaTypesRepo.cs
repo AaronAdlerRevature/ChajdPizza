@@ -44,7 +44,7 @@ namespace UnitTests.Data_Objects
         {
             Size result = null;
 
-            var query = sizeList.Where(s => s.Id == s.Id);
+            var query = sizeList.Where(s => s.Id == id);
             await Task.Delay(10);
             if (query.Count() > 0)
             {
