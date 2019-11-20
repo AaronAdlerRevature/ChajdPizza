@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using ChajdPizzaWebApp.Models;
+using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ChajdPizzaWebApp.Data;
-using ChajdPizzaWebApp.Models;
-using ChajdPizzaWebApp.Repositories;
-using ChajdPizzaWebApp.Repositories.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -129,7 +124,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
 
             await _repo.Remove(order);
-            
+
 
             return order;
         }

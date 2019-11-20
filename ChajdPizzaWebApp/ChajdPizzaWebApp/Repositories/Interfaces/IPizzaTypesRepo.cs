@@ -1,7 +1,5 @@
 ﻿using ChajdPizzaWebApp.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Repositories.Interfaces
@@ -37,5 +35,5 @@ namespace ChajdPizzaWebApp.Repositories.Interfaces
         public Task<Toppings> GetTopping(int id);
 
         public Task<string> GetToppingName(int id);
-    } 
+    }
 }
