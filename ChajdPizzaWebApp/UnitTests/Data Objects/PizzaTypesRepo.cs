@@ -12,6 +12,7 @@ namespace UnitTests.Data_Objects
     class PizzaTypesRepo : IPizzaTypesRepo
     {
         List<Size> sizeList = null;
+        List<SpecialtyPizza> specialtyPizzaList = null;
 
         public PizzaTypesRepo(bool canFill=true)
         {
@@ -38,6 +39,31 @@ namespace UnitTests.Data_Objects
                     S_Price = 9.99M,
                 });
             }
+
+            specialtyPizzaList = new List<SpecialtyPizza>();
+
+            specialtyPizzaList.Add(new SpecialtyPizza()
+            {
+                ID = 1,
+                Name = "Special A",
+                Description = "TopA,TopB,TopC",
+                Price = 10.99M,
+            });
+            specialtyPizzaList.Add(new SpecialtyPizza()
+            {
+                ID = 2,
+                Name = "Special B",
+                Description = "TopC,TopB",
+                Price = 15.99M,
+            });
+            specialtyPizzaList.Add(new SpecialtyPizza()
+            {
+                ID = 3,
+                Name = "Special C",
+                Description = "TopA,TopB,TopC,TopD,TopE",
+                Price = 13.99M,
+            });
+
         }
 
         public async Task<Size> GetPizzaSize(int id)
