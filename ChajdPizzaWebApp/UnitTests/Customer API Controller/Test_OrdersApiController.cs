@@ -10,6 +10,56 @@ namespace UnitTests
     [TestClass]
     public class Test_OrdersApiController
     {
-       
+        [TestMethod]
+        public void GetOrderDetails()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetOrders();
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            List<Orders> testList = new List<Orders>(result);
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testList.Count, 5);
+
+            Assert.AreEqual(testList[0].Id, 1);
+            Assert.AreEqual(testList[0].CustomerId, 1);
+            Assert.AreEqual(testList[0].NetPrice, 29.99M);
+            Assert.IsTrue(testList[0].isCompleted);
+
+            Assert.AreEqual(testList[1].Id, 2);
+            Assert.AreEqual(testList[1].CustomerId, 1);
+            Assert.AreEqual(testList[1].NetPrice, 49.99M);
+            Assert.IsTrue(testList[1].isCompleted);
+
+            Assert.AreEqual(testList[2].Id, 3);
+            Assert.AreEqual(testList[2].CustomerId, 2);
+            Assert.AreEqual(testList[2].NetPrice, 9.99M);
+            Assert.IsNotNull(testList[2].isCompleted);
+
+            Assert.AreEqual(testList[3].Id, 4);
+            Assert.AreEqual(testList[3].CustomerId, 3);
+            Assert.AreEqual(testList[3].NetPrice, 19.99M);
+            Assert.IsNotNull(testList[3].isCompleted);
+
+            Assert.AreEqual(testList[4].Id, 5);
+            Assert.AreEqual(testList[4].CustomerId, 3);
+            Assert.AreEqual(testList[4].NetPrice, 39.99M);
+            Assert.IsNotNull(testList[4].isCompleted);
+
+            #endregion
+        }
     }
 }
