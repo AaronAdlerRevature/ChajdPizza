@@ -11,6 +11,43 @@ namespace UnitTests
     [TestClass]
     public class Test_PizzaTypesApiController
     {
-       
+        [TestMethod]
+        public void GetSizes()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSizes();
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            List<Size> testList = new List<Size>(result);
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testList.Count, 3);
+
+            Assert.AreEqual(testList[0].Id, 1);
+            Assert.AreEqual(testList[0].BaseSize, "Small");
+            Assert.AreEqual(testList[0].S_Price, 5.99M);
+            
+            Assert.AreEqual(testList[1].Id, 2);
+            Assert.AreEqual(testList[1].BaseSize, "Medium");
+            Assert.AreEqual(testList[1].S_Price, 7.99M);
+            
+            Assert.AreEqual(testList[2].Id, 3);
+            Assert.AreEqual(testList[2].BaseSize, "Large");
+            Assert.AreEqual(testList[2].S_Price, 9.99M);
+
+            #endregion
+        }
     }
 }
