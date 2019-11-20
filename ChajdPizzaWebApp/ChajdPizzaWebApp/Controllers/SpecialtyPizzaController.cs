@@ -15,12 +15,6 @@ namespace ChajdPizzaWebApp.Controllers
     public class SpecialtyPizzaController : Controller
     {
         OrderBl Orderlogic = new OrderBl();
-        [HttpGet]
-        public async Task<IActionResult> Create()
-        {
-            return View("../Orders/CreateOrderDetail");
-        }
-
 
         [HttpGet]
         public async Task<IActionResult> Order(int? id)
