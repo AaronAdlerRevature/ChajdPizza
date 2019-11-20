@@ -15,6 +15,14 @@ namespace ChajdPizzaWebApp.Controllers
     public class SpecialtyPizzaController : Controller
     {
         OrderBl Orderlogic = new OrderBl();
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            return View("../Orders/CreateOrderDetail");
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> Order(int? id)
         {
             if (id is null)
@@ -117,18 +125,19 @@ namespace ChajdPizzaWebApp.Controllers
                 orderDetail.ToppingsSelected = specialtyPizza.Description;
             }
             
-
-
-<<<<<<< HEAD
           
-            
-
-
+           
             return View("../Orders/SpecialtyPizzaOrder" , orderDetail);
-=======
- 
-            return View("../Customers/Details" , customer);
->>>>>>> 475400f2ba4fcd04d9e39e9ffe08339e8993bf18
+        }
+
+        [HttpPost, AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> OrderSubmit([Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)//
+        {
+            if (ModelState.IsValid)
+            {
+                return View("../Orders/TestOrderDetail", orderDetail);
+            }
+            return View("../Orders/TestOrderDetail", orderDetail);
         }
     }
 }
