@@ -82,9 +82,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<bool> Remove(Orders order)
+        public async Task<bool> Remove(Orders order)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            if (ordersList.Contains(order))
+            {
+                ordersList.Remove(order);
+                await Task.Delay(10);
+                result = true;
+            }
+
+            return result;  
         }
 
         public async Task<List<Orders>> SelectAll()
