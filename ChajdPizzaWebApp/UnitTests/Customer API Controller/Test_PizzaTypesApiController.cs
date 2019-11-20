@@ -292,5 +292,32 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetSizePrice_InvalidID()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSizePrice(3);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            decimal testData = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(testData, 5.99M);
+
+            #endregion
+        }
     }
 }
