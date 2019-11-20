@@ -28,8 +28,8 @@ namespace ChajdPizzaWebApp.Models
 
         public string SpecialRequest { get; set; }
 
-        //public Orders Orders { get; set; }
-        //public Size Sizes { get; set; }
+        public Orders Orders { get; set; }
+        public Size Sizes { get; set; }
 
     }
 }
