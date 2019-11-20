@@ -296,5 +296,30 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetCheckMultipleOpenOrders_MultipleOpenOrders()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.CheckMultOpenOrders(3);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(result, 2);
+
+            #endregion
+        }
     }
 }
