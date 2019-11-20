@@ -457,5 +457,37 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void DeleteOrder_Valid()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.DeleteOrder(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            var testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(result.Id, 1);
+            Assert.AreEqual(result.CustomerId, 1);
+            Assert.AreEqual(result.NetPrice, 29.99M);
+            Assert.IsTrue(result.isCompleted);
+
+            Assert.IsNull(testData);
+
+            #endregion
+        }
     }
 }
