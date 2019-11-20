@@ -51,9 +51,15 @@ namespace UnitTests.Data_Objects
         }
 
 
-        public Task<bool> Add(OrderDetail orderDetail)
+        public async Task<bool> Add(OrderDetail orderDetail)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            orderDetails.Add(orderDetail);
+            await Task.Delay(10);
+            result = true;
+
+            return result;
         }
 
         public bool OrderDetailExists(int id)
