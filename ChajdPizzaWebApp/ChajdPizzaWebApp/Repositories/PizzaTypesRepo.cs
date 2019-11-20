@@ -178,9 +178,9 @@ namespace ChajdPizzaWebApp.Data
             return result;
         }
 
-        public async Task<double> GetSpecialtyPizzaPrice(int id)
+        public async Task<decimal> GetSpecialtyPizzaPrice(int id)
         {
-            double result = 0;
+            decimal result = 0;
 
             var query = _context.SpecialtyPizzas.Where(c => c.ID == id);
             if (query.Count() > 0)

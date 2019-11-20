@@ -34,7 +34,7 @@ namespace UnitTests
 
             Assert.AreEqual(testList.Count, 3);
             Assert.AreEqual(testList[0].OrderId, 1);
-            Assert.AreEqual(testList[1].Price, 12.99);
+            Assert.AreEqual(testList[1].Price, 12.99M);
             Assert.AreEqual(testList[2].OrderId, 2);
 
             #endregion
@@ -149,11 +149,11 @@ namespace UnitTests
             Assert.AreEqual(testResult.Count, 2);
             Assert.AreEqual(testResult[0].Id, 1);
             Assert.AreEqual(testResult[0].SpecialRequest, "Special A");
-            Assert.AreEqual(testResult[0].Price, 7.99);
+            Assert.AreEqual(testResult[0].Price, 7.99M);
             Assert.AreEqual(testResult[0].ToppingsCount, 2);
             Assert.AreEqual(testResult[1].Id, 2);
             Assert.AreEqual(testResult[1].SpecialRequest, "Special B");
-            Assert.AreEqual(testResult[1].Price, 12.99);
+            Assert.AreEqual(testResult[1].Price, 12.99M);
             Assert.AreEqual(testResult[1].ToppingsCount, 4);
 
             #endregion
@@ -227,7 +227,7 @@ namespace UnitTests
             {
                 Id = 1,
                 OrderId = 1,
-                Price = 7.99,
+                Price = 7.99M,
                 SizeId = 3,
                 SpecialRequest = "Special A",
                 ToppingsCount = 3,
@@ -270,7 +270,7 @@ namespace UnitTests
             {
                 Id = 1,
                 OrderId = 1,
-                Price = 7.99,
+                Price = 7.99M,
                 SizeId = 3,
                 SpecialRequest = "Special A",
                 ToppingsCount = 3,
@@ -313,7 +313,7 @@ namespace UnitTests
             {
                 Id = 4,
                 OrderId = 3,
-                Price = 11.99,
+                Price = 11.99M,
                 SizeId = 2,
                 SpecialRequest = "Special D",
                 ToppingsCount = 1,
@@ -341,7 +341,7 @@ namespace UnitTests
             Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Id, 4);
             Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).OrderId, 3);
             Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).SizeId, 2);
-            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Price, 11.99);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Price, 11.99M);
 
             Assert.AreEqual(testData.Id, 4);
             Assert.AreEqual(testData.SizeId, 2);
@@ -379,7 +379,7 @@ namespace UnitTests
             Assert.IsNotNull(resultReturn);
             Assert.AreEqual(resultReturn.Id, 1);
             Assert.AreEqual(resultReturn.ToppingsCount, 2);
-            Assert.AreEqual(resultReturn.Price, 7.99);
+            Assert.AreEqual(resultReturn.Price, 7.99M);
 
             Assert.IsNull(testData);
 
@@ -417,7 +417,7 @@ namespace UnitTests
 
             Assert.IsNotNull(testData);
             Assert.AreEqual(testData.Id, 1);
-            Assert.AreEqual(testData.Price, 7.99);
+            Assert.AreEqual(testData.Price, 7.99M);
             Assert.AreEqual(testData.SizeId, 1);
             Assert.AreEqual(testData.ToppingsCount, 2);
             Assert.AreEqual(testData.ToppingsSelected, "TopA,TopB");
