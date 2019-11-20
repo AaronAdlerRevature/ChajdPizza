@@ -301,5 +301,54 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void PostOrderDetail_Valid()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+            OrderDetail testData = new OrderDetail()
+            {
+                Id = 4,
+                OrderId = 3,
+                Price = 11.99,
+                SizeId = 2,
+                SpecialRequest = "Special D",
+                ToppingsCount = 1,
+                ToppingsSelected = "TopA",
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PostOrderDetail(testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            testData = null;
+            testData = testRepo.SelectById(4).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is CreatedAtActionResult);
+            Assert.AreEqual((result as CreatedAtActionResult).StatusCode, 201);
+            Assert.AreEqual((result as CreatedAtActionResult).RouteValues["id"], 4);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Id, 4);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).OrderId, 3);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).SizeId, 2);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as OrderDetail).Price, 11.99);
+
+            Assert.AreEqual(testData.Id, 4);
+            Assert.AreEqual(testData.SizeId, 2);
+            Assert.AreEqual(testData.ToppingsCount, 1);
+            Assert.AreEqual(testData.ToppingsSelected, "TopA");
+
+            #endregion
+        }
     }
 }
