@@ -81,9 +81,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<List<Orders>> SelectAll()
+        public async Task<List<Orders>> SelectAll()
         {
-            throw new NotImplementedException();
+            List<Orders> result = null;
+
+            var query = ordersList.Where(o => o.Id == o.Id);
+            if (query.Count()>0)
+            {
+                result = query.ToList();
+                await Task.Delay(10);
+            }
+
+            return result;
         }
 
         public Task<Orders> SelectByCustId(int? id)
