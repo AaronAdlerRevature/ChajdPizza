@@ -365,5 +365,48 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void PutOrder_InvalidID()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+            Orders testData = new Orders()
+            {
+                Id = 1,
+                CustomerId = 1,
+                DeliveryAddress = "456 Q Avenue",
+                isCompleted = false,
+                NetPrice = 69.99M,
+                TimePlaced = DateTime.Now,
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PutOrder(2, testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result;
+
+            testData = null;
+            testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is BadRequestResult);
+            Assert.AreEqual((result as BadRequestResult).StatusCode, 400);
+
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.DeliveryAddress, "123 A Street");
+            Assert.AreEqual(testData.NetPrice, 29.99M);
+            Assert.IsTrue(testData.isCompleted);
+
+            #endregion
+        }
     }
 }
