@@ -385,5 +385,44 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void DeleteOrderDetail_NonExistingID()
+        {
+            #region ASSIGN
+
+            OrderDetailsRepo testRepo = new OrderDetailsRepo();
+            OrderDetailsApiController testController = new OrderDetailsApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.DeleteOrderDetail(0);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+            var resultReturn = taskReturn.Result.Value;
+
+            var testData = testRepo.SelectById(1).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
+
+            Assert.IsNull(resultReturn);
+
+            Assert.IsNotNull(testData);
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.Price, 7.99);
+            Assert.AreEqual(testData.SizeId, 1);
+            Assert.AreEqual(testData.ToppingsCount, 2);
+            Assert.AreEqual(testData.ToppingsSelected, "TopA,TopB");
+
+            #endregion
+        }
     }
 }
