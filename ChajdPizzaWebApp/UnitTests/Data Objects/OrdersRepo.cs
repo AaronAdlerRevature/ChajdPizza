@@ -66,9 +66,15 @@ namespace UnitTests.Data_Objects
             });
         }
 
-        public Task<bool> Add(Orders order)
+        public async Task<bool> Add(Orders order)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            ordersList.Add(order);
+            await Task.Delay(10);
+            result = true;
+
+            return result;
         }
 
         public bool OrderExists(int id)
