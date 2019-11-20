@@ -4,24 +4,16 @@
 }
 <script>
     $(document).ready(function () {
-        
-        
         $('#sizes').change(function () {
-            var value = Number($('#sizes option:selected').attr('name'));
-        var modelprice = Number(@Model.Price);
-        var price = value + modelprice;
-        var sizeId = Number($('#sizes option:selected').attr('value'));
-            $('#price').replaceWith('<dd id="price" class = "col-sm-10"> $' + price + '</dd>');
+            let value = Number($('#sizes option:selected').attr('name'));
+        let currentprice = @Model.Price;
+        let price = value + currentprice;
+            let sizeId = Number($('#sizes option:selected').attr('value'));
+            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
             $('#submitButton').replaceWith('<div class="form-group" id="submitButton"><input type="submit" onclick = "addTochoices()" value="Add to Cart" class="btn btn-primary" /></div>');
             $('#modelPrice').replaceWith('<input name="Price" class="form-control" id="modelPrice" type="text" value="' + price + '" data-val-required="The Price field is required." data-val="true" data-val-range-min="0" data-val-range-max="1000000" data-val-range="The field Price must be between 0 and 1000000." data-val-number="The field Price must be a number.">');
             $('#modelsizeId').replaceWith('<input name="SizeId" class="form-control" id="modelsizeId" type="number" value="' + sizeId + '" data-val-required="The SizeId field is required." data-val="true">');
-            //$('#topping').click(function () {
-            //    price += 1.50;
-            //    $('#price').replaceWith('<dd id="price" class = "col-sm-10"> $' + price + '</dd>');
-            //});
-        });
-     
-  
+        }); 
             $.ajax({
                 contentType: 'application/json',
                 type: "GET",
@@ -42,6 +34,27 @@
                     failure(data);
                 }
             });
+
+        $('#toppings').change(function () {
+            var checkboxes_value = [];
+
+            $('.topping').each(function () {
+                if (this.checked) {
+
+                    alert(value + '  ' + price);
+                    $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+                }
+                else if (!this.checked) {
+
+                    alert(value + '  ' + price);
+                    $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+                }
+
+            })
+        })
+
+
+
             $.ajax({
                 contentType: 'application/json',
                 type: "GET",
@@ -53,7 +66,7 @@
                         var details = data;
                         $.each(details, function () {
 
-                            var li = '<input type ="checkbox"   value="' + this.id + '" name = "topping"/> '+this.name+' <br>'
+                            var li = '<input class="topping" name="' + this.name + '"  type ="checkbox" onClick="updatePrice(this)"  value="' + this.name + '" /> '+this.name+' <br>'
                             $('#toppings').append(li);
                         });
                     }
@@ -64,17 +77,18 @@
             });
     
     });
-    @*function addTochoices() {
-                var items = document.getElementsByName('Toppings');
-                var selectedItems = "";
-            for (var i = 0; i < items.length; i++) {
-                if (items[i].type == 'checkbox' && items[i].checked == true) {
-                    selectedItems += items[i].value + "\n";
-                }
-            }      
-            alert(selectedItems);
-            @Model.ToppingsSelected = selectedItems;
-        };*@
+    function updatePrice(element) {
+        if (element.checked) {
+            let value = Number($('#price').attr('name'));
+            let price = value + 1.50;
+            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+        }
+        if (!element.checked) {
+            let value = Number($('#price').attr('name'));
+            let price = value - 1.50;
+            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+        }
+        };
 </script>
 
 
@@ -100,16 +114,14 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
-        <dd id="price" class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+        <dd id="price" name="@Model.Price" class="col-sm-10"> @Model.Price </dd>
         <dt class="col-sm-2">
             Select Size
         </dt>
         <dd class="col-sm-10">
             <select id="sizes">
             </select>
-            <div id="toppings">
+            <div id="toppings" >
             </div>
         </dd>
     </dl>
