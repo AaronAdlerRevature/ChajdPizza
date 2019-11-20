@@ -10,7 +10,7 @@ namespace ChajdPizzaWebApp.ViewModels
     {
         public List<Size> Sizes { get; set; }
         public List<Toppings> Toppings { get; set; }
-        public List<Toppings> selectedToppings { get; set; }
+        //public List<Toppin selectedToppings { get; set; }
         public int sizeId { get; set; }
 
     }
