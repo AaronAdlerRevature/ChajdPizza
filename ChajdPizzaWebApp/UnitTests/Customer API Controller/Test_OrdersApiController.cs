@@ -408,5 +408,54 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void PostOrder_Valid()
+        {
+            #region ASSIGN
+
+            OrdersRepo testRepo = new OrdersRepo();
+            OrdersApiController testController = new OrdersApiController(testRepo);
+            Orders testData = new Orders()
+            {
+                Id = 6,
+                CustomerId = 5,
+                DeliveryAddress = "221 Baker Street",
+                isCompleted = true,
+                NetPrice = 99.99M,
+                TimePlaced = DateTime.Now,
+            };
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.PostOrder(testData);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+            
+            testData = null;
+            testData = testRepo.SelectById(6).Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is CreatedAtActionResult);
+            Assert.AreEqual((result as CreatedAtActionResult).StatusCode, 201);
+            Assert.AreEqual((result as CreatedAtActionResult).RouteValues["id"], 6);
+
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as Orders).Id, 6);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as Orders).CustomerId, 5);
+            Assert.AreEqual(((result as CreatedAtActionResult).Value as Orders).NetPrice, 99.99M);
+            Assert.IsTrue(((result as CreatedAtActionResult).Value as Orders).isCompleted);
+
+            Assert.AreEqual(testData.Id, 6);
+            Assert.AreEqual(testData.DeliveryAddress, "221 Baker Street");
+            Assert.AreEqual(testData.NetPrice, 99.99M);
+            Assert.IsTrue(testData.isCompleted);
+
+            #endregion
+        }
     }
 }
