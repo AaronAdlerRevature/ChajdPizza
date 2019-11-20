@@ -123,9 +123,18 @@ namespace UnitTests.Data_Objects
             return result;  
         }
 
-        public Task<Orders> SelectMultByCustId(int? id, int Oid)
+        public async Task<Orders> SelectMultByCustId(int? id, int Oid)
         {
-            throw new NotImplementedException();
+            Orders result = null;
+
+            var query = ordersList.Where(o => o.CustomerId == id && o.isCompleted == false && o.Id != Oid);
+            await Task.Delay(10);
+            if (query.Count()>0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;
         }
 
         public Task<bool> Update(Orders order)
