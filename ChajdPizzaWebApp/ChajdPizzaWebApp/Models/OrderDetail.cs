@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChajdPizzaWebApp.Models
 {
@@ -22,14 +23,14 @@ namespace ChajdPizzaWebApp.Models
         [Display(Name = "Number of Toppings")]
         public int ToppingsCount { get; set; }
 
-        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(20,2)")]
         [Range(0.0, 1000000.0)]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         public string SpecialRequest { get; set; }
 
-        //public Orders Orders { get; set; }
-        //public Size Sizes { get; set; }
+        public Orders Orders { get; set; }
+        public Size Sizes { get; set; }
 
     }
 }

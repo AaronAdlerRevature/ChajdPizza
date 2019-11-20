@@ -20,7 +20,7 @@ namespace UnitTests.Data_Objects
             {
                 Id = 1,
                 OrderId = 1,
-                Price = 7.99,
+                Price = 7.99M,
                 SizeId = 1,
                 SpecialRequest = "Special A",
                 ToppingsCount = 2,
@@ -31,7 +31,7 @@ namespace UnitTests.Data_Objects
             {
                 Id = 2,
                 OrderId = 1,
-                Price = 12.99,
+                Price = 12.99M,
                 SizeId = 2,
                 SpecialRequest = "Special B",
                 ToppingsCount = 4,
@@ -42,7 +42,7 @@ namespace UnitTests.Data_Objects
             {
                 Id = 3,
                 OrderId = 2,
-                Price = 8.99,
+                Price = 8.99M,
                 SizeId = 3,
                 SpecialRequest = "Special C",
                 ToppingsCount = 1,

@@ -26,7 +26,7 @@ namespace ChajdPizzaWebApp.Repositories.Interfaces
 
         public Task<SpecialtyPizza> GetSpecialtyPizza(int id);
 
-        public Task<double> GetSpecialtyPizzaPrice(int id);
+        public Task<decimal> GetSpecialtyPizzaPrice(int id);
 
         public Task<string> GetSpecialtyPizzaName(int id);
 
