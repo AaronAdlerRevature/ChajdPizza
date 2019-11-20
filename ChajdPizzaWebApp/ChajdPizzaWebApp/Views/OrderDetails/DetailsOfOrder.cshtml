@@ -57,9 +57,17 @@
                                 var list = document.createElement("LI");
                                 list.setAttribute("id", "odlist" + number);
                                 list.innerHTML = "Size ID: " + this.sizeId + "<br /> &emsp;Requested Toppings: " + this.toppingsSelected +
-                                    "<br /> &emsp;Special Request: " + this.specialRequest+"<br />";  //&emsp;&emsp;<input type="button" name"Delete this Item" />
+                                    "<br /> &emsp;Special Request: " + this.specialRequest +
+                                    "&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" />";
+                                /*
+                                &emsp;&emsp; <input type=\"button\" value=\"Delete\" name = \"Delete this Item\" id=\"btn" + number + "\" /> 
+                                
+                                <button id=\"btn" + number + "\">Delete this Item</button>
+
+                                */
                                 document.getElementById("CurrentOrderDetails").appendChild(list);
                                 number++;
+
                             });
                         }
                         else {

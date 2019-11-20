@@ -50,7 +50,7 @@ namespace ChajdPizzaWebApp.Controllers
         {
             //if(orderId != null)
             string returnUrl = Url.Content("~/");
-            if (User.Identity.Name == null)
+            if (User.Identity.Name != null)
             {
                 //var Order = 
                 return View();
