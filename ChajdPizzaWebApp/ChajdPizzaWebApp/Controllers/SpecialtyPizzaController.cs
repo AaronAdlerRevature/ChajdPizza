@@ -129,9 +129,61 @@ namespace ChajdPizzaWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("../Orders/TestOrderDetail", orderDetail);
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
+
+                    //Post OrderDetail
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Accept.Add
+                        (new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    var newData = JsonConvert.SerializeObject(orderDetail);
+                    var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+                    HttpResponseMessage ResPost = await client.PostAsync("OrderDetailsApi", newContent);
+                    if (!ResPost.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("There was an issue with your order. {Expression of sadness}.\nPosting has failed.")); }
+                    else
+                    {   //Update Order netPrice.
+                        //GetOrder
+                        Orders order = new Orders();
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Accept.Add
+                            (new MediaTypeWithQualityHeaderValue("application/json"));
+                        HttpResponseMessage ResO = await client.GetAsync("OrdersApi/" + orderDetail.OrderId);
+
+                        if (ResO.IsSuccessStatusCode)
+                        {
+                            var orderRes = ResO.Content.ReadAsStringAsync().Result;
+
+                            order = JsonConvert.DeserializeObject<Orders>(orderRes);
+                        }
+                        else if (!ResO.IsSuccessStatusCode) {
+                            //Delete OrderDetail since order grab failed
+                            client.DefaultRequestHeaders.Clear();
+                            client.DefaultRequestHeaders.Accept.Add
+                                (new MediaTypeWithQualityHeaderValue("application/json"));
+
+                            HttpResponseMessage ResDel = await client.DeleteAsync("OrderDetailsApi/" + orderDetail.Id);
+                            if (!ResDel.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Deletion of OrderDetail has failed!!")); }
+                            return View("../Shared/ShowException", new Exception("Get Order has failed!\nOrderDetail was removed")); 
+                        }
+
+                        //Update Order in database
+                        order.NetPrice = order.NetPrice + orderDetail.Price;
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Accept.Add
+                            (new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        newData = JsonConvert.SerializeObject(orderDetail);
+                        newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+                        HttpResponseMessage ResPut = await client.PutAsync("OrderDetailsApi", newContent);
+                        if (!ResPut.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Updating Order NetPrice has failed!!")); }
+                    }
+                }
+
+                    return View("../Orders/PizzaConfirmation", orderDetail);
             }
-            return View("../Orders/TestOrderDetail", orderDetail);
+            return View("../Shared/ShowException", new Exception("There was an issue with your order. {Expression of sadness}.\nModel was not valid."));
         }
     }
 }
