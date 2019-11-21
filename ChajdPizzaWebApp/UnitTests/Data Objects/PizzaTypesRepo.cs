@@ -164,9 +164,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<SecretFormula> GetSecretFormula(int id)
+        public async Task<SecretFormula> GetSecretFormula(int id)
         {
-            throw new NotImplementedException();
+            SecretFormula result = null;
+
+            var query = secretList.Where(s => s.Id == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault();
+            }
+
+            return result;
         }
 
         public Task<decimal> GetSecretFormulaPrice(int id)
