@@ -8,7 +8,7 @@
 
 <div>
     <h3>Current Order</h3>
-    
+
     <div>
         <ul id="CurrentOrderDetails">
             _____________________________________
@@ -17,7 +17,12 @@
     </div>
 
 </div>
+@*
+    @if (User.Identity.Name != null || Request.Cookies.ContainsKey("GuestName"))
+    {
 
+    }
+*@
 <script>
     GetDetails();
 
@@ -89,7 +94,7 @@
             success: function (delData) {
                 var prevList = document.getElementById("CurrentOrderDetails");
                 prevList.innerHTML = "";
-                
+
                 DeductPriceFrom(delData.ordersId, delData.price);
                 GetDetails();
             },
@@ -101,7 +106,7 @@
 
     function DeductPriceFrom(orderId, priceDeduct) {
         let deductFromUrl = "/api/OrdersApi/" + orderId;
-        
+
         $.ajax({
             contentType: 'application/json',
             type: "GET",
