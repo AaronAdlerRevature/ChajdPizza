@@ -1,0 +1,140 @@
+﻿
+
+@{
+    ViewData["Title"] = "Details Of Order";
+}
+
+<h1>Order Details</h1>
+
+<div>
+    <h3>Current Order</h3>
+
+    <div>
+        <ul id="CurrentOrderDetails">
+            _____________________________________
+        </ul>
+
+    </div>
+
+</div>
+
+<script>
+    GetDetails();
+
+    function GetDetails() {
+	    let url = "/api/OrderDetailsApi/DetailsOfOrder/1";
+	    $.ajax({
+		    contentType: 'application/json',
+		    type: "GET",
+		    url: url,
+		    @*   data: JSON.stringify({
+			    orderId: 1 @model.Id
+		    }),*@
+
+            success: function (data) {
+                if (data.length > 0) {
+                    var details = data;
+                    var number = 1;
+
+                    $.each(details, function () {
+                        var list = document.createElement("LI");
+                        list.setAttribute("id", "odlist" + number);
+
+                        list.innerHTML = "<strong id = 'size"+number+"'> Cheese Pizza</strong><br /> &emsp;Requested Toppings: " + this.toppingsSelected +
+                            "<br /> &emsp;Special Request: <em>" + this.specialRequest + "</em><br /> &emsp;&emsp;&emsp;Price: <em><strong>$"+ this.price +
+                            "</strong></em>&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" onClick = \"DeleteItem(" + this.id +")\"/>"
+                            + "<br/>_____________________________________";
+
+                        GetSizeName(this.sizeId, number);
+                        document.getElementById("CurrentOrderDetails").appendChild(list);
+                        number++;
+                    });
+                }
+                else {
+                        var list = document.createElement("LI");
+                        list.innerHTML = "Cart is Empty<br />";
+                        document.getElementById("CurrentOrderDetails").appendChild(list);
+                }
+            },
+            error: function (data) {
+                failure(data);
+            }
+	    });
+    };
+
+    function GetSizeName(sizeId,number) {
+        var sizeNameM = '';
+        let sizeUrl = "/api/PizzaTypesApi/sizes/name/"+sizeId;
+        $.ajax({
+            contentType: 'application/json',
+		    type: "GET",
+            url: sizeUrl,
+            success: function (sizeData) {
+
+                $('#size' + number).replaceWith('<strong id="size' + number + '" class = "col-sm-10"> ' + sizeData + ' Cheese Pizza</strong>');
+
+            },
+            error: function (sizeData) {
+                failure(sizeData);
+            }
+        });
+    }
+
+    function DeleteItem(oDetailId) {
+        let delItemUrl = "/api/OrderDetailsApi/" + oDetailId;
+        $.ajax({
+            contentType: 'application/json',
+            type: "DELETE",
+            url: delItemUrl,
+            success: function (delData) {
+                var prevList = document.getElementById("CurrentOrderDetails");
+                prevList.innerHTML = "";
+
+                DeductPriceFrom(delData.ordersId, delData.price);
+                GetDetails();
+            },
+            error: function (delData) {
+                failure(delData);
+            }
+        });
+    }
+
+    function DeductPriceFrom(orderId, priceDeduct) {
+        let deductFromUrl = "/api/OrdersApi/" + orderId;
+
+        $.ajax({
+            contentType: 'application/json',
+            type: "GET",
+            url: deductFromUrl,
+            success: function (orderData) {
+                var order = orderData;
+
+                order.netPrice -= priceDeduct;
+                UpdateOrder(order);
+            },
+            error: function (orderData) {
+                alert('eeeeeeeeeeeeee');
+                failure(orderData);
+            }
+        });
+    }
+
+
+    function UpdateOrder(order) {
+        let updateOrderUrl = "/api/OrdersApi/" + order.id;
+        $.ajax({
+            contentType: 'application/json',
+            type: "PUT",
+            url: updateOrderUrl,
+            data: JSON.stringify(order),
+            success: function () {
+
+            },
+            error: function (orderData) {
+                alert('Unable to update price');
+                failure(orderData);
+            }
+        });
+    }
+
+</script>
