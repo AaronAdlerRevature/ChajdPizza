@@ -37,10 +37,25 @@ namespace ChajdPizzaWebApp
             services.AddTransient<IOrderDetailsRepo, OrderDetailsRepo>();
             services.AddTransient<IPizzaTypesRepo, PizzaTypesRepo>();
 
-            services.AddMvc();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                    }
+
+                    );
+            }
+            );
+
+          services.AddMvc();
 
             // Add the temp data provider
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
+
+          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,10 +75,12 @@ namespace ChajdPizzaWebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseCors();
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -72,6 +89,7 @@ namespace ChajdPizzaWebApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
