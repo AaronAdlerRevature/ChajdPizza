@@ -13,6 +13,7 @@ namespace UnitTests.Data_Objects
     {
         List<Size> sizeList = null;
         List<SpecialtyPizza> specialtyPizzaList = null;
+        List<Toppings> toppingList = null;
 
         public PizzaTypesRepo(bool canFill=true)
         {
@@ -63,6 +64,33 @@ namespace UnitTests.Data_Objects
                     Price = 13.99M,
                 });
 
+                toppingList = new List<Toppings>();
+
+                toppingList.Add(new Toppings()
+                {
+                    Id = 1,
+                    Name = "TopA",
+                });
+                toppingList.Add(new Toppings()
+                {
+                    Id = 2,
+                    Name = "TopB",
+                });
+                toppingList.Add(new Toppings()
+                {
+                    Id = 3,
+                    Name = "TopC",
+                });
+                toppingList.Add(new Toppings()
+                {
+                    Id = 4,
+                    Name = "TopD",
+                });
+                toppingList.Add(new Toppings()
+                {
+                    Id = 5,
+                    Name = "TopE",
+                });
             }
         }
 
