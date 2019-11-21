@@ -6,7 +6,7 @@
     $(document).ready(function () {
         $('#sizes').change(function () {
             let value = Number($('#sizes option:selected').attr('name'));
-        let currentprice = @Model.Price;
+        let currentprice = Number($('#toppingsPrice').attr('name'));
         let price = value + currentprice;
             let sizeId = Number($('#sizes option:selected').attr('value'));
             $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
@@ -23,6 +23,7 @@
 
                     if (data.length > 0) {
                         var details = data;
+                        $('#price').replaceWith('<dd id="price" name="' + data[0].s_Price + '" class = "col-sm-10"> $' + data[0].s_Price + '</dd>');
                         $.each(details, function () {
 
                             var li = '<option value="'+ this.id + '" name = "' + this.s_Price + '">' + this.baseSize + ' | Price: +$' + this.s_Price + '</option>'
@@ -35,23 +36,20 @@
                 }
             });
 
-        $('#toppings').change(function () {
-            var checkboxes_value = [];
+        //$('#toppings').change(function () {
+        //    var checkboxes_value = [];
 
-            $('.topping').each(function () {
-                if (this.checked) {
+        //    $('.topping').each(function () {
+        //        if (this.checked) {
 
-                    alert(value + '  ' + price);
-                    $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
-                }
-                else if (!this.checked) {
+        //            $('#toppingsprice').replaceWith('<div id="toppingsPrice" name="'+price+'" class = "col-sm-10" hidden> $' + price + ' </div>');
+        //        }
+        //        else if (!this.checked) {
+        //            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+        //        }
 
-                    alert(value + '  ' + price);
-                    $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
-                }
-
-            })
-        })
+        //    })
+        //})
 
 
 
@@ -78,17 +76,17 @@
     
     });
     function updatePrice(element) {
-        if (element.checked) {
-            let value = Number($('#price').attr('name'));
-            let price = value + 1.50;
-            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
-        }
-        if (!element.checked) {
-            let value = Number($('#price').attr('name'));
-            let price = value - 1.50;
-            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
-        }
-        };
+        let value = Number($('#sizes option:selected').attr('name'));
+        var toppingsprice = 0;
+        $('.topping').each(function () {
+            if (this.checked) {
+                toppingsprice += 1.50;
+            }
+        });
+            let price = value + toppingsprice;
+        $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+        //$('#toppingsPrice').replaceWith('<div id="toppingsPrice" name="'+price+'" class = "col-sm-10" >Toppings Total: $' + price + ' </div>');
+    };
 </script>
 
 
@@ -121,6 +119,7 @@
         <dd class="col-sm-10">
             <select id="sizes">
             </select>
+            <div id="toppingsPrice" name="0" hidden></div>
             <div id="toppings" >
             </div>
         </dd>
