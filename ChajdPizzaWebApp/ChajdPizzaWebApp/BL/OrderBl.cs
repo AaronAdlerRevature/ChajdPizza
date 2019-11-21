@@ -177,6 +177,7 @@ namespace ChajdPizzaWebApp.BL
                     }
 
                     //Update Order in database
+                    
                     order.NetPrice = order.NetPrice + orderDetail.Price;
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Accept.Add
