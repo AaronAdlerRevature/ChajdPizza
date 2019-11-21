@@ -1100,18 +1100,17 @@ namespace UnitTests
 
             #region ACT
 
-            var taskReturn = testController.GetSecretFormula(1);
+            var taskReturn = testController.GetSecretFormulaPrice(1);
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            SecretFormula testList = result;
+            decimal testList = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList.Id, 1);
-            Assert.AreEqual(testList.Price, 1.50M);
+            Assert.AreEqual(testList, 1.50M);
 
             #endregion
         }
@@ -1128,7 +1127,7 @@ namespace UnitTests
 
             #region ACT
 
-            var taskReturn = testController.GetSecretFormula(0);
+            var taskReturn = testController.GetSecretFormulaPrice(0);
             taskReturn.Wait();
             var result = taskReturn.Result.Result;
 
@@ -1138,6 +1137,33 @@ namespace UnitTests
 
             Assert.IsTrue(result is NotFoundResult);
             Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void GetSecretFormulaPrice_Invalid()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSecretFormulaPrice(2);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            decimal testList = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(testList, 1.50M);
 
             #endregion
         }
