@@ -14,8 +14,9 @@ namespace UnitTests.Data_Objects
         List<Size> sizeList = null;
         List<SpecialtyPizza> specialtyPizzaList = null;
         List<Toppings> toppingList = null;
+        List<SecretFormula> secretList = null;
 
-        public PizzaTypesRepo(bool canFill=true)
+        public PizzaTypesRepo(bool canFill = true)
         {
             if (canFill)
             {
@@ -90,6 +91,19 @@ namespace UnitTests.Data_Objects
                 {
                     Id = 5,
                     Name = "TopE",
+                });
+
+                secretList = new List<SecretFormula>();
+
+                secretList.Add(new SecretFormula()
+                {
+                    Id = 1,
+                    Price = 1.50M,
+                });
+                secretList.Add(new SecretFormula()
+                {
+                    Id = 1,
+                    Price = 5.00M,
                 });
             }
         }
