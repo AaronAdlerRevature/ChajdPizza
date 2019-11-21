@@ -102,7 +102,7 @@ namespace UnitTests.Data_Objects
                 });
                 secretList.Add(new SecretFormula()
                 {
-                    Id = 1,
+                    Id = 2,
                     Price = 5.00M,
                 });
             }
@@ -185,7 +185,7 @@ namespace UnitTests.Data_Objects
                 result = query;
             }
 
-            return null;
+            return result;
         }
 
         public async Task<SpecialtyPizza> GetSpecialtyPizza(int id)
