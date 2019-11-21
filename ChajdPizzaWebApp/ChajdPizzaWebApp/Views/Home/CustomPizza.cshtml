@@ -52,10 +52,12 @@
                         var details = data;
 
                         price = data[0].s_Price;
+                        sizeId = data[0].id;
 
                         $('#modelPrice').replaceWith('<input name="Price" class="form-control" id="modelPrice" type="text" value="' + price + '" data-val-required="The Price field is required." data-val="true" data-val-range-min="0" data-val-range-max="1000000" data-val-range="The field Price must be between 0 and 1000000." data-val-number="The field Price must be a number.">');
 
                         $('#price').replaceWith('<dd id="price" name="' + price + '" class = "col-sm-10"> $' + price + '</dd>');
+                        $('#modelsizeId').replaceWith('<input name="SizeId" class="form-control" id="modelsizeId" type="number" value="' + sizeId + '" data-val-required="The SizeId field is required." data-val="true">');
 
                         $.each(details, function () {
 
@@ -181,7 +183,7 @@
 
             $('#price').replaceWith('<dd id="price" name="' + price + '" class = "col-sm-10"> $' + price + '</dd>');
 
-            //alert(this.val());
+            
 
         }
 
