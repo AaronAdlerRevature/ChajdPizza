@@ -7,7 +7,7 @@
                     if (items[i].type == 'checkbox' && items[i].checked == true)
         selectedItems += items[i].value + "\n";
 }
-alert(selectedItems);
+    alert(selectedItems);
 }
  
 
