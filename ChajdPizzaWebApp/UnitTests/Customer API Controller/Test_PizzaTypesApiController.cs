@@ -714,5 +714,48 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetToppings()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetToppings();
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            List<Toppings> testList = new List<Toppings>(result);
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testList.Count, 5);
+
+            Assert.AreEqual(testList[0].Id, 1);
+            Assert.AreEqual(testList[0].Name, "TopA");
+
+            Assert.AreEqual(testList[1].Id, 2);
+            Assert.AreEqual(testList[1].Name, "TopB");
+
+            Assert.AreEqual(testList[2].Id, 3);
+            Assert.AreEqual(testList[2].Name, "TopC");
+
+            Assert.AreEqual(testList[3].Id, 4);
+            Assert.AreEqual(testList[3].Name, "TopD");
+
+            Assert.AreEqual(testList[4].Id, 5);
+            Assert.AreEqual(testList[4].Name, "TopE");
+
+
+            #endregion
+        }
     }
 }
