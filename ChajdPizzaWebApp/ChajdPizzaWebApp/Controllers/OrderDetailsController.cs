@@ -59,7 +59,10 @@ namespace ChajdPizzaWebApp.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            // ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
+
+           //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id");
+
+
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize");
             return View();
         }
@@ -69,7 +72,7 @@ namespace ChajdPizzaWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
+        public async Task<IActionResult> Create([Bind("Id,OrdersId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +80,7 @@ namespace ChajdPizzaWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrderId);
+            //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrdersId);
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize", orderDetail.SizeId);
             return View(orderDetail);
         }
@@ -95,7 +98,7 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 return NotFound();
             }
-            //ViewData["OrderId"] = new SelectList(_repo.SelectById(id), "Id", "Id", orderDetail.OrderId);
+            //ViewData["OrdersId"] = new SelectList(_repo.SelectById(id), "Id", "Id", orderDetail.OrdersId);
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize", orderDetail.SizeId);
             return View(orderDetail);
         }
@@ -105,7 +108,7 @@ namespace ChajdPizzaWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,OrdersId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
         {
             if (id != orderDetail.Id)
             {
@@ -132,7 +135,7 @@ namespace ChajdPizzaWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrderId);
+            //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrdersId);
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize", orderDetail.SizeId);
             return View(orderDetail);
         }
