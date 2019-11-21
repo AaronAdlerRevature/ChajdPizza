@@ -249,9 +249,18 @@ namespace UnitTests.Data_Objects
             return result;
         }
 
-        public Task<string> GetToppingName(int id)
+        public async Task<string> GetToppingName(int id)
         {
-            throw new NotImplementedException();
+            string result = null;
+
+            var query = toppingList.Where(t => t.Id == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query.FirstOrDefault().Name;
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<Toppings>> GetToppings()
