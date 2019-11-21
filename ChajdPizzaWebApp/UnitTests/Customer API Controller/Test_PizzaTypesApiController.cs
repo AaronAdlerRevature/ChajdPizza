@@ -405,16 +405,16 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            SpecialtyPizza testList = result;
+            SpecialtyPizza testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList.ID, 1);
-            Assert.AreEqual(testList.Name, "Special A");
-            Assert.AreEqual(testList.Description, "TopA,TopB,TopC");
-            Assert.AreEqual(testList.Price, 10.99M);
+            Assert.AreEqual(testData.ID, 1);
+            Assert.AreEqual(testData.Name, "Special A");
+            Assert.AreEqual(testData.Description, "TopA,TopB,TopC");
+            Assert.AreEqual(testData.Price, 10.99M);
 
             #endregion
         }
@@ -461,16 +461,16 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            SpecialtyPizza testList = result;
+            SpecialtyPizza testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList.ID, 1);
-            Assert.AreNotEqual(testList.Name, "Special A");
-            Assert.AreNotEqual(testList.Description, "TopA,TopB,TopC");
-            Assert.AreNotEqual(testList.Price, 10.99M);
+            Assert.AreNotEqual(testData.ID, 1);
+            Assert.AreNotEqual(testData.Name, "Special A");
+            Assert.AreNotEqual(testData.Description, "TopA,TopB,TopC");
+            Assert.AreNotEqual(testData.Price, 10.99M);
 
             #endregion
         }
@@ -491,13 +491,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            decimal testList = result;
+            decimal testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList, 10.99M);
+            Assert.AreEqual(testData, 10.99M);
 
             #endregion
         }
@@ -544,13 +544,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            decimal testList = result;
+            decimal testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList, 10.99M);
+            Assert.AreNotEqual(testData, 10.99M);
 
             #endregion
         }
@@ -571,13 +571,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            string testList = result;
+            string testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList, "Special A");
+            Assert.AreEqual(testData, "Special A");
 
             #endregion
         }
@@ -624,13 +624,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            string testList = result;
+            string testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList, "Special A");
+            Assert.AreNotEqual(testData, "Special A");
 
             #endregion
         }
@@ -651,13 +651,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            string testList = result;
+            string testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList, "TopA,TopB,TopC");
+            Assert.AreEqual(testData, "TopA,TopB,TopC");
 
             #endregion
         }
@@ -704,13 +704,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            string testList = result;
+            string testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList, "TopA,TopB,TopC");
+            Assert.AreNotEqual(testData, "TopA,TopB,TopC");
 
             #endregion
         }
@@ -800,14 +800,14 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            Toppings testList = result;
+            Toppings testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList.Id, 1);
-            Assert.AreEqual(testList.Name, "TopA");
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.Name, "TopA");
 
             #endregion
         }
@@ -854,14 +854,14 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            Toppings testList = result;
+            Toppings testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList.Id, 1);
-            Assert.AreNotEqual(testList.Name, "TopA");
+            Assert.AreNotEqual(testData.Id, 1);
+            Assert.AreNotEqual(testData.Name, "TopA");
 
             #endregion
         }
@@ -882,13 +882,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            string testList = result;
+            string testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList, "TopA");
+            Assert.AreEqual(testData, "TopA");
 
             #endregion
         }
@@ -935,13 +935,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            string testList = result;
+            string testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList, "TopA");
+            Assert.AreNotEqual(testData, "TopA");
 
             #endregion
         }
@@ -1022,14 +1022,14 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            SecretFormula testList = result;
+            SecretFormula testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList.Id, 1);
-            Assert.AreEqual(testList.Price, 1.50M);
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.Price, 1.50M);
 
             #endregion
         }
@@ -1076,14 +1076,14 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            SecretFormula testList = result;
+            SecretFormula testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList.Id, 1);
-            Assert.AreNotEqual(testList.Price, 1.50M);
+            Assert.AreNotEqual(testData.Id, 1);
+            Assert.AreNotEqual(testData.Price, 1.50M);
 
             #endregion
         }
@@ -1104,13 +1104,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            decimal testList = result;
+            decimal testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList, 1.50M);
+            Assert.AreEqual(testData, 1.50M);
 
             #endregion
         }
@@ -1157,13 +1157,13 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            decimal testList = result;
+            decimal testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(testList, 1.50M);
+            Assert.AreNotEqual(testData, 1.50M);
 
             #endregion
         }
