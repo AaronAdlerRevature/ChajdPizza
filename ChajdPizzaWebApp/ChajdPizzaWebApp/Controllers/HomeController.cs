@@ -122,6 +122,7 @@ namespace ChajdPizzaWebApp.Controllers
             orderDetail.ToppingsSelected = model.ToppingsSelected;
             orderDetail.ToppingsCount = model.ToppingsCount;
             orderDetail.SizeId = model.SizeId;
+            orderDetail.SpecialRequest = model.SpecialRequest;
             
 
             using (var client = new HttpClient())
