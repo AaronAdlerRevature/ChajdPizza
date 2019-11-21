@@ -14,11 +14,11 @@ namespace ChajdPizzaWebApp.BL
         public Object GetPizzaOrder(string Username, int? id)
         {
             var taskResponse = GetPizzaOrderTask(Username, id);
-            var result = taskResponse.Result;           
+            var result = taskResponse.Result;
             return result;
         }
 
-        public async Task<Object> GetPizzaOrderTask(string Username, int? id)
+        protected async Task<Object> GetPizzaOrderTask(string Username, int? id)
         {
             //Instantiate Objects
             Customer customer = new Customer();
@@ -96,7 +96,7 @@ namespace ChajdPizzaWebApp.BL
 
 
 
-                if(!(id is null))
+                if (!(id is null))
                 {
                     //Get SpecialtyPizzaDetails
                     client.DefaultRequestHeaders.Clear();
@@ -115,7 +115,7 @@ namespace ChajdPizzaWebApp.BL
                     orderDetail.Price = specialtyPizza.Price;
                     orderDetail.SizeId = 2;
                     orderDetail.ToppingsSelected = specialtyPizza.Description;
-                    
+
                 }
 
                 orderDetail.OrdersId = order.Id;
@@ -132,7 +132,7 @@ namespace ChajdPizzaWebApp.BL
             return result;
         }
 
-        public async Task<Object> PostPizzaOrderTask(OrderDetail orderDetail)
+        protected async Task<Object> PostPizzaOrderTask(OrderDetail orderDetail)
         {
             using (var client = new HttpClient())
             {
@@ -190,6 +190,38 @@ namespace ChajdPizzaWebApp.BL
                 }
 
                 return orderDetail;
+            }
+        }
+
+
+        public Object GetSecretFormula()
+        {
+            var taskResponse = GetSecretFormulaTask();
+            var result = taskResponse.Result;
+            return result;
+        }
+
+        protected async Task<Object> GetSecretFormulaTask()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
+                //GetSecretFormulaPrice
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage ResSF = await client.GetAsync("PizzaTypesApi/sf/price/1");
+
+                if (ResSF.IsSuccessStatusCode)
+                {
+                    var secretFormula = ResSF.Content.ReadAsStringAsync().Result;
+
+                    decimal sFormula = JsonConvert.DeserializeObject<Decimal>(secretFormula);
+                    return sFormula;
+                }
+                else{ return (new Exception("Get formula has failed!")); }
+
+                
             }
         }
     }
