@@ -349,7 +349,7 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 var result = await _repo.GetSecretFormulaPrice(id);
 
-                if (result == null)
+                if (result < 0)
                 {
                     return NotFound();
                 }
