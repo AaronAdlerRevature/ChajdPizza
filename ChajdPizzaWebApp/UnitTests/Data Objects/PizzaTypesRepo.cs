@@ -245,9 +245,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Toppings>> GetToppings()
+        public async Task<IEnumerable<Toppings>> GetToppings()
         {
-            throw new NotImplementedException();
+            IEnumerable<Toppings> result = null;
+
+            var query = toppingList.Where(t => t.Id == t.Id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                result = query;
+            }
+
+            return result;
         }
     }
 }
