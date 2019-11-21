@@ -1,4 +1,5 @@
-﻿using ChajdPizzaWebApp.Models;
+﻿using ChajdPizzaWebApp.BL;
+using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -21,7 +22,7 @@ namespace ChajdPizzaWebApp.Controllers
         static string _url = "https://chajdpizza.azurewebsites.net/";
         private readonly ILogger<HomeController> _logger;
         UserManager<IdentityUser> _userManager;
-
+        OrderBl Orderlogic = new OrderBl();
         public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
@@ -184,6 +185,20 @@ namespace ChajdPizzaWebApp.Controllers
                 else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
                 orderDetail.OrdersId = order.Id;
                 order.NetPrice += orderDetail.Price;
+                if (ModelState.IsValid)
+                {
+
+                    var ApiResponse = Orderlogic.PostPizzaOrder(orderDetail);
+
+                    if (ApiResponse is Exception)
+                    {
+                        return View("../Shared/ShowException", ApiResponse);
+                    }
+                    else
+                    {
+                        return View("../Orders/PizzaConfirmation", ApiResponse);
+                    }
+                }
                 return View("../Orders/PizzaConfirmation", orderDetail);
             }
         }
