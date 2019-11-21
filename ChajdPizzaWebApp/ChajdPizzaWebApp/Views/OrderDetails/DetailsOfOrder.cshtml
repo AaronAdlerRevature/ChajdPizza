@@ -11,7 +11,7 @@
     
     <div>
         <ul id="CurrentOrderDetails">
-
+            _____________________________________
         </ul>
 
     </div>
@@ -40,17 +40,20 @@
                 if (data.length > 0) {
                     var details = data;
                     var number = 1;
-                    let sizeName;
+                    var sizeName;
                     $.each(details, function () {
 
-                        sizeName = GetSizeName(this.sizeId);
+                        
 
                         var list = document.createElement("LI");
                         list.setAttribute("id", "odlist" + number);
 
-                        list.innerHTML = "Size: " + sizeName + "<br /> &emsp;Requested Toppings: " + this.toppingsSelected +
-                            "<br /> &emsp;Special Request: " + this.specialRequest +
-                            "&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" onClick = \"DeleteItem("+this.Id+")\"/>";
+                        list.innerHTML = "<strong id = 'size"+number+"'> Cheese Pizza</strong><br /> &emsp;Requested Toppings: " + this.toppingsSelected +
+                            "<br /> &emsp;Special Request: <em>" + this.specialRequest + "</em><br /> &emsp;&emsp;&emsp;Price: <em><strong>$"+ this.price +
+                            "</strong></em>&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" onClick = \"DeleteItem(" + this.id + ")\"/>"
+                            + "<br/>_____________________________________";
+                        //sizeName =
+                            GetSizeName(this.sizeId, number);
 
                         document.getElementById("CurrentOrderDetails").appendChild(list);
                         number++;
@@ -70,7 +73,8 @@
 	    });
     };
 
-    function GetSizeName(sizeId) {
+    function GetSizeName(sizeId,number) {
+        var sizeNameM = '';
         let sizeUrl = "/api/PizzaTypesApi/sizes/name/"+sizeId;
         $.ajax({
             contentType: 'application/json',
@@ -79,8 +83,9 @@
             success: function (sizeData) {
                 //var sizeDetail = sizeData;
                 //var nameSize = sizeData;
-                alert(sizeData);
-                return sizeData.toString();
+                //alert(sizeData);
+                sizeNameM = sizeData;
+                $('#size' + number).replaceWith('<strong id="size' + number + '" class = "col-sm-10"> ' + sizeData + ' Cheese Pizza</strong>');
                 /*
                 $.each(sizeDetail, function () {
                     var sizeName = this.baseSize;
@@ -91,15 +96,18 @@
                 failure(sizeData);
             }
         });
+        //return sizeNameM;
     }
 
     function DeleteItem(oDetailId) {
-        let delItemUrl = "api/OrderDetailsApi/" + oDetailId;
+        let delItemUrl = "/api/OrderDetailsApi/" + oDetailId;
         $.ajax({
             contentType: 'application/json',
-            type: "Delete",
+            type: "DELETE",
             url: delItemUrl,
             success: function () {
+                var prevList = document.getElementById("CurrentOrderDetails");
+                prevList.innerHTML = "";
                 GetDetails();
             },
             error: function (delData) {

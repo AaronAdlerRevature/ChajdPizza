@@ -102,6 +102,28 @@ namespace ChajdPizzaWebApp.Controllers
             return NoContent();
         }
 
+
+        //used especially after deleting a Pizza from exisiting orders
+        [HttpPut("deductPriceFrom/{id}")]
+        public async Task<IActionResult> DeductPrice(int id, decimal price)
+        { 
+            if(price >= 0)
+            {
+                var order = await _repo.SelectById(id);
+                order.NetPrice -= price;
+                await _repo.Update(order);
+
+                return NoContent();
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        } 
+        
+
+
         // POST: api/OrdersApi
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
