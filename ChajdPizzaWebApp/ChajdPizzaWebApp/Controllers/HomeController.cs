@@ -1,4 +1,5 @@
-﻿using ChajdPizzaWebApp.Models;
+﻿using ChajdPizzaWebApp.BL;
+using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -21,7 +22,7 @@ namespace ChajdPizzaWebApp.Controllers
         static string _url = "https://chajdpizza.azurewebsites.net/";
         private readonly ILogger<HomeController> _logger;
         UserManager<IdentityUser> _userManager;
-
+        OrderBl Orderlogic = new OrderBl();
         public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
@@ -43,149 +44,42 @@ namespace ChajdPizzaWebApp.Controllers
         public async Task<IActionResult> CustomPizza()
         {
             var Username = User.Identity.Name;
-            Customer customer = new Customer();
-            Orders order = new Orders();
-            var customorder = new OrderDetail();
-            CheckIfUserLoggedIn();
-            using (var client = new HttpClient())
+            var ApiResponse = Orderlogic.GetPizzaOrder(Username, null);
+
+            if (ApiResponse is Exception)
             {
-                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                var ResC = await client.GetAsync("CustomersApi/ByUser/" + Username);
-
-                if (ResC.IsSuccessStatusCode)
-                {
-                    var customerRes = ResC.Content.ReadAsStringAsync().Result;
-                    customer = JsonConvert.DeserializeObject<Customer>(customerRes);
-                }
-                else if (!ResC.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get Customer has failed!")); }
-
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add
-                    (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResCh = await client.GetAsync("OrdersApi/CheckMultByCust/" + customer.Id);
-                var isMult = 0;
-                if (ResCh.IsSuccessStatusCode)
-                {
-                    var CheckRes = ResCh.Content.ReadAsStringAsync().Result;
-
-                    isMult = JsonConvert.DeserializeObject<int>(CheckRes);
-                }
-                else if (!ResCh.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Check mult has failed!")); }
-                if (isMult > 1) { return View("../Shared/ShowException", new Exception("There are multiple open orders for this customer.")); }
-
-                if (isMult == 0)
-                {
-                    order.CustomerId = customer.Id;
-                    order.isCompleted = false;
-                    //Post new Order
-                    client.DefaultRequestHeaders.Clear();
-                    client.DefaultRequestHeaders.Accept.Add
-                        (new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    var newData = JsonConvert.SerializeObject(order);
-                    var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
-                    HttpResponseMessage ResPost = await client.PostAsync("OrdersApi", newContent);
-
-                    if (!ResPost.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Post new Order has failed!")); }
-
-                    client.DefaultRequestHeaders.Clear();
-                    client.DefaultRequestHeaders.Accept.Add
-                        (new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage ResO = await client.GetAsync("OrdersApi/ByCust/" + customer.Id);
-
-                    if (ResO.IsSuccessStatusCode)
-                    {
-                        var ordersRes = ResO.Content.ReadAsStringAsync().Result;
-
-                        order = JsonConvert.DeserializeObject<Orders>(ordersRes);
-                    }
-                    else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
-                    customorder.OrdersId = order.Id;
-                    customorder.SizeId = 2;
-                    customorder.Price = 9.99M;
-                }
+                return View("../Shared/ShowException", ApiResponse);
             }
-            return View(customorder);
+            else
+            {
+                return View( ApiResponse);
+            }
+            
         }
         [HttpPost]
         public async Task<IActionResult> CustomPizza(OrderDetail model)
         {
             CheckIfUserLoggedIn();
-            var Username = User.Identity.Name;
-            Customer customer = new Customer();
-            Orders order = new Orders();
-            OrderDetail orderDetail = new OrderDetail();
-            Size selectedSize = new Size();
-            orderDetail.Price = model.Price + (model.ToppingsCount * 1.5M);
-            orderDetail.ToppingsSelected = model.ToppingsSelected;
-            orderDetail.ToppingsCount = model.ToppingsCount;
-            orderDetail.SizeId = model.SizeId;
-            orderDetail.SpecialRequest = model.SpecialRequest;
+
             
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add
-                    (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResC = await client.GetAsync("CustomersApi/ByUser/" + Username);
-                if (ResC.IsSuccessStatusCode)
+            model.Price = model.Price + (model.ToppingsCount * 1.5M);
+           
+            
+            if (ModelState.IsValid)
                 {
-                    var customerRes = ResC.Content.ReadAsStringAsync().Result;
 
-                    customer = JsonConvert.DeserializeObject<Customer>(customerRes);
+                var ApiResponse = Orderlogic.PostPizzaOrder(model);
+
+                    if (ApiResponse is Exception)
+                    {
+                        return View("../Shared/ShowException", ApiResponse);
+                    }
+                    else
+                    {
+                        return View("../Orders/PizzaConfirmation", ApiResponse);
+                    }
                 }
-                var custId = customer.Id;
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add
-                    (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResCh = await client.GetAsync("OrdersApi/CheckMultByCust/" + custId);
-
-                var isMult = 0;
-                if (ResCh.IsSuccessStatusCode)
-                {
-                    var CheckRes = ResCh.Content.ReadAsStringAsync().Result;
-
-                    isMult = JsonConvert.DeserializeObject<int>(CheckRes);
-                }
-                else if (!ResCh.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Check mult has failed!")); }
-                if (isMult > 1) { return View("../Shared/ShowException", new Exception("There are multiple open orders for this customer.")); }
-
-
-                if (isMult == 0)
-                {
-                    order.CustomerId = custId;
-                    order.isCompleted = false;
-                    //Post new Order
-                    client.DefaultRequestHeaders.Clear();
-                    client.DefaultRequestHeaders.Accept.Add
-                        (new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    var newData = JsonConvert.SerializeObject(order);
-                    var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
-                    HttpResponseMessage ResPost = await client.PostAsync("OrdersApi", newContent);
-
-                    if (!ResPost.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Post new Order has failed!")); }
-                }
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add
-                    (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResO = await client.GetAsync("OrdersApi/ByCust/" + custId);
-
-                if (ResO.IsSuccessStatusCode)
-                {
-                    var ordersRes = ResO.Content.ReadAsStringAsync().Result;
-
-                    order = JsonConvert.DeserializeObject<Orders>(ordersRes);
-                }
-                else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
-                orderDetail.OrdersId = order.Id;
-                order.NetPrice += orderDetail.Price;
-                return View("../Orders/PizzaConfirmation", orderDetail);
-            }
+                return View("../Orders/PizzaConfirmation", model);
         }
         public IActionResult Menu()
         {
