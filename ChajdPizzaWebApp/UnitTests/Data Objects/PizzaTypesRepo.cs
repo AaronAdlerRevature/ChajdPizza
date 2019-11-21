@@ -174,9 +174,18 @@ namespace UnitTests.Data_Objects
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<SecretFormula>> GetSecretFormulas()
+        public async Task<IEnumerable<SecretFormula>> GetSecretFormulas()
         {
-            throw new NotImplementedException();
+            IEnumerable<SecretFormula> result = null;
+
+            var query = secretList.Where(s => s.Id == s.Id);
+            await Task.Delay(10);
+            if (query.Count()>0)
+            {
+                result = query;
+            }
+
+            return null;
         }
 
         public async Task<SpecialtyPizza> GetSpecialtyPizza(int id)
