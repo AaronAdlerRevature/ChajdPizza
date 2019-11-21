@@ -1059,5 +1059,33 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetSecretFormula_Invalid()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetSecretFormula(2);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            SecretFormula testList = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(testList.Id, 1);
+            Assert.AreNotEqual(testList.Price, 1.50M);
+
+            #endregion
+        }
     }
 }
