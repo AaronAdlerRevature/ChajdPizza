@@ -15,15 +15,13 @@
 
             let value = Number($('#sizes option:selected').attr('name'));
 
-            let currentprice = @Model.Price;
+            let toppingsprice = Number($('#toppingsprice').attr('value'));
 
-            let price = value + currentprice;
+            let price = value + toppingsprice;
 
             let sizeId = Number($('#sizes option:selected').attr('value'));
 
             $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
-
-            //$('#submitButton').replaceWith('<div class="form-group" id="submitButton"><input onClick="updatePrice(this)" type="submit" value="Add to Cart" class="btn btn-primary" /></div>');
 
             $('#modelPrice').replaceWith('<input name="Price" class="form-control" id="modelPrice" type="text" value="' + price + '" data-val-required="The Price field is required." data-val="true" data-val-range-min="0" data-val-range-max="1000000" data-val-range="The field Price must be between 0 and 1000000." data-val-number="The field Price must be a number.">');
 
@@ -111,7 +109,7 @@
 
 
 
-                            var li = '<input class="topping" name="' + this.name + '"  type ="checkbox" onClick="updatePrice(this)"  value="' + this.name + '" /> '+this.name+' <br>'
+                            var li = '<input class="topping" name="' + this.name + '"  type ="checkbox" value="' + this.name + '" /> '+this.name+' <br>'
 
                             $('#toppings').append(li);
 
@@ -132,17 +130,17 @@
          $('#toppings').change(function () {
 
             var checkboxes_value = [];
-
+             var toppingsPrice = 0;
              var count = 0;
 
         $('.topping').each(function () {
 
-
+            
 
             if (this.checked)
 
             {
-
+                toppingsPrice += 1.50;
                 checkboxes_value.push($(this).val());
 
                 count = count + 1;
@@ -153,51 +151,25 @@
 
         });
 
+             let value = Number($('#sizes option:selected').attr('name'));
+             let price = value + toppingsPrice;
+
+             $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
+
              $('#toppingsselected').replaceWith('<input name="ToppingsSelected" class="form-control" id="toppingsselected" type="text" value="' + checkboxes_value.toString() + '" data-val-required="The toppingsSelected field is required." data-val="true">');
 
              $('#toppingcount').replaceWith('<input name="ToppingsCount" class="form-control" id="toppingcount" type="number" value="' + count + '" data-val-required="The toppingcount field is required." data-val="true">');
 
-             //$('#submitButton').replaceWith('<div class="form-group" id="submitButton"><input type="submit" onclick = "addTochoices()" value="Add to Cart" class="btn btn-primary" /></div>');
-
-             alert(checkboxes_value.toString());
-
-             alert(count);
-
-    });
-
+             $('#toppingsprice').replaceWith('<p id="toppingsprice" value ="' + toppingsPrice + '" hidden></p>');
 
 
     });
 
 
 
-    function updatePrice(element) {
-
-        if (element.checked) {
-
-            let value = Number($('#price').attr('name'));
-
-            let price = value + 1.50;
-
-            $('#price').replaceWith('<dd id="price" name="' + price + '" class = "col-sm-10"> $' + price + '</dd>');
-
-            
-
-        }
-
-        if (!element.checked) {
-
-            let value = Number($('#price').attr('name'));
-
-            let price = value - 1.50;
-
-            $('#price').replaceWith('<dd id="price" name="'+price+'" class = "col-sm-10"> $' + price + '</dd>');
-
-        }
+    });
 
 
-
-    };
 
 
 
@@ -269,7 +241,7 @@
 
 
             <span>Select your toppings please.</span>
-
+            <p id="toppingsprice" value =" 0" hidden></p>
             <div id="toppings">
 
             </div>

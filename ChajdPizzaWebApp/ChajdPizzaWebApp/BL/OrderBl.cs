@@ -18,7 +18,7 @@ namespace ChajdPizzaWebApp.BL
             return result;
         }
 
-        public async Task<Object> GetPizzaOrderTask(string Username, int? id)
+        protected async Task<Object> GetPizzaOrderTask(string Username, int? id)
         {
             //Instantiate Objects
             Customer customer = new Customer();
@@ -132,7 +132,7 @@ namespace ChajdPizzaWebApp.BL
             return result;
         }
 
-        public async Task<Object> PostPizzaOrderTask(OrderDetail orderDetail)
+        protected async Task<Object> PostPizzaOrderTask(OrderDetail orderDetail)
         {
             using (var client = new HttpClient())
             {
@@ -201,29 +201,27 @@ namespace ChajdPizzaWebApp.BL
             return result;
         }
 
-        public async Task<Object> GetSecretFormulaTask()
+        protected async Task<Object> GetSecretFormulaTask()
         {
-            SecretFormula sFormula = new SecretFormula();
-
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
-
-                //GetCustomerId
+                //GetSecretFormulaPrice
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add
                     (new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage ResC = await client.GetAsync("PizzaTypesApi/sf");
+                HttpResponseMessage ResSF = await client.GetAsync("PizzaTypesApi/sf/price/1");
 
-                if (ResC.IsSuccessStatusCode)
+                if (ResSF.IsSuccessStatusCode)
                 {
-                    var secretFormula = ResC.Content.ReadAsStringAsync().Result;
+                    var secretFormula = ResSF.Content.ReadAsStringAsync().Result;
 
-                    sFormula = JsonConvert.DeserializeObject<SecretFormula>(secretFormula);
+                    decimal sFormula = JsonConvert.DeserializeObject<Decimal>(secretFormula);
+                    return sFormula;
                 }
-                else if (!ResC.IsSuccessStatusCode) { return (new Exception("Get formula has failed!")); }
+                else{ return (new Exception("Get formula has failed!")); }
 
-                return sFormula;
+                
             }
         }
     }
