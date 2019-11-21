@@ -837,5 +837,33 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetTopping_InvalidID()
+        {
+            #region ASSIGN
+
+            PizzaTypesRepo testRepo = new PizzaTypesRepo();
+            PizzaTypesAPIController testController = new PizzaTypesAPIController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetTopping(3);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            Toppings testList = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(testList.Id, 1);
+            Assert.AreNotEqual(testList.Name, "TopA");
+
+            #endregion
+        }
     }
 }
