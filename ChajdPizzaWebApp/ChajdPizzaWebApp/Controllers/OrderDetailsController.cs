@@ -44,7 +44,7 @@ namespace ChajdPizzaWebApp.Controllers
         {
             //if(ordersId != null)
             string returnUrl = Url.Content("~/");
-            if (User.Identity.Name != null)
+            if (User.Identity.Name != null || Request.Cookies.ContainsKey("GuestName"))
             {
                 //var Order = 
                 return View();
