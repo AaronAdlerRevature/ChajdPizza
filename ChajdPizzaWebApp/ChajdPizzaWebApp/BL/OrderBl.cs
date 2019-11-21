@@ -14,7 +14,7 @@ namespace ChajdPizzaWebApp.BL
         public Object GetPizzaOrder(string Username, int? id)
         {
             var taskResponse = GetPizzaOrderTask(Username, id);
-            var result = taskResponse.Result;           
+            var result = taskResponse.Result;
             return result;
         }
 
@@ -96,7 +96,7 @@ namespace ChajdPizzaWebApp.BL
 
 
 
-                if(!(id is null))
+                if (!(id is null))
                 {
                     //Get SpecialtyPizzaDetails
                     client.DefaultRequestHeaders.Clear();
@@ -115,7 +115,7 @@ namespace ChajdPizzaWebApp.BL
                     orderDetail.Price = specialtyPizza.Price;
                     orderDetail.SizeId = 2;
                     orderDetail.ToppingsSelected = specialtyPizza.Description;
-                    
+
                 }
 
                 orderDetail.OrdersId = order.Id;
@@ -189,6 +189,40 @@ namespace ChajdPizzaWebApp.BL
                 }
 
                 return orderDetail;
+            }
+        }
+
+
+        public Object GetSecretFormula()
+        {
+            var taskResponse = GetSecretFormulaTask();
+            var result = taskResponse.Result;
+            return result;
+        }
+
+        public async Task<Object> GetSecretFormulaTask()
+        {
+            SecretFormula sFormula = new SecretFormula();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
+
+                //GetCustomerId
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage ResC = await client.GetAsync("PizzaTypesApi/sf");
+
+                if (ResC.IsSuccessStatusCode)
+                {
+                    var secretFormula = ResC.Content.ReadAsStringAsync().Result;
+
+                    sFormula = JsonConvert.DeserializeObject<SecretFormula>(secretFormula);
+                }
+                else if (!ResC.IsSuccessStatusCode) { return (new Exception("Get formula has failed!")); }
+
+                return sFormula;
             }
         }
     }
