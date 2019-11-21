@@ -239,7 +239,7 @@ namespace UnitTests.Data_Objects
         {
             Toppings result = null;
 
-            var query = toppingList.Where(t => t.Id == t.Id);
+            var query = toppingList.Where(t => t.Id == id);
             await Task.Delay(10);
             if (query.Count() > 0)
             {
