@@ -49,3 +49,8 @@ figure {
         border: 1px dotted blue;
         text-align: center;
     }
+
+.delete {
+    color: White;
+    background-color: brown;
+}

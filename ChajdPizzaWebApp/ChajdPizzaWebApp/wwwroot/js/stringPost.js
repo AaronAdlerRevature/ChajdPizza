@@ -1,36 +1,35 @@
 ﻿
 
-    function printChecked() {
-                var items = document.getElementsByName('Toppings');
+function printChecked() {
+    var items = document.getElementsByName('Toppings');
     var selectedItems = "";
-                for (var i = 0; i < items.length; i++) {
-                    if (items[i].type == 'checkbox' && items[i].checked == true)
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].type == 'checkbox' && items[i].checked == true)
         selectedItems += items[i].value + "\n";
-}
-alert(selectedItems);
+    }
+    alert(selectedItems);
 }
   
-  function test() {
-      var radios = document.getElementsByName("radio");
-        var found = 1;
+function test() {
+    var radios = document.getElementsByName("radio");
+    var found = 1;
     for (var i = 0; i < radios.length; i++) {       
-    if (radios[i].checked) {
+        if (radios[i].checked) {
             alert(radios[i].value);
-        found = 0;
-        break;
+            found = 0;
+            break;
+        }
+    }
+    if (found == 1) {
+        alert("Please Select Size ");
     }
 }
-   if(found == 1)
-   {
-            alert("Please Select Size ");
-      }
-   }
    
    
   
 
-        function myFunction(){
-            printChecked();
-        test();
-        }
+function myFunction(){
+    printChecked();
+    test();
+}
   
