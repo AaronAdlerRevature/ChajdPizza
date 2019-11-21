@@ -24,64 +24,88 @@
 <script>
     GetDetails();
 
-            //$('#create').click(function (e) );
-            //onload;
-            function GetDetails() {
-	            var url = "/api/OrderDetailsApi/DetailsOfOrder/1";
-	            $.ajax({
-		            contentType: 'application/json',
-		            type: "GET",
-		            url: url,
-		          @*   data: JSON.stringify({
-			            orderId: 1 @model.Id
-		            }),*@
+    //$('#create').click(function (e) );
+    //onload;
+    function GetDetails() {
+	    let url = "/api/OrderDetailsApi/DetailsOfOrder/1";
+	    $.ajax({
+		    contentType: 'application/json',
+		    type: "GET",
+		    url: url,
+		    @*   data: JSON.stringify({
+			    orderId: 1 @model.Id
+		    }),*@
 
-                    success: function (data) {
-                        if (data.length > 0) {
-                            var details = data;
-                            var number = 1;
-                            $.each(details, function () {
-                                console.log("ID: " + this.id);
-                                console.log("Order ID: " + this.orderId);
-                                console.log("Size ID: " + this.sizeId);
-                                console.log("Toppings: " + this.toppingsSelected);
-                                console.log("No. of Toppings: " + this.toppingsCount);
-                                console.log("Special Request: " + this.specialRequest);
-                                console.log(" ");
+            success: function (data) {
+                if (data.length > 0) {
+                    var details = data;
+                    var number = 1;
+                    let sizeName;
+                    $.each(details, function () {
 
-                                var sizeName;
-                                function GetSizeName() {
-                                    var url = "/api/OrderDetailsApi/DetailsOfOrder/1";
-                                }
+                        sizeName = GetSizeName(this.sizeId);
 
-                                var list = document.createElement("LI");
-                                list.setAttribute("id", "odlist" + number);
-                                list.innerHTML = "Size ID: " + this.sizeId + "<br /> &emsp;Requested Toppings: " + this.toppingsSelected +
-                                    "<br /> &emsp;Special Request: " + this.specialRequest +
-                                    "&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" />";
-                                /*
-                                &emsp;&emsp; <input type=\"button\" value=\"Delete\" name = \"Delete this Item\" id=\"btn" + number + "\" /> 
-                                
-                                <button id=\"btn" + number + "\">Delete this Item</button>
+                        var list = document.createElement("LI");
+                        list.setAttribute("id", "odlist" + number);
 
-                                */
-                                document.getElementById("CurrentOrderDetails").appendChild(list);
-                                number++;
+                        list.innerHTML = "Size: " + sizeName + "<br /> &emsp;Requested Toppings: " + this.toppingsSelected +
+                            "<br /> &emsp;Special Request: " + this.specialRequest +
+                            "&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" onClick = \"DeleteItem("+this.Id+")\"/>";
 
-                            });
-                        }
-                        else {
-                            //$("CurrentOrderDetail") = 
-                                var list = document.createElement("LI");
-                                //list.setAttribute("id", "odlist");
-                                list.innerHTML = "Cart is Empty<br />";
-                                document.getElementById("CurrentOrderDetails").appendChild(list);
-                        }
-                    },
-                    error: function (data) {
-                        failure(data);
-                    }
-	            });
-            };
+                        document.getElementById("CurrentOrderDetails").appendChild(list);
+                        number++;
+                    });
+                }
+                else {
+                    //$("CurrentOrderDetail") = 
+                        var list = document.createElement("LI");
+                        //list.setAttribute("id", "odlist");
+                        list.innerHTML = "Cart is Empty<br />";
+                        document.getElementById("CurrentOrderDetails").appendChild(list);
+                }
+            },
+            error: function (data) {
+                failure(data);
+            }
+	    });
+    };
+
+    function GetSizeName(sizeId) {
+        let sizeUrl = "/api/PizzaTypesApi/sizes/name/"+sizeId;
+        $.ajax({
+            contentType: 'application/json',
+		    type: "GET",
+            url: sizeUrl,
+            success: function (sizeData) {
+                //var sizeDetail = sizeData;
+                //var nameSize = sizeData;
+                alert(sizeData);
+                return sizeData.toString();
+                /*
+                $.each(sizeDetail, function () {
+                    var sizeName = this.baseSize;
+                    return sizeName;
+                });*/
+            },
+            error: function (sizeData) {
+                failure(sizeData);
+            }
+        });
+    }
+
+    function DeleteItem(oDetailId) {
+        let delItemUrl = "api/OrderDetailsApi/" + oDetailId;
+        $.ajax({
+            contentType: 'application/json',
+            type: "Delete",
+            url: delItemUrl,
+            success: function () {
+                GetDetails();
+            },
+            error: function (delData) {
+                failure(delData);
+            }
+        });
+    }
 
 </script>
