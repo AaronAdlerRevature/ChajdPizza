@@ -104,7 +104,7 @@ namespace ChajdPizzaWebApp.Controllers
                     else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
                     customorder.OrdersId = order.Id;
                     customorder.SizeId = 2;
-
+                    customorder.Price = 9.99M;
                 }
             }
             return View(customorder);
@@ -118,6 +118,11 @@ namespace ChajdPizzaWebApp.Controllers
             Orders order = new Orders();
             OrderDetail orderDetail = new OrderDetail();
             Size selectedSize = new Size();
+            orderDetail.Price = model.Price + (model.ToppingsCount * 1.5M);
+            orderDetail.ToppingsSelected = model.ToppingsSelected;
+            orderDetail.ToppingsCount = model.ToppingsCount;
+            orderDetail.SizeId = model.SizeId;
+            
 
             using (var client = new HttpClient())
             {
@@ -163,37 +168,21 @@ namespace ChajdPizzaWebApp.Controllers
                     HttpResponseMessage ResPost = await client.PostAsync("OrdersApi", newContent);
 
                     if (!ResPost.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Post new Order has failed!")); }
-
-                    client.DefaultRequestHeaders.Clear();
-                    client.DefaultRequestHeaders.Accept.Add
-                        (new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage ResO = await client.GetAsync("OrdersApi/ByCust/" + custId);
-
-                    if (ResO.IsSuccessStatusCode)
-                    {
-                        var ordersRes = ResO.Content.ReadAsStringAsync().Result;
-
-                        order = JsonConvert.DeserializeObject<Orders>(ordersRes);
-                    }
-                    else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
-                    HttpResponseMessage ResS = await client.GetAsync("pizzatypesapi/sizes/"+model.SizeId);
-                    if (ResS.IsSuccessStatusCode)
-                    {
-                        var sizeRes = ResS.Content.ReadAsStringAsync().Result;
-
-                        selectedSize = JsonConvert.DeserializeObject<Size>(sizeRes);
-                    }
-                    orderDetail.OrdersId = order.Id;
-                    orderDetail.SizeId = model.SizeId;
-                    //orderDetail.ToppingsCount = model.selectedToppings.Count();
-                    //foreach (var item in model.selectedToppings)
-                    //{
-                    //    orderDetail.ToppingsSelected = orderDetail.ToppingsSelected + item.Name + ",";
-                    //}
-                    orderDetail.Price = (orderDetail.ToppingsCount * (decimal)1.50) + selectedSize.S_Price;
-
-
                 }
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage ResO = await client.GetAsync("OrdersApi/ByCust/" + custId);
+
+                if (ResO.IsSuccessStatusCode)
+                {
+                    var ordersRes = ResO.Content.ReadAsStringAsync().Result;
+
+                    order = JsonConvert.DeserializeObject<Orders>(ordersRes);
+                }
+                else if (!ResO.IsSuccessStatusCode) { return View("../Shared/ShowException", new Exception("Get order has failed!")); }
+                orderDetail.OrdersId = order.Id;
+                order.NetPrice += orderDetail.Price;
                 return View("../Orders/PizzaConfirmation", orderDetail);
             }
         }
