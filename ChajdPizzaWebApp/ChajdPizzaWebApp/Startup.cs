@@ -44,6 +44,7 @@ namespace ChajdPizzaWebApp
                     builder =>
                     {
                         builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
                     }
                     );
             }
