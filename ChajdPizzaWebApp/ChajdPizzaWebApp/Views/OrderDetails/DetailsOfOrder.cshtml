@@ -29,7 +29,7 @@
                         </div>
                     <script>
                         GetDetails();
-                        TotalAmount();
+                        
 
                         function TotalAmount() {
                             let orderAUrl = "/api/OrdersApi/@ViewBag.OrderId";
@@ -160,7 +160,7 @@
 
                                 },
                                 error: function (orderData) {
-                                    alert('Unable to update price');
+                                    alert('Not Updated');
                                     failure(orderData);
                                 }
                             });
@@ -312,7 +312,7 @@
                 order.timePlaced = curDate + "T" + curTime;
 
                 order.deliveryAddress = cAddress;
-
+    
                 UpdateOrder(order);
 
                 ConfirmationView(order);
