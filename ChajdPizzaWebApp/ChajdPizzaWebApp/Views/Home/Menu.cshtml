@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Menu";
 }
-@*
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,35 +13,60 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="~/css/BttnCS.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                contentType: 'application/json',
+                type: "GET",
+                url: "/api/PizzaTypesApi/Special",
+
+                    success: function (data) {
+                        if (data.length > 0) {       
+                        $.each(data, function () {
+                            var li = '<figure style="border-style:solid"><img src="/image/special' + this.id + '.jpg" alt="Second Slide" style="height:133px;width:175px"><h4 style="text-emphasis-color:blueviolet"><b>' + this.name + '</b></br> Price: $' + this.price + '</h4><figcaption><p>' + this.description + '</p><a class="btn btn-info" role="button" href="/SpecialtyPizza/Order/' + this.id + '">Order Now</a></figcaption></figure></br>';
+                            $('#specialtyPizzas').append(li);
+                        });
+                    }
+                },
+                    error: function (data) {
+                    alert("fail");
+                    failure(data);
+                }
+            });
+
+
+            });
+
+
+
+        </script>
+
+
+
+
+
+
 
     </head>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    *@
+
+    
 <h3 style="text-align:center">Our Menu</h3>
 <div>
-    <a class="" role="" asp-action="CustomPizza" >Make Your Own</a> <br />
+    <a class="btn btn-info" role="" asp-action="CustomPizza" >Make Your Own</a> <br />
 </div>
 <br />
 <div>
     <h2>SPECIALTY PIZZAS</h2>
 
     <container class="container" style=" margin-top:2px">
-        <div class="row">
-
-            <figure style="border-style:solid">
-                <img src="~/image/ches.jpg" alt="Second Slide" style="height:133px;width:175px">
-                <h4 style="text-emphasis-color:blueviolet"> Vegalicious</h4>
-                <figcaption>
-                    <p>Fresh Mushrooms, Onions, Green Peppers, Black Olives, Tomatoes and Extra Cheese</p>
-                    <a class="btn btn-info" role="button" asp-controller="SpecialtyPizza" asp-action="Order" asp-route-id="1">Order Now</a> |
-                </figcaption>
-            </figure>
+        <div id="specialtyPizzas">
         </div>
-
     </container>
 
 
