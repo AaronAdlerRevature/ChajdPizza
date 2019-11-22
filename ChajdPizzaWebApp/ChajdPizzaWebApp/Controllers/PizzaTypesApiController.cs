@@ -13,7 +13,7 @@ namespace ChajdPizzaWebApp.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-   // [Authorize]
+    [Authorize]
     public class PizzaTypesAPIController : ControllerBase
     {
         private readonly IPizzaTypesRepo _repo;

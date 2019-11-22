@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
+    [Authorize]
     public class SpecialtyPizzaController : Controller
     {
         OrderBl Orderlogic = new OrderBl();

@@ -35,7 +35,7 @@ namespace ChajdPizzaWebApp.Controllers
             CheckIfUserLoggedIn();
             return View();
         }
-
+        [Authorize]
         public IActionResult Deals()
         {
             CheckIfUserLoggedIn();
@@ -89,7 +89,7 @@ namespace ChajdPizzaWebApp.Controllers
         }
         public IActionResult Menu()
         {
-            CheckIfUserLoggedIn();
+           /* CheckIfUserLoggedIn()*/;
             return View();
         }
         public IActionResult Privacy()
