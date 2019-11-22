@@ -1,5 +1,6 @@
 ﻿using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ namespace ChajdPizzaWebApp.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
+   // [Authorize]
     public class PizzaTypesAPIController : ControllerBase
     {
         private readonly IPizzaTypesRepo _repo;
