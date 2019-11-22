@@ -11,11 +11,13 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
+    [Authorize]
     public class SpecialtyPizzaController : Controller
     {
         OrderBl Orderlogic = new OrderBl();
 
         [HttpGet]
+       // [Authorize]
         public async Task<IActionResult> Order(int? id)
         {
             if (id is null)

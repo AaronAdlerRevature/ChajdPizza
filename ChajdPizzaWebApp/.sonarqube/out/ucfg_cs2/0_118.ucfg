@@ -1,0 +1,44 @@
+
+NChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel.OnGetAsync(string)Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csA A($"0*•
+0∫
+∑
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csC C(!
+
+%0void"IChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel.ReturnUrl.set*?=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel*
+
+	returnUrlstring÷
+”
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csD$ D(28
+%12Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*à*Ö=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>¯ı
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csD$ D(Z*
+%2$System.Threading.Tasks.Task<TResult>"ZMicrosoft.AspNetCore.Identity.SignInManager<TUser>.GetExternalAuthenticationSchemesAsync()*:
+8
+%12Microsoft.AspNetCore.Identity.SignInManager<TUser>2'GetExternalAuthenticationSchemesAsync()≤
+Ø
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csD D(d(
+%3"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*
+""‘
+—
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csD D(d
+
+%4void"NChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel.ExternalLogins.set*?=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel**
+(
+%3"System.Collections.Generic.List<T>*
+1*£
+1"ù
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.csE E(	
+implicit return:
+	returnUrlstringB?=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel

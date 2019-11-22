@@ -1,0 +1,25 @@
+
+ìChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.TwoFactorAuthenticationNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs! !(<"0*ü
+0À
+»
+ç
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs!s !(ä
+%0string"_ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.TwoFactorAuthentication.get*G"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages∆
+√
+ç
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs!Y !(ã
+%1string"àChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext, string)*G"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages*?
+=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext*
+
+%0string*
+1*¨
+1"¶
+é
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs!ã !(å
+implicit return:=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContextBG"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages

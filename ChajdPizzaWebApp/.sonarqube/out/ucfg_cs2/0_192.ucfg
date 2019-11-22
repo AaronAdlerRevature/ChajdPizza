@@ -1,0 +1,34 @@
+
+ˆChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel.DeletePersonalDataModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel>)—
+ŒC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.cs (&"0*†	
+0û
+ø
+—
+ŒC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.cs (&’N
+LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ƒ
+€
+—
+ŒC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.cs (*–N
+LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>÷
+ô
+—
+ŒC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.cs (N
+LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*?
+=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
+1*µ
+1"¯
+—
+ŒC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>BPN
+LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.DeletePersonalDataModel

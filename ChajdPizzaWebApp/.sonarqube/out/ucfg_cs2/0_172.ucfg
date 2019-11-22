@@ -1,0 +1,344 @@
+
+cChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.OnGetCallbackAsync(string, string)ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csE) E(;"0*Ç
+0º
+π
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG G(!
+%1string"__id*
+
+	returnUrlstringµ
+≤
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG G(!
+%0string"__id*
+
+%1string*
+1
+2*æ
+1¶
+£
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG% G(()
+%3#Microsoft.AspNetCore.Mvc.IUrlHelper"5Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Url.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModelöó
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG% G(6
+%4string"3Microsoft.AspNetCore.Mvc.IUrlHelper.Content(string)*+
+)
+%3#Microsoft.AspNetCore.Mvc.IUrlHelper*
+~/2Content(string)µ
+≤
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG% G(6
+%2string"__id*
+
+%4stringµ
+≤
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG% G(6
+%0string"__id*
+
+%2string*
+2*ª
+2º
+π
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csG G(6
+	returnUrlstring"__id*
+
+%0stringÓ
+Î
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csH H(#
+
+%5bool""string.operator !=(string, string)*
+"
+string*
+
+remoteErrorstring*
+""*
+3
+4*‡
+3 
+«
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csJ J(M
+%6string"__concat*
+""*
+
+remoteErrorstring∆
+√
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csJ J(M
+
+%7void"QChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.ErrorMessage.set*DB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel*
+
+%6string¸˘
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csK K(N3
+%8-Microsoft.AspNetCore.Mvc.RedirectToPageResult"LMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage(string, object)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*	
+./Login*
+""2RedirectToPage(string, object)"≈
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csK K(O5
+3
+%8-Microsoft.AspNetCore.Mvc.RedirectToPageResult*‹	
+4·
+ﬁ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csM M(+8
+%92Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*ç*äB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>˚¯
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csM M(G+
+%10$System.Threading.Tasks.Task<TResult>"TMicrosoft.AspNetCore.Identity.SignInManager<TUser>.GetExternalLoginInfoAsync(string)*:
+8
+%92Microsoft.AspNetCore.Identity.SignInManager<TUser>*
+""2!GetExternalLoginInfoAsync(string)ÿ
+’
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csM M(G7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo"__id*
+""ë
+é
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csN N(
+%11bool""object.operator ==(object, object)*
+"
+object*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo*
+""*
+5
+6*µ
+5Ê
+„
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csP P(J
+%12void"QChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.ErrorMessage.set*DB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel*-+
+)Error loading external login information.˝˙
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csQ Q(O4
+%13-Microsoft.AspNetCore.Mvc.RedirectToPageResult"LMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage(string, object)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*	
+./Login*
+""2RedirectToPage(string, object)"∆
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csQ Q(P6
+4
+%13-Microsoft.AspNetCore.Mvc.RedirectToPageResult*‰
+6‚
+ﬂ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csU U(-9
+%142Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*ç*äB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ö
+ó
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csUG U(Y
+%15string"=Microsoft.AspNetCore.Identity.UserLoginInfo.LoginProvider.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfoò
+ï
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csU[ U(k
+%16string";Microsoft.AspNetCore.Identity.UserLoginInfo.ProviderKey.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfoÕ 
+å
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csU U(ô+
+%17$System.Threading.Tasks.Task<TResult>"gMicrosoft.AspNetCore.Identity.SignInManager<TUser>.ExternalLoginSignInAsync(string, string, bool, bool)*;
+9
+%142Microsoft.AspNetCore.Identity.SignInManager<TUser>*
+
+%15string*
+
+%16string*
+""*
+""24ExternalLoginSignInAsync(string, string, bool, bool)÷
+”
+å
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csU U(ô4
+result*Microsoft.AspNetCore.Identity.SignInResult"__id*
+""ê
+ç
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csV V( 
+%18bool"8Microsoft.AspNetCore.Identity.SignInResult.Succeeded.get*6
+4
+result*Microsoft.AspNetCore.Identity.SignInResult*
+7
+8*ô
+7›
+⁄
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csX X(:
+%193Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*á*ÑB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>∫
+∑
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csXZ X(h-
+%20&System.Security.Claims.ClaimsPrincipal"=Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo±Æ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csXZ X(q*
+%21#System.Security.Principal.IIdentity"3System.Security.Claims.ClaimsPrincipal.Identity.get*/
+-
+%20&System.Security.Claims.ClaimsPrincipal2Identity.getÜÉ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csXZ X(v
+%22string",System.Security.Principal.IIdentity.Name.get*,
+*
+%21#System.Security.Principal.IIdentity2Name.getõ
+ò
+å
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csXx X(ä
+%23string"=Microsoft.AspNetCore.Identity.UserLoginInfo.LoginProvider.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo‰
+·
+å
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csX X(ã
+%24void"{Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(Microsoft.Extensions.Logging.ILogger, string, params object[])*1"/
+-Microsoft.Extensions.Logging.LoggerExtensions*<
+:
+%193Microsoft.Extensions.Logging.ILogger<TCategoryName>*31
+/{Name} logged in with {LoginProvider} provider.*
+
+%22string*
+
+%23stringÏÈ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csY Y(/3
+%25,Microsoft.AspNetCore.Mvc.LocalRedirectResult"CMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.LocalRedirect(string)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*
+
+	returnUrlstring2LocalRedirect(string)"≈
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csY Y(05
+3
+%25,Microsoft.AspNetCore.Mvc.LocalRedirectResult*°
+8í
+è
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs[ [("
+%26bool":Microsoft.AspNetCore.Identity.SignInResult.IsLockedOut.get*6
+4
+result*Microsoft.AspNetCore.Identity.SignInResult*
+9
+10*∂
+9Á‰
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs] ](24
+%27-Microsoft.AspNetCore.Mvc.RedirectToPageResult"DMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage(string)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*
+	./Lockout2RedirectToPage(string)"∆
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs] ](36
+4
+%27-Microsoft.AspNetCore.Mvc.RedirectToPageResult*˜
+10À
+»
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csb b(%
+%28void"NChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.ReturnUrl.set*DB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel*
+
+	returnUrlstringö
+ó
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csc  c(2
+%29string"=Microsoft.AspNetCore.Identity.UserLoginInfo.LoginProvider.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo…
+∆
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csc c(2
+%30void"RChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.LoginProvider.set*DB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel*
+
+%29string∫
+∑
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csd d("-
+%31&System.Security.Claims.ClaimsPrincipal"=Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfoÚÔ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csd d(L
+%32bool"_System.Security.Claims.ClaimsPrincipal.HasClaim(System.Predicate<System.Security.Claims.Claim>)*/
+-
+%31&System.Security.Claims.ClaimsPrincipal*
+""28HasClaim(System.Predicate<System.Security.Claims.Claim>)*
+11
+12*÷
+11≤Ø
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csf i(R
+%33KChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel"KChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModelŒ
+À
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csf  f(*
+%34void"XChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel.InputModel()*T
+R
+%33KChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel∫
+∑
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csh  h(.-
+%35&System.Security.Claims.ClaimsPrincipal"=Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo¶
+£
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csh> h(N
+%36"__id*
+""ı
+Ú
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csh  h(O
+%37string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
+*System.Security.Claims.PrincipalExtensions*/
+-
+%35&System.Security.Claims.ClaimsPrincipal*
+
+%36‹
+Ÿ
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csh h(O
+%38void"UChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel.Email.set*T
+R
+%33KChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel*
+
+%37stringÜ
+É
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csf i(
+%39void"JChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.Input.set*DB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel*T
+R
+%33KChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.InputModel*
+12*ä
+12π∂
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csk k(5
+%40.Microsoft.AspNetCore.Mvc.RazorPages.PageResult"4Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Page()*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel2Page()"«
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csk k(7
+5
+%40.Microsoft.AspNetCore.Mvc.RazorPages.PageResult*™
+13"£
+ã
+ÄC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.csm m(	
+implicit return:
+	returnUrlstring:
+remoteErrorstringBDB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel

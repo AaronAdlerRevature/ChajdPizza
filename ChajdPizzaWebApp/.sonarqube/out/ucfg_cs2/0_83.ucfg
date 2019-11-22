@@ -1,0 +1,47 @@
+
+JChajdPizzaWebApp.Repositories.OrderDetailsRepo.SelectOrderAllDetails(int?)v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs- (B"0*Û
+0°
+û
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs!% !(-0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext"__id*l*j0
+.ChajdPizzaWebApp.Repositories.OrderDetailsRepo"6
+_context*ChajdPizzaWebApp.Data.ApplicationDbContext†
+ù
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs!% !(:2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>";ChajdPizzaWebApp.Data.ApplicationDbContext.OrderDetails.get*2
+0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext˝
+˙
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs!% !(\
+%2System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+""µ
+≤
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs!% !(j*
+%3$System.Threading.Tasks.Task<TResult>"öMicrosoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync<TSource>(System.Linq.IQueryable<TSource>, System.Threading.CancellationToken)*D"B
+@Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions*!
+
+%2System.Linq.IQueryable<T>*
+""Ω
+∫
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs! !(j2
+orderDetails"System.Collections.Generic.List<T>"__id*
+"""Æ
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs" "( 4
+2
+orderDetails"System.Collections.Generic.List<T>*ì
+1"ç
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs# #(	
+implicit return:
+orderIdSystem.Nullable<T>B20
+.ChajdPizzaWebApp.Repositories.OrderDetailsRepo

@@ -1,0 +1,42 @@
+
+îChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel.RegisterModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel>, Microsoft.AspNetCore.Identity.UI.Services.IEmailSender)Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.cs ("0*É
+0ÿ
+’
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.cs! !(&Å=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>‡
+›
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.cs" "(*Ö=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>”
+–
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.cs# #(=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*?
+=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>‰
+·
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.cs$ $(&á=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel"F
+_emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender"__id*G
+E
+emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender*
+1*£
+1"ù
+Ö
+{C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Register.cshtml.cs% %(	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>:E
+emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSenderB?=
+;ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterModel

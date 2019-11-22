@@ -1,0 +1,7 @@
+organization=pizza-web-app
+projectKey=mean
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.2898
+dashboardUrl=https://sonarcloud.io/dashboard?id=mean
+ceTaskId=AW6UnTXDS5_LtvkNOnk8
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW6UnTXDS5_LtvkNOnk8

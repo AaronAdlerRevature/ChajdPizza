@@ -1,0 +1,38 @@
+
+ZChajdPizzaWebApp.Repositories.OrderDetailsRepo.Remove(ChajdPizzaWebApp.Models.OrderDetail)v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs2  2(&"0*’
+0°
+û
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs4 4(0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext"__id*l*j0
+.ChajdPizzaWebApp.Repositories.OrderDetailsRepo"6
+_context*ChajdPizzaWebApp.Data.ApplicationDbContextäá
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs4 4((G
+%1AMicrosoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity>"@Microsoft.EntityFrameworkCore.DbContext.Remove<TEntity>(TEntity)*2
+0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext*4
+2
+orderDetail#ChajdPizzaWebApp.Models.OrderDetail2Remove<TEntity>(TEntity)°
+û
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs5 5(0
+%2*ChajdPizzaWebApp.Data.ApplicationDbContext"__id*l*j0
+.ChajdPizzaWebApp.Repositories.OrderDetailsRepo"6
+_context*ChajdPizzaWebApp.Data.ApplicationDbContext˜Ù
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs5 5(-*
+%3$System.Threading.Tasks.Task<TResult>"\Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(System.Threading.CancellationToken)*2
+0
+%2*ChajdPizzaWebApp.Data.ApplicationDbContext*
+""24SaveChangesAsync(System.Threading.CancellationToken)"Ä
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs6 6(
+""*ì
+1"ç
+v
+lC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrderDetailsRepo.cs7 7(	
+implicit return:2
+orderDetail#ChajdPizzaWebApp.Models.OrderDetailB20
+.ChajdPizzaWebApp.Repositories.OrderDetailsRepo

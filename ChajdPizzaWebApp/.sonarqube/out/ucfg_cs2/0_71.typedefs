@@ -1,0 +1,8 @@
+‰
+
+LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel-Microsoft.AspNetCore.Mvc.RazorPages.PageModelobjectÉ
+»ResetAuthenticatorModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel>)ˆChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel.ResetAuthenticatorModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel>)_
+OnGet()TChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel.OnGet()k
+OnPostAsync()ZChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel.OnPostAsync()s
+StatusMessage.get^ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel.StatusMessage.gets
+StatusMessage.set^ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ResetAuthenticatorModel.StatusMessage.set
