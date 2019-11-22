@@ -26,7 +26,7 @@ namespace ChajdPizzaWebApp.Data
         {
             IEnumerable<State> result = null;
 
-            var query = _context.States.Where(s => s.ID == s.ID);
+            var query = _context.State.Where(s => s.ID == s.ID);
             if (query.Count() > 0)
             {
                 result = await query.ToListAsync();
@@ -43,7 +43,7 @@ namespace ChajdPizzaWebApp.Data
         {
             State result = null;
 
-            var query = _context.States.Where(s => s.ID == id);
+            var query = _context.State.Where(s => s.ID == id);
             if (query.Count() > 0)
             {
                 result = await query.FirstOrDefaultAsync();
@@ -61,7 +61,7 @@ namespace ChajdPizzaWebApp.Data
             State temp = null;
             string result = null;
 
-            var query = _context.States.Where(s => s.ID == id);
+            var query = _context.State.Where(s => s.ID == id);
             if (query.Count() > 0)
             {
                 temp = await query.FirstOrDefaultAsync();
@@ -80,7 +80,7 @@ namespace ChajdPizzaWebApp.Data
             State temp = null;
             string result = null;
 
-            var query = _context.States.Where(s => s.ID == id);
+            var query = _context.State.Where(s => s.ID == id);
             if (query.Count() > 0)
             {
                 temp = await query.FirstOrDefaultAsync();
