@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
-    [EnableCors]
+    [EnableCors("DefaultPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class OrdersApiController : ControllerBase

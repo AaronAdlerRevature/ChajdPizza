@@ -41,13 +41,12 @@ namespace ChajdPizzaWebApp
             // CORS Policy definition.
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
+                options.AddPolicy("DefaultPolicy",
                     builder =>
-                    {
-                        builder.AllowAnyOrigin();
-                        builder.AllowAnyHeader();
-                    }
-                    );
+                    builder.WithOrigins("https://chajdpizza.azurewebsites.net/")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             }
             );
 
@@ -75,7 +74,7 @@ namespace ChajdPizzaWebApp
             app.UseStaticFiles();
 
             // CORS ACTIVATION.
-            app.UseCors();
+            app.UseCors("DefaultPolicy");
             app.UseRouting();
 
             app.UseAuthentication();
