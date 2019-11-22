@@ -253,7 +253,7 @@
                                 </p>
                             </div>*@
                         
-                            <div class="tab-pane fade" id="nav-tab-bank">
+                        <div class="tab-pane fade" id="nav-tab-bank">
 
                                 <form id="confirmOrder" action="" method="get">
                                     <div class="form-group">
@@ -276,18 +276,17 @@
                                     
                                     @*<input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />*@
                                 </form>
+                                    </div> <!-- tab-content .// -->
+                                </div> <!-- card-body.// -->
+                            </div>
+                        </article> <!-- card.// -->
+                    </aside> <!-- col.// -->
+                </div> <!-- row.// -->
 
-                            </div> <!-- tab-content .// -->
-                        </div> <!-- card-body.// -->
-                    </div>
-                </article> <!-- card.// -->
-            </aside> <!-- col.// -->
-        </div> <!-- row.// -->
+            </div>
+            <!--container end.//-->
 
-    </div>
-    <!--container end.//-->
 
-<br>
 <script>
 
     $( "#confirmOrder" ).submit(function( event ) {
@@ -343,5 +342,6 @@
         document.getElementById("CartView").appendChild(confirmView);
 
     }
+
 
 </script>
