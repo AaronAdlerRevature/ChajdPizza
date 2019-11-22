@@ -1,8 +1,12 @@
-﻿using ChajdPizzaWebApp.Models;
+﻿using System;
+using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -40,20 +44,66 @@ namespace ChajdPizzaWebApp.Controllers
         }
 
         //[Route("DetailsOfOrder")]
-        public IActionResult DetailsOfOrder()
+        public async Task<IActionResult> DetailsOfOrder()
         {
             //if(ordersId != null)
             string returnUrl = Url.Content("~/");
-            if (User.Identity.Name != null || Request.Cookies.ContainsKey("GuestName"))
+            if (User.Identity.Name != null)
             {
-                //var Order = 
+                ViewBag.OrderId = await ReturnOrderId(User.Identity.Name);
+                return View();
+                
+            }
+            else if (Request.Cookies.ContainsKey("GuestName"))
+            {
+                string guestName = Request.Cookies["GuestName"];
+                ViewBag.OrderId = await ReturnOrderId(guestName);
                 return View();
             }
             else
             {
                 return LocalRedirect(returnUrl);
             }
+        }
 
+        private async Task<int> ReturnOrderId(string username)
+        {
+            Customer customer = new Customer();
+            Orders order = new Orders();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
+
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage customerInfo = await client.GetAsync("CustomersApi/ByUser/" + username);
+                if (customerInfo.IsSuccessStatusCode)
+                {
+                    var customerRes = customerInfo.Content.ReadAsStringAsync().Result;
+
+                    customer = JsonConvert.DeserializeObject<Customer>(customerRes);
+                }
+                else if (!customerInfo.IsSuccessStatusCode) { return 0; }
+                var custId = customer.Id;
+
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage orderInfo = await client.GetAsync("OrdersApi/ByCust/" + custId);
+                if(orderInfo.IsSuccessStatusCode)
+                {
+                    var orderRes = orderInfo.Content.ReadAsStringAsync().Result;
+                    order = JsonConvert.DeserializeObject<Orders>(orderRes);
+                }
+                else if (!orderInfo.IsSuccessStatusCode) { return 0; }
+
+                int orderId = order.Id;
+
+                return orderId;
+            }
+            
         }
 
         // GET: OrderDetails/Create
