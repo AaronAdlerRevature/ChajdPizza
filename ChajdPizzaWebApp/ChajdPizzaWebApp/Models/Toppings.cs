@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChajdPizzaWebApp.Models
 {
+    [Authorize]
     public class Toppings
     {
         [Required, Key]

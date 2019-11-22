@@ -1,5 +1,6 @@
 ﻿using ChajdPizzaWebApp.BL;
 using ChajdPizzaWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -10,11 +11,13 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
+    [Authorize]
     public class SpecialtyPizzaController : Controller
     {
         OrderBl Orderlogic = new OrderBl();
 
         [HttpGet]
+       // [Authorize]
         public async Task<IActionResult> Order(int? id)
         {
             if (id is null)

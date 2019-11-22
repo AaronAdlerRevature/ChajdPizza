@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChajdPizzaWebApp.Models
 {
+    [Authorize]
     public class OrderDetail
     {
+       
         public int Id { get; set; }
 
         [Required]
