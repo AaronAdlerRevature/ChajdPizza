@@ -37,6 +37,7 @@ namespace ChajdPizzaWebApp
             services.AddTransient<IOrderDetailsRepo, OrderDetailsRepo>();
             services.AddTransient<IPizzaTypesRepo, PizzaTypesRepo>();
 
+            // CORS Policy definition.
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(
@@ -44,18 +45,14 @@ namespace ChajdPizzaWebApp
                     {
                         builder.AllowAnyOrigin();
                     }
-
                     );
             }
             );
 
-          services.AddMvc();
+            services.AddMvc();
 
             // Add the temp data provider
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
-
-          
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +72,7 @@ namespace ChajdPizzaWebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            // CORS ACTIVATION.
             app.UseCors();
             app.UseRouting();
 
