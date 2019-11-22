@@ -1,0 +1,26 @@
+
+ChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterConfirmationModel.RegisterConfirmationModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.UI.Services.IEmailSender)í
+áC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.cs (("0*Ú
+0Ò
+Ó
+í
+áC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.cs (&çI
+GChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterConfirmationModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Û
+
+í
+áC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.cs (éI
+GChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterConfirmationModel"A
+_sender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender"__id*B
+@
+sender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender*
+1*∞
+1"™
+í
+áC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:@
+sender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSenderBKI
+GChajdPizzaWebApp.Areas.Identity.Pages.Account.RegisterConfirmationModel

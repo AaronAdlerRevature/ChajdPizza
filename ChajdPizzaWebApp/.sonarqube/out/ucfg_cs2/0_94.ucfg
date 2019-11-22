@@ -1,0 +1,58 @@
+
+8ChajdPizzaWebApp.Controllers.CustomersController.Index()x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs) (."2*
+0•
+¢
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs' (/0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext"__id*n*l2
+0ChajdPizzaWebApp.Controllers.CustomersController"6
+_context*ChajdPizzaWebApp.Data.ApplicationDbContextû
+õ
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs' (82
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"7ChajdPizzaWebApp.Data.ApplicationDbContext.Customer.get*2
+0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContextö
+ó
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs' (NR
+%2LMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>"¬Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Include<TEntity, TProperty>(System.Linq.IQueryable<TEntity>, System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*D"B
+@Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+""ø
+º
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs (Nd
+applicationDbContextLMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>"__id*T
+R
+%2LMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>¸
+˘
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs (@*
+%3$System.Threading.Tasks.Task<TResult>"öMicrosoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync<TSource>(System.Linq.IQueryable<TSource>, System.Threading.CancellationToken)*D"B
+@Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions*f
+d
+applicationDbContextLMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>*
+""ôñ
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs (A)
+%4#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""2View(object)"ß
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs (B+
+)
+%4#Microsoft.AspNetCore.Mvc.ViewResult*ï
+1"è
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs (	
+implicit return*ú
+2ë
+é
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersController.cs) (.
+%5"__entrypoint*
+0B42
+0ChajdPizzaWebApp.Controllers.CustomersController

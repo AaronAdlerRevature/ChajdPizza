@@ -1,0 +1,34 @@
+
+üChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.ChangePasswordModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ChangePasswordModel>)“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.cs (""0*î
+0ó
+ð
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.cs (&ŽJ
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ChangePasswordModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>û
+ø
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.cs (*’J
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ChangePasswordModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ï
+ì
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.cs (ŒJ
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ChangePasswordModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*?
+=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
+1*±
+1"«
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>BLJ
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ChangePasswordModel

@@ -1,0 +1,26 @@
+
+‘ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.LoginWith2faModel(Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel>)‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs ( "0*Ò
+0è
+å
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs (*‰A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>Ü
+Ù
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs (ƒA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*?
+=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
+1*§
+1"¡
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs (	
+implicit return:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>BCA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel

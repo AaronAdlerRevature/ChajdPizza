@@ -1,0 +1,82 @@
+
+uChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.LoadAsync(Microsoft.AspNetCore.Identity.IdentityUser)‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs( (($"0*ü
+0Ø
+Õ
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs*! *(-6
+%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*ˆ*…A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ž‹
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs*! *(D*
+%1$System.Threading.Tasks.Task<TResult>"HMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserNameAsync(TUser)*8
+6
+%00Microsoft.AspNetCore.Identity.UserManager<TUser>*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2GetUserNameAsync(TUser)±
+®
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs* *(D
+userNamestring"__id*
+""Ø
+Õ
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs+$ +(06
+%20Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*ˆ*…A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>”‘
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs+$ +(J*
+%3$System.Threading.Tasks.Task<TResult>"KMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetPhoneNumberAsync(TUser)*8
+6
+%20Microsoft.AspNetCore.Identity.UserManager<TUser>*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2GetPhoneNumberAsync(TUser)´
+±
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs+ +(J
+phoneNumberstring"__id*
+""Ä
+Á
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs- -(
+
+%4void"LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.Username.set*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel*
+
+userNamestring­ª
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs/ 2(P
+%5JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel"JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModelÈ
+Å
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs/ /("
+
+%6void"WChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.InputModel()*R
+P
+%5JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModelä
+á
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs1 1()
+
+%7void"ZChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel.PhoneNumber.set*R
+P
+%5JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel*
+
+phoneNumberstringÿ
+ü
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs/ 2(
+
+%8void"IChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.Input.set*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel*R
+P
+%5JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.InputModel*
+1*§
+1"¡
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs3 3(	
+implicit return:2
+user*Microsoft.AspNetCore.Identity.IdentityUserBCA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel

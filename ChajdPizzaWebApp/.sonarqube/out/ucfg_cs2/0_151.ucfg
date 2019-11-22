@@ -1,0 +1,18 @@
+
+MChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel.OnGetAsync()‹
+€C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs8 8('"0*²
+0äá
+‹
+€C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs: :(,3
+%0-Microsoft.AspNetCore.Mvc.RedirectToPageResult"DMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage(string)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*	
+./Login2RedirectToPage(string)"Å
+‹
+€C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs: :(-5
+3
+%0-Microsoft.AspNetCore.Mvc.RedirectToPageResult*©
+1"£
+‹
+€C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs; ;(	
+implicit returnBDB
+@ChajdPizzaWebApp.Areas.Identity.Pages.Account.ExternalLoginModel

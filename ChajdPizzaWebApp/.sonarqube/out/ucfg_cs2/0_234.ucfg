@@ -1,0 +1,138 @@
+
+ˆChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext, string)Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs# #(*"0*ˆ	
+0Ð
+Í
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs% %(1>
+%38Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary";Microsoft.AspNetCore.Mvc.Rendering.ViewContext.ViewData.get*?
+=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContextü
+ù
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs% %(?
+%4object"__mapGet*@
+>
+%38Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
+
+ActivePage¶
+³
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs% %(I
+%5object"__id*
+
+%4object¶
+³
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs% %(I
+%1string"__id*
+
+%5object¶
+³
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs% %(I
+%0string"__id*
+
+%1string*
+1
+2*ƒ
+
+1Î
+Ë
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs&> &(Z<
+%66Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor";Microsoft.AspNetCore.Mvc.ActionContext.ActionDescriptor.get*?
+=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext¹¶
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs&> &(f
+%7string"FMicrosoft.AspNetCore.Mvc.Abstractions.ActionDescriptor.DisplayName.get*>
+<
+%66Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor2DisplayName.getù
+ö
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs& &(g
+%8string"3System.IO.Path.GetFileNameWithoutExtension(string?)*"
+System.IO.Path*
+
+%7string¶
+³
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs& &(g
+%2string"__id*
+
+%8string¶
+³
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs& &(g
+%0string"__id*
+
+%2string*
+2*
+2¾
+»
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs% &(g
+
+activePagestring"__id*
+
+%0string¦
+£
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs'3 '(U
+%9"__id*
+""—
+”
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs' '(V
+%10bool"8string.Equals(string?, string?, System.StringComparison)*
+"
+string*
+
+
+activePagestring*
+
+pagestring*
+
+%9*
+3
+4*é
+3«
+¨
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs'Y '(a
+%12"__id*
+
+active°
+­
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs'Y '(a
+%11string"__id*
+
+%12*
+5*å
+4§
+¤
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs'd '(h
+%13"__id*
+""°
+­
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs'd '(h
+%11string"__id*
+
+%13*
+5*¦
+5" 
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs' '(i
+
+%11string*ª
+6"¤
+Œ
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs( ((	
+implicit return:=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext:
+pagestringBG"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages

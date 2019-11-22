@@ -1,0 +1,228 @@
+
+SChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.OnPostAsync()ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.cs?) ?(4"0*à
+0…
+∆
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csA A(@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"<Microsoft.AspNetCore.Mvc.RazorPages.PageModel.ModelState.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModelÆ
+´
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csA A(#
+
+%1bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*B
+@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+1
+2*ë
+1Ω∫
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csC C(4
+%2.Microsoft.AspNetCore.Mvc.RazorPages.PageResult"4Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Page()*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel2Page()"À
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csC C(6
+4
+%2.Microsoft.AspNetCore.Mvc.RazorPages.PageResult*ﬂ
+2Â
+‚
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csF F()6
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*é*ãG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ø
+¨
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csF7 F(;,
+%4&System.Security.Claims.ClaimsPrincipal"6Microsoft.AspNetCore.Mvc.RazorPages.PageModel.User.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel…∆
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csF F(<*
+%5$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
+6
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%4&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)ÿ
+’
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csF F(<2
+user*Microsoft.AspNetCore.Identity.IdentityUser"__id*
+""ê
+ç
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csG G(
+
+%6bool""object.operator ==(object, object)*
+"
+object*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser*
+""*
+3
+4*ç
+3Â
+‚
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csI@ I(L6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*é*ãG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ø
+¨
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csIW I([,
+%8&System.Security.Claims.ClaimsPrincipal"6Microsoft.AspNetCore.Mvc.RazorPages.PageModel.User.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel•¢
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csI@ I(\
+%9string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
+6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%8&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)«
+ƒ
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csI  I(`
+%10string"__concat*
+""*
+
+%9string»
+≈
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csI  I(`
+%11string"__concat*
+
+%10string*
+""‚ﬂ
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csI I(a4
+%12-Microsoft.AspNetCore.Mvc.NotFoundObjectResult">Microsoft.AspNetCore.Mvc.RazorPages.PageModel.NotFound(object)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*
+
+%11string2NotFound(object)"À
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csI I(b6
+4
+%12-Microsoft.AspNetCore.Mvc.NotFoundObjectResult*≥
+4Ê
+„
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csL* L(67
+%130Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*é*ãG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ã
+à
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csLN L(SW
+%14PChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.InputModel"OChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.Input.get*IG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel‚
+ﬂ
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csLN L(_
+%15string"`ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.InputModel.NewPassword.get*Y
+W
+%14PChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.InputModel∏µ
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csL* L(`+
+%16$System.Threading.Tasks.Task<TResult>"PMicrosoft.AspNetCore.Identity.UserManager<TUser>.AddPasswordAsync(TUser, string)*9
+7
+%130Microsoft.AspNetCore.Identity.UserManager<TUser>*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser*
+
+%15string2AddPasswordAsync(TUser, string)Á
+‰
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csL L(`A
+addPasswordResult,Microsoft.AspNetCore.Identity.IdentityResult"__id*
+""§
+°
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csM M(,
+%17bool":Microsoft.AspNetCore.Identity.IdentityResult.Succeeded.get*C
+A
+addPasswordResult,Microsoft.AspNetCore.Identity.IdentityResult*
+5
+6*—
+5∆
+√
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csO& O(>0
+%18)System.Collections.Generic.IEnumerable<T>"7Microsoft.AspNetCore.Identity.IdentityResult.Errors.get*C
+A
+addPasswordResult,Microsoft.AspNetCore.Identity.IdentityResult*
+7*
+7*
+8
+9*¶	
+8 
+«
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csQ Q(A
+%19:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"<Microsoft.AspNetCore.Mvc.RazorPages.PageModel.ModelState.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel 
+«
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csQ- Q(9
+%20string"__id**
+string"
+Emptystringö
+ó
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csQ; Q(L
+%21string";Microsoft.AspNetCore.Identity.IdentityError.Description.get*6
+4
+error+Microsoft.AspNetCore.Identity.IdentityError‰
+·
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csQ Q(M
+%22void"XMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError(string, string)*C
+A
+%19:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+
+%20string*
+
+%21string*
+7*ì
+9æª
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csS S(5
+%23.Microsoft.AspNetCore.Mvc.RazorPages.PageResult"4Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Page()*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel2Page()"Ã
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csS S(7
+5
+%23.Microsoft.AspNetCore.Mvc.RazorPages.PageResult*ò
+6Ï
+È
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csV V( 9
+%242Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*í*èG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ñì
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csV V(9"
+%25System.Threading.Tasks.Task"LMicrosoft.AspNetCore.Identity.SignInManager<TUser>.RefreshSignInAsync(TUser)*;
+9
+%242Microsoft.AspNetCore.Identity.SignInManager<TUser>*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2RefreshSignInAsync(TUser)Ë
+Â
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csW W(9
+%26void"WChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.StatusMessage.set*IG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel*
+Your password has been set.—Œ
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csY Y(#4
+%27-Microsoft.AspNetCore.Mvc.RedirectToPageResult">Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage()*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel2RedirectToPage()"À
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csY Y($6
+4
+%27-Microsoft.AspNetCore.Mvc.RedirectToPageResult*Ø
+10"®
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.csZ Z(	
+implicit returnBIG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel

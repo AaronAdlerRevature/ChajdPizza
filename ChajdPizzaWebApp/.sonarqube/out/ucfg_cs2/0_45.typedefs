@@ -1,0 +1,18 @@
+Ï
+<AspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation(Microsoft.AspNetCore.Mvc.RazorPages.Page,Microsoft.AspNetCore.Mvc.RazorPages.PageBase,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobject]
+ExecuteAsync()KAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.ExecuteAsync()§
+3Areas_Identity_Pages_Account_RegisterConfirmation()pAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Areas_Identity_Pages_Account_RegisterConfirmation()w
+ModelExpressionProvider.getXAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.ModelExpressionProvider.getw
+ModelExpressionProvider.setXAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.ModelExpressionProvider.setO
+Url.getDAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Url.getO
+Url.setDAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Url.set[
+Component.getJAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Component.get[
+Component.setJAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Component.setQ
+Json.getEAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Json.getQ
+Json.setEAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Json.setQ
+Html.getEAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Html.getQ
+Html.setEAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Html.setY
+ViewData.getIAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.ViewData.getY
+ViewData.setIAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.ViewData.setS
+	Model.getFAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Model.getS
+	Model.setFAspNetCore.Areas_Identity_Pages_Account_RegisterConfirmation.Model.set

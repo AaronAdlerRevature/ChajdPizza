@@ -1,0 +1,29 @@
+
+<ChajdPizzaWebApp.Controllers.OrdersApiController.GetOrders()x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cs= (F"2*ú
+0¶
+³
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cs (:
+%04ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo"__id*u*s2
+0ChajdPizzaWebApp.Controllers.OrdersApiController"=
+_repo4ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo¶³
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cs (**
+%1$System.Threading.Tasks.Task<TResult>"@ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo.SelectAll()*<
+:
+%04ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo2SelectAll()"‚
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cs (+
+""*•
+1"
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cs (	
+implicit return*œ
+2‘
+Ž
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cs= (F
+%2"__entrypoint*
+0B42
+0ChajdPizzaWebApp.Controllers.OrdersApiController

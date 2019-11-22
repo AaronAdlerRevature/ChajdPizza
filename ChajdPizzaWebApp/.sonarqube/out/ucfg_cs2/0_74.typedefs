@@ -1,0 +1,9 @@
+¯	
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel-Microsoft.AspNetCore.Mvc.RazorPages.PageModelobjectÌ
+ÀSetPasswordModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)†ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.SetPasswordModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)b
+OnGetAsync()RChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.OnGetAsync()d
+OnPostAsync()SChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.OnPostAsync()\
+	Input.getOChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.Input.get\
+	Input.setOChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.Input.setl
+StatusMessage.getWChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.StatusMessage.getl
+StatusMessage.setWChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.SetPasswordModel.StatusMessage.set

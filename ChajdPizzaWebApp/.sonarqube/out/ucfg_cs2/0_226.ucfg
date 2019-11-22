@@ -1,0 +1,25 @@
+
+ÅChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.cs (*"0*ã
+0∏
+µ
+å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.csa (f
+%0string"MChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.Index.get*G"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages≈
+¬
+å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.csG (g
+%1string"àChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext, string)*G"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages*?
+=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext*
+
+%0string*
+1*™
+1"§
+å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ManageNavPages.csg (h
+implicit return:=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContextBG"E
+CChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ManageNavPages
