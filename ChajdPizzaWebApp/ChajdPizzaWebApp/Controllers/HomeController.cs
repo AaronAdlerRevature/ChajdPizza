@@ -27,7 +27,7 @@ namespace ChajdPizzaWebApp.Controllers
         public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
-            _userManager = userManager;
+            _userManager = null;
         }
 
         public IActionResult Index()
@@ -106,122 +106,125 @@ namespace ChajdPizzaWebApp.Controllers
 
         private void CheckIfUserLoggedIn()
         {
-            if (User.Identity.IsAuthenticated)
+            if (_userManager != null)
             {
-                if (Request.Cookies.ContainsKey("GuestID"))
+                if (User.Identity.IsAuthenticated)
                 {
-                    // URL for API.
-                    //string url = "https://chajdpizza.azurewebsites.net/";
-                    string guestID = Request.Cookies["GuestID"];
-                    Response.Cookies.Delete("GuestID");
-                    Response.Cookies.Delete("GuestName");
-
-                    // Update current currentlogin order for guest order. 
-                    string SPS = _userManager.GetUserName(User);
-                    int userID = 0;
-
-                    try
+                    if (Request.Cookies.ContainsKey("GuestID"))
                     {
-                        // Get newly logged in customer id.
-                        HttpClient customerAPI = new HttpClient();
-                        customerAPI.DefaultRequestHeaders.Accept.Clear();
-                        customerAPI.DefaultRequestHeaders.Accept.Add(
-                            new MediaTypeWithQualityHeaderValue("application/json"));
+                        // URL for API.
+                        //string url = "https://chajdpizza.azurewebsites.net/";
+                        string guestID = Request.Cookies["GuestID"];
+                        Response.Cookies.Delete("GuestID");
+                        Response.Cookies.Delete("GuestName");
 
-                        string api = "api/CustomersApi/ByUser/";
+                        // Update current currentlogin order for guest order. 
+                        string SPS = _userManager.GetUserName(User);
+                        int userID = 0;
 
-                        var customerStringTask = customerAPI.GetStringAsync(_url + api + guestID);
-                        customerStringTask.Wait();
-                        var customerHttpResult = customerStringTask.Result;
-                        var currentCustomer = JsonConvert.DeserializeObject<Customer>(customerHttpResult);
-                        userID = currentCustomer.Id;
+                        try
+                        {
+                            // Get newly logged in customer id.
+                            HttpClient customerAPI = new HttpClient();
+                            customerAPI.DefaultRequestHeaders.Accept.Clear();
+                            customerAPI.DefaultRequestHeaders.Accept.Add(
+                                new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        // Get previous guest order id.
-                        HttpClient orderAPI = new HttpClient();
-                        orderAPI.DefaultRequestHeaders.Accept.Clear();
-                        orderAPI.DefaultRequestHeaders.Accept.Add(
-                            new MediaTypeWithQualityHeaderValue("application/json"));
+                            string api = "api/CustomersApi/ByUser/";
 
-                        api = "api/OrdersApi/ByCust/";
+                            var customerStringTask = customerAPI.GetStringAsync(_url + api + guestID);
+                            customerStringTask.Wait();
+                            var customerHttpResult = customerStringTask.Result;
+                            var currentCustomer = JsonConvert.DeserializeObject<Customer>(customerHttpResult);
+                            userID = currentCustomer.Id;
 
-                        var stringTask = orderAPI.GetStringAsync(_url + api + guestID);
-                        stringTask.Wait();
-                        var httpResult = stringTask.Result;
-                        var currentOrder = JsonConvert.DeserializeObject<Orders>(httpResult);
+                            // Get previous guest order id.
+                            HttpClient orderAPI = new HttpClient();
+                            orderAPI.DefaultRequestHeaders.Accept.Clear();
+                            orderAPI.DefaultRequestHeaders.Accept.Add(
+                                new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        // Update order id for newly logged in customer.
-                        currentOrder.CustomerId = userID;
+                            api = "api/OrdersApi/ByCust/";
 
-                        // Update order for new customerId.
-                        orderAPI = new HttpClient();
-                        orderAPI.DefaultRequestHeaders.Accept.Clear();
-                        orderAPI.DefaultRequestHeaders.Accept.Add(
-                            new MediaTypeWithQualityHeaderValue("application/json"));
+                            var stringTask = orderAPI.GetStringAsync(_url + api + guestID);
+                            stringTask.Wait();
+                            var httpResult = stringTask.Result;
+                            var currentOrder = JsonConvert.DeserializeObject<Orders>(httpResult);
 
-                        api = "api/OrdersApi/";
-                        var newData = JsonConvert.SerializeObject(currentOrder);
-                        var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+                            // Update order id for newly logged in customer.
+                            currentOrder.CustomerId = userID;
 
-                        orderAPI.PutAsync(_url + api + guestID, newContent);
+                            // Update order for new customerId.
+                            orderAPI = new HttpClient();
+                            orderAPI.DefaultRequestHeaders.Accept.Clear();
+                            orderAPI.DefaultRequestHeaders.Accept.Add(
+                                new MediaTypeWithQualityHeaderValue("application/json"));
+
+                            api = "api/OrdersApi/";
+                            var newData = JsonConvert.SerializeObject(currentOrder);
+                            var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+
+                            orderAPI.PutAsync(_url + api + guestID, newContent);
+                        }
+                        catch (Exception WTF)
+                        {
+                            // 404 Not Found! error or failed.
+                            Console.WriteLine(WTF);
+                        }
                     }
-                    catch (Exception WTF)
-                    {
-                        // 404 Not Found! error or failed.
-                        Console.WriteLine(WTF);
-                    }
-                }
-            }
-            else
-            {
-                // Check if guest cookies have been set.
-                if (Request.Cookies.ContainsKey("GuestName"))
-                {
-
                 }
                 else
                 {
-                    // Get guest user count.
-                    var inte = _userManager.Users.Where(u => u.UserName.StartsWith("GUEST")).Count();
-
-                    // Create new guest user.
-                    IdentityUser z = new IdentityUser(string.Format("GUEST{0}", inte.ToString()));
-                    var query = _userManager.CreateAsync(z, "PASSword1!");
-                    query.Wait();
-                    var qResult = query.Result;
-                    if (qResult.Succeeded)
+                    // Check if guest cookies have been set.
+                    if (Request.Cookies.ContainsKey("GuestName"))
                     {
-                        // Load cookies.
-                        Response.Cookies.Append("GuestName", z.UserName);
 
-                        // Create new customer.
-                        Customer guestCustomer = new Customer()
+                    }
+                    else
+                    {
+                        // Get guest user count.
+                        var inte = _userManager.Users.Where(u => u.UserName.StartsWith("GUEST")).Count();
+
+                        // Create new guest user.
+                        IdentityUser z = new IdentityUser(string.Format("GUEST{0}", inte.ToString()));
+                        var query = _userManager.CreateAsync(z, "PASSword1!");
+                        query.Wait();
+                        var qResult = query.Result;
+                        if (qResult.Succeeded)
                         {
-                            Id = 0,
-                            Name = string.Format("Guest{0}", inte.ToString()),
-                            UserName = string.Format("Guest{0}", inte.ToString()),
-                            StateID = 1,
-                            ZipCode = 99999,
-                        };
+                            // Load cookies.
+                            Response.Cookies.Append("GuestName", z.UserName);
 
-                        // Post new guest user.
-                        HttpClient newGuestRequest = new HttpClient();
-                        newGuestRequest.DefaultRequestHeaders.Accept.Clear();
-                        newGuestRequest.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                            // Create new customer.
+                            Customer guestCustomer = new Customer()
+                            {
+                                Id = 0,
+                                Name = string.Format("Guest{0}", inte.ToString()),
+                                UserName = string.Format("Guest{0}", inte.ToString()),
+                                StateID = 1,
+                                ZipCode = 99999,
+                            };
 
-                        // Post command.
-                        //string url = "https://chajdpizza.azurewebsites.net/";
-                        string api = "api/CustomersApi";
+                            // Post new guest user.
+                            HttpClient newGuestRequest = new HttpClient();
+                            newGuestRequest.DefaultRequestHeaders.Accept.Clear();
+                            newGuestRequest.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        // Post response.
-                        var newData = JsonConvert.SerializeObject(guestCustomer);
-                        var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
-                        var response = newGuestRequest.PostAsync(_url + api, newContent);
-                        response.Wait();
-                        var httpResult = response.Result;
-                        var newID = httpResult.Headers.Location.ToString().Substring(httpResult.Headers.Location.ToString().LastIndexOf('/') + 1);
+                            // Post command.
+                            //string url = "https://chajdpizza.azurewebsites.net/";
+                            string api = "api/CustomersApi";
 
-                        // Load cookies.
-                        Response.Cookies.Append("GuestID", newID);
+                            // Post response.
+                            var newData = JsonConvert.SerializeObject(guestCustomer);
+                            var newContent = new StringContent(newData, Encoding.UTF8, "application/json");
+                            var response = newGuestRequest.PostAsync(_url + api, newContent);
+                            response.Wait();
+                            var httpResult = response.Result;
+                            var newID = httpResult.Headers.Location.ToString().Substring(httpResult.Headers.Location.ToString().LastIndexOf('/') + 1);
+
+                            // Load cookies.
+                            Response.Cookies.Append("GuestID", newID);
+                        }
                     }
                 }
             }
