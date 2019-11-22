@@ -11,7 +11,7 @@
             var customer = '{"id":0,"userName":"@Model.Email","name":null,"street":null,"city":null,"stateID":1,"state":null,"zipCode":99999}'
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:55166/api/CustomersApi',
+                url: 'https://chajdpizza.azurewebsites.net/api/CustomersApi',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 data: customer,
