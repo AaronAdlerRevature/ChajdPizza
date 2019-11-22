@@ -43,7 +43,7 @@ namespace ChajdPizzaWebApp
             {
                 options.AddPolicy("DefaultPolicy",
                     builder =>
-                    builder.WithOrigins("https://chajdpizza.azurewebsites.net/", "http://localhost:55166")
+                    builder.WithOrigins("https://chajdpizza.azurewebsites.net/", "http://localhost:55166", "http://localhost:4200")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
