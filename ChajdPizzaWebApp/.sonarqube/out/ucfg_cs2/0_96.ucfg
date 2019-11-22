@@ -1,0 +1,83 @@
+
+:ChajdPizzaWebApp.Data.PizzaTypesRepo.GetSecretFormula(int)t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs*) *(9"0*÷
+0∏
+µ
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs, ,('/
+result%ChajdPizzaWebApp.Models.SecretFormula"__id*
+""ï
+í
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs. .( 0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext"__id*b*`&
+$ChajdPizzaWebApp.Data.PizzaTypesRepo"6
+_context*ChajdPizzaWebApp.Data.ApplicationDbContextü
+ú
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs. .(.2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"<ChajdPizzaWebApp.Data.ApplicationDbContext.SecretFormula.get*2
+0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext˚
+¯
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs. .(E
+%2System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+""∆
+√
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs. .(E"
+querySystem.Linq.IQueryable<T>"__id*!
+
+%2System.Linq.IQueryable<T>å
+â
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs/ /(	
+%3int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
+System.Linq.Queryable*$
+"
+querySystem.Linq.IQueryable<T>*
+1
+2*Ñ
+1æ
+ª
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs1 1(:*
+%4$System.Threading.Tasks.Task<TResult>"¢Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync<TSource>(System.Linq.IQueryable<TSource>, System.Threading.CancellationToken)*D"B
+@Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions*$
+"
+querySystem.Linq.IQueryable<T>*
+""∏
+µ
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs1 1(:/
+result%ChajdPizzaWebApp.Models.SecretFormula"__id*
+""*
+3*⁄
+2Ω∫
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs5 5(R#
+%5System.NullReferenceException"System.NullReferenceExceptionè
+å
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs5 5(0
+
+%6void"=System.NullReferenceException.NullReferenceException(string?)*%
+#
+%5System.NullReferenceException*" 
+EMPTY QUERY IN SECRET FORMULA!*
+4*Ø
+3"©
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs8 8(1
+/
+result%ChajdPizzaWebApp.Models.SecretFormula*ë
+4"ã
+t
+jC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\PizzaTypesRepo.cs9 9(	
+implicit return:	
+idintB(&
+$ChajdPizzaWebApp.Data.PizzaTypesRepo

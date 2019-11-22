@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
-    [EnableCors]
+    [EnableCors("DefaultPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]

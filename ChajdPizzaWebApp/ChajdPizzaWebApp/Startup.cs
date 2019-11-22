@@ -36,16 +36,17 @@ namespace ChajdPizzaWebApp
             services.AddTransient<ICustomerRepo, CustomerRepo>();
             services.AddTransient<IOrderDetailsRepo, OrderDetailsRepo>();
             services.AddTransient<IPizzaTypesRepo, PizzaTypesRepo>();
+            services.AddTransient<IStateRepo, StateRepo>();
 
             // CORS Policy definition.
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
+                options.AddPolicy("DefaultPolicy",
                     builder =>
-                    {
-                        builder.AllowAnyOrigin();
-                    }
-                    );
+                    builder.WithOrigins("https://chajdpizza.azurewebsites.net/", "http://localhost:55166")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             }
             );
 
@@ -73,7 +74,7 @@ namespace ChajdPizzaWebApp
             app.UseStaticFiles();
 
             // CORS ACTIVATION.
-            app.UseCors();
+            app.UseCors("DefaultPolicy");
             app.UseRouting();
 
             app.UseAuthentication();
@@ -87,6 +88,7 @@ namespace ChajdPizzaWebApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
 
         }
     }

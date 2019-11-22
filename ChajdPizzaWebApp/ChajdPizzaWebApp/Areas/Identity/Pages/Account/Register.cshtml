@@ -3,8 +3,16 @@
 @{
     ViewData["Title"] = "Register";
 }
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1 style="text-align:center">@ViewData["Title"]</h1>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}
+
 
 <div class="row" style=" border:solid;color:blueviolet">
     <div class="col-md-4">
@@ -32,8 +40,8 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-  
-        
+
+
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
@@ -59,9 +67,7 @@
     </div>
 </div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+
 
 
 

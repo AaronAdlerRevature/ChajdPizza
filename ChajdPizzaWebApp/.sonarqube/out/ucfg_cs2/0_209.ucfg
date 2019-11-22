@@ -1,0 +1,26 @@
+
+ŒChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.ExternalLoginsModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.cs (""0*ü
+0ó
+ð
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.cs (&ŽJ
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>û
+ø
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.cs (*’J
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>*
+1*±
+1"«
+“
+ˆC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>BLJ
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel

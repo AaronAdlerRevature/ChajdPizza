@@ -1,0 +1,20 @@
+—
+:AspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword(Microsoft.AspNetCore.Mvc.RazorPages.Page,Microsoft.AspNetCore.Mvc.RazorPages.PageBase,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobject[
+ExecuteAsync()IAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.ExecuteAsync()¡
+1Areas_Identity_Pages_Account_Manage_SetPassword()lAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Areas_Identity_Pages_Account_Manage_SetPassword()u
+__tagHelperScopeManager.getVAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.__tagHelperScopeManager.getu
+__tagHelperScopeManager.setVAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.__tagHelperScopeManager.setu
+ModelExpressionProvider.getVAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.ModelExpressionProvider.getu
+ModelExpressionProvider.setVAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.ModelExpressionProvider.setM
+Url.getBAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Url.getM
+Url.setBAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Url.setY
+Component.getHAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Component.getY
+Component.setHAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Component.setO
+Json.getCAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Json.getO
+Json.setCAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Json.setO
+Html.getCAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Html.getO
+Html.setCAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Html.setW
+ViewData.getGAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.ViewData.getW
+ViewData.setGAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.ViewData.setQ
+	Model.getDAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Model.getQ
+	Model.setDAspNetCore.Areas_Identity_Pages_Account_Manage_SetPassword.Model.set

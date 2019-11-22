@@ -1,0 +1,63 @@
+
+bChajdPizzaWebApp.Controllers.CustomersApiController.PostCustomer(ChajdPizzaWebApp.Models.Customer){
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs\2 \(>"2*µ
+0Ã
+À
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs^ ^(<
+%06ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo"__id*}*{5
+3ChajdPizzaWebApp.Controllers.CustomersApiController"B
+_context6ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo¡ž
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs^ ^((*
+%1$System.Threading.Tasks.Task<TResult>"\ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo.Add(ChajdPizzaWebApp.Models.Customer)*>
+<
+%06ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo*.
+,
+customer ChajdPizzaWebApp.Models.Customer2%Add(ChajdPizzaWebApp.Models.Customer)ä
+á
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.csa= a(H	
+%2int"'ChajdPizzaWebApp.Models.Customer.Id.get*.
+,
+customer ChajdPizzaWebApp.Models.Customer¦£
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.csa a(U4
+%3.Microsoft.AspNetCore.Mvc.CreatedAtActionResult"OMicrosoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(string, object, object)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+GetCustomer*
+""*.
+,
+customer ChajdPizzaWebApp.Models.Customer2'CreatedAtAction(string, object, object)"µ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.csa a(V6
+4
+%3.Microsoft.AspNetCore.Mvc.CreatedAtActionResult*˜
+1"’
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.csb b(	
+implicit return*Ÿ
+2Ä
+Á
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs\2 \(>
+%4"__entrypoint*.
+,
+customer ChajdPizzaWebApp.Models.Customer†
+ƒ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs[	 [(
+%5"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*.
+,
+customer ChajdPizzaWebApp.Models.CustomerÄ
+Á
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs\? \(P,
+customer ChajdPizzaWebApp.Models.Customer"__annotation*
+
+%5*
+0:,
+customer ChajdPizzaWebApp.Models.CustomerB75
+3ChajdPizzaWebApp.Controllers.CustomersApiController

@@ -1,0 +1,34 @@
+
+²ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.EmailModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.UI.Services.IEmailSender)‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs ("0*Å
+0à
+Ý
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs (&…A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>è
+å
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs (*‰A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ì
+é
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs (&‹A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel"F
+_emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender"__id*G
+E
+emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender*
+1*§
+1"¡
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:E
+emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSenderBCA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel
