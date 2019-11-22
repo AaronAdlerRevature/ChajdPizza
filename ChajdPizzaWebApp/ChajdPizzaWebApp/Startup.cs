@@ -36,6 +36,7 @@ namespace ChajdPizzaWebApp
             services.AddTransient<ICustomerRepo, CustomerRepo>();
             services.AddTransient<IOrderDetailsRepo, OrderDetailsRepo>();
             services.AddTransient<IPizzaTypesRepo, PizzaTypesRepo>();
+            services.AddTransient<IStateRepo, StateRepo>();
 
             // CORS Policy definition.
             services.AddCors(options =>
