@@ -1,6 +1,7 @@
 ﻿using ChajdPizzaWebApp.BL;
 using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,7 @@ namespace ChajdPizzaWebApp.Controllers
             return View();
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> CustomPizza()
         {
             var Username = User.Identity.Name;
@@ -56,6 +58,7 @@ namespace ChajdPizzaWebApp.Controllers
             }
             
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CustomPizza(OrderDetail model)
         {
