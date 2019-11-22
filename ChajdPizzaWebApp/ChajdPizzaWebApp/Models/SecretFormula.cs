@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChajdPizzaWebApp.Models
 {
-    [Authorize]
     public class SecretFormula
     {
         [Required]

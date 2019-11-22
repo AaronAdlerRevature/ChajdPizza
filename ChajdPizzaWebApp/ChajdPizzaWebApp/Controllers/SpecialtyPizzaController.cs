@@ -17,7 +17,6 @@ namespace ChajdPizzaWebApp.Controllers
         OrderBl Orderlogic = new OrderBl();
 
         [HttpGet]
-       // [Authorize]
         public async Task<IActionResult> Order(int? id)
         {
             if (id is null)

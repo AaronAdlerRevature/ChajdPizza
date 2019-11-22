@@ -12,7 +12,6 @@ namespace ChajdPizzaWebApp.Controllers
     [EnableCors("DefaultPolicy")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class OrderDetailsApiController : ControllerBase
     {
         private readonly IOrderDetailsRepo _repo;

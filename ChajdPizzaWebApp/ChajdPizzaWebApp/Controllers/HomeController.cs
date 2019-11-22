@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         static string _url = "https://chajdpizza.azurewebsites.net/";
@@ -35,14 +36,13 @@ namespace ChajdPizzaWebApp.Controllers
             CheckIfUserLoggedIn();
             return View();
         }
-        [Authorize]
+
         public IActionResult Deals()
         {
             CheckIfUserLoggedIn();
             return View();
         }
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> CustomPizza()
         {
             var Username = User.Identity.Name;
@@ -58,7 +58,6 @@ namespace ChajdPizzaWebApp.Controllers
             }
             
         }
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CustomPizza(OrderDetail model)
         {

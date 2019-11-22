@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChajdPizzaWebApp.Models
 {
-    [Authorize]
     public class Orders
     {
         public int Id { get; set; }
