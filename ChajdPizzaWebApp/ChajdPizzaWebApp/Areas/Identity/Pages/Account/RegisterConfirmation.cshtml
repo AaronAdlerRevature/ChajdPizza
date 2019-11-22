@@ -8,24 +8,15 @@
 
 <script>
         $(document).ready(function () {
-            var customer = new Object();
-            customer.id = 0;
-            customer.userName = "@Model.Email";
-            customer.name = null;
-            customer.street = null;
-            customer.city = null;
-            customer.stateID = 1;
-            customer.state = null;
-            customer.zipCode = 99999;
+            var customer = '{"id":0,"userName":"@Model.Email","name":null,"street":null,"city":null,"stateID":1,"state":null,"zipCode":99999}'
             $.ajax({
                 type: 'POST',
-                url: 'https://chajdpizza.azurewebsites.net/api/CustomersApi',
+                url: 'http://localhost:55166/api/CustomersApi',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 data: customer,
                      success: function (data, textStatus, xhr) {
                          console.log(data);
-                         alert("success");
                      },
                      error: function (xhr, textStatus, errorThrown) {
                          console.log('Error in Operation');
@@ -33,7 +24,7 @@
                          console.log(xhr);
                          console.log(textStatus);
                          console.log(customer);
-                         alert("FailURE");
+                         alert("Creating customer has failed.");
                      }
             });
         });
