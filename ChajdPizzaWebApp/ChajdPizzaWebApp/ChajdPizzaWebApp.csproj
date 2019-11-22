@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>aspnet-ChajdPizzaWebApp-B5558D9E-DA01-4917-802D-33E94FFAD755</UserSecretsId>
     <ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
+	<ProjectGuid>77736BB9-3F1A-4118-A7AE-48434FA244DA</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>
