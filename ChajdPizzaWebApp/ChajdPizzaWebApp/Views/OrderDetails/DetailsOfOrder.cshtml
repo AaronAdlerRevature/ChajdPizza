@@ -19,9 +19,34 @@
                             <ul id="CurrentOrderDetails">
                                 _____________________________________
                             </ul>
+                            
+                        </div>
+                        <div style="width:150px; float: right; text-align:left; border:3px solid #5ee5f5;border-radius: 5px;">
+                            <dl>
+                                <dt>&emsp;Total Amount:</dt>
+                                <dd id="TotAmount" style="color: darkcyan;"></dd>
+                            </dl>
                         </div>
                     <script>
                         GetDetails();
+                        TotalAmount();
+
+                        function TotalAmount() {
+                            let orderAUrl = "/api/OrdersApi/@ViewBag.OrderId";
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: "GET",
+                                url: orderAUrl,
+                                success: function (orderAmountData) {
+                                    var orderAmt = orderAmountData;
+                                    document.getElementById("TotAmount").innerHTML = '&emsp;$ '+orderAmt.netPrice;
+                                },
+                                error: function (orderAmountData) {
+                                    alert('Total Amount Unavailable');
+                                    failure(orderAmountData);
+                                }
+                            });
+                        }
 
                         function GetDetails() {
 	                        let url = "/api/OrderDetailsApi/DetailsOfOrder/@ViewBag.OrderId" ;
@@ -50,6 +75,7 @@
                                             GetSizeName(this.sizeId, number);
                                             document.getElementById("CurrentOrderDetails").appendChild(list);
                                             number++;
+                                            TotalAmount();
                                         });
                                     }
                                     else {
@@ -93,6 +119,7 @@
 
                                     DeductPriceFrom(delData.ordersId, delData.price);
                                     GetDetails();
+
                                 },
                                 error: function (delData) {
                                     failure(delData);
