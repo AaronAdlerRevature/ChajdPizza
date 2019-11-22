@@ -75,6 +75,7 @@
                                             GetSizeName(this.sizeId, number);
                                             document.getElementById("CurrentOrderDetails").appendChild(list);
                                             number++;
+                                            TotalAmount();
                                         });
                                     }
                                     else {
@@ -118,7 +119,7 @@
 
                                     DeductPriceFrom(delData.ordersId, delData.price);
                                     GetDetails();
-                                    TotalAmount();
+
                                 },
                                 error: function (delData) {
                                     failure(delData);
