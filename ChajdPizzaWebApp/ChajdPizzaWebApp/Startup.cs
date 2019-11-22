@@ -53,11 +53,6 @@ namespace ChajdPizzaWebApp
 
             // Add the temp data provider
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
-
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,7 +73,7 @@ namespace ChajdPizzaWebApp
             app.UseStaticFiles();
 
             // CORS ACTIVATION.
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors();
             app.UseRouting();
 
             app.UseAuthentication();
