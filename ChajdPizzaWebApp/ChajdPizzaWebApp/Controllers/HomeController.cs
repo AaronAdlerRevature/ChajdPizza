@@ -60,9 +60,12 @@ namespace ChajdPizzaWebApp.Controllers
         public async Task<IActionResult> CustomPizza(OrderDetail model)
         {
             CheckIfUserLoggedIn();
-
-            
-            model.Price = model.Price + (model.ToppingsCount * 1.5M);
+            var SecFormGrab = Orderlogic.GetSecretFormula();
+            if (SecFormGrab is Exception)
+            {
+                return View("../Shared/ShowException", SecFormGrab);
+            }
+            model.Price = model.Price + (model.ToppingsCount * (decimal)SecFormGrab);
            
             
             if (ModelState.IsValid)
