@@ -18,7 +18,6 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         static string _url = "https://chajdpizza.azurewebsites.net/";
@@ -43,6 +42,7 @@ namespace ChajdPizzaWebApp.Controllers
             return View();
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> CustomPizza()
         {
             var Username = User.Identity.Name;
