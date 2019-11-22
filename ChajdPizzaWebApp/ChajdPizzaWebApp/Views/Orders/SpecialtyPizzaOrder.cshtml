@@ -41,12 +41,25 @@
                     failure(data);
                 }
             });
+            $.ajax({
+                contentType: 'application/json',
+                type: "GET",
+                url: "/api/PizzaTypesApi/Special/1",
+
+                success: function (data) {
+                        $('#Title').replaceWith('<h1 id="Title" >SpecialtyPizzaOrder : ' + data.name + '</h1><h3>Base Price: $' + data.price + '</h3>');
+                },
+                error: function (data) {
+                    alert('failure');
+                    failure(data);
+                }
+            });
         });
 
 </script>
 
 
-<h1>SpecialtyPizzaOrder</h1>
+<h1 id="Title" >SpecialtyPizzaOrder</h1>
 
 
 <div>

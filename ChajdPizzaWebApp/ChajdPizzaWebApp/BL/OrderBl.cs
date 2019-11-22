@@ -115,7 +115,7 @@ namespace ChajdPizzaWebApp.BL
                     orderDetail.Price = specialtyPizza.Price;
                     orderDetail.SizeId = 2;
                     orderDetail.ToppingsSelected = specialtyPizza.Description;
-
+                    orderDetail.Id = specialtyPizza.ID;
                 }
 
                 orderDetail.OrdersId = order.Id;
