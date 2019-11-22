@@ -76,7 +76,7 @@ namespace ChajdPizzaWebApp.Data
 
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
-        public DbSet<State> States { get; set; }
+        public DbSet<State> State { get; set; }
 
 
     }
