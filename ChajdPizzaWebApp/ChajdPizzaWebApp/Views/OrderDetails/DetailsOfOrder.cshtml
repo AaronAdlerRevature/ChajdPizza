@@ -8,7 +8,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 @*  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">  *@
 
-<div class="container">
+<div id="CartView">
     <div class="row">
         <aside class="col-sm-6">
             <p style="font-size: 24px"><b>Your Order Details </b></p>
@@ -62,6 +62,7 @@
                                     if (data.length > 0) {
                                         var details = data;
                                         var number = 1;
+                                        TotalAmount();
 
                                         $.each(details, function () {
                                             var list = document.createElement("LI");
@@ -75,13 +76,15 @@
                                             GetSizeName(this.sizeId, number);
                                             document.getElementById("CurrentOrderDetails").appendChild(list);
                                             number++;
-                                            TotalAmount();
+                                            
                                         });
+                                        
                                     }
                                     else {
                                             var list = document.createElement("LI");
                                             list.innerHTML = "Cart is Empty<br />";
                                             document.getElementById("CurrentOrderDetails").appendChild(list);
+                                            document.getElementById("confirmOrderBtn").innerHTML = '';
                                     }
                                 },
                                 error: function (data) {
@@ -199,11 +202,11 @@
 
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="nav-tab-card">
-                                <p class="alert alert-success">Error: Payment is not sucessed. You always can pay at the store. </p>
+                                <p class="alert alert-success">Note: Payment portal is Down. You can always pay in person</p>
                                 <form role="form">
                                     <div class="form-group">
                                         <label for="username">Full name (on the card)</label>
-                                        <input type="text" class="form-control" name="username" placeholder="" required="">
+                                        <input type="text" class="form-control" name="username" placeholder="" required>
                                     </div> <!-- form-group.// -->
 
                                     <div class="form-group">
@@ -237,7 +240,7 @@
                                         </div>
                                     </div> <!-- row.// -->
 
-                                    <input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />
+                                    <input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm "  disabled onclick="location.href='@Url.Action("Index", "Home")'" />
                                 </form>
                             </div> <!-- tab-pane.// -->
                             @*<div class="tab-pane fade" id="nav-tab-paypal">
@@ -251,46 +254,28 @@
                             </div>*@
                         
                         <div class="tab-pane fade" id="nav-tab-bank">
-                            @*<partial name="_CustomerCreation" />*@
 
-                            <form role="form">
-                                            <div class="form-group">
-                                                <label for="username">Full name </label>
-                                                <input type="text" class="form-control" name="name" placeholder="" required="">
-                                            </div> <!-- form-group.// -->
+                                <form id="confirmOrder" action="" method="get">
+                                    <div class="form-group">
+                                        <label for="username">Full name</label>
+                                        <input type="text" class="form-control" id="custName" name="name" required>
+                                    </div> <!-- form-group.// -->
 
-                                            <div class="form-group">
-                                                <label for="Full Address">Full Address </label>
-                                                <input type="text" class="form-control" name="address" placeholder="" required="">
+                                    <div class="form-group">
+                                        <label for="Full Address">Delivery Address OR Carry Out</label>
+                                        <input type="text" class="form-control" id="custAddress" name="address" placeholder="Delivery Address or Pickup" required>
+                                    </div>
 
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label for="Phone">Phone Number </label>
-                                                <input type="number" class="form-control" name="phone" placeholder="" required="">
-                                            </div>
-                                            <input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />
-                                        </form>    <form role="form">
-                                            <div class="form-group">
-                                                <label for="username">Full name </label>
-                                                <input type="text" class="form-control" name="name" placeholder="" required="">
-                                            </div> <!-- form-group.// -->
-
-                                            <div class="form-group">
-                                                <label for="Full Address">Full Address </label>
-                                                <input type="text" class="form-control" name="address" placeholder="" required="">
-
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label for="Phone">Phone Number </label>
-                                                <input type="number" class="form-control" name="phone" placeholder="" required="">
-                                            </div>
-                                            <input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />
-                                        </form>
-
+                                    <div class="form-group">
+                                        <label for="Phone">Phone Number </label>
+                                        <input type="number" class="form-control" id="custPhone" name="phone" placeholder="###-###-####" required>
+                                    </div>
+                                    <div id="confirmOrderBtn">
+                                        <button type='submit' class="subscribe btn btn-primary btn-block" onclick="">Confirm</button>
+                                    </div>
+                                    
+                                    @*<input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />*@
+                                </form>
                                     </div> <!-- tab-content .// -->
                                 </div> <!-- card-body.// -->
                             </div>
@@ -301,5 +286,62 @@
             </div>
             <!--container end.//-->
 
-        <br>
 
+<script>
+
+    $( "#confirmOrder" ).submit(function( event ) {
+        event.preventDefault();
+        GetOrderToSave();
+    });
+
+    function GetOrderToSave() {
+        let orderUrl = "/api/OrdersApi/@ViewBag.OrderId";
+        $.ajax({
+            contentType: 'application/json',
+            type: "GET",
+            url: orderUrl,
+            success: function (orderData) {
+                var order = orderData;
+
+                var dateTime = new Date();
+                var curDate = dateTime.getFullYear()+'-'+(dateTime.getMonth()+1)+'-'+dateTime.getDate();
+                var curTime = dateTime.getHours() + ":" + dateTime.getMinutes() + ":" + dateTime.getSeconds();
+
+                var cAddress = document.getElementById('custAddress').value;
+                order.isCompleted = true;
+                order.timePlaced = curDate + "T" + curTime;
+
+                order.deliveryAddress = cAddress;
+
+                UpdateOrder(order);
+
+                ConfirmationView(order);
+
+            },
+            error: function (orderData) {
+                alert('Order Not Updated');
+                failure(orderData);
+            }
+        });
+    }
+
+    function ConfirmationView(order) {
+
+        var custName = document.getElementById("custName").value;
+
+        document.getElementById("CartView").innerHTML = '';
+
+        var confirmView = document.createElement("DIV");
+
+        confirmView.setAttribute("id", "view");
+
+        confirmView.innerHTML = "<h1>Order Confirmed!</h1> <p style='margin-top:50px;'>&emsp;<strong>Delivery Address: </strong>" + order.deliveryAddress +
+            "</p> <p> &emsp;<strong>Amount Due: </strong><em>$" + order.netPrice + "</em></p><p> &emsp;<strong>Order Time: </strong><em>$"+ order.timePlaced +"</p><p> &emsp;<strong>Order ID: </strong>"
+            + order.id + "</p><p>&emsp;<strong>Name on the Order: </strong>"+ custName +"<br/>_____________________________________</p>";
+
+        document.getElementById("CartView").appendChild(confirmView);
+
+    }
+
+
+</script>
