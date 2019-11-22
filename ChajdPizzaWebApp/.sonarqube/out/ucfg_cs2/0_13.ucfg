@@ -1,0 +1,42 @@
+
+7ChajdPizzaWebApp.BL.OrderBl.GetPizzaOrder(string, int?)c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (#"0*Ô
+0§
+°
+c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (>*
+%0$System.Threading.Tasks.Task<TResult>";ChajdPizzaWebApp.BL.OrderBl.GetPizzaOrderTask(string, int?)*
+ChajdPizzaWebApp.BL.OrderBl*
+
+Usernamestring*
+
+idSystem.Nullable<T>“
+œ
+c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (>4
+taskResponse$System.Threading.Tasks.Task<TResult>"__id*,
+*
+%0$System.Threading.Tasks.Task<TResult>ﬂ
+‹
+c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (,
+%1object"/System.Threading.Tasks.Task<TResult>.Result.get*6
+4
+taskResponse$System.Threading.Tasks.Task<TResult>ê
+ç
+c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (,
+resultobject"__id*
+
+%1object"y
+c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (
+
+resultobject*
+1"z
+c
+YC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\BL\OrderBl.cs (	
+implicit return:
+Usernamestring:
+idSystem.Nullable<T>B
+ChajdPizzaWebApp.BL.OrderBl

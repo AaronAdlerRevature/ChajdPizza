@@ -1,0 +1,15 @@
+ú
+HChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel-Microsoft.AspNetCore.Mvc.RazorPages.PageModelobjectÕ
+ÃExternalLoginsModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)ŒChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.ExternalLoginsModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)e
+OnGetAsync()UChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OnGetAsync()™
+&OnPostRemoveLoginAsync(string, string)oChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OnPostRemoveLoginAsync(string, string)…
+OnPostLinkLoginAsync(string)eChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OnPostLinkLoginAsync(string)‡
+OnGetLinkLoginCallbackAsync()fChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OnGetLinkLoginCallbackAsync()o
+CurrentLogins.getZChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.CurrentLogins.geto
+CurrentLogins.setZChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.CurrentLogins.setk
+OtherLogins.getXChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OtherLogins.getk
+OtherLogins.setXChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.OtherLogins.setu
+ShowRemoveButton.get]ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.ShowRemoveButton.getu
+ShowRemoveButton.set]ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.ShowRemoveButton.seto
+StatusMessage.getZChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.StatusMessage.geto
+StatusMessage.setZChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.ExternalLoginsModel.StatusMessage.set

@@ -1,0 +1,26 @@
+
+çChajdPizzaWebApp.Areas.Identity.Pages.Account.ConfirmEmailChangeModel.ConfirmEmailChangeModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.cs (&"0*
+0Ì
+Í
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.cs (&ãG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.ConfirmEmailChangeModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ı
+Ú
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.cs (*èG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.ConfirmEmailChangeModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>*
+1*Æ
+1"®
+ê
+ÖC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>BIG
+EChajdPizzaWebApp.Areas.Identity.Pages.Account.ConfirmEmailChangeModel

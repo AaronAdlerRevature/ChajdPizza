@@ -1,0 +1,63 @@
+
+ZChajdPizzaWebApp.Controllers.OrdersApiController.PostOrder(ChajdPizzaWebApp.Models.Orders)x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cso0 o(9"2*†
+0¶
+³
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.csq q(:
+%04ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo"__id*u*s2
+0ChajdPizzaWebApp.Controllers.OrdersApiController"=
+_repo4ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo‘Ž
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.csq q("*
+%1$System.Threading.Tasks.Task<TResult>"XChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo.Add(ChajdPizzaWebApp.Models.Orders)*<
+:
+%04ChajdPizzaWebApp.Repositories.Interfaces.IOrdersRepo*)
+'
+orderChajdPizzaWebApp.Models.Orders2#Add(ChajdPizzaWebApp.Models.Orders)Ú
+×
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.css@ s(H	
+%2int"%ChajdPizzaWebApp.Models.Orders.Id.get*)
+'
+orderChajdPizzaWebApp.Models.Orders¡ž
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.css s(R4
+%3.Microsoft.AspNetCore.Mvc.CreatedAtActionResult"OMicrosoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(string, object, object)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+GetOrdersModel*
+""*)
+'
+orderChajdPizzaWebApp.Models.Orders2'CreatedAtAction(string, object, object)"²
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.css s(S6
+4
+%3.Microsoft.AspNetCore.Mvc.CreatedAtActionResult*•
+1"
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cst t(	
+implicit return*‡
+2¼
+¹
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cso0 o(9
+%4"__entrypoint*)
+'
+orderChajdPizzaWebApp.Models.Ordersþ
+û
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.csn	 n(
+%5"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*)
+'
+orderChajdPizzaWebApp.Models.Orders¼
+¹
+x
+nC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrdersApiController.cso: o(F'
+orderChajdPizzaWebApp.Models.Orders"__annotation*
+
+%5*
+0:'
+orderChajdPizzaWebApp.Models.OrdersB42
+0ChajdPizzaWebApp.Controllers.OrdersApiController

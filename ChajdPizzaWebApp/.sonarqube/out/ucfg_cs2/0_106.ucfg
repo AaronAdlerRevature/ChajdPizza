@@ -1,0 +1,61 @@
+
+OChajdPizzaWebApp.Controllers.OrderDetailsApiController.GetDetailsOfAnOrder(int)~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs.; .(N"4*ò	
+0œ
+Ã
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs0% 0(*@
+%0:ChajdPizzaWebApp.Repositories.Interfaces.IOrderDetailsRepo"__id*Å*8
+6ChajdPizzaWebApp.Controllers.OrderDetailsApiController"C
+_repo:ChajdPizzaWebApp.Repositories.Interfaces.IOrderDetailsRepoÌ
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs0% 0(I*
+%1$System.Threading.Tasks.Task<TResult>"VChajdPizzaWebApp.Repositories.Interfaces.IOrderDetailsRepo.SelectOrderAllDetails(int?)*B
+@
+%0:ChajdPizzaWebApp.Repositories.Interfaces.IOrderDetailsRepo*
+""2SelectOrderAllDetails(int?)≈
+¬
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs0 0(I2
+orderDetails"System.Collections.Generic.List<T>"__id*
+""˝
+˙
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs1 1($
+
+%2bool""object.operator ==(object, object)*
+"
+object*4
+2
+orderDetails"System.Collections.Generic.List<T>*
+""*
+1
+2*Ÿ
+1üú
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs3 3(!-
+%3'Microsoft.AspNetCore.Mvc.NotFoundResult"2Microsoft.AspNetCore.Mvc.ControllerBase.NotFound()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2
+NotFound()"±
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs3 3("/
+-
+%3'Microsoft.AspNetCore.Mvc.NotFoundResult*º
+2"∂
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs5 5( 4
+2
+orderDetails"System.Collections.Generic.List<T>*õ
+3"ï
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs6 6(	
+implicit return*™
+4ü
+ú
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsApiController.cs.; .(N
+%4"__entrypoint*
+""*
+0:
+orderIdintB:8
+6ChajdPizzaWebApp.Controllers.OrderDetailsApiController

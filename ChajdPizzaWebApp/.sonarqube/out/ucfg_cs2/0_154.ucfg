@@ -1,0 +1,26 @@
+
+‰ChajdPizzaWebApp.Areas.Identity.Pages.Account.ForgotPasswordModel.ForgotPasswordModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.UI.Services.IEmailSender)å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ForgotPassword.cshtml.cs (""0*‰
+0Â
+‚
+å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ForgotPassword.cshtml.cs (&áC
+AChajdPizzaWebApp.Areas.Identity.Pages.Account.ForgotPasswordModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ò
+Ó
+å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ForgotPassword.cshtml.cs (&çC
+AChajdPizzaWebApp.Areas.Identity.Pages.Account.ForgotPasswordModel"F
+_emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender"__id*G
+E
+emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSender*
+1*™
+1"§
+å
+ÅC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\ForgotPassword.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:E
+emailSender6Microsoft.AspNetCore.Identity.UI.Services.IEmailSenderBEC
+AChajdPizzaWebApp.Areas.Identity.Pages.Account.ForgotPasswordModel

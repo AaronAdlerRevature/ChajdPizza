@@ -1,0 +1,39 @@
+
+4ChajdPizzaWebApp.Repositories.OrdersRepo.SelectAll()p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs(( ((1"0*–
+
+0ï
+í
+p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs* *('0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext"__id*f*d*
+(ChajdPizzaWebApp.Repositories.OrdersRepo"6
+_context*ChajdPizzaWebApp.Data.ApplicationDbContextî
+ë
+p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs* *(.2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"5ChajdPizzaWebApp.Data.ApplicationDbContext.Orders.get*2
+0
+%0*ChajdPizzaWebApp.Data.ApplicationDbContext¬
+ø
+p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs* *(<*
+%2$System.Threading.Tasks.Task<TResult>"öMicrosoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync<TSource>(System.Linq.IQueryable<TSource>, System.Threading.CancellationToken)*D"B
+@Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+""±
+Æ
+p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs* *(<,
+orders"System.Collections.Generic.List<T>"__id*
+"""¢
+p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs+ +(.
+,
+orders"System.Collections.Generic.List<T>*ç
+1"á
+p
+fC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Repositories\OrdersRepo.cs, ,(	
+implicit returnB,*
+(ChajdPizzaWebApp.Repositories.OrdersRepo

@@ -1,0 +1,17 @@
+
+nChajdPizzaWebApp.Areas.Identity.IdentityHostingStartup.Configure(Microsoft.AspNetCore.Hosting.IWebHostBuilder)~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\IdentityHostingStartup.cs ("0*Ú
+0ÏÌ
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\IdentityHostingStartup.cs (2
+%0,Microsoft.AspNetCore.Hosting.IWebHostBuilder"¾Microsoft.AspNetCore.Hosting.IWebHostBuilder.ConfigureServices(System.Action<Microsoft.AspNetCore.Hosting.WebHostBuilderContext, Microsoft.Extensions.DependencyInjection.IServiceCollection>)*9
+7
+builder,Microsoft.AspNetCore.Hosting.IWebHostBuilder*
+""2‘ConfigureServices(System.Action<Microsoft.AspNetCore.Hosting.WebHostBuilderContext, Microsoft.Extensions.DependencyInjection.IServiceCollection>)*
+1*›
+1"•
+~
+tC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\IdentityHostingStartup.cs (	
+implicit return:7
+builder,Microsoft.AspNetCore.Hosting.IWebHostBuilderB:8
+6ChajdPizzaWebApp.Areas.Identity.IdentityHostingStartup

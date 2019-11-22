@@ -1,0 +1,12 @@
+à
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel-Microsoft.AspNetCore.Mvc.RazorPages.PageModelobjectº
+ºIndexModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)úChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.IndexModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>)®
+5LoadAsync(Microsoft.AspNetCore.Identity.IdentityUser)uChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.LoadAsync(Microsoft.AspNetCore.Identity.IdentityUser)\
+OnGetAsync()LChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync()^
+OnPostAsync()MChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.OnPostAsync()\
+Username.getLChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.Username.get\
+Username.setLChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.Username.setf
+StatusMessage.getQChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.StatusMessage.getf
+StatusMessage.setQChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.StatusMessage.setV
+	Input.getIChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.Input.getV
+	Input.setIChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.IndexModel.Input.set

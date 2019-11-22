@@ -1,0 +1,29 @@
+
+AChajdPizzaWebApp.Controllers.CustomersApiController.GetCustomer(){
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs? (J"2*‘
+0Ã
+À
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs (!<
+%06ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo"__id*}*{5
+3ChajdPizzaWebApp.Controllers.CustomersApiController"B
+_context6ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo½º
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs (-*
+%1$System.Threading.Tasks.Task<TResult>"BChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo.SelectAll()*>
+<
+%06ChajdPizzaWebApp.Repositories.Interfaces.ICustomerRepo2SelectAll()"…
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs (.
+""*˜
+1"’
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs (	
+implicit return*Ÿ
+2”
+‘
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\CustomersApiController.cs? (J
+%2"__entrypoint*
+0B75
+3ChajdPizzaWebApp.Controllers.CustomersApiController

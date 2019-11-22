@@ -1,0 +1,170 @@
+
+DChajdPizzaWebApp.Controllers.OrderDetailsController.DetailsOfOrder(){
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs/) /(7"6*œ
+0â
+Ü
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs2 2(")
+%0#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseâÜ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs2 2(0
+%1string"3Microsoft.AspNetCore.Mvc.IUrlHelper.Content(string)*+
+)
+%0#Microsoft.AspNetCore.Mvc.IUrlHelper*
+~/2Content(string)´
+®
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs2 2(0
+	returnUrlstring"__id*
+
+%1stringç
+ä
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs3 3(,
+%2&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseûõ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs3 3()
+%3#System.Security.Principal.IIdentity"3System.Security.Claims.ClaimsPrincipal.Identity.get*.
+,
+%2&System.Security.Claims.ClaimsPrincipal2Identity.getÛ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs3 3("
+%4string",System.Security.Principal.IIdentity.Name.get*+
+)
+%3#System.Security.Principal.IIdentity2Name.get‘
+—
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs3 3(*
+
+%5bool""string.operator !=(string, string)*
+"
+string*
+
+%4string*
+""*
+1
+2*î
+1È
+Ê
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs5 5(
+%6dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.Controllerç
+ä
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs56 5(:,
+%7&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseûõ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs56 5(C)
+%8#System.Security.Principal.IIdentity"3System.Security.Claims.ClaimsPrincipal.Identity.get*.
+,
+%7&System.Security.Claims.ClaimsPrincipal2Identity.getÛ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs56 5(H
+%9string",System.Security.Principal.IIdentity.Name.get*+
+)
+%8#System.Security.Principal.IIdentity2Name.get¡
+æ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs5( 5(I+
+%10$System.Threading.Tasks.Task<TResult>"IChajdPizzaWebApp.Controllers.OrderDetailsController.ReturnOrderId(string)*75
+3ChajdPizzaWebApp.Controllers.OrderDetailsController*
+
+%9stringâÜ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs6 6(*
+%11#Microsoft.AspNetCore.Mvc.ViewResult"*Microsoft.AspNetCore.Mvc.Controller.View()*'%
+#Microsoft.AspNetCore.Mvc.Controller2View()"´
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs6 6(,
+*
+%11#Microsoft.AspNetCore.Mvc.ViewResult*¯
+2ê
+ç
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs9 9(,
+%12%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseû
+õ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs9 9($9
+%132Microsoft.AspNetCore.Http.IRequestCookieCollection"1Microsoft.AspNetCore.Http.HttpRequest.Cookies.get*.
+,
+%12%Microsoft.AspNetCore.Http.HttpRequest∂≥
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs9 9(=
+%14bool"FMicrosoft.AspNetCore.Http.IRequestCookieCollection.ContainsKey(string)*;
+9
+%132Microsoft.AspNetCore.Http.IRequestCookieCollection*
+	GuestName2ContainsKey(string)*
+3
+4*ç
+3ê
+ç
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs;# ;(*,
+%15%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseû
+õ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs;# ;(29
+%162Microsoft.AspNetCore.Http.IRequestCookieCollection"1Microsoft.AspNetCore.Http.HttpRequest.Cookies.get*.
+,
+%15%Microsoft.AspNetCore.Http.HttpRequest≤Ø
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs;# ;(?
+%17string"CMicrosoft.AspNetCore.Http.IRequestCookieCollection.this[string].get*;
+9
+%162Microsoft.AspNetCore.Http.IRequestCookieCollection*
+	GuestName2this[string].get¨
+©
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs; ;(?
+	guestNamestring"__id*
+
+%17stringÍ
+Á
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs< <(
+%18dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.Controller»
+≈
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs<( <(@+
+%19$System.Threading.Tasks.Task<TResult>"IChajdPizzaWebApp.Controllers.OrderDetailsController.ReturnOrderId(string)*75
+3ChajdPizzaWebApp.Controllers.OrderDetailsController*
+
+	guestNamestringâÜ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs= =(*
+%20#Microsoft.AspNetCore.Mvc.ViewResult"*Microsoft.AspNetCore.Mvc.Controller.View()*'%
+#Microsoft.AspNetCore.Mvc.Controller2View()"´
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs= =(,
+*
+%20#Microsoft.AspNetCore.Mvc.ViewResult*å
+4œÃ
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.csA A(/3
+%21,Microsoft.AspNetCore.Mvc.LocalRedirectResult"=Microsoft.AspNetCore.Mvc.ControllerBase.LocalRedirect(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+
+	returnUrlstring2LocalRedirect(string)"¥
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.csA A(05
+3
+%21,Microsoft.AspNetCore.Mvc.LocalRedirectResult*ò
+5"í
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.csC C(	
+implicit return*†
+6ï
+í
+{
+qC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Controllers\OrderDetailsController.cs/) /(7
+%22"__entrypoint*
+0B75
+3ChajdPizzaWebApp.Controllers.OrderDetailsController
