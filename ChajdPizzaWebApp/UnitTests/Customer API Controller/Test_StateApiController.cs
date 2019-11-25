@@ -78,5 +78,34 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetState_Valid()
+        {
+            #region ASSIGN
+
+            StateRepo testRepo = new StateRepo();
+            StateApiController testController = new StateApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetState(1);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            State testList = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreEqual(testList.ID, 1);
+            Assert.AreEqual(testList.Name, "Alaska");
+            Assert.AreEqual(testList.Abbreviation, "AK");
+
+            #endregion
+        }
     }
 }
