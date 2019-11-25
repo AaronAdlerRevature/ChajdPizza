@@ -95,15 +95,41 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
-            State testList = result;
+            State testData = result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(testList.ID, 1);
-            Assert.AreEqual(testList.Name, "Alaska");
-            Assert.AreEqual(testList.Abbreviation, "AK");
+            Assert.AreEqual(testData.ID, 1);
+            Assert.AreEqual(testData.Name, "Alaska");
+            Assert.AreEqual(testData.Abbreviation, "AK");
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void GetState_NonExistingID()
+        {
+            #region ASSIGN
+
+            StateRepo testRepo = new StateRepo();
+            StateApiController testController = new StateApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetState(0);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
 
             #endregion
         }
