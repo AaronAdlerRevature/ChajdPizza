@@ -4,19 +4,6 @@
 }
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="~/css/BttnCS.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
         <script>
             $(document).ready(function () {
                 $.ajax({
@@ -27,7 +14,7 @@
                     success: function (data) {
                         if (data.length > 0) {       
                         $.each(data, function () {
-                            var li = '<figure style="border-style:solid"><img src="/image/special' + this.id + '.jpg" alt="Second Slide" style="height:133px;width:315px; text-align:center"><h4 style="text-emphasis-color:blueviolet"><b>' + this.name + '</b></br> Price: $' + this.price + '</h4><figcaption><p>' + this.description + '</p><a class="btn btn-info" role="button" href="/SpecialtyPizza/Order/' + this.id + '">Order Now</a></figcaption></figure></br>';
+                            var li = '<figure ><img src="/image/special' + this.id + '.jpg" alt="Second Slide" style="height:133px;width:315px; text-align:center"><h4 style="text-emphasis-color:blueviolet"><b>' + this.name + '</b></br> Price: $' + this.price + '</h4><figcaption><p>' + this.description + '</p><a class="btn btn-lg animated-button victoria-one" href="/SpecialtyPizza/Order/' + this.id + '">Order Now</a></figcaption></figure><hr/>';
                             $('#specialtyPizzas').append(li);
                         });
                     }
@@ -45,37 +32,26 @@
 
         </script>
 
-
-
-
-
-
-
     </head>
 
 
 
     
-<h3 style="text-align:center"><b> Our Menu </b>Our Menu</h3>
+<h3 style="text-align:center"><b> Our Menu </b></h3>
 <div>
-    <a class="btn btn-info" role="" asp-action="CustomPizza" >Make Your Own</a> <br />
+    
+    <a class="btn btn-lg animated-button victoria-one" asp-action="CustomPizza">Build you own</a>
 </div>
 <br />
 <div>
-    <h2>SPECIALTY PIZZAS</h2>
-    <div class="container-fluid" style=" margin-top:2px">
+    <h2 style="text-align:center">SPECIALTY PIZZAS</h2>
+    <div class="container">
 
-        @*<container class="container;" style=" margin-top:2px">*@
             <div class="row">
-                <div class="col-sm-4" id="specialtyPizzas" style="display:flex">
-
-                    @*<div id="specialtyPizzas" style="float:left" > </div>*@
-
+                <div  id="specialtyPizzas">
                 </div>
-
-
             </div>
-        @*</container>*@
+        
         </div>
     <br />
     <br />

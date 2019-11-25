@@ -19,7 +19,7 @@
                             <ul id="CurrentOrderDetails">
                                 _____________________________________
                             </ul>
-                            
+
                         </div>
                         <div style="width:150px; float: right; text-align:left; border:3px solid #5ee5f5;border-radius: 5px;">
                             <dl>
@@ -27,150 +27,9 @@
                                 <dd id="TotAmount" style="color: darkcyan;"></dd>
                             </dl>
                         </div>
-                    <script>
-                        GetDetails();
-                        
-
-                        function TotalAmount() {
-                            let orderAUrl = "/api/OrdersApi/@ViewBag.OrderId";
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: "GET",
-                                url: orderAUrl,
-                                success: function (orderAmountData) {
-                                    var orderAmt = orderAmountData;
-                                    document.getElementById("TotAmount").innerHTML = '&emsp;$ '+orderAmt.netPrice;
-                                },
-                                error: function (orderAmountData) {
-                                    alert('Total Amount Unavailable');
-                                    failure(orderAmountData);
-                                }
-                            });
-                        }
-
-                        function GetDetails() {
-	                        let url = "/api/OrderDetailsApi/DetailsOfOrder/@ViewBag.OrderId" ;
-	                        $.ajax({
-		                        contentType: 'application/json',
-		                        type: "GET",
-		                        url: url,
-		                        @*   data: JSON.stringify({
-			                        orderId: 1 @model.Id
-		                        }),*@
-
-                                success: function (data) {
-                                    if (data.length > 0) {
-                                        var details = data;
-                                        var number = 1;
-                                        TotalAmount();
-
-                                        $.each(details, function () {
-                                            var list = document.createElement("LI");
-                                            list.setAttribute("id", "odlist" + number);
-
-                                            list.innerHTML = "<strong id = 'size"+number+"'> Cheese Pizza</strong><br /> &emsp;Requested Toppings: " + this.toppingsSelected +
-                                                "<br /> &emsp;Special Request: <em>" + this.specialRequest + "</em><br /> &emsp;&emsp;&emsp;Price: <em><strong>$"+ this.price +
-                                                "</strong></em>&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" onClick = \"DeleteItem(" + this.id +")\"/>"
-                                                + "<br/>_____________________________________";
-
-                                            GetSizeName(this.sizeId, number);
-                                            document.getElementById("CurrentOrderDetails").appendChild(list);
-                                            number++;
-                                            
-                                        });
-                                        
-                                    }
-                                    else {
-                                            var list = document.createElement("LI");
-                                            list.innerHTML = "Cart is Empty<br />";
-                                            document.getElementById("CurrentOrderDetails").appendChild(list);
-                                            document.getElementById("confirmOrderBtn").innerHTML = '';
-                                    }
-                                },
-                                error: function (data) {
-                                    failure(data);
-                                }
-	                        });
-                        }
-
-                        function GetSizeName(sizeId,number) {
-                            let sizeUrl = "/api/PizzaTypesApi/sizes/name/"+sizeId;
-                            $.ajax({
-                                contentType: 'application/json',
-		                        type: "GET",
-                                url: sizeUrl,
-                                success: function (sizeData) {
-
-                                    $('#size' + number).replaceWith('<strong id="size' + number + '" class = "col-sm-10"> ' + sizeData + ' Cheese Pizza</strong>');
-
-                                },
-                                error: function (sizeData) {
-                                    failure(sizeData);
-                                }
-                            });
-                        }
-
-                        function DeleteItem(oDetailId) {
-                            let delItemUrl = "/api/OrderDetailsApi/" + oDetailId;
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: "DELETE",
-                                url: delItemUrl,
-                                success: function (delData) {
-                                    var prevList = document.getElementById("CurrentOrderDetails");
-                                    prevList.innerHTML = "";
-
-                                    DeductPriceFrom(delData.ordersId, delData.price);
-                                    GetDetails();
-
-                                },
-                                error: function (delData) {
-                                    failure(delData);
-                                }
-                            });
-                        }
-
-                        function DeductPriceFrom(orderId, priceDeduct) {
-                            let orderUrl = "/api/OrdersApi/" + orderId;
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: "GET",
-                                url: orderUrl,
-                                success: function (orderData) {
-                                    var order = orderData;
-                                    order.netPrice -= priceDeduct;
-                                    UpdateOrder(order);
-                                },
-                                error: function (orderData) {
-                                    alert('Order Not Updated');
-                                    failure(orderData);
-                                }
-                            });
-                        }
-
-
-                        function UpdateOrder(order) {
-                            let updateOrderUrl = "/api/OrdersApi/" + order.id;
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: "PUT",
-                                url: updateOrderUrl,
-                                data: JSON.stringify(order),
-                                success: function () {
-
-                                },
-                                error: function (orderData) {
-                                    alert('Not Updated');
-                                    failure(orderData);
-                                }
-                            });
-                        }
-
-                    </script>
-
 
                     </div>
-                        
+
                 </div> <!-- card-body.// -->
             </article> <!-- card.// -->
 
@@ -180,70 +39,70 @@
             <p style="font-size: 24px"><b>Enter your Payment and Delivery Info</b> </p>
 
             <article class="card">
-                    <div class="card-body p-5">
+                <div class="card-body p-5">
 
-                        <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
-                                    <i class="fa fa-credit-card"></i> Payment
-                                </a>
-                            </li>
-                            @*<li class="nav-item">
+                    <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
+                                <i class="fa fa-credit-card"></i> Payment
+                            </a>
+                        </li>
+                        @*<li class="nav-item">
                                 <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
                                     <i class="fab fa-paypal"></i>  Paypal
                                 </a>
                             </li>*@
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
-                                    <i class="fa fa-university"></i>  Delivery Address
-                                </a>
-                            </li>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                <i class="fa fa-university"></i>  Delivery Address
+                            </a>
+                        </li>
+                    </ul>
 
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="nav-tab-card">
-                                <p class="alert alert-success">Note: Payment portal is Down. You can always pay in person</p>
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="username">Full name (on the card)</label>
-                                        <input type="text" class="form-control" name="username" placeholder="" required>
-                                    </div> <!-- form-group.// -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="nav-tab-card">
+                            <p class="alert alert-success">Note: Payment portal is Down. You can always pay in person</p>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="username">Full name (on the card)</label>
+                                    <input type="text" class="form-control" name="username" placeholder="" required>
+                                </div> <!-- form-group.// -->
 
-                                    <div class="form-group">
-                                        <label for="cardNumber">Card number</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="cardNumber" placeholder="">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text text-muted">
-                                                    <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>
-                                                    <i class="fab fa-cc-mastercard"></i>
-                                                </span>
+                                <div class="form-group">
+                                    <label for="cardNumber">Card number</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text text-muted">
+                                                <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>
+                                                <i class="fab fa-cc-mastercard"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div> <!-- form-group.// -->
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label><span class="hidden-xs">Expiration</span> </label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" placeholder="MM" name="">
+                                                <input type="number" class="form-control" placeholder="YY" name="">
                                             </div>
                                         </div>
-                                    </div> <!-- form-group.// -->
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+                                            <input type="number" class="form-control" required="">
+                                        </div> <!-- form-group.// -->
+                                    </div>
+                                </div> <!-- row.// -->
 
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <label><span class="hidden-xs">Expiration</span> </label>
-                                                <div class="input-group">
-                                                    <input type="number" class="form-control" placeholder="MM" name="">
-                                                    <input type="number" class="form-control" placeholder="YY" name="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
-                                                <input type="number" class="form-control" required="">
-                                            </div> <!-- form-group.// -->
-                                        </div>
-                                    </div> <!-- row.// -->
-
-                                    <input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm "  disabled onclick="location.href='@Url.Action("Index", "Home")'" />
-                                </form>
-                            </div> <!-- tab-pane.// -->
-                            @*<div class="tab-pane fade" id="nav-tab-paypal">
+                                <input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " disabled onclick="location.href='@Url.Action("Index", "Home")'" />
+                            </form>
+                        </div> <!-- tab-pane.// -->
+                        @*<div class="tab-pane fade" id="nav-tab-paypal">
                                 <p>Paypal is easiest way to pay online</p>
                                 <p>
                                     <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in my Paypal </button>
@@ -252,47 +111,188 @@
                                     <strong>Note:</strong> The payment is final and will not refund. Please review the payment policy of chajd pizza.
                                 </p>
                             </div>*@
-                        
+
                         <div class="tab-pane fade" id="nav-tab-bank">
 
-                                <form id="confirmOrder" action="" method="get">
-                                    <div class="form-group">
-                                        <label for="username">Full name</label>
-                                        <input type="text" class="form-control" id="custName" name="name" required>
-                                    </div> <!-- form-group.// -->
+                            <form id="confirmOrder" action="" method="get">
+                                <div class="form-group">
+                                    <label for="username">Full name</label>
+                                    <input type="text" class="form-control" id="custName" name="name" required>
+                                </div> <!-- form-group.// -->
 
-                                    <div class="form-group">
-                                        <label for="Full Address">Delivery Address OR Carry Out</label>
-                                        <input type="text" class="form-control" id="custAddress" name="address" placeholder="Delivery Address or Pickup" required>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="Full Address">Delivery Address OR Carry Out</label>
+                                    <input type="text" class="form-control" id="custAddress" name="address" placeholder="Delivery Address or Pickup" required>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="Phone">Phone Number </label>
-                                        <input type="number" class="form-control" id="custPhone" name="phone" placeholder="###-###-####" required>
-                                    </div>
-                                    <div id="confirmOrderBtn">
-                                        <button type='submit' class="subscribe btn btn-primary btn-block" onclick="">Confirm</button>
-                                    </div>
-                                    
-                                    @*<input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />*@
-                                </form>
-                                    </div> <!-- tab-content .// -->
-                                </div> <!-- card-body.// -->
-                            </div>
-                        </article> <!-- card.// -->
-                    </aside> <!-- col.// -->
-                </div> <!-- row.// -->
+                                <div class="form-group">
+                                    <label for="Phone">Phone Number </label>
+                                    <input type="number" class="form-control" id="custPhone" name="phone" placeholder="###-###-####" required>
+                                </div>
+                                <div id="confirmOrderBtn">
+                                    <button type='submit' class="subscribe btn btn-primary btn-block" onclick="">Confirm</button>
+                                </div>
 
-            </div>
-            <!--container end.//-->
+                                @*<input type="button" class="subscribe btn btn-primary btn-block" value=" Confirm " onclick="location.href='@Url.Action("Index", "Home")'" />*@
+                            </form>
+                        </div> <!-- tab-content .// -->
+                    </div> <!-- card-body.// -->
+                </div>
+            </article> <!-- card.// -->
+        </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+
+</div>
+<!--container end.//-->
 
 
 <script>
-
+    GetDetails();
+    TotalAmount();
     $( "#confirmOrder" ).submit(function( event ) {
         event.preventDefault();
         GetOrderToSave();
     });
+
+    function TotalAmount() {
+        let orderAUrl = "/api/OrdersApi/@ViewBag.OrderId";
+        $.ajax({
+            contentType: 'application/json',
+            type: "GET",
+            url: orderAUrl,
+            success: function (orderAmountData) {
+                var orderAmt = orderAmountData;
+                var amount = document.getElementById("TotAmount");
+                if (amount != null) {
+                    amount.innerHTML = '&emsp;$ ' + orderAmt.netPrice;
+                }
+            },
+            error: function (orderAmountData) {
+                alert('Total Amount Unavailable');
+                failure(orderAmountData);
+            }
+        });
+    }
+
+    function GetDetails() {
+	    let url = "/api/OrderDetailsApi/DetailsOfOrder/@ViewBag.OrderId" ;
+	    $.ajax({
+		    contentType: 'application/json',
+		    type: "GET",
+		    url: url,
+		    @*   data: JSON.stringify({
+			    orderId: 1 @model.Id
+		    }),*@
+
+            success: function (data) {
+                if (data.length > 0) {
+                    var details = data;
+                    var number = 1;
+
+
+                    $.each(details, function () {
+                        var list = document.createElement("LI");
+                        list.setAttribute("id", "odlist" + number);
+
+                        list.innerHTML = "<strong id = 'size"+number+"'> Cheese Pizza</strong><br /> &emsp;Requested Toppings: " + this.toppingsSelected +
+                            "<br /> &emsp;Special Request: <em>" + this.specialRequest + "</em><br /> &emsp;&emsp;&emsp;Price: <em><strong>$"+ this.price +
+                            "</strong></em>&emsp;&emsp; <input type=\"button\" value=\"Delete\" class=\"delete\" name = \"Delete this Item\" id=\"btn" + number + "\" onClick = \"DeleteItem(" + this.id +")\"/>"
+                            + "<br/>_____________________________________";
+
+                        GetSizeName(this.sizeId, number);
+                        document.getElementById("CurrentOrderDetails").appendChild(list);
+                        number++;
+
+                    });
+                    //TotalAmount();
+                }
+                else {
+                        var list = document.createElement("LI");
+                        list.innerHTML = "Cart is Empty<br />";
+                        document.getElementById("CurrentOrderDetails").appendChild(list);
+                        document.getElementById("confirmOrderBtn").innerHTML = '';
+                }
+            },
+            error: function (data) {
+                failure(data);
+            }
+	    });
+    }
+
+    function GetSizeName(sizeId,number) {
+        let sizeUrl = "/api/PizzaTypesApi/sizes/name/"+sizeId;
+        $.ajax({
+            contentType: 'application/json',
+		    type: "GET",
+            url: sizeUrl,
+            success: function (sizeData) {
+
+                $('#size' + number).replaceWith('<strong id="size' + number + '" class = "col-sm-10"> ' + sizeData + ' Cheese Pizza</strong>');
+
+            },
+            error: function (sizeData) {
+                failure(sizeData);
+            }
+        });
+    }
+
+    function DeleteItem(oDetailId) {
+        let delItemUrl = "/api/OrderDetailsApi/" + oDetailId;
+        $.ajax({
+            contentType: 'application/json',
+            type: "DELETE",
+            url: delItemUrl,
+            success: function (delData) {
+                var prevList = document.getElementById("CurrentOrderDetails");
+                prevList.innerHTML = "";
+
+                DeductPriceFrom(delData.ordersId, delData.price);
+                GetDetails();
+                
+            },
+            error: function (delData) {
+                failure(delData);
+            }
+        });
+    }
+
+    function DeductPriceFrom(orderId, priceDeduct) {
+        let orderUrl = "/api/OrdersApi/" + orderId;
+        $.ajax({
+            contentType: 'application/json',
+            type: "GET",
+            url: orderUrl,
+            success: function (orderData) {
+                var order = orderData;
+                order.netPrice -= priceDeduct;
+                UpdateOrder(order);
+
+            },
+            error: function (orderData) {
+                alert('Order Not Updated');
+                failure(orderData);
+            }
+        });
+    }
+
+
+    function UpdateOrder(order) {
+        let updateOrderUrl = "/api/OrdersApi/" + order.id;
+        $.ajax({
+            contentType: 'application/json',
+            type: "PUT",
+            url: updateOrderUrl,
+            data: JSON.stringify(order),
+            success: function () {
+                TotalAmount();
+            },
+            error: function (orderData) {
+                alert('Not Updated');
+                failure(orderData);
+            }
+        });
+    }
+
 
     function GetOrderToSave() {
         let orderUrl = "/api/OrdersApi/@ViewBag.OrderId";
@@ -312,7 +312,7 @@
                 order.timePlaced = curDate + "T" + curTime;
 
                 order.deliveryAddress = cAddress;
-    
+
                 UpdateOrder(order);
 
                 ConfirmationView(order);

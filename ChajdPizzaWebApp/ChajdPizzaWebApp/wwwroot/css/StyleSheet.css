@@ -1,14 +1,21 @@
-﻿.carousel {
-    background: #2f4357;
-    margin-top: 10px;
-    width:100%;
+﻿a#thisbutton:hover {
+    background-color:palegoldenrod;
+}
+.carousel {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+    .carousel .carousel-inner {
+        height: 100%;
+    }
+.carousel-inner {
+    height: 100%;
 }
 
-.carousel-item {
-    margin-top: 20px;
-    text-align: center;
-    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
-    max-height: 350px;
+.full-screen-carousel {
+    height: 100vh;
+   
 }
 
 .bs-example {
@@ -35,20 +42,6 @@
 /*
     for figure
 */
-figure {
-    display: inline-block;
-    border: 1px dotted gray;
-    margin: 20px;
-}
-
-    figure img {
-        vertical-align: top;
-    }
-
-    figure figcaption {
-        border: 1px dotted blue;
-        text-align: center;
-    }
 
 .delete {
     color: White;
