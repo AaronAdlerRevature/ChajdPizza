@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace UnitTests.Data_Objects
 {
-    class StateRepo : IStateRepo
+    public class StateRepo : IStateRepo
     {
         List<State> allStates = null;
 
-
-        StateRepo()
+        public StateRepo()
         {
             allStates = new List<State>();
 
