@@ -42,24 +42,33 @@ namespace UnitTests.Data_Objects
             }); 
         }
 
-        public Task<State> GetState(int id)
+        public async Task<State> GetState(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> GetStateAbbrevation(int id)
+        public async Task<string> GetStateAbbrevation(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> GetStateName(int id)
+        public async Task<string> GetStateName(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<State>> GetStates()
+        public async Task<IEnumerable<State>> GetStates()
         {
-            throw new NotImplementedException();
+            IEnumerable<State> result = null;
+
+            var query = allStates.Where(s => s.ID == s.ID);
+            await Task.Delay(10);
+            if (query.Count()>0)
+            {
+                result = query;
+            }
+
+            return result;
         }
     }
 }
