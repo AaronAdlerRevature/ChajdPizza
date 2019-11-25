@@ -295,5 +295,32 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetStateAbbreviation_InvalidID()
+        {
+            #region ASSIGN
+
+            StateRepo testRepo = new StateRepo();
+            StateApiController testController = new StateApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetStateAbbrevation(4);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            string testData = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(testData, "AK");
+
+            #endregion
+        }
     }
 }
