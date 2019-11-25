@@ -52,5 +52,31 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetStates_EmptyDataSet()
+        {
+            #region ASSIGN
+
+            StateRepo testRepo = new StateRepo(false);
+            StateApiController testController = new StateApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetStates();
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
+
+            #endregion
+        }
     }
 }
