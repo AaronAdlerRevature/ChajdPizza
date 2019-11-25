@@ -133,5 +133,34 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetState_InvalidID()
+        {
+            #region ASSIGN
+
+            StateRepo testRepo = new StateRepo();
+            StateApiController testController = new StateApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetState(4);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Value;
+
+            State testData = result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.AreNotEqual(testData.ID, 1);
+            Assert.AreNotEqual(testData.Name, "Alaska");
+            Assert.AreNotEqual(testData.Abbreviation, "AK");
+
+            #endregion
+        }
     }
 }
