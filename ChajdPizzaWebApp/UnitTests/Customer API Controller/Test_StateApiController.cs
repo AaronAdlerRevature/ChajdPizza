@@ -189,5 +189,31 @@ namespace UnitTests
 
             #endregion
         }
+
+        [TestMethod]
+        public void GetStateName_NonExistingID()
+        {
+            #region ASSIGN
+
+            StateRepo testRepo = new StateRepo();
+            StateApiController testController = new StateApiController(testRepo);
+
+            #endregion
+
+            #region ACT
+
+            var taskReturn = testController.GetStateName(0);
+            taskReturn.Wait();
+            var result = taskReturn.Result.Result;
+
+            #endregion
+
+            #region ASSERT
+
+            Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
+
+            #endregion
+        }
     }
 }
