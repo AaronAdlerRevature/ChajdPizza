@@ -73,7 +73,17 @@ namespace UnitTests.Data_Objects
 
         public async Task<string> GetStateName(int id)
         {
-            throw new NotImplementedException();
+            string result = null;
+
+            var query = allStates.Where(s => s.ID == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                var item = query.FirstOrDefault();
+                result = item.Name;
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<State>> GetStates()
