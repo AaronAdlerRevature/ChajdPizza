@@ -11,34 +11,37 @@ namespace UnitTests.Data_Objects
     {
         List<State> allStates = null;
 
-        public StateRepo()
+        public StateRepo(bool isFilled = true)
         {
             allStates = new List<State>();
+            if (isFilled)
+            {
 
-            allStates.Add(new State()
-            {
-                ID = 1,
-                Name = "Alaska",
-                Abbreviation="AK",
-            }); 
-            allStates.Add(new State()
-            {
-                ID = 2,
-                Name = "Virgina",
-                Abbreviation="VA",
-            }); 
-            allStates.Add(new State()
-            {
-                ID = 3,
-                Name = "Florida",
-                Abbreviation="FL",
-            }); 
-            allStates.Add(new State()
-            {
-                ID = 4,
-                Name = "Texas",
-                Abbreviation="TX",
-            }); 
+                allStates.Add(new State()
+                {
+                    ID = 1,
+                    Name = "Alaska",
+                    Abbreviation = "AK",
+                });
+                allStates.Add(new State()
+                {
+                    ID = 2,
+                    Name = "Virgina",
+                    Abbreviation = "VA",
+                });
+                allStates.Add(new State()
+                {
+                    ID = 3,
+                    Name = "Florida",
+                    Abbreviation = "FL",
+                });
+                allStates.Add(new State()
+                {
+                    ID = 4,
+                    Name = "Texas",
+                    Abbreviation = "TX",
+                });
+            }
         }
 
         public async Task<State> GetState(int id)
@@ -91,7 +94,7 @@ namespace UnitTests.Data_Objects
 
             var query = allStates.Where(s => s.ID == s.ID);
             await Task.Delay(10);
-            if (query.Count()>0)
+            if (query.Count() > 0)
             {
                 result = query;
             }
