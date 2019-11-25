@@ -1,9 +1,8 @@
 ﻿@model ChajdPizzaWebApp.Models.OrderDetail
 
 @{
-    ViewData["Title"] = "SpecialtyPizzaOrder";
+    ViewData["Title"] = "Specialty Pizza Order";
 }
-
 <script>
         $(document).ready(function () {
             $('#sizes').change(function () {
@@ -12,10 +11,9 @@
                 var price = value + modelprice;
                 var sizeId = Number($('#sizes option:selected').attr('value'));
                 $('#price').replaceWith('<dd id="price" class = "col-sm-10"> $' + price + '</dd>');
-                //$('#submitButton').replaceWith('<div class="form-group" id="submitButton"><input type="submit" value="Add to Cart" class="btn btn-primary" /></div>');
+                
                 $('#modelPrice').replaceWith('<input name="Price" class="form-control" id="modelPrice" type="text" value="' + price + '" data-val-required="The Price field is required." data-val="true" data-val-range-min="0" data-val-range-max="1000000" data-val-range="The field Price must be between 0 and 1000000." data-val-number="The field Price must be a number.">');
                 $('#modelsizeId').replaceWith('<input name="SizeId" class="form-control" id="modelsizeId" type="number" value="' + sizeId + '" data-val-required="The SizeId field is required." data-val="true">');
-
             });
             $.ajax({
                 contentType: 'application/json',
@@ -44,10 +42,10 @@
             $.ajax({
                 contentType: 'application/json',
                 type: "GET",
-                url: "/api/PizzaTypesApi/Special/1",
+                url: "/api/PizzaTypesApi/Special/" + @(ViewContext.RouteData.Values["id"]),
 
                 success: function (data) {
-                        $('#Title').replaceWith('<h1 id="Title" >SpecialtyPizzaOrder : ' + data.name + '</h1><h3>Base Price: $' + data.price + '</h3>');
+                        $('#Title').replaceWith('<h1 id="Title" >Specialty Pizza Order : ' + data.name + '</h1><h3>Base Price: $' + data.price + '</h3>');
                 },
                 error: function (data) {
                     alert('failure');
@@ -57,13 +55,9 @@
         });
 
 </script>
-
-
-<h1 id="Title" >SpecialtyPizzaOrder</h1>
-
-
+<h1 id="Title" >Specialty Pizza Order</h1>
 <div>
-        <h4>OrderDetail</h4>
+        <h4>Order Detail</h4>
         <hr />
         <dl class="row">
             <dt class = "col-sm-2">
@@ -134,7 +128,7 @@
                 <span asp-validation-for="SpecialRequest" class="text-danger"></span>
             </div>
             <div class="form-group" id="submitButton">
-            <input type="submit" value="Add to Cart" class="btn btn-primary" />
+                <input type="submit" value="Add to Cart" class="btn btn-primary" />
             </div>
         </form>
 
