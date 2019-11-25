@@ -127,7 +127,8 @@
 
                                 <div class="form-group">
                                     <label for="Phone">Phone Number </label>
-                                    <input type="number" class="form-control" id="custPhone" name="phone" placeholder="###-###-####" required>
+                                    <input class="form-control" id="custPhone" name="phone" pattern="[0-9]{10}" placeholder="##########" required>
+
                                 </div>
                                 <div id="confirmOrderBtn">
                                     <button type='submit' class="subscribe btn btn-primary btn-block" onclick="">Confirm</button>
@@ -168,7 +169,7 @@
                 }
             },
             error: function (orderAmountData) {
-                alert('Total Amount Unavailable');
+                //alert('Total Amount Unavailable');
                 failure(orderAmountData);
             }
         });
@@ -311,7 +312,7 @@
                 order.isCompleted = true;
                 order.timePlaced = curDate + "T" + curTime;
 
-                order.deliveryAddress = cAddress;
+                order.deliveryAddress = cAddress.toString();
 
                 UpdateOrder(order);
 
@@ -336,7 +337,7 @@
         confirmView.setAttribute("id", "view");
 
         confirmView.innerHTML = "<h1>Order Confirmed!</h1> <p style='margin-top:50px;'>&emsp;<strong>Delivery Address: </strong>" + order.deliveryAddress +
-            "</p> <p> &emsp;<strong>Amount Due: </strong><em>$" + order.netPrice + "</em></p><p> &emsp;<strong>Order Time: </strong><em>$"+ order.timePlaced +"</p><p> &emsp;<strong>Order ID: </strong>"
+            "</p> <p> &emsp;<strong>Amount Due: </strong><em>$" + order.netPrice + "</em></p><p> &emsp;<strong>Order Time: </strong><em>"+ order.timePlaced +"</em></p><p> &emsp;<strong>Order ID: </strong>"
             + order.id + "</p><p>&emsp;<strong>Name on the Order: </strong>"+ custName +"<br/>_____________________________________</p>";
 
         document.getElementById("CartView").appendChild(confirmView);
