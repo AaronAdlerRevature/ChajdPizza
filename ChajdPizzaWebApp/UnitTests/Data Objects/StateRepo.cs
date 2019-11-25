@@ -58,7 +58,17 @@ namespace UnitTests.Data_Objects
 
         public async Task<string> GetStateAbbrevation(int id)
         {
-            throw new NotImplementedException();
+            string result = null;
+
+            var query = allStates.Where(s => s.ID == id);
+            await Task.Delay(10);
+            if (query.Count() > 0)
+            {
+                var item = query.FirstOrDefault();
+                result = item.Abbreviation;
+            }
+
+            return result;
         }
 
         public async Task<string> GetStateName(int id)
