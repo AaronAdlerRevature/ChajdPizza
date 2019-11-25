@@ -17,7 +17,7 @@
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <button type="button"  style="font-size:30px; color:burlywood; text-align:center"> Use your Account to Login </button>
+                @*<button type="button"  style="font-size:30px; color:burlywood; text-align:center"> Use your Account to Login </button>*@
                
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
@@ -62,12 +62,13 @@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                    <div style=" text-align:center">
-                        <button type="button" onClick="someFunc(); return true;" style="font-size:36px; color:royalblue"> Process as Guest</button>
-                        @*<a href="#" onClick="someFunc(); return true;">Process as Guest</a>*@
-                        <img src="~/image/logo.png" alt="Second Slide" style=" width:400px; height:200px" />
+                        <div style=" text-align:center">
+                            <button type="button" onClick="someFunc(); return true;" style="font-size:36px; color:royalblue"> Process as Guest</button>
+                            
+                            @*<a href="#" onClick="someFunc(); return true;">Process as Guest</a>*@
+                            <img src="~/image/logo.png" alt="Second Slide" style=" width:400px; height:200px" />
 
-                    </div>
+                        </div>
 
 
 
