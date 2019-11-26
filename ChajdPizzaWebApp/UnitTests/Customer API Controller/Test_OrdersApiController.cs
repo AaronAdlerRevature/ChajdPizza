@@ -129,7 +129,7 @@ namespace UnitTests
 
             #region ACT
 
-            var taskReturn = testController.GetOrders(2);
+            var taskReturn = testController.GetOrders(3);
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
@@ -138,7 +138,9 @@ namespace UnitTests
             #region ASSERT
 
             Assert.AreNotEqual(result.Id, 1);
+            Assert.AreNotEqual(result.CustomerId, 1);
             Assert.AreNotEqual(result.NetPrice, 29.99M);
+            Assert.IsTrue(result.isCompleted);
 
             #endregion
         }
@@ -334,10 +336,8 @@ namespace UnitTests
             {
                 Id = 1,
                 CustomerId = 1,
-                DeliveryAddress = "456 Q Avenue",
                 isCompleted = false,
                 NetPrice = 69.99M,
-                TimePlaced = DateTime.Now,
             };
 
             #endregion
@@ -359,7 +359,7 @@ namespace UnitTests
             Assert.AreEqual((result as NoContentResult).StatusCode, 204);
 
             Assert.AreEqual(testData.Id, 1);
-            Assert.AreEqual(testData.DeliveryAddress, "456 Q Avenue");
+            Assert.AreEqual(testData.CustomerId, 1);
             Assert.AreEqual(testData.NetPrice, 69.99M);
             Assert.IsFalse(testData.isCompleted);
 
@@ -377,10 +377,8 @@ namespace UnitTests
             {
                 Id = 1,
                 CustomerId = 1,
-                DeliveryAddress = "456 Q Avenue",
                 isCompleted = false,
                 NetPrice = 69.99M,
-                TimePlaced = DateTime.Now,
             };
 
             #endregion
@@ -402,7 +400,7 @@ namespace UnitTests
             Assert.AreEqual((result as BadRequestResult).StatusCode, 400);
 
             Assert.AreEqual(testData.Id, 1);
-            Assert.AreEqual(testData.DeliveryAddress, "123 A Street");
+            Assert.AreEqual(testData.CustomerId, 1);
             Assert.AreEqual(testData.NetPrice, 29.99M);
             Assert.IsTrue(testData.isCompleted);
 
@@ -434,8 +432,7 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Result;
 
-            testData = null;
-            testData = testRepo.SelectById(6).Result;
+            Orders checkData = testRepo.SelectById(6).Result;
 
             #endregion
 
@@ -445,15 +442,17 @@ namespace UnitTests
             Assert.AreEqual((result as CreatedAtActionResult).StatusCode, 201);
             Assert.AreEqual((result as CreatedAtActionResult).RouteValues["id"], 6);
 
-            Assert.AreEqual(((result as CreatedAtActionResult).Value as Orders).Id, 6);
-            Assert.AreEqual(((result as CreatedAtActionResult).Value as Orders).CustomerId, 5);
-            Assert.AreEqual(((result as CreatedAtActionResult).Value as Orders).NetPrice, 99.99M);
-            Assert.IsTrue(((result as CreatedAtActionResult).Value as Orders).isCompleted);
+            var testReturn = ((result as CreatedAtActionResult).Value as Orders);
 
-            Assert.AreEqual(testData.Id, 6);
-            Assert.AreEqual(testData.DeliveryAddress, "221 Baker Street");
-            Assert.AreEqual(testData.NetPrice, 99.99M);
-            Assert.IsTrue(testData.isCompleted);
+            Assert.AreEqual(testReturn.Id, 6);
+            Assert.AreEqual(testReturn.CustomerId, 5);
+            Assert.AreEqual(testReturn.NetPrice, 99.99M);
+            Assert.IsTrue(testReturn.isCompleted);
+
+            Assert.AreEqual(checkData.Id, 6);
+            Assert.AreEqual(checkData.CustomerId, 5);
+            Assert.AreEqual(checkData.NetPrice, 99.99M);
+            Assert.IsTrue(checkData.isCompleted);
 
             #endregion
         }
