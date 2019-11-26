@@ -382,6 +382,15 @@ namespace UnitTests
             Assert.AreEqual((resultStatus as CreatedAtActionResult).StatusCode, 201);
             Assert.AreEqual((resultStatus as CreatedAtActionResult).RouteValues["id"], 3);
 
+            var testReturn = ((resultStatus as CreatedAtActionResult).Value as Customer);
+            Assert.AreEqual(testReturn.Id, 3);
+            Assert.AreEqual(testReturn.Name, "Jane Doe");
+            Assert.AreEqual(testReturn.UserName, "SomeEmail@Email.com");
+            Assert.AreEqual(testReturn.Street, "999 Q Street");
+            Assert.AreEqual(testReturn.City, "NoWhere");
+            Assert.AreEqual(testReturn.StateID, 3);
+            Assert.AreEqual(testReturn.ZipCode, 30000);
+
             Assert.AreEqual(checkData.Id, 3);
             Assert.AreEqual(checkData.Name, "Jane Doe");
             Assert.AreEqual(checkData.UserName, "SomeEmail@Email.com");
