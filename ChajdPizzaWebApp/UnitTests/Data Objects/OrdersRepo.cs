@@ -22,46 +22,37 @@ namespace UnitTests.Data_Objects
                 DeliveryAddress = "123 A Street",
                 isCompleted = true,
                 NetPrice = 29.99M,
-                TimePlaced = DateTime.Now,
             });
 
             ordersList.Add(new Orders()
             {
                 Id = 2,
                 CustomerId = 1,
-                DeliveryAddress = "123 A Street",
                 isCompleted = false,
                 NetPrice = 49.99M,
-                TimePlaced = DateTime.Now.AddDays(-10),
             });
 
             ordersList.Add(new Orders()
             {
                 Id = 3,
                 CustomerId = 2,
-                DeliveryAddress = "456 Q Avenue",
                 isCompleted = true,
                 NetPrice = 9.99M,
-                TimePlaced = DateTime.Now,
             });
 
             ordersList.Add(new Orders()
             {
                 Id = 4,
                 CustomerId = 3,
-                DeliveryAddress = "Sesame Street",
                 isCompleted = false,
                 NetPrice = 19.99M,
-                TimePlaced = DateTime.Now,
             });
             ordersList.Add(new Orders()
             {
                 Id = 5,
                 CustomerId = 3,
-                DeliveryAddress = "Sesame Street",
                 isCompleted = false,
                 NetPrice = 39.99M,
-                TimePlaced = DateTime.Now.AddDays(-7),
             });
         }
 
