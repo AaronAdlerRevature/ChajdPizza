@@ -157,7 +157,8 @@
 
     function TotalAmount() {
         let orderAUrl = "/api/OrdersApi/@ViewBag.OrderId";
-        $.ajax({
+        if (@ViewBag.OrderId != 0) {
+            $.ajax({
             contentType: 'application/json',
             type: "GET",
             url: orderAUrl,
@@ -173,6 +174,8 @@
                 failure(orderAmountData);
             }
         });
+        }
+        
     }
 
     function GetDetails() {
@@ -305,12 +308,16 @@
                 var order = orderData;
 
                 var dateTime = new Date();
-                var curDate = dateTime.getFullYear()+'-'+(dateTime.getMonth()+1)+'-'+dateTime.getDate();
+                var curDate = dateTime.getFullYear()+"-"+(dateTime.getMonth()+1)+"-"+dateTime.getDate();
                 var curTime = dateTime.getHours() + ":" + dateTime.getMinutes() + ":" + dateTime.getSeconds();
+
+                
 
                 var cAddress = document.getElementById('custAddress').value;
                 order.isCompleted = true;
-                order.timePlaced = curDate + "T" + curTime;
+                var timeP = curDate + "T" + curTime;
+                //DateTime.ParseExact(timeP, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                order.timePlaced = timeP;
 
                 order.deliveryAddress = cAddress.toString();
 
