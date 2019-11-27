@@ -1,0 +1,84 @@
+
+uChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.LoadAsync(Microsoft.AspNetCore.Identity.IdentityUser)‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs4 4($"0*ò
+0Ø
+Õ
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs6 6(*6
+%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*ˆ*…A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ˆ…
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs6 6(>*
+%1$System.Threading.Tasks.Task<TResult>"EMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetEmailAsync(TUser)*8
+6
+%00Microsoft.AspNetCore.Identity.UserManager<TUser>*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2GetEmailAsync(TUser)®
+«
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs6 6(>
+emailstring"__id*
+""¾
+»
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs7 7(
+
+%2void"IChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.Email.set*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel*
+
+emailstring­ª
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs9 <(P
+%3JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModel"JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModelÈ
+Å
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs9 9("
+
+%4void"WChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModel.InputModel()*R
+P
+%3JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModelÛ
+Ø
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs; ;( 
+
+%5void"WChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModel.NewEmail.set*R
+P
+%3JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModel*
+
+emailstringÿ
+ü
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs9 <(
+
+%6void"IChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.Input.set*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel*R
+P
+%3JChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.InputModelØ
+Õ
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs>% >(16
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*ˆ*…A
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>˜•
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs>% >(M*
+%8$System.Threading.Tasks.Task<TResult>"MMicrosoft.AspNetCore.Identity.UserManager<TUser>.IsEmailConfirmedAsync(TUser)*8
+6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2IsEmailConfirmedAsync(TUser)¾
+»
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs> >(M
+
+%9void"TChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel.IsEmailConfirmed.set*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel*
+""*
+1*§
+1"¡
+‰
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Email.cshtml.cs? ?(	
+implicit return:2
+user*Microsoft.AspNetCore.Identity.IdentityUserBCA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.EmailModel

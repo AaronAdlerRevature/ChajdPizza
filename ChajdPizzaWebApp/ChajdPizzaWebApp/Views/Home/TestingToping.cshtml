@@ -2,27 +2,19 @@
 @{
     ViewData["Title"] = "Create Own";
 }
-    <head>
 
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/MenuRadioButton.css">*@
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="~/js/stringPost.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
-        @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@
-        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-        <link rel="stylesheet" href="~/css/MenuRadioButton.css">
-        <script src="~/js/stringPost.js"></script>
-    </head>
-
-
-
-
-
-<body>
-  
-
+<div class="toppingsTesting">
     <form method="GET">
         @await Html.PartialAsync("../Shared/SizeView.cshtml", Model.Sizes)
         <p style="font-size:36px; color:brown; text-align:center"><b><u> Please Select the toppings($1.50 per)</u></b></p>
@@ -38,12 +30,10 @@
         </div>
         <div style=" text-align:right">
             <br />
-            <button class=" btn-outline-warning" type="submit" onclick=  'myFunction()'>Continue</button>
+            <button class=" btn-outline-warning" type="submit" onclick='myFunction()'>Continue</button>
         </div>
 
     </form>
-</body>
-
-
+</div>
 
 

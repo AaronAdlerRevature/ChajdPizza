@@ -1,0 +1,26 @@
+
+ÿChajdPizzaWebApp.Areas.Identity.Pages.Account.LogoutModel.LogoutModel(Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.LogoutModel>)ƒ
+yC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Logout.cshtml.cs ("0*¹
+0Ü
+Ù
+ƒ
+yC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Logout.cshtml.cs (*ƒ;
+9ChajdPizzaWebApp.Areas.Identity.Pages.Account.LogoutModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
+C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>Ï
+Ì
+ƒ
+yC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Logout.cshtml.cs (};
+9ChajdPizzaWebApp.Areas.Identity.Pages.Account.LogoutModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*?
+=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
+1*¡
+1"›
+ƒ
+yC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Logout.cshtml.cs (	
+implicit return:C
+signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>B=;
+9ChajdPizzaWebApp.Areas.Identity.Pages.Account.LogoutModel

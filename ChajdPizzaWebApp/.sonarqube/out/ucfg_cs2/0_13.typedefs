@@ -1,0 +1,20 @@
+—
+:AspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange(Microsoft.AspNetCore.Mvc.RazorPages.Page,Microsoft.AspNetCore.Mvc.RazorPages.PageBase,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobject[
+ExecuteAsync()IAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.ExecuteAsync()¡
+1Areas_Identity_Pages_Account_ConfirmEmailChange()lAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Areas_Identity_Pages_Account_ConfirmEmailChange()u
+__tagHelperScopeManager.getVAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.__tagHelperScopeManager.getu
+__tagHelperScopeManager.setVAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.__tagHelperScopeManager.setu
+ModelExpressionProvider.getVAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.ModelExpressionProvider.getu
+ModelExpressionProvider.setVAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.ModelExpressionProvider.setM
+Url.getBAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Url.getM
+Url.setBAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Url.setY
+Component.getHAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Component.getY
+Component.setHAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Component.setO
+Json.getCAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Json.getO
+Json.setCAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Json.setO
+Html.getCAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Html.getO
+Html.setCAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Html.setW
+ViewData.getGAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.ViewData.getW
+ViewData.setGAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.ViewData.setQ
+	Model.getDAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Model.getQ
+	Model.setDAspNetCore.Areas_Identity_Pages_Account_ConfirmEmailChange.Model.set

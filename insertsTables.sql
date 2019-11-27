@@ -9,9 +9,9 @@ insert into SpecialtyPizzas (Name, Price, Description) values ('BBQ Chicken', 4.
 insert into SpecialtyPizzas (Name, Price, Description) values ('Chicken Alfredo', 5.99,'Alfredo Sauce, Chicken, Broccoli and Mushrooms');
 insert into SpecialtyPizzas (Name, Price, Description) values ('Buffalo Chicken', 5.99,'Buffalo Sauce, Chicken, Jalapeno Peppers and Banana Peppers');
 
-
-insert into Size (BaseSize, S_Price) values ('Medium', 9.49)
-insert into Size (BaseSize, S_Price) values ('X-Large', 10.99)
+insert into Size (BaseSize, S_Price) values ('Small', 7.99)
+insert into Size (BaseSize, S_Price) values ('Medium', 9.99)
+insert into Size (BaseSize, S_Price) values ('X-Large', 11.99)
 
 insert into Toppings (Name) values ('Extra Cheese');
 insert into Toppings (Name) values ('Pepperoni');
@@ -32,5 +32,8 @@ insert into Toppings (Name) values ('Feta Cheese');
 insert into Toppings (Name) values ('Spinach');
 
 
-insert into OrderDetails (SizeId, ToppingsSelected, ToppingsCount, Price, SpecialRequest, OrdersId) 
-values (2, 'Canadian Bacon;Pepperoni',2, 12.49,'None',1);
+insert into orders (CustomerId, NetPrice, isCompleted, TimePlaced, DeliveryAddress)
+values (1, 12.49, 1, CURRENT_TIMESTAMP, '425 Reston Ave, Reston, VA')
+
+insert into OrderDetails (OrdersId, SizeId, ToppingsSelected, ToppingsCount, Price, SpecialRequest) 
+values (1, 2, 'Canadian Bacon;Pepperoni',2, 12.49,'None');

@@ -1,0 +1,331 @@
+
+YChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.OnPostAsync(bool, string)â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs=) =(4"0*˙
+0¬
+ø
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs? ?(@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"<Microsoft.AspNetCore.Mvc.RazorPages.PageModel.ModelState.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModelß
+§
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs? ?(#
+
+%1bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*B
+@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+1
+2*É
+1∂≥
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csA A(4
+%2.Microsoft.AspNetCore.Mvc.RazorPages.PageResult"4Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Page()*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel2Page()"ƒ
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csA A(6
+4
+%2.Microsoft.AspNetCore.Mvc.RazorPages.PageResult*˛
+2∫
+∑
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD D(!
+%4string"__id*
+
+	returnUrlstring≥
+∞
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD D(!
+%3string"__id*
+
+%4string*
+3
+4*∂
+3§
+°
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD% D(()
+%6#Microsoft.AspNetCore.Mvc.IUrlHelper"5Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Url.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModelòï
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD% D(6
+%7string"3Microsoft.AspNetCore.Mvc.IUrlHelper.Content(string)*+
+)
+%6#Microsoft.AspNetCore.Mvc.IUrlHelper*
+~/2Content(string)≥
+∞
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD% D(6
+%5string"__id*
+
+%7string≥
+∞
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD% D(6
+%3string"__id*
+
+%5string*
+4*Ö
+4∫
+∑
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csD D(6
+	returnUrlstring"__id*
+
+%3stringﬁ
+€
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csF F(+8
+%82Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*å*âA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>¯ı
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csF F(Q*
+%9$System.Threading.Tasks.Task<TResult>"XMicrosoft.AspNetCore.Identity.SignInManager<TUser>.GetTwoFactorAuthenticationUserAsync()*:
+8
+%82Microsoft.AspNetCore.Identity.SignInManager<TUser>2%GetTwoFactorAuthenticationUserAsync()—
+Œ
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csF F(Q2
+user*Microsoft.AspNetCore.Identity.IdentityUser"__id*
+""ä
+á
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csG G(
+%10bool""object.operator ==(object, object)*
+"
+object*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser*
+""*
+5
+6*¸
+5⁄◊
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csI I(f'
+%11 System.InvalidOperationException" System.InvalidOperationExceptionî
+ë
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csI I(3
+%12void"CSystem.InvalidOperationException.InvalidOperationException(string?)*)
+'
+%11 System.InvalidOperationException*
+""*
+7*‰
+6Ú
+Ô
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csL$ L()Q
+%13JChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel"IChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.Input.get*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel—
+Œ
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csL$ L(7
+%14string"\ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel.TwoFactorCode.get*S
+Q
+%13JChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel√
+¿
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csLE L(Q
+%15string"__id**
+string"
+EmptystringË
+Â
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csL$ L(R
+%16string"string.Replace(string, string?)*
+
+%14string*
+ *
+
+%15string√
+¿
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csL` L(l
+%17string"__id**
+string"
+EmptystringË
+Â
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csL$ L(m
+%18string"string.Replace(string, string?)*
+
+%16string*
+-*
+
+%17string√
+¿
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csL L(m
+authenticatorCodestring"__id*
+
+%18stringﬂ
+‹
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csN N(-9
+%192Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*å*âA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>Ú
+Ô
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csNo N(tQ
+%20JChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel"IChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.Input.get*CA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel“
+œ
+ä
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csNo N(Ñ
+%21bool"^ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel.RememberMachine.get*S
+Q
+%20JChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel.InputModel—Œ
+ä
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csN N(Ö+
+%22$System.Threading.Tasks.Task<TResult>"hMicrosoft.AspNetCore.Identity.SignInManager<TUser>.TwoFactorAuthenticatorSignInAsync(string, bool, bool)*;
+9
+%192Microsoft.AspNetCore.Identity.SignInManager<TUser>*
+
+authenticatorCodestring*
+""*
+
+%21bool25TwoFactorAuthenticatorSignInAsync(string, bool, bool)‘
+—
+ä
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csN N(Ö4
+result*Microsoft.AspNetCore.Identity.SignInResult"__id*
+""é
+ã
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csP P( 
+%23bool"8Microsoft.AspNetCore.Identity.SignInResult.Succeeded.get*6
+4
+result*Microsoft.AspNetCore.Identity.SignInResult*
+8
+9*˙
+8⁄
+◊
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csR R(:
+%243Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*Ü*ÉA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>ïí
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csRV R(]
+%25string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2Id.getÃ
+…
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csR R(^
+%26void"{Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(Microsoft.Extensions.Logging.ILogger, string, params object[])*1"/
+-Microsoft.Extensions.Logging.LoggerExtensions*<
+:
+%243Microsoft.Extensions.Logging.ILogger<TCategoryName>*/-
++User with ID '{UserId}' logged in with 2fa.*
+
+%25stringÍÁ
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csS S(/3
+%27,Microsoft.AspNetCore.Mvc.LocalRedirectResult"CMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.LocalRedirect(string)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*
+
+	returnUrlstring2LocalRedirect(string)"√
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csS S(05
+3
+%27,Microsoft.AspNetCore.Mvc.LocalRedirectResult*†
+9ê
+ç
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csU U('
+%28bool":Microsoft.AspNetCore.Identity.SignInResult.IsLockedOut.get*6
+4
+result*Microsoft.AspNetCore.Identity.SignInResult*
+10
+11*Û
+10⁄
+◊
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csW W(:
+%293Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*Ü*ÉA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>ïí
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csWR W(Y
+%30string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2Id.get»
+≈
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csW W(Z
+%31void"wMicrosoft.Extensions.Logging.LoggerExtensions.LogWarning(Microsoft.Extensions.Logging.ILogger, string, params object[])*1"/
+-Microsoft.Extensions.Logging.LoggerExtensions*<
+:
+%293Microsoft.Extensions.Logging.ILogger<TCategoryName>*/-
++User with ID '{UserId}' account locked out.*
+
+%30stringÂ‚
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csX X(24
+%32-Microsoft.AspNetCore.Mvc.RedirectToPageResult"DMicrosoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage(string)*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel*
+	./Lockout2RedirectToPage(string)"ƒ
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.csX X(36
+4
+%32-Microsoft.AspNetCore.Mvc.RedirectToPageResult*÷
+11⁄
+◊
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs\ \(:
+%333Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*Ü*ÉA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>ïí
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs\f \(m
+%34string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*4
+2
+user*Microsoft.AspNetCore.Identity.IdentityUser2Id.get‹
+Ÿ
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs\ \(n
+%35void"wMicrosoft.Extensions.Logging.LoggerExtensions.LogWarning(Microsoft.Extensions.Logging.ILogger, string, params object[])*1"/
+-Microsoft.Extensions.Logging.LoggerExtensions*<
+:
+%333Microsoft.Extensions.Logging.ILogger<TCategoryName>*CA
+?Invalid authenticator code entered for user with ID '{UserId}'.*
+
+%34string√
+¿
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs] ](A
+%36:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"<Microsoft.AspNetCore.Mvc.RazorPages.PageModel.ModelState.get*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel√
+¿
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs]) ](5
+%37string"__id**
+string"
+EmptystringÌ
+Í
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs] ](U
+%38void"XMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError(string, string)*C
+A
+%36:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+
+%37string*
+Invalid authenticator code.∑¥
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs^ ^(5
+%39.Microsoft.AspNetCore.Mvc.RazorPages.PageResult"4Microsoft.AspNetCore.Mvc.RazorPages.PageModel.Page()*1/
+-Microsoft.AspNetCore.Mvc.RazorPages.PageModel2Page()"≈
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs^ ^(7
+5
+%39.Microsoft.AspNetCore.Mvc.RazorPages.PageResult*ß
+7"°
+â
+C:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs` `(	
+implicit return:
+
+rememberMebool:
+	returnUrlstringBCA
+?ChajdPizzaWebApp.Areas.Identity.Pages.Account.LoginWith2faModel

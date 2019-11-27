@@ -1,0 +1,16 @@
+ˆ	
+ AspNetCore.Views_Shared_SizeView0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobjectA
+ExecuteAsync()/AspNetCore.Views_Shared_SizeView.ExecuteAsync()S
+Views_Shared_SizeView()8AspNetCore.Views_Shared_SizeView.Views_Shared_SizeView()[
+__tagHelperScopeManager.get<AspNetCore.Views_Shared_SizeView.__tagHelperScopeManager.get[
+__tagHelperScopeManager.set<AspNetCore.Views_Shared_SizeView.__tagHelperScopeManager.set[
+ModelExpressionProvider.get<AspNetCore.Views_Shared_SizeView.ModelExpressionProvider.get[
+ModelExpressionProvider.set<AspNetCore.Views_Shared_SizeView.ModelExpressionProvider.set3
+Url.get(AspNetCore.Views_Shared_SizeView.Url.get3
+Url.set(AspNetCore.Views_Shared_SizeView.Url.set?
+Component.get.AspNetCore.Views_Shared_SizeView.Component.get?
+Component.set.AspNetCore.Views_Shared_SizeView.Component.set5
+Json.get)AspNetCore.Views_Shared_SizeView.Json.get5
+Json.set)AspNetCore.Views_Shared_SizeView.Json.set5
+Html.get)AspNetCore.Views_Shared_SizeView.Html.get5
+Html.set)AspNetCore.Views_Shared_SizeView.Html.set

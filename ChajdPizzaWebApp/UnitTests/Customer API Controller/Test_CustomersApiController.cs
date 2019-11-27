@@ -33,8 +33,23 @@ namespace UnitTests
             #region ASSERT
 
             Assert.AreEqual(testList.Count, 2);
+            
+            Assert.AreEqual(testList[0].Id, 1);
             Assert.AreEqual(testList[0].Name, "John Doe");
+            Assert.AreEqual(testList[0].UserName, "MyEmail@Email.com");
+            Assert.AreEqual(testList[0].Street, "123 A Street");
+            Assert.AreEqual(testList[0].City, "Here");
+            Assert.AreEqual(testList[0].StateID, 1);
+            Assert.AreEqual(testList[0].ZipCode, 10000);
 
+            Assert.AreEqual(testList[1].Id, 2);
+            Assert.AreEqual(testList[1].Name, "Mary Sue");
+            Assert.AreEqual(testList[1].UserName, "HerEmail@Email.com");
+            Assert.AreEqual(testList[1].Street, "345 B Avenue");
+            Assert.AreEqual(testList[1].City, "There");
+            Assert.AreEqual(testList[1].StateID, 2);
+            Assert.AreEqual(testList[1].ZipCode, 20000);
+            
             #endregion
         }
 
@@ -54,12 +69,19 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
+            Customer testData = result;
+
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(result.Name, "John Doe");
-            Assert.AreEqual(result.UserName, "MyEmail@Email.com");
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.Name, "John Doe");
+            Assert.AreEqual(testData.UserName, "MyEmail@Email.com");
+            Assert.AreEqual(testData.Street, "123 A Street");
+            Assert.AreEqual(testData.City, "Here");
+            Assert.AreEqual(testData.StateID, 1);
+            Assert.AreEqual(testData.ZipCode, 10000);
 
             #endregion
         }
@@ -85,6 +107,7 @@ namespace UnitTests
             #region ASSERT
 
             Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
 
             #endregion
         }
@@ -105,12 +128,19 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
+            Customer testData = result;
+
             #endregion
 
             #region ASSERT
-
-            Assert.AreNotEqual(result.Name, "John Doe");
-            Assert.AreNotEqual(result.UserName, "MyEmail@Email.com");
+           
+            Assert.AreNotEqual(testData.Id, 1);
+            Assert.AreNotEqual(testData.Name, "John Doe");
+            Assert.AreNotEqual(testData.UserName, "MyEmail@Email.com");
+            Assert.AreNotEqual(testData.Street, "123 A Street");
+            Assert.AreNotEqual(testData.City, "Here");
+            Assert.AreNotEqual(testData.StateID, 1);
+            Assert.AreNotEqual(testData.ZipCode, 10000);
 
             #endregion
         }
@@ -131,12 +161,19 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
+            Customer testData = result;
+
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(result.Name, "John Doe");
-            Assert.AreEqual(result.Id, 1);
+            Assert.AreEqual(testData.Id, 1);
+            Assert.AreEqual(testData.Name, "John Doe");
+            Assert.AreEqual(testData.UserName, "MyEmail@Email.com");
+            Assert.AreEqual(testData.Street, "123 A Street");
+            Assert.AreEqual(testData.City, "Here");
+            Assert.AreEqual(testData.StateID, 1);
+            Assert.AreEqual(testData.ZipCode, 10000);
 
             #endregion
         }
@@ -162,6 +199,7 @@ namespace UnitTests
             #region ASSERT
 
             Assert.IsTrue(result is NotFoundResult);
+            Assert.AreEqual((result as NotFoundResult).StatusCode, 404);
 
             #endregion
         }
@@ -182,12 +220,19 @@ namespace UnitTests
             taskReturn.Wait();
             var result = taskReturn.Result.Value;
 
+            Customer testData = result;
+
             #endregion
 
             #region ASSERT
 
-            Assert.AreNotEqual(result.Id, 1);
-            Assert.AreNotEqual(result.Name, "John Doe");
+            Assert.AreNotEqual(testData.Id, 1);
+            Assert.AreNotEqual(testData.Name, "John Doe");
+            Assert.AreNotEqual(testData.UserName, "MyEmail@Email.com");
+            Assert.AreNotEqual(testData.Street, "123 A Street");
+            Assert.AreNotEqual(testData.City, "Here");
+            Assert.AreNotEqual(testData.StateID, 1);
+            Assert.AreNotEqual(testData.ZipCode, 10000);
 
             #endregion
         }
@@ -224,6 +269,8 @@ namespace UnitTests
             #region ASSERT
 
             Assert.IsTrue(result is NoContentResult);
+            Assert.AreEqual((result as NoContentResult).StatusCode, 204);
+
             Assert.AreEqual(resultData.Name, "Jane Doe");
             Assert.AreEqual(resultData.City, "There");
 
@@ -262,6 +309,8 @@ namespace UnitTests
             #region ASSERT
 
             Assert.IsTrue(result is BadRequestResult);
+            Assert.AreEqual((result as BadRequestResult).StatusCode, 400);
+
             Assert.AreEqual(resultData.Name, "John Doe");
             Assert.AreEqual(resultData.City, "Here");
 
@@ -323,7 +372,6 @@ namespace UnitTests
             var taskReturn = testController.PostCustomer(testData);
             taskReturn.Wait();
             var resultStatus = taskReturn.Result.Result;
-            var resultData = resultStatus as CreatedAtActionResult;
             Customer checkData = testRepo.SelectById(3).Result;
 
             #endregion
@@ -331,12 +379,25 @@ namespace UnitTests
             #region ASSERT
 
             Assert.IsTrue(resultStatus is CreatedAtActionResult);
-            Assert.AreEqual(resultData.StatusCode, 201);
-            Assert.AreEqual(resultData.RouteValues["id"], 3);
+            Assert.AreEqual((resultStatus as CreatedAtActionResult).StatusCode, 201);
+            Assert.AreEqual((resultStatus as CreatedAtActionResult).RouteValues["id"], 3);
 
-            Assert.AreEqual(checkData.Name, "Jane Doe");
-            Assert.AreEqual(checkData.City, "NoWhere");
+            var testReturn = ((resultStatus as CreatedAtActionResult).Value as Customer);
+            Assert.AreEqual(testReturn.Id, 3);
+            Assert.AreEqual(testReturn.Name, "Jane Doe");
+            Assert.AreEqual(testReturn.UserName, "SomeEmail@Email.com");
+            Assert.AreEqual(testReturn.Street, "999 Q Street");
+            Assert.AreEqual(testReturn.City, "NoWhere");
+            Assert.AreEqual(testReturn.StateID, 3);
+            Assert.AreEqual(testReturn.ZipCode, 30000);
+
             Assert.AreEqual(checkData.Id, 3);
+            Assert.AreEqual(checkData.Name, "Jane Doe");
+            Assert.AreEqual(checkData.UserName, "SomeEmail@Email.com");
+            Assert.AreEqual(checkData.Street, "999 Q Street");
+            Assert.AreEqual(checkData.City, "NoWhere");
+            Assert.AreEqual(checkData.StateID, 3);
+            Assert.AreEqual(checkData.ZipCode, 30000);
 
             #endregion
         }
@@ -356,15 +417,20 @@ namespace UnitTests
             var taskReturn = testController.DeleteCustomer(1);
             taskReturn.Wait();
             var resultData = taskReturn.Result.Value;
+
             Customer checkData = testRepo.SelectById(1).Result;
 
             #endregion
 
             #region ASSERT
 
-            Assert.AreEqual(resultData.Name, "John Doe");
-            Assert.AreEqual(resultData.City, "Here");
             Assert.AreEqual(resultData.Id, 1);
+            Assert.AreEqual(resultData.Name, "John Doe");
+            Assert.AreEqual(resultData.UserName, "MyEmail@Email.com");
+            Assert.AreEqual(resultData.Street, "123 A Street");
+            Assert.AreEqual(resultData.City, "Here");
+            Assert.AreEqual(resultData.StateID, 1);
+            Assert.AreEqual(resultData.ZipCode, 10000);
 
             Assert.IsNull(checkData);
 
@@ -386,15 +452,32 @@ namespace UnitTests
             var taskReturn = testController.DeleteCustomer(0);
             taskReturn.Wait();
             var resultStatus = taskReturn.Result.Result;
-            int checkData = testRepo.SelectAll().Result.Count;
+            var checkData = testRepo.SelectAll().Result;
 
             #endregion
 
             #region ASSERT
 
             Assert.IsTrue(resultStatus is NotFoundResult);
+            Assert.AreEqual((resultStatus as NotFoundResult).StatusCode, 404);
 
-            Assert.AreEqual(checkData, 2);
+            Assert.AreEqual(checkData.Count, 2);
+
+            Assert.AreEqual(checkData[0].Id, 1);
+            Assert.AreEqual(checkData[0].Name, "John Doe");
+            Assert.AreEqual(checkData[0].UserName, "MyEmail@Email.com");
+            Assert.AreEqual(checkData[0].Street, "123 A Street");
+            Assert.AreEqual(checkData[0].City, "Here");
+            Assert.AreEqual(checkData[0].StateID, 1);
+            Assert.AreEqual(checkData[0].ZipCode, 10000);
+
+            Assert.AreEqual(checkData[1].Id, 2);
+            Assert.AreEqual(checkData[1].Name, "Mary Sue");
+            Assert.AreEqual(checkData[1].UserName, "HerEmail@Email.com");
+            Assert.AreEqual(checkData[1].Street, "345 B Avenue");
+            Assert.AreEqual(checkData[1].City, "There");
+            Assert.AreEqual(checkData[1].StateID, 2);
+            Assert.AreEqual(checkData[1].ZipCode, 20000);
 
             #endregion
         }

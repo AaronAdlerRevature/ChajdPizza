@@ -1,0 +1,49 @@
+﻿@page
+@model RegisterConfirmationModel
+
+
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<script>
+        $(document).ready(function () {
+            var customer = '{"id":0,"userName":"@Model.Email","name":null,"street":null,"city":null,"stateID":1,"state":null,"zipCode":99999}'
+            $.ajax({
+                type: 'POST',
+                url: 'https://chajdpizza.azurewebsites.net/api/CustomersApi',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: customer,
+                     success: function (data, textStatus, xhr) {
+                         console.log(data);
+                     },
+                     error: function (xhr, textStatus, errorThrown) {
+                         console.log('Error in Operation');
+                         console.log(errorThrown);
+                         console.log(xhr);
+                         console.log(textStatus);
+                         console.log(customer);
+                         alert("Creating customer has failed.");
+                     }
+            });
+        });
+</script>
+
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+        <p>
+            This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+            Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+        </p>
+    }
+    else
+    {
+        <p>
+            Please check your email to confirm your account.
+        </p>
+    }
+}

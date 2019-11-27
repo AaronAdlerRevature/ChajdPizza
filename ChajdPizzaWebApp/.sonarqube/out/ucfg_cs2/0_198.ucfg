@@ -1,0 +1,26 @@
+
+óChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.Disable2faModel.Disable2faModel(Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser>, Microsoft.Extensions.Logging.ILogger<ChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.Disable2faModel>)è
+ÑC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.cs ("0*‡
+0Î
+Ë
+è
+ÑC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.cs (&äF
+DChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.Disable2faModel"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
+?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Á
+‰
+è
+ÑC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.cs (àF
+DChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.Disable2faModel">
+_logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>"__id*?
+=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
+1*≠
+1"ß
+è
+ÑC:\Users\Henri\Revature\Workarea\Project2\ChajdPizzaWebApp\ChajdPizzaWebApp\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.cs (	
+implicit return:?
+userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:=
+logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>BHF
+DChajdPizzaWebApp.Areas.Identity.Pages.Account.Manage.Disable2faModel

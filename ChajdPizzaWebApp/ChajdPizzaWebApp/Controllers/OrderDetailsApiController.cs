@@ -1,5 +1,7 @@
 ﻿using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChajdPizzaWebApp.Controllers
 {
+    [EnableCors("DefaultPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class OrderDetailsApiController : ControllerBase

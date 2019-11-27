@@ -1,8 +1,12 @@
-﻿using ChajdPizzaWebApp.Models;
+﻿using System;
+using ChajdPizzaWebApp.Models;
 using ChajdPizzaWebApp.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace ChajdPizzaWebApp.Controllers
 {
@@ -40,26 +44,75 @@ namespace ChajdPizzaWebApp.Controllers
         }
 
         //[Route("DetailsOfOrder")]
-        public IActionResult DetailsOfOrder()
+        public async Task<IActionResult> DetailsOfOrder()
         {
             //if(ordersId != null)
             string returnUrl = Url.Content("~/");
             if (User.Identity.Name != null)
             {
-                //var Order = 
+                ViewBag.OrderId = await ReturnOrderId(User.Identity.Name);
+                return View();
+                
+            }
+            else if (Request.Cookies.ContainsKey("GuestName"))
+            {
+                string guestName = Request.Cookies["GuestName"];
+                ViewBag.OrderId = await ReturnOrderId(guestName);
                 return View();
             }
             else
             {
                 return LocalRedirect(returnUrl);
             }
+        }
 
+        private async Task<int> ReturnOrderId(string username)
+        {
+            Customer customer = new Customer();
+            Orders order = new Orders();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://chajdpizza.azurewebsites.net/api/");
+
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage customerInfo = await client.GetAsync("CustomersApi/ByUser/" + username);
+                if (customerInfo.IsSuccessStatusCode)
+                {
+                    var customerRes = customerInfo.Content.ReadAsStringAsync().Result;
+
+                    customer = JsonConvert.DeserializeObject<Customer>(customerRes);
+                }
+                else if (!customerInfo.IsSuccessStatusCode) { return 0; }
+                var custId = customer.Id;
+
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add
+                    (new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage orderInfo = await client.GetAsync("OrdersApi/ByCust/" + custId);
+                if(orderInfo.IsSuccessStatusCode)
+                {
+                    var orderRes = orderInfo.Content.ReadAsStringAsync().Result;
+                    order = JsonConvert.DeserializeObject<Orders>(orderRes);
+                }
+                else if (!orderInfo.IsSuccessStatusCode) { return 0; }
+
+                int orderId = order.Id;
+
+                return orderId;
+            }
+            
         }
 
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            // ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
+
+           //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id");
+
+
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize");
             return View();
         }
@@ -69,7 +122,7 @@ namespace ChajdPizzaWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
+        public async Task<IActionResult> Create([Bind("Id,OrdersId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +130,7 @@ namespace ChajdPizzaWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrderId);
+            //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrdersId);
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize", orderDetail.SizeId);
             return View(orderDetail);
         }
@@ -95,7 +148,7 @@ namespace ChajdPizzaWebApp.Controllers
             {
                 return NotFound();
             }
-            //ViewData["OrderId"] = new SelectList(_repo.SelectById(id), "Id", "Id", orderDetail.OrderId);
+            //ViewData["OrdersId"] = new SelectList(_repo.SelectById(id), "Id", "Id", orderDetail.OrdersId);
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize", orderDetail.SizeId);
             return View(orderDetail);
         }
@@ -105,7 +158,7 @@ namespace ChajdPizzaWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,OrderId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,OrdersId,SizeId,ToppingsSelected,ToppingsCount,Price,SpecialRequest")] OrderDetail orderDetail)
         {
             if (id != orderDetail.Id)
             {
@@ -132,7 +185,7 @@ namespace ChajdPizzaWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrderId);
+            //ViewData["OrdersId"] = new SelectList(_context.Orders, "Id", "Id", orderDetail.OrdersId);
             //ViewData["SizeId"] = new SelectList(_context.Size, "Id", "BaseSize", orderDetail.SizeId);
             return View(orderDetail);
         }
